@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC71270AFDCA0033493B /* AppDelegate.swift */; };
+		788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC73270AFDCA0033493B /* SceneDelegate.swift */; };
+		788DEC76270AFDCA0033493B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC75270AFDCA0033493B /* ViewController.swift */; };
+		788DEC79270AFDCA0033493B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788DEC77270AFDCA0033493B /* Main.storyboard */; };
+		788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC7A270AFDCA0033493B /* CoolCurrency.xcdatamodeld */; };
+		788DEC7E270AFDCC0033493B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DEC7D270AFDCC0033493B /* Assets.xcassets */; };
+		788DEC81270AFDCC0033493B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788DEC7F270AFDCC0033493B /* LaunchScreen.storyboard */; };
+		788DEC8C270AFDCD0033493B /* CoolCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC8B270AFDCD0033493B /* CoolCurrencyTests.swift */; };
+		788DEC96270AFDCD0033493B /* CoolCurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC95270AFDCD0033493B /* CoolCurrencyUITests.swift */; };
+		788DEC98270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC97270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		788DEC88270AFDCD0033493B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 788DEC6D270AFDCA0033493B;
+			remoteInfo = CoolCurrency;
+		};
+		788DEC92270AFDCD0033493B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 788DEC6D270AFDCA0033493B;
+			remoteInfo = CoolCurrency;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		788DEC6E270AFDCA0033493B /* CoolCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		788DEC71270AFDCA0033493B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		788DEC73270AFDCA0033493B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		788DEC75270AFDCA0033493B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		788DEC78270AFDCA0033493B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		788DEC7B270AFDCA0033493B /* CoolCurrency.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoolCurrency.xcdatamodel; sourceTree = "<group>"; };
+		788DEC7D270AFDCC0033493B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		788DEC80270AFDCC0033493B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		788DEC82270AFDCC0033493B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		788DEC87270AFDCD0033493B /* CoolCurrencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCurrencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		788DEC8B270AFDCD0033493B /* CoolCurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyTests.swift; sourceTree = "<group>"; };
+		788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCurrencyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		788DEC95270AFDCD0033493B /* CoolCurrencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyUITests.swift; sourceTree = "<group>"; };
+		788DEC97270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		788DEC6B270AFDCA0033493B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		788DEC84270AFDCD0033493B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		788DEC8E270AFDCD0033493B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		788DEC65270AFDCA0033493B = {
+			isa = PBXGroup;
+			children = (
+				788DEC70270AFDCA0033493B /* CoolCurrency */,
+				788DEC8A270AFDCD0033493B /* CoolCurrencyTests */,
+				788DEC94270AFDCD0033493B /* CoolCurrencyUITests */,
+				788DEC6F270AFDCA0033493B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		788DEC6F270AFDCA0033493B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				788DEC6E270AFDCA0033493B /* CoolCurrency.app */,
+				788DEC87270AFDCD0033493B /* CoolCurrencyTests.xctest */,
+				788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		788DEC70270AFDCA0033493B /* CoolCurrency */ = {
+			isa = PBXGroup;
+			children = (
+				788DEC71270AFDCA0033493B /* AppDelegate.swift */,
+				788DEC73270AFDCA0033493B /* SceneDelegate.swift */,
+				788DEC75270AFDCA0033493B /* ViewController.swift */,
+				788DEC77270AFDCA0033493B /* Main.storyboard */,
+				788DEC7D270AFDCC0033493B /* Assets.xcassets */,
+				788DEC7F270AFDCC0033493B /* LaunchScreen.storyboard */,
+				788DEC82270AFDCC0033493B /* Info.plist */,
+				788DEC7A270AFDCA0033493B /* CoolCurrency.xcdatamodeld */,
+			);
+			path = CoolCurrency;
+			sourceTree = "<group>";
+		};
+		788DEC8A270AFDCD0033493B /* CoolCurrencyTests */ = {
+			isa = PBXGroup;
+			children = (
+				788DEC8B270AFDCD0033493B /* CoolCurrencyTests.swift */,
+			);
+			path = CoolCurrencyTests;
+			sourceTree = "<group>";
+		};
+		788DEC94270AFDCD0033493B /* CoolCurrencyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				788DEC95270AFDCD0033493B /* CoolCurrencyUITests.swift */,
+				788DEC97270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift */,
+			);
+			path = CoolCurrencyUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		788DEC6D270AFDCA0033493B /* CoolCurrency */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 788DEC9B270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrency" */;
+			buildPhases = (
+				788DEC6A270AFDCA0033493B /* Sources */,
+				788DEC6B270AFDCA0033493B /* Frameworks */,
+				788DEC6C270AFDCA0033493B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoolCurrency;
+			productName = CoolCurrency;
+			productReference = 788DEC6E270AFDCA0033493B /* CoolCurrency.app */;
+			productType = "com.apple.product-type.application";
+		};
+		788DEC86270AFDCD0033493B /* CoolCurrencyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 788DEC9E270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrencyTests" */;
+			buildPhases = (
+				788DEC83270AFDCD0033493B /* Sources */,
+				788DEC84270AFDCD0033493B /* Frameworks */,
+				788DEC85270AFDCD0033493B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				788DEC89270AFDCD0033493B /* PBXTargetDependency */,
+			);
+			name = CoolCurrencyTests;
+			productName = CoolCurrencyTests;
+			productReference = 788DEC87270AFDCD0033493B /* CoolCurrencyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		788DEC90270AFDCD0033493B /* CoolCurrencyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 788DECA1270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrencyUITests" */;
+			buildPhases = (
+				788DEC8D270AFDCD0033493B /* Sources */,
+				788DEC8E270AFDCD0033493B /* Frameworks */,
+				788DEC8F270AFDCD0033493B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				788DEC93270AFDCD0033493B /* PBXTargetDependency */,
+			);
+			name = CoolCurrencyUITests;
+			productName = CoolCurrencyUITests;
+			productReference = 788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		788DEC66270AFDCA0033493B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					788DEC6D270AFDCA0033493B = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					788DEC86270AFDCD0033493B = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 788DEC6D270AFDCA0033493B;
+					};
+					788DEC90270AFDCD0033493B = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 788DEC6D270AFDCA0033493B;
+					};
+				};
+			};
+			buildConfigurationList = 788DEC69270AFDCA0033493B /* Build configuration list for PBXProject "CoolCurrency" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 788DEC65270AFDCA0033493B;
+			productRefGroup = 788DEC6F270AFDCA0033493B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				788DEC6D270AFDCA0033493B /* CoolCurrency */,
+				788DEC86270AFDCD0033493B /* CoolCurrencyTests */,
+				788DEC90270AFDCD0033493B /* CoolCurrencyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		788DEC6C270AFDCA0033493B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				788DEC81270AFDCC0033493B /* LaunchScreen.storyboard in Resources */,
+				788DEC7E270AFDCC0033493B /* Assets.xcassets in Resources */,
+				788DEC79270AFDCA0033493B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		788DEC85270AFDCD0033493B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		788DEC8F270AFDCD0033493B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		788DEC6A270AFDCA0033493B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				788DEC76270AFDCA0033493B /* ViewController.swift in Sources */,
+				788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */,
+				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
+				788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		788DEC83270AFDCD0033493B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				788DEC8C270AFDCD0033493B /* CoolCurrencyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		788DEC8D270AFDCD0033493B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				788DEC98270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift in Sources */,
+				788DEC96270AFDCD0033493B /* CoolCurrencyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		788DEC89270AFDCD0033493B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 788DEC6D270AFDCA0033493B /* CoolCurrency */;
+			targetProxy = 788DEC88270AFDCD0033493B /* PBXContainerItemProxy */;
+		};
+		788DEC93270AFDCD0033493B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 788DEC6D270AFDCA0033493B /* CoolCurrency */;
+			targetProxy = 788DEC92270AFDCD0033493B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		788DEC77270AFDCA0033493B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				788DEC78270AFDCA0033493B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		788DEC7F270AFDCC0033493B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				788DEC80270AFDCC0033493B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		788DEC99270AFDCD0033493B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		788DEC9A270AFDCD0033493B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		788DEC9C270AFDCD0033493B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoolCurrency/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		788DEC9D270AFDCD0033493B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoolCurrency/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		788DEC9F270AFDCD0033493B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
+			};
+			name = Debug;
+		};
+		788DECA0270AFDCD0033493B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
+			};
+			name = Release;
+		};
+		788DECA2270AFDCD0033493B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CoolCurrency;
+			};
+			name = Debug;
+		};
+		788DECA3270AFDCD0033493B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CoolCurrency;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		788DEC69270AFDCA0033493B /* Build configuration list for PBXProject "CoolCurrency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				788DEC99270AFDCD0033493B /* Debug */,
+				788DEC9A270AFDCD0033493B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		788DEC9B270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrency" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				788DEC9C270AFDCD0033493B /* Debug */,
+				788DEC9D270AFDCD0033493B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		788DEC9E270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrencyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				788DEC9F270AFDCD0033493B /* Debug */,
+				788DECA0270AFDCD0033493B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		788DECA1270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrencyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				788DECA2270AFDCD0033493B /* Debug */,
+				788DECA3270AFDCD0033493B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		788DEC7A270AFDCA0033493B /* CoolCurrency.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				788DEC7B270AFDCA0033493B /* CoolCurrency.xcdatamodel */,
+			);
+			currentVersion = 788DEC7B270AFDCA0033493B /* CoolCurrency.xcdatamodel */;
+			path = CoolCurrency.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 788DEC66270AFDCA0033493B /* Project object */;
+}
