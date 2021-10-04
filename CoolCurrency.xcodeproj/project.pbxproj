@@ -101,10 +101,12 @@
 		788DEC70270AFDCA0033493B /* CoolCurrency */ = {
 			isa = PBXGroup;
 			children = (
+				788DECA9270B07310033493B /* View */,
+				788DECA8270B07260033493B /* Controller */,
+				788DECA7270B07190033493B /* ViewModel */,
+				788DECA6270B07110033493B /* Model */,
 				788DEC71270AFDCA0033493B /* AppDelegate.swift */,
 				788DEC73270AFDCA0033493B /* SceneDelegate.swift */,
-				788DEC75270AFDCA0033493B /* ViewController.swift */,
-				788DEC77270AFDCA0033493B /* Main.storyboard */,
 				788DEC7D270AFDCC0033493B /* Assets.xcassets */,
 				788DEC7F270AFDCC0033493B /* LaunchScreen.storyboard */,
 				788DEC82270AFDCC0033493B /* Info.plist */,
@@ -130,6 +132,36 @@
 			path = CoolCurrencyUITests;
 			sourceTree = "<group>";
 		};
+		788DECA6270B07110033493B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		788DECA7270B07190033493B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		788DECA8270B07260033493B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				788DEC75270AFDCA0033493B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		788DECA9270B07310033493B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				788DEC77270AFDCA0033493B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +170,7 @@
 			buildConfigurationList = 788DEC9B270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrency" */;
 			buildPhases = (
 				788DEC6A270AFDCA0033493B /* Sources */,
+				788DECA5270B00330033493B /* ShellScript */,
 				788DEC6B270AFDCA0033493B /* Frameworks */,
 				788DEC6C270AFDCA0033493B /* Resources */,
 			);
@@ -255,6 +288,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		788DECA5270B00330033493B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		788DEC6A270AFDCA0033493B /* Sources */ = {
