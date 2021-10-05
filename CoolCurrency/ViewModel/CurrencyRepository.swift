@@ -16,6 +16,7 @@ struct CurrencyRepository {
         currencyRequest.performCurrencyRequest(for: baseCurrency) { result in
             do {
                 let newCurrency = try result.get()
+                repositoryLoad?(true)
                 completion(.success(newCurrency))
             } catch {
                 completion(.failure(error))
