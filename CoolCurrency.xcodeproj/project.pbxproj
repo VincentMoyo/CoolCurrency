@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		785DA026270C408F00CB7996 /* CurrencyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA025270C408F00CB7996 /* CurrencyRequest.swift */; };
+		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
+		785DA02A270C431000CB7996 /* CurrencyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA029270C431000CB7996 /* CurrencyDataModel.swift */; };
+		785DA02C270C4F6600CB7996 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA02B270C4F6600CB7996 /* Protocols.swift */; };
+		787ADA5E270C38C9002494B1 /* CurrencyAPIFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ADA5D270C38C9002494B1 /* CurrencyAPIFormat.swift */; };
 		788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC71270AFDCA0033493B /* AppDelegate.swift */; };
 		788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC73270AFDCA0033493B /* SceneDelegate.swift */; };
 		788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC75270AFDCA0033493B /* HomeCurrencyViewController.swift */; };
@@ -37,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		785DA025270C408F00CB7996 /* CurrencyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRequest.swift; sourceTree = "<group>"; };
+		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		785DA029270C431000CB7996 /* CurrencyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDataModel.swift; sourceTree = "<group>"; };
+		785DA02B270C4F6600CB7996 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		787ADA5D270C38C9002494B1 /* CurrencyAPIFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyAPIFormat.swift; sourceTree = "<group>"; };
 		788DEC6E270AFDCA0033493B /* CoolCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788DEC71270AFDCA0033493B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788DEC73270AFDCA0033493B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -135,6 +145,10 @@
 		788DECA6270B07110033493B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				787ADA5D270C38C9002494B1 /* CurrencyAPIFormat.swift */,
+				785DA025270C408F00CB7996 /* CurrencyRequest.swift */,
+				785DA027270C41CE00CB7996 /* Constants.swift */,
+				785DA02B270C4F6600CB7996 /* Protocols.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -142,6 +156,7 @@
 		788DECA7270B07190033493B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				785DA029270C431000CB7996 /* CurrencyDataModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -314,8 +329,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787ADA5E270C38C9002494B1 /* CurrencyAPIFormat.swift in Sources */,
 				788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */,
+				785DA02A270C431000CB7996 /* CurrencyDataModel.swift in Sources */,
+				785DA02C270C4F6600CB7996 /* Protocols.swift in Sources */,
+				785DA026270C408F00CB7996 /* CurrencyRequest.swift in Sources */,
 				788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */,
+				785DA028270C41CE00CB7996 /* Constants.swift in Sources */,
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
 				788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */,
 			);
