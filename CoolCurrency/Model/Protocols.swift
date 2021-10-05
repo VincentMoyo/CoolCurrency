@@ -10,3 +10,9 @@ import Foundation
 protocol ErrorReporting: AnyObject {
     func showUserErrorMessageDidInitiate(_ message: String)
 }
+
+protocol CurrencyRepositoryProtocol {
+    var currency: CurrencyDataModel? { get set }
+    var repositoryLoad: ((Bool) -> Void)? { get set }
+    func requestCurrentRatesInCurrency(for baseCurrency: String, completion: @escaping (Result<CurrencyDataModel, Error>) -> Void)
+}

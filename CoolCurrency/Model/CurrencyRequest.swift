@@ -31,11 +31,11 @@ struct CurrencyRequest {
     
     private func URLCurrencyStringBuilder(for baseCurrency: String) -> URL? {
         var urlComponents = URLComponents()
-        urlComponents.scheme = "https"
-        urlComponents.host = "api.currencyscoop.com"
-        urlComponents.path = "/v1/latest"
-        let apiKeyQueryItem = URLQueryItem(name: "api_key", value: Constants.kAPIKey)
-        let currencyBaseQueryItem = URLQueryItem(name: "base", value: baseCurrency)
+        urlComponents.scheme = Constants.URLBuilder.kScheme
+        urlComponents.host = Constants.URLBuilder.kHost
+        urlComponents.path = Constants.URLBuilder.kPath
+        let apiKeyQueryItem = URLQueryItem(name: Constants.URLBuilder.kAPIKeyString, value: Constants.URLBuilder.kAPIKey)
+        let currencyBaseQueryItem = URLQueryItem(name: Constants.URLBuilder.kBaseString, value: baseCurrency)
         urlComponents.queryItems = [apiKeyQueryItem, currencyBaseQueryItem]
         return urlComponents.url
     }
