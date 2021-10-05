@@ -9,8 +9,6 @@ import Foundation
 
 struct CurrencyRequest {
     
-    var delegateError: ErrorReporting?
-    
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping (Result<CurrencyResponseModel, Error>) -> Void) {
         if let url = URLCurrencyStringBuilder(for: baseCurrency) {
             let session = URLSession(configuration: .default)
