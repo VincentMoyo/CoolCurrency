@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct CurrencyRepository: CurrencyRepositable {
+class CurrencyRepository: CurrencyRepositable {
     
-    func performCurrencyRequest(for baseCurrency: String, completion: @escaping (Result<CurrencyResponseModel, Error>) -> Void) {
+    func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
         if let url = URLCurrencyStringBuilder(for: baseCurrency) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: url) { (data, _, error) in
