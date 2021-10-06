@@ -1,5 +1,5 @@
 //
-//  CurrencyRequest.swift
+//  CurrencyRepository.swift
 //  CoolCurrency
 //
 //  Created by Vincent Moyo on 2021/10/05.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrencyRequest {
+struct CurrencyRepository: CurrencyRepositable {
     
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping (Result<CurrencyResponseModel, Error>) -> Void) {
         if let url = URLCurrencyStringBuilder(for: baseCurrency) {
@@ -17,12 +17,12 @@ struct CurrencyRequest {
                     completion(.failure((error!)))
                     return
                 }
-                    do {
-                        let decodedData = try JSONDecoder().decode(CurrencyResponseModel.self, from: data!)
-                        completion(.success(decodedData))
-                    } catch {
-                        completion(.failure(error))
-                    }
+                do {
+                    let decodedData = try JSONDecoder().decode(CurrencyResponseModel.self, from: data!)
+                    completion(.success(decodedData))
+                } catch {
+                    completion(.failure(error))
+                }
             }
             task.resume()
         }
