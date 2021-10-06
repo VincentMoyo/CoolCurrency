@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeCurrencyViewController: UIViewController {
-
+    
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    delegate: self)
     

@@ -19,7 +19,24 @@ class CurrencyViewModel {
         self.delegate = delegate
     }
     
-    func setCurrencyDataList(currencyData: Rates) {
+    func fetchCurrencyList(for baseCurrency: String) {
+        currencyRepository.performCurrencyRequest(for: baseCurrency,
+                                                     completion: { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.response = response
+                self?.setCurrencyDataList(currencyData: response.response.rates)
+                self?.delegate?.bindViewModel()
+            case .failure(let error):
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        })
+    }
+}
+
+extension CurrencyViewModel {
+    
+    private func setCurrencyDataList(currencyData: Rates) {
         currencyList[Constants.CountryList.kGreatBritishPound] = convertCurrencyAgainstBaseCurrency(for: currencyData.greatBritishPound)
         currencyList[Constants.CountryList.kUnitedStatesDollar] = convertCurrencyAgainstBaseCurrency(for: currencyData.unitedStatesDollar)
         currencyList[Constants.CountryList.kIndianRupee] = convertCurrencyAgainstBaseCurrency(for: currencyData.indianRupee)
@@ -38,19 +55,5 @@ class CurrencyViewModel {
     
     private func convertCurrencyAgainstBaseCurrency(for currency: Double) -> Double {
         Double(round(100 * (1 / currency))/100)
-    }
-    
-    func fetchCurrencyList(for baseCurrency: String) {
-        currencyRepository.performCurrencyRequest(for: baseCurrency,
-                                                     completion: { [weak self] result in
-            switch result {
-            case .success(let response):
-                self?.response = response
-                self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.delegate?.bindViewModel()
-            case .failure(let error):
-                self?.delegate?.showUserErrorMessage(error: error)
-            }
-        })
     }
 }
