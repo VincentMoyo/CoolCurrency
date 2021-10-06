@@ -37,23 +37,23 @@ class CurrencyViewModel {
 extension CurrencyViewModel {
     
     private func setCurrencyDataList(currencyData: Rates) {
-        currencyList[Constants.CountryList.kGreatBritishPound] = convertCurrencyAgainstBaseCurrency(for: currencyData.greatBritishPound)
-        currencyList[Constants.CountryList.kUnitedStatesDollar] = convertCurrencyAgainstBaseCurrency(for: currencyData.unitedStatesDollar)
-        currencyList[Constants.CountryList.kIndianRupee] = convertCurrencyAgainstBaseCurrency(for: currencyData.indianRupee)
-        currencyList[Constants.CountryList.kBostwanaPula] = convertCurrencyAgainstBaseCurrency(for: currencyData.bostwanaPula)
-        currencyList[Constants.CountryList.kCanadianDollar] = convertCurrencyAgainstBaseCurrency(for: currencyData.canadianDollar)
-        currencyList[Constants.CountryList.kGhanaCedi] = convertCurrencyAgainstBaseCurrency(for: currencyData.ghanaCedi)
-        currencyList[Constants.CountryList.kSouthAfricanRand] = convertCurrencyAgainstBaseCurrency(for: currencyData.southAfricanRand)
-        currencyList[Constants.CountryList.kJapaneseYen] = convertCurrencyAgainstBaseCurrency(for: currencyData.japaneseYen)
-        currencyList[Constants.CountryList.kRussianRuble] = convertCurrencyAgainstBaseCurrency(for: currencyData.russianRuble)
-        currencyList[Constants.CountryList.kChineseYuan] = convertCurrencyAgainstBaseCurrency(for: currencyData.chineseYuan)
-        currencyList[Constants.CountryList.kEuro] = convertCurrencyAgainstBaseCurrency(for: currencyData.euro)
-        currencyList[Constants.CountryList.kUnitedArabDirham] = convertCurrencyAgainstBaseCurrency(for: currencyData.unitedArabDirham)
-        currencyList[Constants.CountryList.kBrazilianReal] = convertCurrencyAgainstBaseCurrency(for: currencyData.brazilianReal)
-        currencyList[Constants.CountryList.kAustralianDollar] = convertCurrencyAgainstBaseCurrency(for: currencyData.australianDollar)
+        currencyList[Constants.CountryList.kGreatBritishPound] = roundOffCurrency(for: currencyData.greatBritishPound)
+        currencyList[Constants.CountryList.kUnitedStatesDollar] = roundOffCurrency(for: currencyData.unitedStatesDollar)
+        currencyList[Constants.CountryList.kIndianRupee] = roundOffCurrency(for: currencyData.indianRupee)
+        currencyList[Constants.CountryList.kBostwanaPula] = roundOffCurrency(for: currencyData.bostwanaPula)
+        currencyList[Constants.CountryList.kCanadianDollar] = roundOffCurrency(for: currencyData.canadianDollar)
+        currencyList[Constants.CountryList.kGhanaCedi] = roundOffCurrency(for: currencyData.ghanaCedi)
+        currencyList[Constants.CountryList.kSouthAfricanRand] = roundOffCurrency(for: currencyData.southAfricanRand)
+        currencyList[Constants.CountryList.kJapaneseYen] = roundOffCurrency(for: currencyData.japaneseYen)
+        currencyList[Constants.CountryList.kRussianRuble] = roundOffCurrency(for: currencyData.russianRuble)
+        currencyList[Constants.CountryList.kChineseYuan] = roundOffCurrency(for: currencyData.chineseYuan)
+        currencyList[Constants.CountryList.kEuro] = roundOffCurrency(for: currencyData.euro)
+        currencyList[Constants.CountryList.kUnitedArabDirham] = roundOffCurrency(for: currencyData.unitedArabDirham)
+        currencyList[Constants.CountryList.kBrazilianReal] = roundOffCurrency(for: currencyData.brazilianReal)
+        currencyList[Constants.CountryList.kAustralianDollar] = roundOffCurrency(for: currencyData.australianDollar)
     }
     
-    private func convertCurrencyAgainstBaseCurrency(for currency: Double) -> Double {
+    private func roundOffCurrency(for currency: Double) -> Double {
         Double(round(100 * (1 / currency))/100)
     }
 }
