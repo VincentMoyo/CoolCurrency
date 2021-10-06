@@ -28,6 +28,9 @@ struct Rates: Codable {
     let russianRuble: Double
     let chineseYuan: Double
     let southAfricanRand: Double
+    let unitedArabDirham: Double
+    let brazilianReal: Double
+    let australianDollar: Double
     
     private enum CodingKeys: String, CodingKey {
         case greatBritishPound = "GBP"
@@ -41,5 +44,8 @@ struct Rates: Codable {
         case russianRuble = "RUB"
         case chineseYuan = "CNY"
         case euro = "EUR"
+        case unitedArabDirham = "AED"
+        case brazilianReal = "BRL"
+        case australianDollar = "AUD"
     }
 }
