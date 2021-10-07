@@ -13,6 +13,7 @@ class CurrencyViewModel {
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
     private (set) var currencyList: [String: Double] = [:]
+    var modelLoad: ((Bool) -> Void)?
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -27,10 +28,44 @@ class CurrencyViewModel {
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
                 self?.delegate?.bindViewModel()
+                self?.modelLoad?(true)
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
+    }
+    
+    func convertCurrencyToCode(for currency: CurrencyCode) -> String {
+        switch currency {
+        case .pound:
+            return "GBP"
+        case .dollar:
+            return "USD"
+        case .rupee:
+            return "INR"
+        case .pula:
+            return "BWP"
+        case .canadianDollar:
+            return "CAD"
+        case .cedi:
+            return "GHS"
+        case .rand:
+            return "ZAR"
+        case .yen:
+            return "JPY"
+        case .ruble:
+            return "RUB"
+        case .yuan:
+            return "CNY"
+        case .euros:
+            return "EUR"
+        case .dirham:
+            return "AED"
+        case .real:
+            return "BRL"
+        case .australianDollar:
+            return "AUD"
+        }
     }
 }
 
@@ -56,4 +91,21 @@ extension CurrencyViewModel {
     private func roundOffCurrency(for currency: Double) -> Double {
         Double(round(100 * (1 / currency))/100)
     }
+}
+
+enum CurrencyCode: String {
+    case pound = "Pound"
+    case dollar = "Dollar"
+    case rupee = "Rupee"
+    case pula = "Pula"
+    case canadianDollar
+    case cedi = "Cedi"
+    case rand = "Rand"
+    case yen = "Yen"
+    case ruble = "Ruble"
+    case yuan = "Yuan"
+    case euros = "euros"
+    case dirham = "Dirham"
+    case real = "Real"
+    case australianDollar
 }
