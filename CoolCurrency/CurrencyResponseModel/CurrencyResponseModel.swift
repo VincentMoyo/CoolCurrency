@@ -49,6 +49,3 @@ struct Rates: Codable {
         case australianDollar = "AUD"
     }
 }
-
-
-
