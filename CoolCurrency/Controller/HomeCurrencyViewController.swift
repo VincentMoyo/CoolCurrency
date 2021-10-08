@@ -20,16 +20,3 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
         print(viewModel.currencyList)
     }
 }
-
-extension UIViewController {
-    
-    func showUserErrorMessage(error: Error) {
-        let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
-                                                message: error.localizedDescription,
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-                                                style: .default,
-                                                handler: nil))
-        present(alertController, animated: true)
-    }
-}
