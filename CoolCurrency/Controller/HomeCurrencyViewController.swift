@@ -51,16 +51,3 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
         viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: CurrencyCode(rawValue: selectedCurrency)!))
     }
 }
-
-extension UIViewController {
-    
-    func showUserErrorMessage(error: Error) {
-        let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
-                                                message: error.localizedDescription,
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-                                                style: .default,
-                                                handler: nil))
-        present(alertController, animated: true)
-    }
-}
