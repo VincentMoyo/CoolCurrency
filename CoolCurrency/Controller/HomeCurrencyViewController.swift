@@ -35,11 +35,11 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate, U
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return viewModel.currencyList.count
+        viewModel.currencyList.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return Array(viewModel.currencyList.keys)[row]
+        Array(viewModel.currencyList.keys)[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
