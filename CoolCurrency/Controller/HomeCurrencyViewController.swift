@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
 
     @IBOutlet weak var currencyPickerView: UIPickerView!
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
@@ -29,6 +29,9 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate, U
             }
         }
     }
+}
+
+extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
