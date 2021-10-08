@@ -13,7 +13,7 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchCurrencyList(for: "USD")
+        viewModel.fetchCurrencyList(for: "ZAR")
     }
     
     func bindViewModel() {
