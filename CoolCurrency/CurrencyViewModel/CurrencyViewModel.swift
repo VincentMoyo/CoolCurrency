@@ -39,23 +39,19 @@ class CurrencyViewModel {
 extension CurrencyViewModel {
     
     private func setCurrencyDataList(currencyData: Rates) {
-        currencyList[Constants.CountryList.kGreatBritishPound] = roundOffCurrency(for: currencyData.greatBritishPound)
-        currencyList[Constants.CountryList.kUnitedStatesDollar] = roundOffCurrency(for: currencyData.unitedStatesDollar)
-        currencyList[Constants.CountryList.kIndianRupee] = roundOffCurrency(for: currencyData.indianRupee)
-        currencyList[Constants.CountryList.kBostwanaPula] = roundOffCurrency(for: currencyData.bostwanaPula)
-        currencyList[Constants.CountryList.kCanadianDollar] = roundOffCurrency(for: currencyData.canadianDollar)
-        currencyList[Constants.CountryList.kGhanaCedi] = roundOffCurrency(for: currencyData.ghanaCedi)
-        currencyList[Constants.CountryList.kSouthAfricanRand] = roundOffCurrency(for: currencyData.southAfricanRand)
-        currencyList[Constants.CountryList.kJapaneseYen] = roundOffCurrency(for: currencyData.japaneseYen)
-        currencyList[Constants.CountryList.kRussianRuble] = roundOffCurrency(for: currencyData.russianRuble)
-        currencyList[Constants.CountryList.kChineseYuan] = roundOffCurrency(for: currencyData.chineseYuan)
-        currencyList[Constants.CountryList.kEuro] = roundOffCurrency(for: currencyData.euro)
-        currencyList[Constants.CountryList.kUnitedArabDirham] = roundOffCurrency(for: currencyData.unitedArabDirham)
-        currencyList[Constants.CountryList.kBrazilianReal] = roundOffCurrency(for: currencyData.brazilianReal)
-        currencyList[Constants.CountryList.kAustralianDollar] = roundOffCurrency(for: currencyData.australianDollar)
-    }
-    
-    private func roundOffCurrency(for currency: Double) -> Double {
-        Double(round(100 * (1 / currency))/100)
+        currencyList[Constants.CountryList.kGreatBritishPound] = currencyData.greatBritishPound.roundedOffCurrency()
+        currencyList[Constants.CountryList.kUnitedStatesDollar] = currencyData.unitedStatesDollar.roundedOffCurrency()
+        currencyList[Constants.CountryList.kIndianRupee] = currencyData.indianRupee.roundedOffCurrency()
+        currencyList[Constants.CountryList.kBostwanaPula] = currencyData.bostwanaPula.roundedOffCurrency()
+        currencyList[Constants.CountryList.kCanadianDollar] = currencyData.canadianDollar.roundedOffCurrency()
+        currencyList[Constants.CountryList.kGhanaCedi] = currencyData.ghanaCedi.roundedOffCurrency()
+        currencyList[Constants.CountryList.kSouthAfricanRand] = currencyData.southAfricanRand.roundedOffCurrency()
+        currencyList[Constants.CountryList.kJapaneseYen] = currencyData.japaneseYen.roundedOffCurrency()
+        currencyList[Constants.CountryList.kRussianRuble] = currencyData.russianRuble.roundedOffCurrency()
+        currencyList[Constants.CountryList.kChineseYuan] = currencyData.chineseYuan.roundedOffCurrency()
+        currencyList[Constants.CountryList.kEuro] = currencyData.euro.roundedOffCurrency()
+        currencyList[Constants.CountryList.kUnitedArabDirham] = currencyData.unitedArabDirham.roundedOffCurrency()
+        currencyList[Constants.CountryList.kBrazilianReal] = currencyData.brazilianReal.roundedOffCurrency()
+        currencyList[Constants.CountryList.kAustralianDollar] = currencyData.australianDollar.roundedOffCurrency()
     }
 }

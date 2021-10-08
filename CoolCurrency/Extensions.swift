@@ -19,3 +19,11 @@ extension UIViewController {
         present(alertController, animated: true)
     }
 }
+
+extension Double {
+    func roundedOffCurrency() -> Double {
+        let convertedCurrency = 1 / self
+        let divisor = pow(10.0, Double(2))
+        return (convertedCurrency * divisor).rounded() / divisor
+    }
+}
