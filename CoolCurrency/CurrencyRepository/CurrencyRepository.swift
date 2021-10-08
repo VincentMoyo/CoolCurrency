@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrencyRepository: CurrencyRepositable {
+class CurrencyRepository: CurrencyRepositable {
     
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
         if let url = URLCurrencyStringBuilder(for: baseCurrency) {
