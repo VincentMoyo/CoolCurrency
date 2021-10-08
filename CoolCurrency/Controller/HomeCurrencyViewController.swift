@@ -8,12 +8,12 @@
 import UIKit
 
 class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
-    
+
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchCurrencyList(for: "ZAR")
+        viewModel.fetchCurrencyList(for: "USD")
     }
     
     func bindViewModel() {
@@ -22,6 +22,7 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
 }
 
 extension UIViewController {
+    
     func showUserErrorMessage(error: Error) {
         let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
                                                 message: error.localizedDescription,
