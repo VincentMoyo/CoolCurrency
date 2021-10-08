@@ -17,6 +17,7 @@ struct Response: Codable {
 }
 
 struct Rates: Codable {
+    
     let unitedStatesDollar: Double
     let euro: Double
     let indianRupee: Double
@@ -49,6 +50,3 @@ struct Rates: Codable {
         case australianDollar = "AUD"
     }
 }
-
-
-

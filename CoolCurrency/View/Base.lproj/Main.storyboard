@@ -15,38 +15,9 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kng-C9-Idk" userLabel="CurrencyPickerViews">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ti5-oY-xMc">
-                                        <rect key="frame" x="0.0" y="34" width="414" height="216"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="l1I-VU-f1h"/>
-                                            <outlet property="delegate" destination="BYZ-38-t0r" id="iyU-3n-0RW"/>
-                                        </connections>
-                                    </pickerView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Ti5-oY-xMc" secondAttribute="trailing" id="L7O-7L-DyR"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ti5-oY-xMc" secondAttribute="bottom" id="RZu-ow-rYB"/>
-                                    <constraint firstAttribute="height" constant="250" id="djf-T1-dwS"/>
-                                    <constraint firstItem="Ti5-oY-xMc" firstAttribute="leading" secondItem="Kng-C9-Idk" secondAttribute="leading" id="qrW-co-sBR"/>
-                                    <constraint firstItem="Ti5-oY-xMc" firstAttribute="top" secondItem="Kng-C9-Idk" secondAttribute="top" constant="34" id="ykO-D0-a0Z"/>
-                                </constraints>
-                            </view>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="Kng-C9-Idk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QaL-K1-uu0"/>
-                            <constraint firstItem="Kng-C9-Idk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="WaN-ox-MSZ"/>
-                            <constraint firstItem="Kng-C9-Idk" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xbI-US-zgQ"/>
-                        </constraints>
                     </view>
-                    <connections>
-                        <outlet property="currencyPickerView" destination="Ti5-oY-xMc" id="qTU-to-ojy"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
