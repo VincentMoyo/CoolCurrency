@@ -7,6 +7,23 @@
 
 import Foundation
 
+enum CurrencyCode: String {
+    case pound = "Pound"
+    case dollar = "Dollar"
+    case rupee = "Rupee"
+    case pula = "Pula"
+    case canadianDollar
+    case cedi = "Cedi"
+    case rand = "Rand"
+    case yen = "Yen"
+    case ruble = "Ruble"
+    case yuan = "Yuan"
+    case euros = "euros"
+    case dirham = "Dirham"
+    case real = "Real"
+    case australianDollar
+}
+
 class CurrencyViewModel {
     
     private var currencyRepository: CurrencyRepositable
@@ -91,21 +108,4 @@ extension CurrencyViewModel {
     private func roundOffCurrency(for currency: Double) -> Double {
         Double(round(100 * (1 / currency))/100)
     }
-}
-
-enum CurrencyCode: String {
-    case pound = "Pound"
-    case dollar = "Dollar"
-    case rupee = "Rupee"
-    case pula = "Pula"
-    case canadianDollar
-    case cedi = "Cedi"
-    case rand = "Rand"
-    case yen = "Yen"
-    case ruble = "Ruble"
-    case yuan = "Yuan"
-    case euros = "euros"
-    case dirham = "Dirham"
-    case real = "Real"
-    case australianDollar
 }
