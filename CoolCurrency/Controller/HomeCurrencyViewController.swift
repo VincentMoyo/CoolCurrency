@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
+class HomeCurrencyViewController: UIViewController {
 
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
@@ -15,6 +15,9 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
         super.viewDidLoad()
         viewModel.fetchCurrencyList(for: "ZAR")
     }
+}
+
+extension HomeCurrencyViewController: CurrencyViewModelDelegate {
     
     func bindViewModel() {
         print(viewModel.currencyList)
