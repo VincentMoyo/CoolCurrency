@@ -46,6 +46,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
 extension HomeCurrencyViewController: CurrencyViewModelDelegate {
     
     func bindViewModel(_ currencyViewModel: CurrencyViewModel) {
+        print(viewModel.currencyList)
         DispatchQueue.main.async {
             self.currencyPickerView.reloadAllComponents()
         }
