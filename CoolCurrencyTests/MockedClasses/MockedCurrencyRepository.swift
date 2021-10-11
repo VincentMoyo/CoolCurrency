@@ -12,7 +12,8 @@ class MockedCurrencyRepository: CurrencyRepositable {
     
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
         
-        if let newCurrency =  CurrencyCode(rawValue: baseCurrency) {
+        do {
+            let newCurrency = try CurrencyCode(rawValue: baseCurrency)!
             let data = CurrencyResponseModel(response: Response(base: newCurrency.rawValue,
                                                                 rates: Rates(unitedStatesDollar: 1.1,
                                                                              euro: 1.1,
@@ -29,6 +30,8 @@ class MockedCurrencyRepository: CurrencyRepositable {
                                                                              brazilianReal: 1.1,
                                                                              australianDollar: 1.1)))
             completion(.success(data))
+        } catch {
+            completion(.failure(error))
         }
     }
 }
