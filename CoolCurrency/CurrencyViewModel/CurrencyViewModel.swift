@@ -30,7 +30,6 @@ class CurrencyViewModel {
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
     private (set) var currencyList: [String: Double] = [:]
-    var modelLoad: ((Bool) -> Void)?
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -44,8 +43,7 @@ class CurrencyViewModel {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.delegate?.bindViewModel()
-                self?.modelLoad?(true)
+                self?.delegate?.bindViewModel(self!)
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }

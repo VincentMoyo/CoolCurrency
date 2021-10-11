@@ -8,7 +8,7 @@
 import UIKit
 
 class HomeCurrencyViewController: UIViewController {
-
+    
     @IBOutlet weak var currencyPickerView: UIPickerView!
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
@@ -45,14 +45,9 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
 
 extension HomeCurrencyViewController: CurrencyViewModelDelegate {
     
-    func bindViewModel() {
-        print(viewModel.currencyList)
-        viewModel.modelLoad = { result in
-            if result {
-                DispatchQueue.main.async {
-                    self.currencyPickerView.reloadAllComponents()
-                }
-            }
+    func bindViewModel(_ currencyViewModel: CurrencyViewModel) {
+        DispatchQueue.main.async {
+            self.currencyPickerView.reloadAllComponents()
         }
     }
 }
