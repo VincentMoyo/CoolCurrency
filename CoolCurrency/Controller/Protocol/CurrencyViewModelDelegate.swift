@@ -9,5 +9,5 @@ import Foundation
 
 protocol CurrencyViewModelDelegate: AnyObject {
     func showUserErrorMessage(error: Error)
-    func bindViewModel()
+    func bindViewModel(_ currencyViewModel: CurrencyViewModel)
 }

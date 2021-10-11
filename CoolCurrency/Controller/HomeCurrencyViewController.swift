@@ -7,8 +7,8 @@
 
 import UIKit
 
-class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
-
+class HomeCurrencyViewController: UIViewController {
+    
     @IBOutlet weak var currencyPickerView: UIPickerView!
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
@@ -17,17 +17,6 @@ class HomeCurrencyViewController: UIViewController, CurrencyViewModelDelegate {
         viewModel.fetchCurrencyList(for: "ZAR")
         currencyPickerView.dataSource = self
         currencyPickerView.delegate = self
-    }
-    
-    func bindViewModel() {
-        print(viewModel.currencyList)
-        viewModel.modelLoad = { result in
-            if result {
-                DispatchQueue.main.async {
-                    self.currencyPickerView.reloadAllComponents()
-                }
-            }
-        }
     }
 }
 
@@ -47,20 +36,18 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        print(viewModel.convertCurrencyToCode(for: CurrencyCode(rawValue: selectedCurrency)!))
-        viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: CurrencyCode(rawValue: selectedCurrency)!))
+        if let newCurrency =  CurrencyCode(rawValue: selectedCurrency) {
+            print(viewModel.convertCurrencyToCode(for: newCurrency))
+            viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: newCurrency))
+        }
     }
 }
 
-extension UIViewController {
+extension HomeCurrencyViewController: CurrencyViewModelDelegate {
     
-    func showUserErrorMessage(error: Error) {
-        let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
-                                                message: error.localizedDescription,
-                                                preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""),
-                                                style: .default,
-                                                handler: nil))
-        present(alertController, animated: true)
+    func bindViewModel(_ currencyViewModel: CurrencyViewModel) {
+        DispatchQueue.main.async {
+            self.currencyPickerView.reloadAllComponents()
+        }
     }
 }
