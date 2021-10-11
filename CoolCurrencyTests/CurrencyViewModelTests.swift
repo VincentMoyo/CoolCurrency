@@ -18,10 +18,10 @@ class CurrencyViewModelTests: XCTestCase {
 
     func testFetchCurrency() {
         let waitingForCompletionException = expectation(description: "Waiting for Currency API to respond using Currency code")
-        if implementationUnderTests.currencyList.isEmpty != false {
+        implementationUnderTests.fetchCurrencyList(for: "ZAR")
+        if implementationUnderTests.currencyList != [:] {
             waitingForCompletionException.fulfill()
         }
-        implementationUnderTests.fetchCurrencyList(for: "ZAR")
         wait(for: [waitingForCompletionException], timeout: 5)
     }
 
