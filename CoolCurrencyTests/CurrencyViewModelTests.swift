@@ -1,8 +1,8 @@
 //
-//  CurrencyViewModelTests.swift
+//  CurrencyViewModelTest.swift
 //  CoolCurrencyTests
 //
-//  Created by Vincent Moyo on 2021/10/08.
+//  Created by Vincent Moyo on 2021/10/11.
 //
 
 import XCTest
@@ -18,10 +18,8 @@ class CurrencyViewModelTests: XCTestCase {
 
     func testFetchCurrency() {
         let waitingForCompletionException = expectation(description: "Waiting for Currency API to respond using Currency code")
-        implementationUnderTests.modelLoad = { result in
-            if result {
-                waitingForCompletionException.fulfill()
-            }
+        if implementationUnderTests.currencyList.isEmpty != false {
+            waitingForCompletionException.fulfill()
         }
         implementationUnderTests.fetchCurrencyList(for: "ZAR")
         wait(for: [waitingForCompletionException], timeout: 5)

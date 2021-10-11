@@ -8,6 +8,7 @@
 import Foundation
 
 protocol CurrencyViewModiable {
+    var currencyList: [String: Double] { get set }
     func fetchCurrencyList(for baseCurrency: String)
     func setCurrencyDataList(currencyData: Rates)
 }

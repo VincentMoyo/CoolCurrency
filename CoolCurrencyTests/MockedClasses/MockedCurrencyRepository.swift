@@ -1,8 +1,8 @@
 //
-//  File.swift
+//  MockedCurrencyRepository.swift
 //  CoolCurrencyTests
 //
-//  Created by Vincent Moyo on 2021/10/08.
+//  Created by Vincent Moyo on 2021/10/11.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ class MockedCurrencyRepository: CurrencyRepositable {
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
         
         if let newCurrency =  CurrencyCode(rawValue: baseCurrency) {
-            let data = CurrencyResponseModel(response: Response(base: baseCurrency,
+            let data = CurrencyResponseModel(response: Response(base: newCurrency.rawValue,
                                                                 rates: Rates(unitedStatesDollar: 1.1,
                                                                              euro: 1.1,
                                                                              indianRupee: 1.1,
@@ -29,8 +29,6 @@ class MockedCurrencyRepository: CurrencyRepositable {
                                                                              brazilianReal: 1.1,
                                                                              australianDollar: 1.1)))
             completion(.success(data))
-        } else {
-            completion(.failure(nil))
         }
     }
 }
@@ -50,3 +48,4 @@ enum CurrencyCode: String {
     case AED
     case BRL
     case AUD
+}

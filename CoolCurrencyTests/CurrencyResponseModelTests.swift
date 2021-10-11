@@ -1,15 +1,15 @@
 //
-//  CurrencyResponseModelTests.swift
+//  CurrencyResponseModelTest.swift
 //  CoolCurrencyTests
 //
-//  Created by Vincent Moyo on 2021/10/08.
+//  Created by Vincent Moyo on 2021/10/11.
 //
 
 import XCTest
 @testable import CoolCurrency
 
 class CurrencyResponseModelTests: XCTestCase {
-
+    
     var implementationUnderTests: CurrencyRepositable!
     
     override func setUpWithError() throws {
@@ -23,4 +23,5 @@ class CurrencyResponseModelTests: XCTestCase {
         }
         wait(for: [waitingForCompletionException], timeout: 5)
     }
+
 }

@@ -1,8 +1,8 @@
 //
-//  MockedCurrencyViewModel.swift
+//  MockedCurrencyViewModels.swift
 //  CoolCurrencyTests
 //
-//  Created by Vincent Moyo on 2021/10/08.
+//  Created by Vincent Moyo on 2021/10/11.
 //
 
 import Foundation
@@ -13,7 +13,6 @@ class MockedCurrencyViewModel: CurrencyViewModiable {
     var currencyList: [String: Double] = [:]
     private var currencyRepository: CurrencyRepositable
     private var response: CurrencyResponseModel?
-    var modelLoad: ((Bool) -> Void)?
     
     init(repository: CurrencyRepositable) {
         self.currencyRepository = repository
@@ -26,9 +25,8 @@ class MockedCurrencyViewModel: CurrencyViewModiable {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.modelLoad?(true)
             case .failure(_):
-                self?.modelLoad?(false)
+                return
             }
         })
     }
