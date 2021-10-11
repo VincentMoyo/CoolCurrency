@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CurrencyCode: String {
+enum CurrencyName: String {
     case pound = "Pound"
     case dollar = "Dollar"
     case rupee = "Rupee"
@@ -50,7 +50,7 @@ class CurrencyViewModel: CurrencyViewModiable {
         })
     }
     
-    func convertCurrencyToCode(for currency: CurrencyCode) -> String {
+    func convertCurrencyToCode(for currency: CurrencyName) -> String {
         switch currency {
         case .pound:
             return "GBP"
