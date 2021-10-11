@@ -2,7 +2,7 @@
 //  CurrencyViewModiable.swift
 //  CoolCurrency
 //
-//  Created by Vincent Moyo on 2021/10/08.
+//  Created by Vincent Moyo on 2021/10/11.
 //
 
 import Foundation
@@ -10,6 +10,4 @@ import Foundation
 protocol CurrencyViewModiable {
     func fetchCurrencyList(for baseCurrency: String)
     func setCurrencyDataList(currencyData: Rates)
-    func roundOffCurrency(for currency: Double) -> Double
-    var modelLoad: ((Bool) -> Void)? { get set }
 }

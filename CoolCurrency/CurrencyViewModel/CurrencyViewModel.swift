@@ -86,7 +86,7 @@ class CurrencyViewModel: CurrencyViewModiable {
 
 extension CurrencyViewModel {
     
-    private func setCurrencyDataList(currencyData: Rates) {
+    internal func setCurrencyDataList(currencyData: Rates) {
         currencyList[Constants.CountryList.kGreatBritishPound] = currencyData.greatBritishPound.roundedOffCurrency()
         currencyList[Constants.CountryList.kUnitedStatesDollar] = currencyData.unitedStatesDollar.roundedOffCurrency()
         currencyList[Constants.CountryList.kIndianRupee] = currencyData.indianRupee.roundedOffCurrency()
