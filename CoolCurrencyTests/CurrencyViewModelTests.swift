@@ -12,7 +12,7 @@ class CurrencyViewModelTests: XCTestCase {
 
     var implementationUnderTests: CurrencyViewModiable!
     
-    override func setUpWithError() throws {
+    override func setUp() {
         implementationUnderTests = MockedCurrencyViewModel(repository: MockedCurrencyRepository())
     }
 
@@ -21,6 +21,7 @@ class CurrencyViewModelTests: XCTestCase {
         implementationUnderTests.fetchCurrencyList(for: "ZAR")
         if implementationUnderTests.currencyList != [:] {
             waitingForCompletionException.fulfill()
+            XCTAssertEqual(14, implementationUnderTests.currencyList.keys.count)
         }
         wait(for: [waitingForCompletionException], timeout: 5)
     }
