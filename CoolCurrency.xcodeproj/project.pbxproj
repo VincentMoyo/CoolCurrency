@@ -206,7 +206,6 @@
 			isa = PBXGroup;
 			children = (
 				78935FB0270DA6CC007AE3EE /* CurrencyViewModelDelegate.swift */,
-				7875C2812710800B0045922B /* Extensions.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -374,7 +373,6 @@
 				7875C28627109AE20045922B /* Extensions.swift in Sources */,
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
 				78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */,
-				7875C2822710800B0045922B /* Extensions.swift in Sources */,
 				788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
