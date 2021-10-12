@@ -14,7 +14,6 @@ class CurrencyResponseModelTests: XCTestCase {
     
     override func setUp() {
         implementationUnderTests = MockedCurrencyRepository()
-        
     }
     
     func testCurrencyRequestSuccess() {
@@ -36,7 +35,7 @@ class CurrencyResponseModelTests: XCTestCase {
             case .success(_):
                 XCTFail("Should not Succeed")
             case .failure(let response):
-                XCTAssertEqual("There was an error in retrieving data", response.localizedDescription)
+                XCTAssertEqual("The operation couldn’t be completed. (CoolCurrencyTests.MyErrors error 0.)", response.localizedDescription)
             }
         }
     }

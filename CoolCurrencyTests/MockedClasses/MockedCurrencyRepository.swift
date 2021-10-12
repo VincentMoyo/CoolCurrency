@@ -13,7 +13,6 @@ class MockedCurrencyRepository: CurrencyRepositable {
     var shouldFail: Bool = true
     
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
-        
         if !shouldFail {
             if let newCurrency = CurrencyCode(rawValue: baseCurrency) {
                 let data = CurrencyResponseModel(response: Response(base: newCurrency.rawValue,
