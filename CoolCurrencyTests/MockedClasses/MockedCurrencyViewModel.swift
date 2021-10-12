@@ -1,39 +1,21 @@
 //
-//  CurrencyViewModel.swift
-//  CoolCurrency
+//  MockedCurrencyViewModels.swift
+//  CoolCurrencyTests
 //
-//  Created by Vincent Moyo on 2021/10/06.
+//  Created by Vincent Moyo on 2021/10/11.
 //
 
 import Foundation
+@testable import CoolCurrency
 
-enum CurrencyName: String {
-    case pound = "Pound"
-    case dollar = "Dollar"
-    case rupee = "Rupee"
-    case pula = "Pula"
-    case canadianDollar
-    case cedi = "Cedi"
-    case rand = "Rand"
-    case yen = "Yen"
-    case ruble = "Ruble"
-    case yuan = "Yuan"
-    case euros = "euros"
-    case dirham = "Dirham"
-    case real = "Real"
-    case australianDollar
-}
-
-class CurrencyViewModel: CurrencyViewModiable {
+class MockedCurrencyViewModel: CurrencyViewModiable {
     
-    private var currencyRepository: CurrencyRepositable
-    private weak var delegate: CurrencyViewModelDelegate?
-    private var response: CurrencyResponseModel?
     var currencyList: [String: Double] = [:]
+    private var currencyRepository: CurrencyRepositable
+    private var response: CurrencyResponseModel?
     
-    init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
+    init(repository: CurrencyRepositable) {
         self.currencyRepository = repository
-        self.delegate = delegate
     }
     
     func fetchCurrencyList(for baseCurrency: String) {
@@ -43,48 +25,11 @@ class CurrencyViewModel: CurrencyViewModiable {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.delegate?.bindViewModel(self!)
-            case .failure(let error):
-                self?.delegate?.showUserErrorMessage(error: error)
+            case .failure(_):
+                return
             }
         })
     }
-    
-    func convertCurrencyToCode(for currency: CurrencyName) -> String {
-        switch currency {
-        case .pound:
-            return "GBP"
-        case .dollar:
-            return "USD"
-        case .rupee:
-            return "INR"
-        case .pula:
-            return "BWP"
-        case .canadianDollar:
-            return "CAD"
-        case .cedi:
-            return "GHS"
-        case .rand:
-            return "ZAR"
-        case .yen:
-            return "JPY"
-        case .ruble:
-            return "RUB"
-        case .yuan:
-            return "CNY"
-        case .euros:
-            return "EUR"
-        case .dirham:
-            return "AED"
-        case .real:
-            return "BRL"
-        case .australianDollar:
-            return "AUD"
-        }
-    }
-}
-
-extension CurrencyViewModel {
     
     internal func setCurrencyDataList(currencyData: Rates) {
         currencyList[Constants.CountryList.kGreatBritishPound] = currencyData.greatBritishPound.roundedOffCurrency()

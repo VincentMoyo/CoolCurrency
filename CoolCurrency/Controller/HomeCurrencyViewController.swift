@@ -36,7 +36,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        if let newCurrency =  CurrencyCode(rawValue: selectedCurrency) {
+        if let newCurrency =  CurrencyName(rawValue: selectedCurrency) {
             print(viewModel.convertCurrencyToCode(for: newCurrency))
             viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: newCurrency))
         }

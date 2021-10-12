@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7828E6D2271439B800507B79 /* CurrencyViewModiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6D1271439B800507B79 /* CurrencyViewModiable.swift */; };
+		7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6D62714589B00507B79 /* MockedCurrencyRepository.swift */; };
+		7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */; };
+		7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */; };
+		7828E6DE27145D1400507B79 /* MockedCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DD27145D1400507B79 /* MockedCurrencyViewModel.swift */; };
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
@@ -18,7 +23,6 @@
 		788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC7A270AFDCA0033493B /* CoolCurrency.xcdatamodeld */; };
 		788DEC7E270AFDCC0033493B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 788DEC7D270AFDCC0033493B /* Assets.xcassets */; };
 		788DEC81270AFDCC0033493B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 788DEC7F270AFDCC0033493B /* LaunchScreen.storyboard */; };
-		788DEC8C270AFDCD0033493B /* CoolCurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC8B270AFDCD0033493B /* CoolCurrencyTests.swift */; };
 		788DEC96270AFDCD0033493B /* CoolCurrencyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC95270AFDCD0033493B /* CoolCurrencyUITests.swift */; };
 		788DEC98270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC97270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift */; };
 		78935FAC270D8FCB007AE3EE /* CurrencyRepositable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78935FAB270D8FCB007AE3EE /* CurrencyRepositable.swift */; };
@@ -45,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7828E6D1271439B800507B79 /* CurrencyViewModiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModiable.swift; sourceTree = "<group>"; };
+		7828E6D62714589B00507B79 /* MockedCurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedCurrencyRepository.swift; sourceTree = "<group>"; };
+		7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponseModelTests.swift; sourceTree = "<group>"; };
+		7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoolCurrencyTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
+		7828E6DD27145D1400507B79 /* MockedCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedCurrencyViewModel.swift; sourceTree = "<group>"; };
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -59,7 +69,6 @@
 		788DEC80270AFDCC0033493B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		788DEC82270AFDCC0033493B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		788DEC87270AFDCD0033493B /* CoolCurrencyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCurrencyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		788DEC8B270AFDCD0033493B /* CoolCurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyTests.swift; sourceTree = "<group>"; };
 		788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCurrencyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		788DEC95270AFDCD0033493B /* CoolCurrencyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyUITests.swift; sourceTree = "<group>"; };
 		788DEC97270AFDCD0033493B /* CoolCurrencyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -94,6 +103,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7875C27527104D580045922B /* MockedClasses */ = {
+			isa = PBXGroup;
+			children = (
+				7828E6D62714589B00507B79 /* MockedCurrencyRepository.swift */,
+				7828E6DD27145D1400507B79 /* MockedCurrencyViewModel.swift */,
+			);
+			path = MockedClasses;
+			sourceTree = "<group>";
+		};
+		7875C27A271060690045922B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				7828E6D1271439B800507B79 /* CurrencyViewModiable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		788DEC65270AFDCA0033493B = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +162,10 @@
 		788DEC8A270AFDCD0033493B /* CoolCurrencyTests */ = {
 			isa = PBXGroup;
 			children = (
-				788DEC8B270AFDCD0033493B /* CoolCurrencyTests.swift */,
+				7875C27527104D580045922B /* MockedClasses */,
+				7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */,
+				7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */,
+				7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */,
 			);
 			path = CoolCurrencyTests;
 			sourceTree = "<group>";
@@ -189,6 +218,7 @@
 		78935FA9270D8F38007AE3EE /* CurrencyViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7875C27A271060690045922B /* Protocol */,
 				78935FAD270DA2D3007AE3EE /* CurrencyViewModel.swift */,
 			);
 			path = CurrencyViewModel;
@@ -206,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				78935FB0270DA6CC007AE3EE /* CurrencyViewModelDelegate.swift */,
-				7875C2812710800B0045922B /* Extensions.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -283,6 +312,7 @@
 					};
 					788DEC86270AFDCD0033493B = {
 						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 						TestTargetID = 788DEC6D270AFDCA0033493B;
 					};
 					788DEC90270AFDCD0033493B = {
@@ -368,13 +398,13 @@
 				78935FAC270D8FCB007AE3EE /* CurrencyRepositable.swift in Sources */,
 				788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */,
 				785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */,
+				7828E6D2271439B800507B79 /* CurrencyViewModiable.swift in Sources */,
 				788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */,
 				785DA028270C41CE00CB7996 /* Constants.swift in Sources */,
 				78935FB1270DA6CC007AE3EE /* CurrencyViewModelDelegate.swift in Sources */,
 				7875C28627109AE20045922B /* Extensions.swift in Sources */,
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
 				78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */,
-				7875C2822710800B0045922B /* Extensions.swift in Sources */,
 				788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,7 +413,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				788DEC8C270AFDCD0033493B /* CoolCurrencyTests.swift in Sources */,
+				7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */,
+				7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */,
+				7828E6DE27145D1400507B79 /* MockedCurrencyViewModel.swift in Sources */,
+				7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +649,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UKH67U3TZ4;
@@ -630,6 +664,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrencyTests/CoolCurrencyTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
@@ -641,6 +677,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = UKH67U3TZ4;
@@ -655,6 +692,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrencyTests/CoolCurrencyTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
