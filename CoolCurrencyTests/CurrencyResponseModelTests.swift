@@ -10,24 +10,34 @@ import XCTest
 
 class CurrencyResponseModelTests: XCTestCase {
     
-    var implementationUnderTests: CurrencyRepositable!
+    var implementationUnderTests: MockedCurrencyRepository!
     
     override func setUp() {
         implementationUnderTests = MockedCurrencyRepository()
+        
     }
     
-    func testCurrencyRequest() {
-        let waitingForCompletionException = expectation(description: "Waiting for Currency API to respond using Currency code")
+    func testCurrencyRequestSuccess() {
+        implementationUnderTests.shouldFail = false
         implementationUnderTests.performCurrencyRequest(for: "ZAR") { result in
             switch result {
             case .success(let response):
                 XCTAssertEqual(1.1, response.response.rates.greatBritishPound)
-            case .failure(let error):
-                XCTAssertThrowsError(error)
+            case .failure(_):
+                XCTFail("Should not fail")
             }
-            waitingForCompletionException.fulfill()
         }
-        wait(for: [waitingForCompletionException], timeout: 5)
     }
-
+    
+    func testCurrencyRequestFail() {
+        implementationUnderTests.shouldFail = true
+        implementationUnderTests.performCurrencyRequest(for: "SAR") { result in
+            switch result {
+            case .success(_):
+                XCTFail("Should not Succeed")
+            case .failure(let response):
+                XCTAssertEqual("There was an error in retrieving data", response.localizedDescription)
+            }
+        }
+    }
 }
