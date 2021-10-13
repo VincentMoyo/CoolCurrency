@@ -50,8 +50,43 @@ class CurrencyViewModel: CurrencyViewModiable {
         })
     }
     
-    func convertCurrencyToCode(for currency: CurrencyName) -> String {
-        switch currency {
+    func fetchCurrencyFlagName(at index: Int) -> String {
+        let newCurrency = convertIndexToCurrencyName(at: index)
+        switch newCurrency {
+        case .pound:
+            return "BritishFlag"
+        case .dollar:
+            return "UnitedStatesFlag"
+        case .rupee:
+            return "IndianFlag"
+        case .pula:
+            return "BostwanaFlag"
+        case .canadianDollar:
+            return "CanadianFlag"
+        case .cedi:
+            return "GhanianFlag"
+        case .rand:
+            return "SouthAfricanFlag"
+        case .yen:
+            return "JapaneseFlag"
+        case .ruble:
+            return "RussianFlag"
+        case .yuan:
+            return "ChineseFlag"
+        case .euros:
+            return "EuroFlag"
+        case .dirham:
+            return "unitedArabFlag"
+        case .real:
+            return "BrazilianFlag"
+        case .australianDollar:
+            return "AustralianFlag"
+        }
+    }
+    
+    func convertCurrencyToCode(for currency: String) -> String {
+        let newCurrency = CurrencyName(rawValue: currency)
+        switch newCurrency {
         case .pound:
             return "GBP"
         case .dollar:
@@ -80,7 +115,18 @@ class CurrencyViewModel: CurrencyViewModiable {
             return "BRL"
         case .australianDollar:
             return "AUD"
+        case .none:
+            return ""
         }
+    }
+    
+    private func convertIndexToCurrencyName(at index: Int) -> CurrencyName {
+        if let newIndex = Array(currencyList.keys)[safe: index] {
+            if let newCurrency = CurrencyName(rawValue: newIndex) {
+                return newCurrency
+            }
+        }
+        return CurrencyName(rawValue: "")!
     }
 }
 
@@ -101,5 +147,16 @@ extension CurrencyViewModel {
         currencyList[Constants.CountryList.kUnitedArabDirham] = currencyData.unitedArabDirham.roundedOffCurrency()
         currencyList[Constants.CountryList.kBrazilianReal] = currencyData.brazilianReal.roundedOffCurrency()
         currencyList[Constants.CountryList.kAustralianDollar] = currencyData.australianDollar.roundedOffCurrency()
+    }
+}
+
+extension CurrencyViewModel {
+    
+    func fetchCurrencyName(at index: Int) -> String? {
+        Array(currencyList.keys)[safe: index]
+    }
+    
+    func fetchCurrencyValue(at index: Int) -> Double? {
+        Array(currencyList.values)[safe: index]
     }
 }
