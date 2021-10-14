@@ -14,7 +14,6 @@
 		7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6D62714589B00507B79 /* MockedCurrencyRepository.swift */; };
 		7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */; };
 		7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */; };
-		7828E6DE27145D1400507B79 /* MockedCurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DD27145D1400507B79 /* MockedCurrencyViewModel.swift */; };
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
@@ -60,7 +59,6 @@
 		7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponseModelTests.swift; sourceTree = "<group>"; };
 		7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoolCurrencyTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
-		7828E6DD27145D1400507B79 /* MockedCurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedCurrencyViewModel.swift; sourceTree = "<group>"; };
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -122,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				7828E6D62714589B00507B79 /* MockedCurrencyRepository.swift */,
-				7828E6DD27145D1400507B79 /* MockedCurrencyViewModel.swift */,
 			);
 			path = MockedClasses;
 			sourceTree = "<group>";
@@ -178,8 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				7875C27527104D580045922B /* MockedClasses */,
-				7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */,
 				7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */,
+				7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */,
 				7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */,
 			);
 			path = CoolCurrencyTests;
@@ -435,7 +432,6 @@
 			files = (
 				7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */,
 				7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */,
-				7828E6DE27145D1400507B79 /* MockedCurrencyViewModel.swift in Sources */,
 				7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

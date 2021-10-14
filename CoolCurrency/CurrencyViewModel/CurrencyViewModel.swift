@@ -29,7 +29,11 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
-    var currencyList: [String: Double] = [:]
+    private(set) var currencyList: [String: Double] = [:]
+    
+    var currencyListCount: Int {
+        currencyList.count
+    }
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -132,7 +136,7 @@ class CurrencyViewModel: CurrencyViewModiable {
 
 extension CurrencyViewModel {
     
-    internal func setCurrencyDataList(currencyData: Rates) {
+    private func setCurrencyDataList(currencyData: Rates) {
         currencyList[Constants.CountryList.kGreatBritishPound] = currencyData.greatBritishPound.roundedOffCurrency()
         currencyList[Constants.CountryList.kUnitedStatesDollar] = currencyData.unitedStatesDollar.roundedOffCurrency()
         currencyList[Constants.CountryList.kIndianRupee] = currencyData.indianRupee.roundedOffCurrency()
@@ -158,5 +162,18 @@ extension CurrencyViewModel {
     
     func fetchCurrencyValue(at index: Int) -> Double? {
         Array(currencyList.values)[safe: index]
+    }
+}
+
+extension CurrencyViewModel {
+    
+    func setUpTableViewModel(at index: Int) -> CurrencyDataModel? {
+        guard let newCurrencyName = fetchCurrencyName(at: index),
+              let newCurrencyValue = fetchCurrencyValue(at: index) else { return nil }
+        
+        return CurrencyDataModel(currencyFlagName: fetchCurrencyFlagName(at: index),
+                                 currencyName: newCurrencyName,
+                                 currencyIncreaseIndicator: true,
+                                 currencyValue: String(newCurrencyValue))
     }
 }

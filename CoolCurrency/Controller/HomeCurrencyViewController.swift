@@ -9,8 +9,8 @@ import UIKit
 
 class HomeCurrencyViewController: UIViewController {
     
-    @IBOutlet weak var currencyPickerView: UIPickerView!
-    @IBOutlet weak var currencyTableView: UITableView!
+    @IBOutlet private weak var currencyPickerView: UIPickerView!
+    @IBOutlet private weak var currencyTableView: UITableView!
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
@@ -42,10 +42,7 @@ extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as? CurrencyTableViewCell
-        let newModel = CurrencyDataModel(currencyFlagName: viewModel.fetchCurrencyFlagName(at: indexPath.row),
-                                         currencyName: viewModel.fetchCurrencyName(at: indexPath.row)!,
-                                         currencyIncreaseIndicator: true,
-                                         currencyValue: String(viewModel.fetchCurrencyValue(at: indexPath.row)!))
+        guard let newModel = viewModel.setUpTableViewModel(at: indexPath.row) else { return CurrencyTableViewCell() }
         cell?.configure(with: newModel)
         
         return cell ?? CurrencyTableViewCell()
@@ -68,7 +65,6 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        print(viewModel.convertCurrencyToCode(for: selectedCurrency))
         viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
     }
 }
@@ -76,7 +72,6 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
 extension HomeCurrencyViewController: CurrencyViewModelDelegate {
     
     func bindViewModel(_ currencyViewModel: CurrencyViewModel) {
-        print(viewModel.currencyList)
         DispatchQueue.main.async {
             self.currencyTableView.reloadData()
             self.currencyPickerView.reloadAllComponents()
