@@ -11,8 +11,8 @@ class CurrencyTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var currencyNameLabel: UILabel!
     @IBOutlet private weak var currencyFlagImageView: UIImageView!
-    @IBOutlet weak var indicatorImageView: UIImageView!
-    @IBOutlet weak var currencyValueLabel: UILabel!
+    @IBOutlet private weak var indicatorImageView: UIImageView!
+    @IBOutlet private weak var currencyValueLabel: UILabel!
     
     static let identifier = "CurrencyTableViewCell"
     static let nib = UINib(nibName: "CurrencyTableViewCell", bundle: nil)
