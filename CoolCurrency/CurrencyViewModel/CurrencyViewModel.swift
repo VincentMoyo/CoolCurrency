@@ -29,7 +29,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
-    var currencyList: [String: Double] = [:]
+    private(set) var currencyList: [String: Double] = [:]
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -50,8 +50,43 @@ class CurrencyViewModel: CurrencyViewModiable {
         })
     }
     
-    func convertCurrencyToCode(for currency: CurrencyName) -> String {
-        switch currency {
+    func fetchCurrencyFlagName(at index: Int) -> String {
+        let newCurrency = convertIndexToCurrencyName(at: index)
+        switch newCurrency {
+        case .pound:
+            return "BritishFlag"
+        case .dollar:
+            return "UnitedStatesFlag"
+        case .rupee:
+            return "IndianFlag"
+        case .pula:
+            return "BostwanaFlag"
+        case .canadianDollar:
+            return "CanadianFlag"
+        case .cedi:
+            return "GhanianFlag"
+        case .rand:
+            return "SouthAfricanFlag"
+        case .yen:
+            return "JapaneseFlag"
+        case .ruble:
+            return "RussianFlag"
+        case .yuan:
+            return "ChineseFlag"
+        case .euros:
+            return "EuroFlag"
+        case .dirham:
+            return "unitedArabFlag"
+        case .real:
+            return "BrazilianFlag"
+        case .australianDollar:
+            return "AustralianFlag"
+        }
+    }
+    
+    func convertCurrencyToCode(for currency: String) -> String {
+        let newCurrency = CurrencyName(rawValue: currency)
+        switch newCurrency {
         case .pound:
             return "GBP"
         case .dollar:
@@ -80,13 +115,24 @@ class CurrencyViewModel: CurrencyViewModiable {
             return "BRL"
         case .australianDollar:
             return "AUD"
+        case .none:
+            return ""
         }
+    }
+    
+    private func convertIndexToCurrencyName(at index: Int) -> CurrencyName {
+        if let newIndex = Array(currencyList.keys)[safe: index] {
+            if let newCurrency = CurrencyName(rawValue: newIndex) {
+                return newCurrency
+            }
+        }
+        return CurrencyName(rawValue: "")!
     }
 }
 
 extension CurrencyViewModel {
     
-    internal func setCurrencyDataList(currencyData: Rates) {
+    private func setCurrencyDataList(currencyData: Rates) {
         currencyList[Constants.CountryList.kGreatBritishPound] = currencyData.greatBritishPound.roundedOffCurrency()
         currencyList[Constants.CountryList.kUnitedStatesDollar] = currencyData.unitedStatesDollar.roundedOffCurrency()
         currencyList[Constants.CountryList.kIndianRupee] = currencyData.indianRupee.roundedOffCurrency()
@@ -101,5 +147,29 @@ extension CurrencyViewModel {
         currencyList[Constants.CountryList.kUnitedArabDirham] = currencyData.unitedArabDirham.roundedOffCurrency()
         currencyList[Constants.CountryList.kBrazilianReal] = currencyData.brazilianReal.roundedOffCurrency()
         currencyList[Constants.CountryList.kAustralianDollar] = currencyData.australianDollar.roundedOffCurrency()
+    }
+}
+
+extension CurrencyViewModel {
+    
+    func fetchCurrencyName(at index: Int) -> String? {
+        Array(currencyList.keys)[safe: index]
+    }
+    
+    func fetchCurrencyValue(at index: Int) -> Double? {
+        Array(currencyList.values)[safe: index]
+    }
+}
+
+extension CurrencyViewModel {
+    
+    func currencyDataModel(at index: Int) -> CurrencyDataModel? {
+        guard let newCurrencyName = fetchCurrencyName(at: index),
+              let newCurrencyValue = fetchCurrencyValue(at: index) else { return nil }
+        
+        return CurrencyDataModel(currencyFlagName: fetchCurrencyFlagName(at: index),
+                                 currencyName: newCurrencyName,
+                                 currencyIncreaseIndicator: true,
+                                 currencyValue: String(newCurrencyValue))
     }
 }

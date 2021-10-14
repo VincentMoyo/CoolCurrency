@@ -27,3 +27,9 @@ extension Double {
         return (convertedCurrency * divisor).rounded() / divisor
     }
 }
+
+extension Array {
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}

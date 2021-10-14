@@ -23,17 +23,24 @@
                                         <rect key="frame" x="47" y="17" width="320" height="216"/>
                                     </pickerView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="250" id="20H-ZY-1v1"/>
                                     <constraint firstItem="D48-mC-9b2" firstAttribute="centerY" secondItem="GU9-NR-7Uy" secondAttribute="centerY" id="3El-F9-SR7"/>
                                     <constraint firstItem="D48-mC-9b2" firstAttribute="centerX" secondItem="GU9-NR-7Uy" secondAttribute="centerX" id="MPQ-y4-De5"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-mA-DvE">
+                                <rect key="frame" x="0.0" y="207" width="414" height="643"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.011764707040000001" green="0.99215692280000001" blue="0.87463241820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="top" secondItem="D48-mC-9b2" secondAttribute="bottom" constant="-26" id="9Fu-Y7-G0z"/>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Bg1-cV-DKA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gO-mA-DvE" secondAttribute="bottom" constant="12" id="KDk-aB-2NQ"/>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S6E-Ms-lFR"/>
                             <constraint firstItem="GU9-NR-7Uy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eJe-zL-Sys"/>
                             <constraint firstItem="GU9-NR-7Uy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vQI-H2-EC9"/>
                             <constraint firstItem="GU9-NR-7Uy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="z7Z-5D-mKY"/>
@@ -41,6 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="currencyPickerView" destination="D48-mC-9b2" id="RHs-jG-2cg"/>
+                        <outlet property="currencyTableView" destination="1gO-mA-DvE" id="p3h-Td-yvy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
