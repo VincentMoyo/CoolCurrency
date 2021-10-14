@@ -31,7 +31,6 @@ class HomeCurrencyViewController: UIViewController {
         currencyTableView.dataSource = self
         currencyTableView.delegate = self
     }
-    
 }
 
 extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource {
@@ -42,7 +41,7 @@ extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrencyTableViewCell", for: indexPath) as? CurrencyTableViewCell
-        guard let newModel = viewModel.setUpTableViewModel(at: indexPath.row) else { return CurrencyTableViewCell() }
+        guard let newModel = viewModel.currencyDataModel(at: indexPath.row) else { return CurrencyTableViewCell() }
         cell?.configure(with: newModel)
         
         return cell ?? CurrencyTableViewCell()

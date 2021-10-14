@@ -21,7 +21,7 @@ class CurrencyViewModelTests: XCTestCase {
                                                      delegate: mockDelegate)
     }
     
-    func testFetchCurrency() {
+    func testFetchCurrencySuccess() {
         setUpMockResponse()
         XCTAssertEqual(14, implementationUnderTests.currencyList.values.count)
         XCTAssert(mockDelegate.refreshCalled)
@@ -32,13 +32,13 @@ class CurrencyViewModelTests: XCTestCase {
         XCTAssert(mockDelegate.showUserErrorCalled)
     }
     
-    func testConvertCurrencyToCode() {
+    func testConvertCurrencyToCodeSuccess() {
         XCTAssertEqual("ZAR", implementationUnderTests.convertCurrencyToCode(for: "Rand"))
     }
     
-    func testTableView() {
+    func testCurrencyModelReturnsCorrectValue() {
         setUpMockResponse()
-        XCTAssertEqual("Rand", implementationUnderTests.setUpTableViewModel(at: 1)?.currencyName)
+        XCTAssertEqual("Rand", implementationUnderTests.currencyDataModel(at: 1)?.currencyName)
     }
     
     func setUpMockResponse() {

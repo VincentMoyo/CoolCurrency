@@ -163,7 +163,7 @@ extension CurrencyViewModel {
 
 extension CurrencyViewModel {
     
-    func setUpTableViewModel(at index: Int) -> CurrencyDataModel? {
+    func currencyDataModel(at index: Int) -> CurrencyDataModel? {
         guard let newCurrencyName = fetchCurrencyName(at: index),
               let newCurrencyValue = fetchCurrencyValue(at: index) else { return nil }
         
