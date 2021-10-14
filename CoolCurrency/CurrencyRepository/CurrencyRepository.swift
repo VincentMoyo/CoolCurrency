@@ -19,7 +19,9 @@ class CurrencyRepository: CurrencyRepositable {
                 }
                 do {
                     let decodedData = try JSONDecoder().decode(CurrencyResponseModel.self, from: data!)
-                    completion(.success(decodedData))
+                    DispatchQueue.main.async {
+                        completion(.success(decodedData))
+                    }
                 } catch {
                     completion(.failure(error))
                 }
