@@ -31,10 +31,6 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
     
-    var currencyListCount: Int {
-        currencyList.count
-    }
-    
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
         self.delegate = delegate
