@@ -23,7 +23,9 @@ class CurrencyRepository: CurrencyRepositable {
                         completion(.success(decodedData))
                     }
                 } catch {
-                    completion(.failure(error))
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
                 }
             }
             task.resume()
