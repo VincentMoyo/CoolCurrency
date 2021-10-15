@@ -33,6 +33,7 @@
 		78935FB1270DA6CC007AE3EE /* CurrencyViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78935FB0270DA6CC007AE3EE /* CurrencyViewModelDelegate.swift */; };
 		78935FB4270DF82B007AE3EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78935FB6270DF82B007AE3EE /* Localizable.strings */; };
 		78B50AF72719C02C00596AA6 /* ConvertCurrencyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */; };
+		78B50AFA2719C3C800596AA6 /* ConvertCurrencyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B50AF92719C3C800596AA6 /* ConvertCurrencyViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,8 @@
 		78935FB0270DA6CC007AE3EE /* CurrencyViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelDelegate.swift; sourceTree = "<group>"; };
 		78935FB5270DF82B007AE3EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCurrencyDataModel.swift; sourceTree = "<group>"; };
+		78B50AF82719C3C800596AA6 /* ConvertCurrencyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConvertCurrencyViewModel.h; sourceTree = "<group>"; };
+		78B50AF92719C3C800596AA6 /* ConvertCurrencyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConvertCurrencyViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +247,8 @@
 			children = (
 				7875C27A271060690045922B /* Protocol */,
 				78935FAD270DA2D3007AE3EE /* CurrencyViewModel.swift */,
+				78B50AF82719C3C800596AA6 /* ConvertCurrencyViewModel.h */,
+				78B50AF92719C3C800596AA6 /* ConvertCurrencyViewModel.m */,
 			);
 			path = CurrencyViewModel;
 			sourceTree = "<group>";
@@ -435,6 +440,7 @@
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
 				78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */,
 				788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */,
+				78B50AFA2719C3C800596AA6 /* ConvertCurrencyViewModel.m in Sources */,
 				781F54D22718B79D00581652 /* CurrencyConversionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
