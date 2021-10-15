@@ -1,13 +1,13 @@
 //
-//  CurrencyConversionViewController.m
+//  TestingViewController.m
 //  CoolCurrency
 //
-//  Created by Vincent Moyo on 2021/10/14.
+//  Created by Vincent Moyo on 2021/10/15.
 //
 
-#import "CurrencyConversionViewController.h"
+#import "CurrencyConversionsViewController.h"
 
-@interface CurrencyConversionViewController ()
+@interface CurrencyConversionsViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *currencyValueInsert;
 @property (weak, nonatomic) IBOutlet UILabel *currencyValueDisplay;
@@ -16,12 +16,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *displayLeftCurrencyToRightCurrency;
 @property (weak, nonatomic) IBOutlet UILabel *displayRightCurrencyToLeftCurrency;
 
+@property (strong, nonatomic) ConvertCurrencyDataModel *dataModels;
+
 @end
 
-@implementation CurrencyConversionViewController
+@implementation CurrencyConversionsViewController
 
--(id) initWith:(ConvertCurrencyDataModel *)dataModel {
-    self.viewModel.dataModel = dataModel;
+- (instancetype)initWith:(ConvertCurrencyDataModel *)dataModel {
+    if ((self = [super init])) {
+        self.viewModel.dataModel = dataModel;
+        self.dataModels = dataModel;
+    }
     return self;
 }
 
@@ -31,7 +36,7 @@
 }
 
 - (IBAction)ConvertCurrencyPressed:(UIButton *)sender {
-    self.displayLeftCurrencyToRightCurrency.text = self.viewModel.dataModel.primaryCurrencyName;
+    self.currencyValueDisplay.text = self.dataModels.primaryCurrencyName;
 }
 
 - (IBAction)SwapCurrency:(UIButton *)sender {

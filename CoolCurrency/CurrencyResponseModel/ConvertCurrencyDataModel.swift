@@ -8,8 +8,15 @@
 import Foundation
 
 class ConvertCurrencyDataModel: NSObject {
-    @objc let primaryCurrency: Double = 0.0
-    @objc let primaryCurrencyName: String = ""
-    @objc let secondCurrency: Double = 0.0
-    @objc let secondCurrencyName: String = ""
+    @objc var primaryCurrency: Double
+    @objc var primaryCurrencyName: String
+    @objc var secondCurrency: Double
+    @objc var secondCurrencyName: String
+    
+    override init() {
+        primaryCurrency = 0.0
+        primaryCurrencyName = ""
+        secondCurrency = 0.0
+        secondCurrencyName = ""
+    }
 }

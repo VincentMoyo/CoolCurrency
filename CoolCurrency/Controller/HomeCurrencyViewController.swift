@@ -16,6 +16,7 @@ class HomeCurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("hasdbfiksjdfu sdfsdf")
         viewModel.fetchCurrencyList(for: "ZAR")
         setupCurrencyPickerView()
         setupCurrencyTableView()
@@ -45,6 +46,11 @@ extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource
         cell?.configure(with: newModel)
         
         return cell ?? CurrencyTableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = CurrencyConversionsViewController(viewModel.fetchConversionCurrencyData())
+        present(viewController, animated: true, completion: nil)
     }
 }
 
