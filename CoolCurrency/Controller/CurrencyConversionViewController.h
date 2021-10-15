@@ -6,10 +6,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoolCurrency-Swift.h"
+#import "ConvertCurrencyViewModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CurrencyConversionViewController : UIViewController
+
+-(id) initWith:(ConvertCurrencyDataModel *)dataModel;
+@property (strong, nonatomic) ConvertCurrencyViewModel *viewModel;
 
 @end
 

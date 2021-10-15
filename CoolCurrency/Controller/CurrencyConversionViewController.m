@@ -20,6 +20,10 @@
 
 @implementation CurrencyConversionViewController
 
+-(id) initWith:(ConvertCurrencyDataModel *)dataModel {
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
