@@ -21,6 +21,7 @@
 @implementation CurrencyConversionViewController
 
 -(id) initWith:(ConvertCurrencyDataModel *)dataModel {
+    self.viewModel.dataModel = dataModel;
     return self;
 }
 
@@ -30,9 +31,11 @@
 }
 
 - (IBAction)ConvertCurrencyPressed:(UIButton *)sender {
+    self.displayLeftCurrencyToRightCurrency.text = self.viewModel.dataModel.primaryCurrencyName;
 }
 
 - (IBAction)SwapCurrency:(UIButton *)sender {
+    self.displayLeftCurrencyToRightCurrency.text = self.viewModel.dataModel.primaryCurrencyName;
 }
 
 @end
