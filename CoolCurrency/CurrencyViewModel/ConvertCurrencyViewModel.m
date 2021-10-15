@@ -9,4 +9,8 @@
 
 @implementation ConvertCurrencyViewModel
 
+-(void)initWith:(ConvertCurrencyDataModel *)conversionDataModel {
+    
+}
+
 @end

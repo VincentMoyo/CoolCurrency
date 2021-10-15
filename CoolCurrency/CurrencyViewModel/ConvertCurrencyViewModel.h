@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ConvertCurrencyViewModel : NSObject
 
+@property (strong, nonatomic) ConvertCurrencyDataModel *dataModel;
+-(void)initWith:(ConvertCurrencyDataModel *)conversionDataModel;
+
 @end
 
 NS_ASSUME_NONNULL_END
