@@ -96,6 +96,9 @@
                                                 <rect key="frame" x="10" y="312" width="354" height="31"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Convert"/>
+                                                <connections>
+                                                    <action selector="ConvertCurrencyPressed:" destination="akY-3K-AWg" eventType="touchUpInside" id="aE2-Jh-eYl"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gem-KU-fGD">
                                                 <rect key="frame" x="10" y="163.5" width="354" height="50"/>
@@ -114,6 +117,9 @@
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="rectangle.2.swap" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="SwapCurrency:" destination="akY-3K-AWg" eventType="touchUpInside" id="ChF-27-kwI"/>
+                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GBP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFK-yk-Nfi">
                                                         <rect key="frame" x="232" y="0.0" width="122" height="50"/>
@@ -202,6 +208,14 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="xsB-wz-coX"/>
                     <navigationItem key="navigationItem" id="huW-gv-6gQ"/>
+                    <connections>
+                        <outlet property="currencyValueDisplay" destination="bPR-Oh-9Zm" id="vrT-jL-Cpi"/>
+                        <outlet property="currencyValueInsert" destination="sea-hT-qAr" id="0wR-Pi-6LH"/>
+                        <outlet property="displayLeftCurrencyToRightCurrency" destination="b9o-Yd-7ud" id="MzX-Ke-h1b"/>
+                        <outlet property="displayRightCurrencyToLeftCurrency" destination="Qis-RB-k5b" id="LTX-zl-i4X"/>
+                        <outlet property="leftCurrencyCode" destination="tEh-Gf-2UL" id="z0m-CL-UpQ"/>
+                        <outlet property="rightCurrencyCode" destination="aFK-yk-Nfi" id="0mS-RE-eQ0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXy-gA-1Bm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
