@@ -10,12 +10,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CurrencyConversionsViewController">
             <connections>
-                <outlet property="currencyValueDisplay" destination="h9j-oM-Nlt" id="1rQ-DI-7Qb"/>
-                <outlet property="currencyValueInsert" destination="fqG-dN-WZm" id="O3f-7j-u6U"/>
-                <outlet property="displayLeftCurrencyToRightCurrency" destination="uxl-E9-SI8" id="4Bg-MO-Hai"/>
-                <outlet property="displayRightCurrencyToLeftCurrency" destination="9c0-2R-Jtr" id="shi-2h-1b2"/>
-                <outlet property="leftCurrencyCode" destination="PIa-m5-NkZ" id="Ktv-Bk-YNg"/>
-                <outlet property="rightCurrencyCode" destination="UG5-5L-Xct" id="CG9-VB-ffo"/>
+                <outlet property="currencyValueDisplay" destination="h9j-oM-Nlt" id="Msr-Z9-6rp"/>
+                <outlet property="currencyValueInsert" destination="trw-L0-taO" id="SXj-Ll-hDr"/>
+                <outlet property="leftCurrencyCode" destination="PIa-m5-NkZ" id="FPf-wn-nzm"/>
+                <outlet property="primaryCurrencyComparison" destination="uxl-E9-SI8" id="CIB-xo-zqL"/>
+                <outlet property="rightCurrencyCode" destination="UG5-5L-Xct" id="rJ3-W1-d57"/>
+                <outlet property="secondaryCurrencyComparison" destination="9c0-2R-Jtr" id="VI2-2b-Y77"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -30,16 +30,6 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-1N-n26">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="394"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,330.23" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqG-dN-WZm">
-                                    <rect key="frame" x="10" y="26" width="354" height="83"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="83" id="RTk-vX-UNM"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="30"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quM-Cp-e3R">
                                     <rect key="frame" x="10" y="329" width="354" height="31"/>
                                     <state key="normal" title="Button"/>
@@ -83,18 +73,26 @@
                                         <constraint firstAttribute="height" constant="50" id="prz-Ha-MOX"/>
                                     </constraints>
                                 </stackView>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trw-L0-taO">
+                                    <rect key="frame" x="10" y="35" width="354" height="100"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="100" id="pNT-FE-ydT"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemGrayColor"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="YIm-Mo-dKK" secondAttribute="trailing" constant="10" id="8ab-hv-pvB"/>
+                                <constraint firstItem="trw-L0-taO" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="Baj-BS-t8x"/>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerX" secondItem="KtI-1N-n26" secondAttribute="centerX" id="CVg-KI-GhG"/>
+                                <constraint firstItem="bUJ-1V-wuA" firstAttribute="top" secondItem="trw-L0-taO" secondAttribute="bottom" constant="37" id="I73-q8-hk8"/>
                                 <constraint firstItem="quM-Cp-e3R" firstAttribute="top" relation="lessThanOrEqual" secondItem="YIm-Mo-dKK" secondAttribute="bottom" constant="108" id="JVa-Mg-og5"/>
                                 <constraint firstAttribute="trailing" secondItem="quM-Cp-e3R" secondAttribute="trailing" constant="10" id="KWu-CV-dU2"/>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="SRa-AM-CZv"/>
-                                <constraint firstItem="YIm-Mo-dKK" firstAttribute="top" relation="lessThanOrEqual" secondItem="fqG-dN-WZm" secondAttribute="bottom" constant="64" id="i2V-Rt-z3R"/>
-                                <constraint firstItem="fqG-dN-WZm" firstAttribute="top" secondItem="KtI-1N-n26" secondAttribute="top" constant="26" id="i4n-3O-KTX"/>
-                                <constraint firstItem="fqG-dN-WZm" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="i6P-lT-2o8"/>
-                                <constraint firstAttribute="trailing" secondItem="fqG-dN-WZm" secondAttribute="trailing" constant="10" id="khZ-TF-v27"/>
+                                <constraint firstItem="trw-L0-taO" firstAttribute="top" secondItem="KtI-1N-n26" secondAttribute="top" constant="35" id="hsc-wd-Yl8"/>
+                                <constraint firstAttribute="trailing" secondItem="trw-L0-taO" secondAttribute="trailing" constant="10" id="htI-DM-F8q"/>
                                 <constraint firstItem="quM-Cp-e3R" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="neA-P5-xTg"/>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerY" secondItem="KtI-1N-n26" secondAttribute="centerY" id="uTc-Hs-bmc"/>
                                 <constraint firstAttribute="bottom" secondItem="quM-Cp-e3R" secondAttribute="bottom" constant="34" id="wHc-Lp-aDx"/>
@@ -153,7 +151,7 @@
                 <constraint firstItem="CHK-l5-25M" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="XE7-gb-PTu"/>
                 <constraint firstItem="CHK-l5-25M" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="eJt-Mq-cvL"/>
             </constraints>
-            <point key="canvasLocation" x="132" y="103"/>
+            <point key="canvasLocation" x="131.8840579710145" y="102.45535714285714"/>
         </view>
     </objects>
     <resources>

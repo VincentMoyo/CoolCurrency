@@ -6,41 +6,54 @@
 //
 
 #import "CurrencyConversionsViewController.h"
+#import "ConversionCurrencyViewModel.h"
 
-@interface CurrencyConversionsViewController ()
-
-@property (weak, nonatomic) IBOutlet UILabel *currencyValueInsert;
-@property (weak, nonatomic) IBOutlet UILabel *currencyValueDisplay;
-@property (weak, nonatomic) IBOutlet UILabel *leftCurrencyCode;
-@property (weak, nonatomic) IBOutlet UIView *rightCurrencyCode;
-@property (weak, nonatomic) IBOutlet UILabel *displayLeftCurrencyToRightCurrency;
-@property (weak, nonatomic) IBOutlet UILabel *displayRightCurrencyToLeftCurrency;
-
-@property (strong, nonatomic) ConvertCurrencyDataModel *dataModels;
-
+@interface CurrencyConversionsViewController () {
+    
+    ConversionCurrencyViewModel * _viewModel;
+    IBOutlet UITextField *currencyValueInsert;
+    IBOutlet UILabel *leftCurrencyCode;
+    IBOutlet UILabel *rightCurrencyCode;
+    IBOutlet UILabel *currencyValueDisplay;
+    IBOutlet UILabel *primaryCurrencyComparison;
+    IBOutlet UILabel *secondaryCurrencyComparison;
+    
+}
 @end
 
 @implementation CurrencyConversionsViewController
 
-- (instancetype)initWith:(ConvertCurrencyDataModel *)dataModel {
-    if ((self = [super init])) {
-        self.viewModel.dataModel = dataModel;
-        self.dataModels = dataModel;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupCurrencyCodeLabels];
+    currencyValueInsert.delegate = self;
+}
+
+- (void)set:(ConvertCurrencyDataModel *)currencyConversion {
+    [self setupViewModel];
+    [_viewModel set:currencyConversion];
+}
+
+- (void)setupViewModel {
+    if (!_viewModel) {
+        _viewModel = [[ConversionCurrencyViewModel alloc] init];
+    }
+}
+
+- (void) setupCurrencyCodeLabels {
+    leftCurrencyCode.text = _viewModel.primaryCurrencyName;
+    rightCurrencyCode.text = _viewModel.secondaryCurrencyName;
 }
 
 - (IBAction)ConvertCurrencyPressed:(UIButton *)sender {
-    self.currencyValueDisplay.text = self.dataModels.primaryCurrencyName;
+    
+    currencyValueDisplay.text = [_viewModel multiplyCurrencyBy: [currencyValueInsert.text doubleValue]];
 }
 
 - (IBAction)SwapCurrency:(UIButton *)sender {
-    self.displayLeftCurrencyToRightCurrency.text = self.viewModel.dataModel.primaryCurrencyName;
+    NSString *temporaryCurrencyName = leftCurrencyCode.text;
+    leftCurrencyCode.text = rightCurrencyCode.text;
+    rightCurrencyCode.text = temporaryCurrencyName;
 }
 
 @end

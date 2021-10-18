@@ -30,6 +30,9 @@ class CurrencyViewModel: CurrencyViewModiable {
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
+    var secondaryCurrencyValue = 0.0
+    var primaryCurrencyCode = ""
+    var secondaryCurrencyCode = ""
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -122,10 +125,9 @@ class CurrencyViewModel: CurrencyViewModiable {
     
     func fetchConversionCurrencyData() -> ConvertCurrencyDataModel {
         let dataModel = ConvertCurrencyDataModel()
-        dataModel.primaryCurrency = 11.2
-        dataModel.primaryCurrencyName = "Nkosiphana"
-        dataModel.secondCurrency = 15.3
-        dataModel.secondCurrencyName = "Bye"
+        dataModel.primaryCurrencyName = primaryCurrencyCode
+        dataModel.secondCurrency = secondaryCurrencyValue
+        dataModel.secondCurrencyName = secondaryCurrencyCode
         return dataModel
     }
     

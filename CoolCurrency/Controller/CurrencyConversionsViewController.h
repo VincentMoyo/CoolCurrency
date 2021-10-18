@@ -6,14 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ConvertCurrencyViewModel.h"
+@class ConvertCurrencyDataModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CurrencyConversionsViewController : UIViewController
+@interface CurrencyConversionsViewController : UIViewController <UITextFieldDelegate>
 
-- (instancetype)initWith:(ConvertCurrencyDataModel *)dataModel;
-@property (strong, nonatomic) ConvertCurrencyViewModel *viewModel;
+- (void)set:(ConvertCurrencyDataModel *)currencyConversion;
 
 @end
 
