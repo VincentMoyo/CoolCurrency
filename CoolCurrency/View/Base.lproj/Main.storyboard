@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Idh-KU-CtO">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -8,7 +8,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Currency View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="yn1-Uq-pA4">
+            <objects>
+                <navigationController id="Idh-KU-CtO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UM-KC-xqt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" systemColor="systemBlueColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="30"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ayu-ao-SHb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q1q-JA-Qcm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1016" y="87"/>
+        </scene>
+        <!--Cool Currency-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeCurrencyViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,36 +37,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GU9-NR-7Uy">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                <subviews>
-                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D48-mC-9b2">
-                                        <rect key="frame" x="47" y="17" width="320" height="216"/>
-                                    </pickerView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="20H-ZY-1v1"/>
-                                    <constraint firstItem="D48-mC-9b2" firstAttribute="centerY" secondItem="GU9-NR-7Uy" secondAttribute="centerY" id="3El-F9-SR7"/>
-                                    <constraint firstItem="D48-mC-9b2" firstAttribute="centerX" secondItem="GU9-NR-7Uy" secondAttribute="centerX" id="MPQ-y4-De5"/>
-                                </constraints>
-                            </view>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D48-mC-9b2">
+                                <rect key="frame" x="0.0" y="93" width="414" height="216"/>
+                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-mA-DvE">
-                                <rect key="frame" x="0.0" y="207" width="414" height="643"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <rect key="frame" x="0.0" y="332" width="414" height="518"/>
+                                <color key="backgroundColor" red="0.011764707040000001" green="0.99215692280000001" blue="0.87463241820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.011764707040000001" green="0.99215692280000001" blue="0.87463241820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.011764707040000001" green="0.99215692280000001" blue="0.87463241820000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="1gO-mA-DvE" firstAttribute="top" secondItem="D48-mC-9b2" secondAttribute="bottom" constant="-26" id="9Fu-Y7-G0z"/>
-                            <constraint firstItem="1gO-mA-DvE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Bg1-cV-DKA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gO-mA-DvE" secondAttribute="bottom" constant="12" id="KDk-aB-2NQ"/>
-                            <constraint firstItem="1gO-mA-DvE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="S6E-Ms-lFR"/>
-                            <constraint firstItem="GU9-NR-7Uy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eJe-zL-Sys"/>
-                            <constraint firstItem="GU9-NR-7Uy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vQI-H2-EC9"/>
-                            <constraint firstItem="GU9-NR-7Uy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="z7Z-5D-mKY"/>
+                            <constraint firstItem="D48-mC-9b2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5JW-hW-AbJ"/>
+                            <constraint firstItem="D48-mC-9b2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7PK-lp-sHA"/>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BBe-MJ-05b"/>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="top" secondItem="D48-mC-9b2" secondAttribute="bottom" constant="23" id="E5U-la-n4W"/>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eVW-lP-dpe"/>
+                            <constraint firstItem="D48-mC-9b2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="f1A-FQ-Har"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gO-mA-DvE" secondAttribute="bottom" constant="12" id="uHf-E8-KUZ"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="AzY-ct-QxY"/>
+                    <navigationItem key="navigationItem" title="Cool Currency" id="G9V-4a-uDK"/>
                     <connections>
                         <outlet property="currencyPickerView" destination="D48-mC-9b2" id="RHs-jG-2cg"/>
                         <outlet property="currencyTableView" destination="1gO-mA-DvE" id="p3h-Td-yvy"/>
@@ -53,12 +67,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="99.776785714285708"/>
+            <point key="canvasLocation" x="1" y="86"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

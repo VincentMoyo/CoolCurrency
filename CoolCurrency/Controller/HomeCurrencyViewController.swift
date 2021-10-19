@@ -46,6 +46,13 @@ extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource
         
         return cell ?? CurrencyTableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.setSecondaryCurrency(at: indexPath.row)
+        let viewController = CurrencyConversionsViewController()
+        viewController.set(viewModel.fetchConversionCurrencyData())
+        show(viewController, sender: nil)
+    }
 }
 
 extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -64,8 +71,10 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = Array(viewModel.currencyList.keys)[row]
+        viewModel.setPrimaryCurrencyCode(for: selectedCurrency)
         viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
     }
+    
 }
 
 extension HomeCurrencyViewController: CurrencyViewModelDelegate {
