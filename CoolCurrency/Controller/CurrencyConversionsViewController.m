@@ -27,6 +27,7 @@
     [super viewDidLoad];
     [self setupCurrencyCodeLabels];
     currencyValueInsert.delegate = self;
+    currencyValueInsert.keyboardType = UIKeyboardTypeNumberPad;
 }
 
 - (void)set:(ConvertCurrencyDataModel *)currencyConversion {
@@ -49,6 +50,7 @@
 
 - (IBAction)ConvertCurrencyPressed:(UIButton *)sender {
     currencyValueDisplay.text = [_viewModel multiplyCurrencyBy: [currencyValueInsert.text doubleValue]];
+    [self.view endEditing:YES];
 }
 
 - (IBAction)SwapCurrency:(UIButton *)sender {

@@ -73,12 +73,12 @@
                                         <constraint firstAttribute="height" constant="50" id="prz-Ha-MOX"/>
                                     </constraints>
                                 </stackView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trw-L0-taO">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trw-L0-taO">
                                     <rect key="frame" x="10" y="35" width="354" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="pNT-FE-ydT"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
@@ -101,7 +101,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="THi-1V-4EC">
                             <rect key="frame" x="0.0" y="404" width="374" height="394"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R2,026.38" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-oM-Nlt">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-oM-Nlt">
                                     <rect key="frame" x="10" y="10" width="356" height="160"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>

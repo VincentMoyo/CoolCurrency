@@ -30,9 +30,9 @@ class CurrencyViewModel: CurrencyViewModiable {
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
-    var secondaryCurrencyValue = 0.0
-    var primaryCurrencyCode = ""
-    var secondaryCurrencyCode = ""
+    private var secondaryCurrencyValue = 0.0
+    private var primaryCurrencyCode = ""
+    private var secondaryCurrencyCode = ""
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
