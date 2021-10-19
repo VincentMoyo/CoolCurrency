@@ -43,10 +43,11 @@
 - (void) setupCurrencyCodeLabels {
     leftCurrencyCode.text = _viewModel.primaryCurrencyName;
     rightCurrencyCode.text = _viewModel.secondaryCurrencyName;
+    primaryCurrencyComparison.text = [_viewModel primaryCurrencyValueComparison];
+    secondaryCurrencyComparison.text = [_viewModel secondaryCurrencyValueComparison];
 }
 
 - (IBAction)ConvertCurrencyPressed:(UIButton *)sender {
-    
     currencyValueDisplay.text = [_viewModel multiplyCurrencyBy: [currencyValueInsert.text doubleValue]];
 }
 

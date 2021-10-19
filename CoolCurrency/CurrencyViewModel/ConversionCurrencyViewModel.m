@@ -33,8 +33,17 @@ ConvertCurrencyDataModel *_dataModel;
 }
 
 - (NSString *)multiplyCurrencyBy: (double)multipler {
-    double convertedCurrency = multipler * _dataModel.secondCurrency;
-    return [NSString stringWithFormat: @"%f", convertedCurrency];
+    double multipliedCurrency = multipler * _dataModel.secondCurrency;
+    return [NSString stringWithFormat: @"%f", multipliedCurrency];
+}
+
+- (NSString *)primaryCurrencyValueComparison {
+    return [NSString stringWithFormat: @"1 %@ = %f %@",_dataModel.primaryCurrencyName, _dataModel.secondCurrency, _dataModel.secondCurrencyName];
+}
+
+- (NSString *)secondaryCurrencyValueComparison {
+    double convertedCurrency = 1 / _dataModel.secondCurrency;
+    return [NSString stringWithFormat: @"%f %@ = 1 %@",convertedCurrency,_dataModel.primaryCurrencyName,_dataModel.secondCurrencyName];
 }
 
 @end

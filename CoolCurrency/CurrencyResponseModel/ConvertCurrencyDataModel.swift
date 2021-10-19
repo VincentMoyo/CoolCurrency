@@ -12,9 +12,11 @@ import Foundation
     var secondCurrency: Double
     var secondCurrencyName: String
     
-    override init() {
-        primaryCurrencyName = ""
-        secondCurrency = 0.0
-        secondCurrencyName = ""
+    init(primaryCurrentName: String,
+         secondCurrency: Double,
+         secondCurrentName: String) {
+        self.primaryCurrencyName =  primaryCurrentName
+        self.secondCurrency = secondCurrency
+        self.secondCurrencyName = secondCurrentName
     }
 }

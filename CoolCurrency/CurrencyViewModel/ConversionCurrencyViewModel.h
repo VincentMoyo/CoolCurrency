@@ -17,7 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSString *)secondaryCurrencyName;
 - (NSString *)secondaryCurrency;
 - (NSString *)multiplyCurrencyBy: (double)multipler;
-
+- (NSString *)primaryCurrencyValueComparison;
+- (NSString *)secondaryCurrencyValueComparison;
 
 @end
 

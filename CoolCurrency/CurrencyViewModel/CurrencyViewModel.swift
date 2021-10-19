@@ -124,11 +124,19 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     func fetchConversionCurrencyData() -> ConvertCurrencyDataModel {
-        let dataModel = ConvertCurrencyDataModel()
-        dataModel.primaryCurrencyName = primaryCurrencyCode
-        dataModel.secondCurrency = secondaryCurrencyValue
-        dataModel.secondCurrencyName = secondaryCurrencyCode
+        let dataModel = ConvertCurrencyDataModel(primaryCurrentName: primaryCurrencyCode,
+                                                 secondCurrency: secondaryCurrencyValue,
+                                                 secondCurrentName: secondaryCurrencyCode)
         return dataModel
+    }
+    
+    func setPrimaryCurrencyCode(for codeValue: String) {
+        primaryCurrencyCode = codeValue
+    }
+    
+    func setSecondaryCurrency(at index: Int) {
+        secondaryCurrencyCode = Array(currencyList.keys)[index]
+        secondaryCurrencyValue = Array(currencyList.values)[index]
     }
     
     private func convertIndexToCurrencyName(at index: Int) -> CurrencyName {
