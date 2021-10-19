@@ -17,7 +17,8 @@
     IBOutlet UILabel *currencyValueDisplay;
     IBOutlet UILabel *primaryCurrencyComparison;
     IBOutlet UILabel *secondaryCurrencyComparison;
-    
+    IBOutlet UIImageView *primaryFlagNameImage;
+    IBOutlet UIImageView *secondaryFlagNameImage;
 }
 @end
 
@@ -42,10 +43,12 @@
 }
 
 - (void) setupCurrencyCodeLabels {
-    leftCurrencyCode.text = _viewModel.primaryCurrencyName;
-    rightCurrencyCode.text = _viewModel.secondaryCurrencyName;
+    leftCurrencyCode.text = _viewModel.secondaryCurrencyName;
+    rightCurrencyCode.text = _viewModel.primaryCurrencyName;
     primaryCurrencyComparison.text = [_viewModel primaryCurrencyValueComparison];
     secondaryCurrencyComparison.text = [_viewModel secondaryCurrencyValueComparison];
+    primaryFlagNameImage.image = [UIImage imageNamed:_viewModel.primaryFlagName];
+    secondaryFlagNameImage.image = [UIImage imageNamed:_viewModel.secondaryFlagName];
 }
 
 - (IBAction)ConvertCurrencyPressed:(UIButton *)sender {
@@ -57,6 +60,7 @@
     NSString *temporaryCurrencyName = leftCurrencyCode.text;
     leftCurrencyCode.text = rightCurrencyCode.text;
     rightCurrencyCode.text = temporaryCurrencyName;
+    [_viewModel setSecondaryCurrency:1 / [_viewModel.secondaryCurrency doubleValue]];
 }
 
 @end

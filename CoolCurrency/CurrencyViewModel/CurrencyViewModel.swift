@@ -33,6 +33,8 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var secondaryCurrencyValue = 0.0
     private var primaryCurrencyCode = ""
     private var secondaryCurrencyCode = ""
+    private var primaryCurrencyFlagName = ""
+    private var secondaryCurrencyFlagName = ""
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -52,9 +54,16 @@ class CurrencyViewModel: CurrencyViewModiable {
             }
         })
     }
+    func convertIndexToCurrencyName(at index: Int) -> String {
+        if let newIndex = Array(currencyList.keys)[safe: index] {
+            if let newCurrency = CurrencyName(rawValue: newIndex) {
+                return fetchCurrencyFlagName(at: newCurrency)
+            }
+        }
+        return ""
+    }
     
-    func fetchCurrencyFlagName(at index: Int) -> String {
-        let newCurrency = convertIndexToCurrencyName(at: index)
+    func fetchCurrencyFlagName(at newCurrency: CurrencyName) -> String {
         switch newCurrency {
         case .pound:
             return "BritishFlag"
@@ -125,18 +134,24 @@ class CurrencyViewModel: CurrencyViewModiable {
     
     func fetchConversionCurrencyData() -> ConvertCurrencyDataModel {
         let dataModel = ConvertCurrencyDataModel(primaryCurrentName: primaryCurrencyCode,
+                                                 primaryCurrencyFlagName: primaryCurrencyFlagName,
                                                  secondCurrency: secondaryCurrencyValue,
-                                                 secondCurrentName: secondaryCurrencyCode)
+                                                 secondCurrentName: secondaryCurrencyCode,
+                                                 secondaryCurrencyFlagName: secondaryCurrencyFlagName)
         return dataModel
     }
     
     func setPrimaryCurrencyCode(for codeValue: String) {
-        primaryCurrencyCode = codeValue
+        primaryCurrencyCode = convertCurrencyToCode(for: codeValue)
+        if let newCodeValue = CurrencyName(rawValue: codeValue) {
+            primaryCurrencyFlagName = fetchCurrencyFlagName(at: newCodeValue)
+        }
     }
     
     func setSecondaryCurrency(at index: Int) {
-        secondaryCurrencyCode = Array(currencyList.keys)[index]
+        secondaryCurrencyCode = convertCurrencyToCode(for: Array(currencyList.keys)[index])
         secondaryCurrencyValue = Array(currencyList.values)[index]
+        secondaryCurrencyFlagName = convertIndexToCurrencyName(at: index)
     }
     
     private func convertIndexToCurrencyName(at index: Int) -> CurrencyName {
@@ -186,7 +201,7 @@ extension CurrencyViewModel {
         guard let newCurrencyName = fetchCurrencyName(at: index),
               let newCurrencyValue = fetchCurrencyValue(at: index) else { return nil }
         
-        return CurrencyDataModel(currencyFlagName: fetchCurrencyFlagName(at: index),
+        return CurrencyDataModel(currencyFlagName: convertIndexToCurrencyName(at: index),
                                  currencyName: newCurrencyName,
                                  currencyIncreaseIndicator: true,
                                  currencyValue: String(newCurrencyValue))
