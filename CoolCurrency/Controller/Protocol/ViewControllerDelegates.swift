@@ -11,3 +11,8 @@ protocol CurrencyViewModelDelegate: AnyObject {
     func showUserErrorMessage(error: Error)
     func bindViewModel(_ currencyViewModel: CurrencyViewModel)
 }
+
+protocol CryptoAndMetalViewModelDelegate: AnyObject {
+    func showUserErrorMessage(error: Error)
+    func bindViewModel(_ currencyViewModel: CryptoAndMetalViewModel)
+}

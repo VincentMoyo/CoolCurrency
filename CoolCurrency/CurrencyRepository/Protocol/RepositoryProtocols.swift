@@ -8,7 +8,12 @@
 import Foundation
 
 typealias ListCurrencyResponseModel = (Result<CurrencyResponseModel, Error>) -> Void
+typealias BitcoinDataResponseModel = (Result<CoinData, Error>) -> Void
 
 protocol CurrencyRepositable {
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel)
+}
+
+protocol BitcoinRepositable {
+    func performBitcoinValueRequest(for baseCurrency: String, completion: @escaping BitcoinDataResponseModel)
 }
