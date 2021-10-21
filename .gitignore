@@ -5,6 +5,7 @@
 # Cocoapods
 Pods/
 Podfile.lock
+Podfile
 
 Constants.swift
 
