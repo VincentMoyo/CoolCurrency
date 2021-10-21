@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 enum CurrencyName: String {
     case pound = "Pound"
@@ -36,7 +37,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
-    private let database = DatabaseRepository()
+    private let database = DatabaseRepository(databaseReference: Database.database().reference())
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
