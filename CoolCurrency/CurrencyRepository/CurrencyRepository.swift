@@ -32,14 +32,47 @@ class CurrencyRepository: CurrencyRepositable {
         }
     }
     
+    func performBitcoinRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
+        if let url = URLCurrencyStringBuilder(for: baseCurrency) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url) { (data, _, error) in
+                if error != nil {
+                    completion(.failure((error!)))
+                    return
+                }
+                do {
+                    let decodedData = try JSONDecoder().decode(CurrencyResponseModel.self, from: data!)
+                    DispatchQueue.main.async {
+                        completion(.success(decodedData))
+                    }
+                } catch {
+                    DispatchQueue.main.async {
+                        completion(.failure(error))
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
     private func URLCurrencyStringBuilder(for baseCurrency: String) -> URL? {
         var urlComponents = URLComponents()
-        urlComponents.scheme = Constants.URLBuilder.kScheme
-        urlComponents.host = Constants.URLBuilder.kHost
-        urlComponents.path = Constants.URLBuilder.kPath
-        let apiKeyQueryItem = URLQueryItem(name: Constants.URLBuilder.kAPIKeyString, value: Constants.URLBuilder.kAPIKey)
-        let currencyBaseQueryItem = URLQueryItem(name: Constants.URLBuilder.kBaseString, value: baseCurrency)
+        urlComponents.scheme = Constants.CurrencyAPI.URLBuilder.kScheme
+        urlComponents.host = Constants.CurrencyAPI.URLBuilder.kHost
+        urlComponents.path = Constants.CurrencyAPI.URLBuilder.kPath
+        let apiKeyQueryItem = URLQueryItem(name: Constants.CurrencyAPI.URLBuilder.kAPIKeyString, value: Constants.CurrencyAPI.URLBuilder.kAPIKey)
+        let currencyBaseQueryItem = URLQueryItem(name: Constants.CurrencyAPI.URLBuilder.kBaseString, value: baseCurrency)
         urlComponents.queryItems = [apiKeyQueryItem, currencyBaseQueryItem]
+        return urlComponents.url
+    }
+    
+    private func URLBitcoinStringBuilder(for baseCurrency: String) -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = Constants.BitcoinAPI.URLBuilder.kScheme
+        urlComponents.host = Constants.BitcoinAPI.URLBuilder.kHost
+        urlComponents.path = Constants.BitcoinAPI.URLBuilder.kPath + baseCurrency
+        let apiKeyQueryItem = URLQueryItem(name: Constants.BitcoinAPI.URLBuilder.kAPIKeyString, value: Constants.BitcoinAPI.URLBuilder.kAPIKey)
+        urlComponents.queryItems = [apiKeyQueryItem]
         return urlComponents.url
     }
 }
