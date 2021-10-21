@@ -13,8 +13,8 @@ class DatabaseRepository {
     
     private var database: DatabaseReference
     
-    init() {
-        self.database = Database.database().reference()
+    init(databaseReference: DatabaseReference) {
+        self.database = databaseReference
     }
     
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double]) {
