@@ -21,5 +21,10 @@ class CurrencyTableViewCell: UITableViewCell {
         currencyNameLabel.text = model.currencyName
         currencyValueLabel.text = model.currencyValue
         currencyFlagImageView.image = UIImage(named: model.currencyFlagName)
+        if model.currencyIncreaseIndicator {
+            indicatorImageView.image = UIImage(named: "greenArrow")
+        } else {
+            indicatorImageView.image = UIImage(named: "redArrow")
+        }
     }
 }

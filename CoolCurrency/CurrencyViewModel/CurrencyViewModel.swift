@@ -30,11 +30,13 @@ class CurrencyViewModel: CurrencyViewModiable {
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
+    private(set) var previousCurrencyList: [String: Double] = [:]
     private var secondaryCurrencyValue = 0.0
     private var primaryCurrencyCode = ""
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
+    private let database = DatabaseRepository()
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
@@ -48,12 +50,27 @@ class CurrencyViewModel: CurrencyViewModiable {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
+                self?.database.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
                 self?.delegate?.bindViewModel(self!)
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
     }
+    
+    func writeToDatabase(for baseCurrency: String) {
+        database.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
+                                              completion: { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.previousCurrencyList = response
+                self?.delegate?.bindViewModel(self!)
+            case .failure(let error):
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        })
+    }
+    
     func convertIndexToCurrencyName(at index: Int) -> String {
         if let newIndex = Array(currencyList.keys)[safe: index] {
             if let newCurrency = CurrencyName(rawValue: newIndex) {
@@ -203,7 +220,22 @@ extension CurrencyViewModel {
         
         return CurrencyDataModel(currencyFlagName: convertIndexToCurrencyName(at: index),
                                  currencyName: newCurrencyName,
-                                 currencyIncreaseIndicator: true,
+                                 currencyIncreaseIndicator: indicatorIncreased(at: index),
                                  currencyValue: String(newCurrencyValue))
+    }
+    
+    func indicatorIncreased(at index: Int) -> Bool {
+        for item in previousCurrencyList {
+            if Array(currencyList.keys)[safe: index] == item.key {
+                if Array(currencyList.values)[safe: index]! < item.value {
+                    return true
+                } else if Array(currencyList.values)[safe: index]! == item.value {
+                    return true
+                } else {
+                    return true
+                }
+            }
+        }
+        return false
     }
 }

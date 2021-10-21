@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class HomeCurrencyViewController: UIViewController {
     
     @IBOutlet private weak var currencyPickerView: UIPickerView!
     @IBOutlet private weak var currencyTableView: UITableView!
+    
+    let database = Database.database().reference()
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
@@ -71,10 +74,10 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = Array(viewModel.currencyList.keys)[row]
+        viewModel.writeToDatabase(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
         viewModel.setPrimaryCurrencyCode(for: selectedCurrency)
         viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
     }
-    
 }
 
 extension HomeCurrencyViewController: CurrencyViewModelDelegate {
