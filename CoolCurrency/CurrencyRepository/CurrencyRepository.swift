@@ -34,11 +34,11 @@ class CurrencyRepository: CurrencyRepositable {
     
     private func URLCurrencyStringBuilder(for baseCurrency: String) -> URL? {
         var urlComponents = URLComponents()
-        urlComponents.scheme = Constants.URLBuilder.kScheme
-        urlComponents.host = Constants.URLBuilder.kHost
-        urlComponents.path = Constants.URLBuilder.kPath
-        let apiKeyQueryItem = URLQueryItem(name: Constants.URLBuilder.kAPIKeyString, value: Constants.URLBuilder.kAPIKey)
-        let currencyBaseQueryItem = URLQueryItem(name: Constants.URLBuilder.kBaseString, value: baseCurrency)
+        urlComponents.scheme = Constants.CurrencyAPI.URLBuilder.kScheme
+        urlComponents.host = Constants.CurrencyAPI.URLBuilder.kHost
+        urlComponents.path = Constants.CurrencyAPI.URLBuilder.kPath
+        let apiKeyQueryItem = URLQueryItem(name: Constants.CurrencyAPI.URLBuilder.kAPIKeyString, value: Constants.CurrencyAPI.URLBuilder.kAPIKey)
+        let currencyBaseQueryItem = URLQueryItem(name: Constants.CurrencyAPI.URLBuilder.kBaseString, value: baseCurrency)
         urlComponents.queryItems = [apiKeyQueryItem, currencyBaseQueryItem]
         return urlComponents.url
     }
