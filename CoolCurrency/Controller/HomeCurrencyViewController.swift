@@ -19,7 +19,7 @@ class HomeCurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchCurrencyList(for: "ZAR")
+        viewModel.fetchCurrencyListFromAPI(for: "ZAR")
         setupCurrencyPickerView()
         setupCurrencyTableView()
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
@@ -74,9 +74,9 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        viewModel.writeToDatabase(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
+        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
         viewModel.setPrimaryCurrencyCode(for: selectedCurrency)
-        viewModel.fetchCurrencyList(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
+        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
     }
 }
 

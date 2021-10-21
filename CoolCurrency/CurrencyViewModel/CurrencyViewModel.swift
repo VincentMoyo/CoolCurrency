@@ -43,7 +43,7 @@ class CurrencyViewModel: CurrencyViewModiable {
         self.delegate = delegate
     }
     
-    func fetchCurrencyList(for baseCurrency: String) {
+    func fetchCurrencyListFromAPI(for baseCurrency: String) {
         currencyRepository.performCurrencyRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
             switch result {
@@ -58,7 +58,7 @@ class CurrencyViewModel: CurrencyViewModiable {
         })
     }
     
-    func writeToDatabase(for baseCurrency: String) {
+    func fetchCurrencyListFromDatabase(for baseCurrency: String) {
         database.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
                                               completion: { [weak self] result in
             switch result {
@@ -224,18 +224,18 @@ extension CurrencyViewModel {
                                  currencyValue: String(newCurrencyValue))
     }
     
-    func indicatorIncreased(at index: Int) -> Bool {
+    private func indicatorIncreased(at index: Int) -> Int {
         for item in previousCurrencyList {
             if Array(currencyList.keys)[safe: index] == item.key {
                 if Array(currencyList.values)[safe: index]! < item.value {
-                    return true
+                    return 0
                 } else if Array(currencyList.values)[safe: index]! == item.value {
-                    return true
+                    return 1
                 } else {
-                    return true
+                    return 2
                 }
             }
         }
-        return false
+        return 1
     }
 }

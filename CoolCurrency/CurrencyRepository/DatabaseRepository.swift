@@ -12,11 +12,9 @@ import UIKit
 class DatabaseRepository {
     
     private let database = Database.database().reference()
-    var specifiedCurrencyList: [String: Double] = [:]
     
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double]) {
         database.child(baseCurrency).setValue(currencyList)
-        print("list \(currencyList)")
     }
     
     func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping (Result<[String: Double], Error>) -> Void) {

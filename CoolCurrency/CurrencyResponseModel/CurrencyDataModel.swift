@@ -10,6 +10,6 @@ import Foundation
 struct CurrencyDataModel {
     let currencyFlagName: String
     let currencyName: String
-    let currencyIncreaseIndicator: Bool
+    let currencyIncreaseIndicator: Int
     let currencyValue: String
 }
