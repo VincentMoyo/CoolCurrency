@@ -6,14 +6,11 @@
 //
 
 import UIKit
-import FirebaseDatabase
 
 class HomeCurrencyViewController: UIViewController {
     
     @IBOutlet private weak var currencyPickerView: UIPickerView!
     @IBOutlet private weak var currencyTableView: UITableView!
-    
-    let database = Database.database().reference()
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
     
