@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CurrencyViewModiable {
-    func fetchCurrencyList(for baseCurrency: String)
+    func fetchCurrencyListFromAPI(for baseCurrency: String)
 }

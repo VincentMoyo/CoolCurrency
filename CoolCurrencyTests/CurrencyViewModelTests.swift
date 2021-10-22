@@ -28,7 +28,7 @@ class CurrencyViewModelTests: XCTestCase {
     }
     
     func testFetchCurrencyFailure() {
-        implementationUnderTests.fetchCurrencyList(for: "ZAR")
+        implementationUnderTests.fetchCurrencyListFromAPI(for: "ZAR")
         XCTAssert(mockDelegate.showUserErrorCalled)
     }
     
@@ -43,7 +43,7 @@ class CurrencyViewModelTests: XCTestCase {
     
     func setUpMockResponse() {
         mockRepository.response = .success(mockData)
-        implementationUnderTests.fetchCurrencyList(for: "ZAR")
+        implementationUnderTests.fetchCurrencyListFromAPI(for: "ZAR")
     }
     
     private var mockData: CurrencyResponseModel {

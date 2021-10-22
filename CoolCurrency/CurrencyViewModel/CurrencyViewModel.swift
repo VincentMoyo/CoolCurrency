@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
 enum CurrencyName: String {
     case pound = "Pound"
@@ -30,30 +31,47 @@ class CurrencyViewModel: CurrencyViewModiable {
     private weak var delegate: CurrencyViewModelDelegate?
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
+    private var previousCurrencyList: [String: Double] = [:]
     private var secondaryCurrencyValue = 0.0
     private var primaryCurrencyCode = ""
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
+    private let database = DatabaseRepository(databaseReference: Database.database().reference())
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
         self.currencyRepository = repository
         self.delegate = delegate
     }
     
-    func fetchCurrencyList(for baseCurrency: String) {
+    func fetchCurrencyListFromAPI(for baseCurrency: String) {
         currencyRepository.performCurrencyRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
             switch result {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
+                self?.database.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
                 self?.delegate?.bindViewModel(self!)
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
     }
+    
+    func fetchCurrencyListFromDatabase(for baseCurrency: String) {
+        database.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
+                                              completion: { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.previousCurrencyList = response
+                self?.delegate?.bindViewModel(self!)
+            case .failure(let error):
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        })
+    }
+    
     func convertIndexToCurrencyName(at index: Int) -> String {
         if let newIndex = Array(currencyList.keys)[safe: index] {
             if let newCurrency = CurrencyName(rawValue: newIndex) {
@@ -203,7 +221,22 @@ extension CurrencyViewModel {
         
         return CurrencyDataModel(currencyFlagName: convertIndexToCurrencyName(at: index),
                                  currencyName: newCurrencyName,
-                                 currencyIncreaseIndicator: true,
+                                 currencyIncreaseIndicator: indicatorIncreased(at: index),
                                  currencyValue: String(newCurrencyValue))
+    }
+    
+    private func indicatorIncreased(at index: Int) -> Int {
+        for item in previousCurrencyList {
+            if Array(currencyList.keys)[safe: index] == item.key {
+                if Array(currencyList.values)[safe: index]! < item.value {
+                    return 0
+                } else if Array(currencyList.values)[safe: index]! == item.value {
+                    return 1
+                } else {
+                    return 2
+                }
+            }
+        }
+        return 1
     }
 }
