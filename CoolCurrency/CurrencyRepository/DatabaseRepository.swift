@@ -11,7 +11,11 @@ import UIKit
 
 class DatabaseRepository {
     
-    private let database = Database.database().reference()
+    private var database: DatabaseReference
+    
+    init(databaseReference: DatabaseReference) {
+        self.database = databaseReference
+    }
     
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double]) {
         
