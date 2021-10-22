@@ -54,7 +54,3 @@ struct Rates: Codable {
 struct CoinData: Codable {
     let rate: Double
 }
-
-struct MetalsResponseModel: Codable {
-    let rates: Rates
-}

@@ -58,6 +58,9 @@
 
 - (IBAction)SwapCurrency:(UIButton *)sender {
     NSString *temporaryCurrencyName = leftCurrencyCode.text;
+    UIImage *temporaryCurrencyFlagName = primaryFlagNameImage.image;
+    primaryFlagNameImage.image = secondaryFlagNameImage.image;
+    secondaryFlagNameImage.image = temporaryCurrencyFlagName;
     leftCurrencyCode.text = rightCurrencyCode.text;
     rightCurrencyCode.text = temporaryCurrencyName;
     [_viewModel setSecondaryCurrency:1 / [_viewModel.secondaryCurrency doubleValue]];

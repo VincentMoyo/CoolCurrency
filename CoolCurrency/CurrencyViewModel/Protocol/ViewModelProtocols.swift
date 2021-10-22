@@ -12,5 +12,5 @@ protocol CurrencyViewModiable {
 }
 
 protocol CryptoAndMetalViewModiable {
-    func fetchBitcoinPrice(for baseCurrency: String)
+    func fetchBitcoinAndMetalPrices(for baseCurrency: String)
 }

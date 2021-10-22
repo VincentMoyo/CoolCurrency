@@ -19,6 +19,7 @@ class HomeCurrencyViewController: UIViewController {
         viewModel.fetchCurrencyListFromAPI(for: "ZAR")
         setupCurrencyPickerView()
         setupCurrencyTableView()
+        currencyPickerView.setValue(UIColor.white, forKeyPath: "textColor")
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
     }
     

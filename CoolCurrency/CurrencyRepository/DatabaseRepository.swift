@@ -14,6 +14,7 @@ class DatabaseRepository {
     private let database = Database.database().reference()
     
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double]) {
+        
         database.child(baseCurrency).setValue(currencyList)
     }
     
