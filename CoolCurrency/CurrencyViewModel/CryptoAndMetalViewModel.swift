@@ -14,7 +14,7 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     private weak var delegate: CryptoAndMetalViewModelDelegate?
     private var bitcoinRepository: BitcoinRepositable
     private var metalsRepository: MetalsRepositable
-    let currencyList = Constants.currencyArray
+    let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
     init(repositoryBitcoin: BitcoinRepositable, repositoryMetals: MetalsRepositable, delegate: CryptoAndMetalViewModelDelegate) {
         self.bitcoinRepository = repositoryBitcoin
