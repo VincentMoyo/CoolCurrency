@@ -15,10 +15,7 @@ protocol CurrencyRepositable {
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel)
 }
 
-protocol BitcoinRepositable {
+protocol CryptoAndMetalsRepositable {
     func performBitcoinValueRequest(for baseCurrency: String, completion: @escaping BitcoinDataResponseModel)
-}
-
-protocol MetalsRepositable {
     func performMetalsValueRequest(for baseCurrency: String, completion: @escaping MetalsDataResponseModel)
 }

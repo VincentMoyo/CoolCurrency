@@ -12,13 +12,11 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     private var price: CoinData = CoinData(rate: 0.0)
     private var metalsResponse: MetalRates?
     private weak var delegate: CryptoAndMetalViewModelDelegate?
-    private var bitcoinRepository: BitcoinRepositable
-    private var metalsRepository: MetalsRepositable
+    private var cryptoAndMetalsRepository: CryptoAndMetalsRepositable
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
-    init(repositoryBitcoin: BitcoinRepositable, repositoryMetals: MetalsRepositable, delegate: CryptoAndMetalViewModelDelegate) {
-        self.bitcoinRepository = repositoryBitcoin
-        self.metalsRepository = repositoryMetals
+    init(repositoryCryptoAndMetals: CryptoAndMetalsRepositable, delegate: CryptoAndMetalViewModelDelegate) {
+        self.cryptoAndMetalsRepository = repositoryCryptoAndMetals
         self.delegate = delegate
     }
     
@@ -44,7 +42,7 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     }
     
     private func fetchBitcoinPrice(for baseCurrency: String) {
-        bitcoinRepository.performBitcoinValueRequest(for: baseCurrency,
+        cryptoAndMetalsRepository.performBitcoinValueRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
             switch result {
             case .success(let response):
@@ -57,7 +55,7 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     }
     
     private func fetchPriceOfMetals(for baseCurrency: String) {
-        metalsRepository.performMetalsValueRequest(for: baseCurrency,
+        cryptoAndMetalsRepository.performMetalsValueRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
             switch result {
             case .success(let response):

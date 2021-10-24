@@ -16,8 +16,7 @@ class CryptoAndMetalViewController: UIViewController {
     @IBOutlet private weak var silverValueLabel: UILabel!
     @IBOutlet private weak var currencyCodeLabel: UILabel!
     
-    private lazy var viewModel = CryptoAndMetalViewModel(repositoryBitcoin: BitcoinRepository(),
-                                                         repositoryMetals: MetalsRepository(),
+    private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepository(),
                                                          delegate: self)
     
     override func viewDidLoad() {
