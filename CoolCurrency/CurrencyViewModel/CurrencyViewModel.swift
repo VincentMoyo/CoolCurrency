@@ -37,6 +37,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
+    var selectedCurrency = ""
     private let database = DatabaseRepository(databaseReference: Database.database().reference())
     
     init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
@@ -52,7 +53,7 @@ class CurrencyViewModel: CurrencyViewModiable {
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
                 self?.database.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
-                self?.delegate?.bindViewModel(self!)
+                self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
@@ -65,7 +66,7 @@ class CurrencyViewModel: CurrencyViewModiable {
             switch result {
             case .success(let response):
                 self?.previousCurrencyList = response
-                self?.delegate?.bindViewModel(self!)
+                self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }

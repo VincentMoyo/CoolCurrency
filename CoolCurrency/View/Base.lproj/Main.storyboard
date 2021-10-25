@@ -67,10 +67,35 @@
                                 <rect key="frame" x="0.0" y="93" width="414" height="216"/>
                             </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1gO-mA-DvE">
-                                <rect key="frame" x="0.0" y="332" width="414" height="469"/>
+                                <rect key="frame" x="0.0" y="359" width="414" height="442"/>
                                 <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fj2-8o-FcW">
+                                <rect key="frame" x="108" y="312" width="198" height="39"/>
+                                <color key="backgroundColor" red="0.38738895740000001" green="0.28938567380000002" blue="0.63162138970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fj2-8o-FcW" secondAttribute="height" multiplier="66:13" id="gY2-SK-K87"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="198" id="n4O-wq-tZx"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Refresh">
+                                            <attributes>
+                                                <font key="NSFont" size="21" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -78,9 +103,11 @@
                             <constraint firstItem="D48-mC-9b2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5JW-hW-AbJ"/>
                             <constraint firstItem="D48-mC-9b2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7PK-lp-sHA"/>
                             <constraint firstItem="1gO-mA-DvE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="BBe-MJ-05b"/>
-                            <constraint firstItem="1gO-mA-DvE" firstAttribute="top" secondItem="D48-mC-9b2" secondAttribute="bottom" constant="23" id="E5U-la-n4W"/>
+                            <constraint firstItem="1gO-mA-DvE" firstAttribute="top" secondItem="fj2-8o-FcW" secondAttribute="bottom" constant="8" symbolic="YES" id="VMe-w1-tnK"/>
                             <constraint firstItem="1gO-mA-DvE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="eVW-lP-dpe"/>
                             <constraint firstItem="D48-mC-9b2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="f1A-FQ-Har"/>
+                            <constraint firstItem="fj2-8o-FcW" firstAttribute="top" secondItem="D48-mC-9b2" secondAttribute="bottom" constant="3" id="ifs-wT-f8j"/>
+                            <constraint firstItem="fj2-8o-FcW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kuU-FG-FRS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="1gO-mA-DvE" secondAttribute="bottom" constant="12" id="uHf-E8-KUZ"/>
                         </constraints>
                     </view>
@@ -95,7 +122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="571" y="-866"/>
+            <point key="canvasLocation" x="569.56521739130437" y="-866.51785714285711"/>
         </scene>
         <!--Minerals-->
         <scene sceneID="gVo-uO-OyJ">
@@ -327,15 +354,42 @@
                                     <constraint firstAttribute="height" constant="216" id="Qqm-Qq-B7Y"/>
                                 </constraints>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-gd-fdy">
+                                <rect key="frame" x="108" y="550" width="198" height="39"/>
+                                <color key="backgroundColor" red="0.38738895740765822" green="0.28938567383424724" blue="0.63162138967803028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SKU-gd-fdy" secondAttribute="height" multiplier="66:13" id="EkK-IQ-tua"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Refresh">
+                                            <attributes>
+                                                <font key="NSFont" size="21" name="Helvetica"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZiW-Qf-Uue"/>
                         <color key="backgroundColor" red="0.10119813861268945" green="0.018112823357692952" blue="0.034331730930728332" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="YDM-Ap-j7t" firstAttribute="bottom" secondItem="ZiW-Qf-Uue" secondAttribute="bottom" id="6st-ms-QtV"/>
+                            <constraint firstItem="SKU-gd-fdy" firstAttribute="centerX" secondItem="j1t-3T-NQo" secondAttribute="centerX" id="78J-dJ-4bD"/>
+                            <constraint firstItem="YDM-Ap-j7t" firstAttribute="top" secondItem="SKU-gd-fdy" secondAttribute="bottom" constant="8" id="CIq-Ua-Jdz"/>
                             <constraint firstItem="0i2-o9-SYI" firstAttribute="top" secondItem="ZiW-Qf-Uue" secondAttribute="top" constant="30" id="Ey4-R5-yf2"/>
                             <constraint firstItem="YDM-Ap-j7t" firstAttribute="leading" secondItem="ZiW-Qf-Uue" secondAttribute="leading" id="Gax-dS-ku1"/>
                             <constraint firstItem="ZiW-Qf-Uue" firstAttribute="trailing" secondItem="0i2-o9-SYI" secondAttribute="trailing" constant="10" id="Mdn-TI-KuJ"/>
                             <constraint firstItem="0i2-o9-SYI" firstAttribute="leading" secondItem="ZiW-Qf-Uue" secondAttribute="leading" constant="10" id="QbJ-4o-giR"/>
+                            <constraint firstItem="SKU-gd-fdy" firstAttribute="top" secondItem="0i2-o9-SYI" secondAttribute="bottom" constant="16" id="a8Z-2n-odh"/>
                             <constraint firstItem="YDM-Ap-j7t" firstAttribute="trailing" secondItem="ZiW-Qf-Uue" secondAttribute="trailing" id="raI-vX-EUg"/>
                         </constraints>
                     </view>
@@ -351,7 +405,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggw-Kp-hLz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="-54"/>
+            <point key="canvasLocation" x="569.56521739130437" y="-54.241071428571423"/>
         </scene>
     </scenes>
     <resources>

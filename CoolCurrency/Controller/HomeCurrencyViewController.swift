@@ -23,6 +23,11 @@ class HomeCurrencyViewController: UIViewController {
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
     }
     
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
+        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
+    }
+    
     private func setupCurrencyPickerView() {
         currencyPickerView.dataSource = self
         currencyPickerView.delegate = self
@@ -71,16 +76,16 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
-        viewModel.setPrimaryCurrencyCode(for: selectedCurrency)
-        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: selectedCurrency))
+        viewModel.selectedCurrency = Array(viewModel.currencyList.keys)[row]
+        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
+        viewModel.setPrimaryCurrencyCode(for: viewModel.selectedCurrency)
+        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
     }
 }
 
 extension HomeCurrencyViewController: CurrencyViewModelDelegate {
     
-    func bindViewModel(_ currencyViewModel: CurrencyViewModel) {
+    func bindViewModel() {
             self.currencyTableView.reloadData()
             self.currencyPickerView.reloadAllComponents()
     }

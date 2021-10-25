@@ -25,6 +25,10 @@ class CryptoAndMetalViewController: UIViewController {
         currencyPicker.dataSource = self
         currencyPicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
+    
+    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+        viewModel.fetchBitcoinAndMetalPrices(for: viewModel.selectedCurrency)
+    }
 }
 
 extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -42,25 +46,18 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedCurrency = viewModel.currencyList[row]
-        viewModel.fetchBitcoinAndMetalPrices(for: selectedCurrency)
-        currencyCodeLabel.text = selectedCurrency
+        viewModel.selectedCurrency = viewModel.currencyList[row]
+        viewModel.fetchBitcoinAndMetalPrices(for: viewModel.selectedCurrency)
+        currencyCodeLabel.text = viewModel.selectedCurrency
     }
 }
 
 extension CryptoAndMetalViewController: CryptoAndMetalViewModelDelegate {
     
-    func bindViewModel(_ currencyViewModel: CryptoAndMetalViewModel) {
-        guard let platinumPrice = currencyViewModel.retrieveRoundedOffPriceOfPlatinum(),
-              let silverPrice = currencyViewModel.retrieveRoundedOffPriceOfSilver(),
-              let goldPrice = currencyViewModel.retrieveRoundedOffPriceOfGold() else {
-                  return
-              }
-        
-        bitcoinValueLabel.text = String(currencyViewModel.retrieveRoundedOffPriceOfBitcoin())
-        platinumValueLabel.text = String(platinumPrice)
-        silverValueLabel.text = String(silverPrice)
-        goldValueLabel.text = String(goldPrice)
+    func bindViewModel() {
+        bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin()
+        platinumValueLabel.text = viewModel.retrieveRoundedOffPriceOfPlatinum()
+        silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver()
+        goldValueLabel.text = viewModel.retrieveRoundedOffPriceOfGold()
     }
-    
 }

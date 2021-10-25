@@ -13,6 +13,7 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     private var metalsResponse: MetalRates?
     private weak var delegate: CryptoAndMetalViewModelDelegate?
     private var cryptoAndMetalsRepository: CryptoAndMetalsRepositable
+    var selectedCurrency = ""
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
     init(repositoryCryptoAndMetals: CryptoAndMetalsRepositable, delegate: CryptoAndMetalViewModelDelegate) {
@@ -20,20 +21,20 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
         self.delegate = delegate
     }
     
-    func retrieveRoundedOffPriceOfGold() -> Double? {
-        metalsResponse?.gold.roundOff()
+    func retrieveRoundedOffPriceOfGold() -> String {
+        String(metalsResponse?.gold.roundOff() ?? 0.0)
     }
     
-    func retrieveRoundedOffPriceOfSilver() -> Double? {
-        metalsResponse?.silver.roundOff()
+    func retrieveRoundedOffPriceOfSilver() -> String {
+        String(metalsResponse?.silver.roundOff() ?? 0.0)
     }
     
-    func retrieveRoundedOffPriceOfPlatinum() -> Double? {
-        metalsResponse?.platinum.roundOff()
+    func retrieveRoundedOffPriceOfPlatinum() -> String {
+        String(metalsResponse?.platinum.roundOff() ?? 0.0)
     }
     
-    func retrieveRoundedOffPriceOfBitcoin() -> Double {
-        price.rate.roundOff()
+    func retrieveRoundedOffPriceOfBitcoin() -> String {
+        String(price.rate.roundOff())
     }
     
     func fetchBitcoinAndMetalPrices(for baseCurrency: String) {
@@ -47,7 +48,7 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
             switch result {
             case .success(let response):
                 self?.price = response
-                self?.delegate?.bindViewModel(self!)
+                self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
@@ -60,7 +61,7 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
             switch result {
             case .success(let response):
                 self?.metalsResponse = response.rates
-                self?.delegate?.bindViewModel(self!)
+                self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }

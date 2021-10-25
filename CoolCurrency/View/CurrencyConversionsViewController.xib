@@ -51,6 +51,8 @@
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quM-Cp-e3R">
                                     <rect key="frame" x="10" y="329" width="354" height="31"/>
+                                    <color key="backgroundColor" red="0.26308349819999999" green="0.2568681189" blue="0.65133011939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.26308349819999999" green="0.2568681189" blue="0.65133011939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="filled" title="Convert"/>
                                     <connections>
