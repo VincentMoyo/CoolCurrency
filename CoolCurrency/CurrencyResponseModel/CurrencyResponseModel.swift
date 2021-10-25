@@ -50,3 +50,7 @@ struct Rates: Codable {
         case australianDollar = "AUD"
     }
 }
+
+struct CoinData: Codable {
+    let rate: Double
+}

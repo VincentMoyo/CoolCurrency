@@ -26,6 +26,11 @@ extension Double {
         let divisor = pow(10.0, Double(2))
         return (convertedCurrency * divisor).rounded() / divisor
     }
+    
+    func roundOff() -> Double {
+        let divisor = pow(10.0, Double(2))
+        return (self * divisor).rounded() / divisor
+    }
 }
 
 extension Array {

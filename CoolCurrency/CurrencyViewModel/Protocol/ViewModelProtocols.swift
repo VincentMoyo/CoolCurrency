@@ -10,3 +10,7 @@ import Foundation
 protocol CurrencyViewModiable {
     func fetchCurrencyListFromAPI(for baseCurrency: String)
 }
+
+protocol CryptoAndMetalViewModiable {
+    func fetchBitcoinAndMetalPrices(for baseCurrency: String)
+}
