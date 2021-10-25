@@ -9,3 +9,8 @@ Cool Application about cool currency. This application is about keeping track of
 - Firbase realtime database
 - MVVM Architecture
 - Swift
+
+## APIs
+- https://currencyscoop.com/
+- https://www.coinapi.io/
+- https://metals-api.com/
