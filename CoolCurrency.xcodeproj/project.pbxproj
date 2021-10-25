@@ -205,7 +205,6 @@
 		788DEC70270AFDCA0033493B /* CoolCurrency */ = {
 			isa = PBXGroup;
 			children = (
-				78B5F0272720157800E10B6B /* GoogleService-Info.plist */,
 				788DECA6270B07110033493B /* CurrencyResponseModel */,
 				788DECA7270B07190033493B /* CurrencyRepository */,
 				78935FA9270D8F38007AE3EE /* CurrencyViewModel */,
@@ -215,6 +214,7 @@
 				788DEC73270AFDCA0033493B /* SceneDelegate.swift */,
 				788DEC7D270AFDCC0033493B /* Assets.xcassets */,
 				788DEC7F270AFDCC0033493B /* LaunchScreen.storyboard */,
+				78B5F0272720157800E10B6B /* GoogleService-Info.plist */,
 				788DEC82270AFDCC0033493B /* Info.plist */,
 				788DEC7A270AFDCA0033493B /* CoolCurrency.xcdatamodeld */,
 				7875C28527109AE20045922B /* Extensions.swift */,

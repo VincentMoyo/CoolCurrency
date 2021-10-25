@@ -21,19 +21,19 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
         self.delegate = delegate
     }
     
-    func retrieveRoundedOffPriceOfGold() -> String {
+    var retrieveRoundedOffPriceOfGold: String {
         String(metalsResponse?.gold.roundOff() ?? 0.0)
     }
     
-    func retrieveRoundedOffPriceOfSilver() -> String {
+    var retrieveRoundedOffPriceOfSilver: String {
         String(metalsResponse?.silver.roundOff() ?? 0.0)
     }
     
-    func retrieveRoundedOffPriceOfPlatinum() -> String {
+    var retrieveRoundedOffPriceOfPlatinum: String {
         String(metalsResponse?.platinum.roundOff() ?? 0.0)
     }
     
-    func retrieveRoundedOffPriceOfBitcoin() -> String {
+    var retrieveRoundedOffPriceOfBitcoin: String {
         String(price.rate.roundOff())
     }
     

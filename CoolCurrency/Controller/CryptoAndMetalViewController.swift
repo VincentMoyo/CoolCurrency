@@ -55,9 +55,9 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
 extension CryptoAndMetalViewController: CryptoAndMetalViewModelDelegate {
     
     func bindViewModel() {
-        bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin()
-        platinumValueLabel.text = viewModel.retrieveRoundedOffPriceOfPlatinum()
-        silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver()
-        goldValueLabel.text = viewModel.retrieveRoundedOffPriceOfGold()
+        bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin
+        platinumValueLabel.text = viewModel.retrieveRoundedOffPriceOfPlatinum
+        silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver
+        goldValueLabel.text = viewModel.retrieveRoundedOffPriceOfGold
     }
 }
