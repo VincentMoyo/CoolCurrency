@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,14 +32,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-1N-n26">
                             <rect key="frame" x="0.0" y="0.0" width="374" height="394"/>
                             <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wsa-Pq-5lq">
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Wsa-Pq-5lq">
                                     <rect key="frame" x="0.0" y="123" width="374" height="148"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AustralianFlag" translatesAutoresizingMaskIntoConstraints="NO" id="N9U-TH-TcP">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="148"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="186.5" height="148"/>
                                         </imageView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BrazilianFlag" translatesAutoresizingMaskIntoConstraints="NO" id="PeL-dV-gPk">
-                                            <rect key="frame" x="187" y="0.0" width="187" height="148"/>
+                                            <rect key="frame" x="187.5" y="0.0" width="186.5" height="148"/>
                                         </imageView>
                                     </subviews>
                                     <userDefinedRuntimeAttributes>
@@ -49,16 +49,6 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </stackView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quM-Cp-e3R">
-                                    <rect key="frame" x="10" y="329" width="354" height="31"/>
-                                    <color key="backgroundColor" red="0.26308349819999999" green="0.2568681189" blue="0.65133011939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="tintColor" red="0.26308349819999999" green="0.2568681189" blue="0.65133011939999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Convert"/>
-                                    <connections>
-                                        <action selector="ConvertCurrencyPressed:" destination="-1" eventType="touchUpInside" id="cRu-Gu-C9a"/>
-                                    </connections>
-                                </button>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YIm-Mo-dKK">
                                     <rect key="frame" x="25" y="172" width="324.5" height="50"/>
                                     <subviews>
@@ -108,7 +98,7 @@
                                         </label>
                                     </subviews>
                                 </stackView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trw-L0-taO">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Value" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trw-L0-taO">
                                     <rect key="frame" x="10" y="8" width="354" height="100"/>
                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -118,21 +108,33 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2r-fc-p9Y">
+                                    <rect key="frame" x="10" y="318" width="354" height="31"/>
+                                    <color key="backgroundColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="O2r-fc-p9Y" secondAttribute="height" multiplier="354:31" id="2dV-12-6LG"/>
+                                        <constraint firstAttribute="height" constant="31" id="ugV-lz-Vpa"/>
+                                    </constraints>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Convert"/>
+                                    <connections>
+                                        <action selector="ConvertCurrencyPressed:" destination="-1" eventType="touchUpInside" id="Hg6-0U-zB9"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerX" secondItem="Wsa-Pq-5lq" secondAttribute="centerX" id="3cj-mk-t86"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" id="74T-4r-kCB"/>
                                 <constraint firstItem="trw-L0-taO" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="Baj-BS-t8x"/>
-                                <constraint firstAttribute="trailing" secondItem="quM-Cp-e3R" secondAttribute="trailing" constant="10" id="KWu-CV-dU2"/>
+                                <constraint firstItem="O2r-fc-p9Y" firstAttribute="top" secondItem="Wsa-Pq-5lq" secondAttribute="bottom" constant="47" id="DEx-J9-HP6"/>
                                 <constraint firstAttribute="trailing" secondItem="Wsa-Pq-5lq" secondAttribute="trailing" id="N7W-3P-eac"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="top" secondItem="trw-L0-taO" secondAttribute="bottom" constant="15" id="TPc-dU-HHw"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="centerY" secondItem="KtI-1N-n26" secondAttribute="centerY" id="g03-rX-vxe"/>
                                 <constraint firstItem="trw-L0-taO" firstAttribute="top" secondItem="KtI-1N-n26" secondAttribute="top" constant="8" id="hsc-wd-Yl8"/>
                                 <constraint firstAttribute="trailing" secondItem="trw-L0-taO" secondAttribute="trailing" constant="10" id="htI-DM-F8q"/>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerY" secondItem="Wsa-Pq-5lq" secondAttribute="centerY" id="mrD-af-eUE"/>
-                                <constraint firstItem="quM-Cp-e3R" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="neA-P5-xTg"/>
-                                <constraint firstAttribute="bottom" secondItem="quM-Cp-e3R" secondAttribute="bottom" constant="34" id="wHc-Lp-aDx"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="centerX" secondItem="KtI-1N-n26" secondAttribute="centerX" id="zlF-4G-XOR"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
@@ -210,7 +212,9 @@
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="CHK-l5-25M" secondAttribute="trailing" constant="20" id="Icy-jo-rjP"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="CHK-l5-25M" secondAttribute="bottom" constant="10" id="Nef-M3-Tja"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="O2r-fc-p9Y" secondAttribute="trailing" constant="30" id="PlC-Ny-w7X"/>
                 <constraint firstItem="CHK-l5-25M" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="XE7-gb-PTu"/>
+                <constraint firstItem="O2r-fc-p9Y" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="30" id="akT-4t-7yr"/>
                 <constraint firstItem="CHK-l5-25M" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="eJt-Mq-cvL"/>
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="102.45535714285714"/>

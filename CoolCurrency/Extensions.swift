@@ -27,6 +27,12 @@ extension Double {
         return (convertedCurrency * divisor).rounded() / divisor
     }
     
+    func convertOunceToGramsAndRoundOff() -> Double {
+        let convertedCurrency = self / 28.3495
+        let divisor = pow(10.0, Double(2))
+        return (convertedCurrency * divisor).rounded() / divisor
+    }
+    
     func roundOff() -> Double {
         let divisor = pow(10.0, Double(2))
         return (self * divisor).rounded() / divisor
