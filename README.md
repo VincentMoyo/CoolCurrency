@@ -6,7 +6,7 @@ Cool Application about cool currency. This application is about keeping track of
 
 ## Technoplogies and Principles Applied
 - Getting data from restful API
-- Firbase realtime database
+- Firebase realtime database
 - MVVM Architecture
 - Swift
 
