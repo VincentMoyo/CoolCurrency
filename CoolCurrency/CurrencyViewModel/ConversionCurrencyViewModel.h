@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CoolCurrency-Swift.h"
+@class ConvertCurrencyDataModel;
 
 NS_ASSUME_NONNULL_BEGIN
 

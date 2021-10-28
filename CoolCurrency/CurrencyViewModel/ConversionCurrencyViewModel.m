@@ -6,6 +6,7 @@
 //
 
 #import "ConversionCurrencyViewModel.h"
+#import "CoolCurrency-Swift.h"
 
 @implementation ConversionCurrencyViewModel
 

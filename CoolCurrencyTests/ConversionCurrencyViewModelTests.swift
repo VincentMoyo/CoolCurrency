@@ -21,19 +21,19 @@
     }
 
     override func setUp() {
-       implementationUnderTests = ConvertCurrencyViewModel()
+       implementationUnderTests = ConversionCurrencyViewModel()
     }
 
     func testMultiplierByFourSuccess() {
         implementationUnderTests.set(mockData)
-        let finalAnswer = implementationUnderTests.multiplyCurrencyBy(4.0)
-        XCTAssertEqual("20", finalAnswer)
+        let finalAnswer = implementationUnderTests.multiplyCurrency(by: 4.0)
+        XCTAssertEqual("16.000000", finalAnswer)
     }
 
     func testSetSecondaryCurrencySuccess() {
         implementationUnderTests.set(mockData)
-        let finalAnswer = implementationUnderTests.setSecondaryCurrency(5.0)
-        XCTAssertEqual("5.0", finalAnswer)
+        implementationUnderTests.setSecondaryCurrency(5.0)
+        XCTAssertEqual("5.000000", implementationUnderTests.secondaryCurrency())
 
     }
  }

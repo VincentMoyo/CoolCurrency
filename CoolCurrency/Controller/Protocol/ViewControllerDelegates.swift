@@ -16,3 +16,8 @@ protocol CryptoAndMetalViewModelDelegate: AnyObject {
     func showUserErrorMessage(error: Error)
     func bindViewModel()
 }
+
+protocol ViewModelDelegate: AnyObject {
+    func showUserErrorMessage(error: Error)
+    func bindViewModel()
+}
