@@ -884,7 +884,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrencyTests/CoolCurrencyTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrency/Controller/CoolCurrency-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -914,7 +914,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrencyTests/CoolCurrencyTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrency/Controller/CoolCurrency-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";

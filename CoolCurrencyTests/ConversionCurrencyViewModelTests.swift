@@ -5,10 +5,10 @@
 //  Created by Vincent Moyo on 2021/10/26.
 //
 //
-import XCTest
-@testable import CoolCurrency
+ import XCTest
+ @testable import CoolCurrency
 
-class ConversionCurrencyViewModelTests: XCTestCase {
+ class ConversionCurrencyViewModelTests: XCTestCase {
 
     private var implementationUnderTests: ConversionCurrencyViewModel!
 
@@ -36,4 +36,4 @@ class ConversionCurrencyViewModelTests: XCTestCase {
         XCTAssertEqual("5.0", finalAnswer)
 
     }
-}
+ }
