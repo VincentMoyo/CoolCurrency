@@ -22,15 +22,15 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     }
     
     var retrieveRoundedOffPriceOfGold: String {
-        String(metalsResponse?.gold.roundOff() ?? 0.0)
+        String(metalsResponse?.gold.convertOunceToGramsAndRoundOff() ?? 0.0)
     }
     
     var retrieveRoundedOffPriceOfSilver: String {
-        String(metalsResponse?.silver.roundOff() ?? 0.0)
+        String(metalsResponse?.silver.convertOunceToGramsAndRoundOff() ?? 0.0)
     }
     
     var retrieveRoundedOffPriceOfPlatinum: String {
-        String(metalsResponse?.platinum.roundOff() ?? 0.0)
+        String(metalsResponse?.platinum.convertOunceToGramsAndRoundOff() ?? 0.0)
     }
     
     var retrieveRoundedOffPriceOfBitcoin: String {

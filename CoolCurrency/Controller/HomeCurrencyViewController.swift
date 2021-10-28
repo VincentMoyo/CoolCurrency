@@ -26,6 +26,7 @@ class HomeCurrencyViewController: UIViewController {
     @IBAction func refreshButtonPressed(_ sender: UIButton) {
         viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
         viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
+    
     }
     
     private func setupCurrencyPickerView() {

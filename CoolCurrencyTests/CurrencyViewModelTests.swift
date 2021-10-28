@@ -73,7 +73,7 @@ class CurrencyViewModelTests: XCTestCase {
             showUserErrorCalled = true
         }
         
-        func bindViewModel(_ currencyViewModel: CurrencyViewModel) {
+        func bindViewModel() {
             refreshCalled = true
         }
     }

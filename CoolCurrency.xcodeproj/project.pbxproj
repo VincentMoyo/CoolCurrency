@@ -19,6 +19,7 @@
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
 		787ADA5E270C38C9002494B1 /* CurrencyResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */; };
+		788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */; };
 		788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC71270AFDCA0033493B /* AppDelegate.swift */; };
 		788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC73270AFDCA0033493B /* SceneDelegate.swift */; };
 		788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC75270AFDCA0033493B /* HomeCurrencyViewController.swift */; };
@@ -82,6 +83,7 @@
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponseModel.swift; sourceTree = "<group>"; };
+		788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		788DEC6E270AFDCA0033493B /* CoolCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788DEC71270AFDCA0033493B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		788DEC73270AFDCA0033493B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */,
 				7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */,
 				7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */,
+				788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */,
 			);
 			path = CoolCurrencyTests;
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */,
+				788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */,
 				7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */,
 				7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */,
 			);
@@ -885,6 +889,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
+				USER_HEADER_SEARCH_PATHS = $CONFIGURATION_TEMP_DIR/CoolCurrency.buld/DerivedSources;
 			};
 			name = Debug;
 		};
@@ -913,6 +918,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
+				USER_HEADER_SEARCH_PATHS = $CONFIGURATION_TEMP_DIR/CoolCurrency.buld/DerivedSources;
 			};
 			name = Release;
 		};
