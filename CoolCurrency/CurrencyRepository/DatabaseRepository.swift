@@ -30,6 +30,18 @@ class DatabaseRepository {
                 completion(.success(value))
             }
         }
-        
     }
+    
+    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[UserInformation], Error>) -> Void) {
+        database.child(baseUser).observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [UserInformation] else {
+                return
+            }
+            DispatchQueue.main.async {
+                
+                completion(.success(value))
+            }
+        }
+    }
+    
 }

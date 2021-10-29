@@ -18,6 +18,9 @@
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
+		78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768183272BE78100F090C0 /* SettingsViewController.swift */; };
+		78768186272BEA1B00F090C0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768185272BEA1B00F090C0 /* SettingsViewModel.swift */; };
+		7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876818A272BF0B700F090C0 /* UserInformation.swift */; };
 		7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D55E272A9637003A2857 /* WelcomeViewController.swift */; };
 		7877D561272A9671003A2857 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D560272A9671003A2857 /* WelcomeViewModel.swift */; };
 		7877D563272A9BC1003A2857 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D562272A9BC1003A2857 /* LoginViewModel.swift */; };
@@ -88,6 +91,9 @@
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		78768183272BE78100F090C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		78768185272BEA1B00F090C0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		7876818A272BF0B700F090C0 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		7877D55E272A9637003A2857 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		7877D560272A9671003A2857 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		7877D562272A9BC1003A2857 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 				7811A92427171F7800810C9F /* CurrencyDataModel.swift */,
 				78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */,
 				78AA4EC12721E8CD0044B3CB /* MetalsResponseModel.swift */,
+				7876818A272BF0B700F090C0 /* UserInformation.swift */,
 			);
 			path = CurrencyResponseModel;
 			sourceTree = "<group>";
@@ -293,6 +300,7 @@
 				7877D55E272A9637003A2857 /* WelcomeViewController.swift */,
 				7877D566272A9E76003A2857 /* LoginViewController.swift */,
 				7884FFDD272AA7AF0005454A /* RegisterViewController.swift */,
+				78768183272BE78100F090C0 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -318,6 +326,7 @@
 				7877D560272A9671003A2857 /* WelcomeViewModel.swift */,
 				7877D562272A9BC1003A2857 /* LoginViewModel.swift */,
 				7877D564272A9C2D003A2857 /* RegisterViewModel.swift */,
+				78768185272BEA1B00F090C0 /* SettingsViewModel.swift */,
 			);
 			path = CurrencyViewModel;
 			sourceTree = "<group>";
@@ -619,6 +628,7 @@
 				7877D561272A9671003A2857 /* WelcomeViewModel.swift in Sources */,
 				78B50AF72719C02C00596AA6 /* ConvertCurrencyDataModel.swift in Sources */,
 				787ADA5E270C38C9002494B1 /* CurrencyResponseModel.swift in Sources */,
+				78768186272BEA1B00F090C0 /* SettingsViewModel.swift in Sources */,
 				78935FAC270D8FCB007AE3EE /* RepositoryProtocols.swift in Sources */,
 				788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */,
 				7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */,
@@ -633,10 +643,12 @@
 				785DA028270C41CE00CB7996 /* Constants.swift in Sources */,
 				78935FB1270DA6CC007AE3EE /* ViewControllerDelegates.swift in Sources */,
 				78AA4EC22721E8CD0044B3CB /* MetalsResponseModel.swift in Sources */,
+				7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */,
 				78AA4EBC27219D270044B3CB /* CryptoAndMetalViewController.swift in Sources */,
 				78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */,
 				7875C28627109AE20045922B /* Extensions.swift in Sources */,
 				7877D565272A9C2D003A2857 /* RegisterViewModel.swift in Sources */,
+				78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */,
 				7884FFDE272AA7B00005454A /* RegisterViewController.swift in Sources */,
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
 				78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */,
