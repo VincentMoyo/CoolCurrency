@@ -13,13 +13,11 @@ struct UserInformation {
     let lastName: String
     let gender: String
     let dateOfBirth: String
-    let sender: String
     
-    internal init(firstName: String, lastName: String, gender: String, dateOfBirth: String, sender: String) {
+    internal init(firstName: String, lastName: String, gender: String, dateOfBirth: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.gender = gender
         self.dateOfBirth = dateOfBirth
-        self.sender = sender
     }
 }

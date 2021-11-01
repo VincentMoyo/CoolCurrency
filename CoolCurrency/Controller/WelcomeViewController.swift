@@ -13,7 +13,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if welcomeViewModel.sigInInUser() {
-            // self.performSegue(withIdentifier: "LoginCell", sender: self)
+            self.performSegue(withIdentifier: "QuickSignIn", sender: self)
         }
     }
 }

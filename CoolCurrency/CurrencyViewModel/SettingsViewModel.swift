@@ -12,7 +12,7 @@ import FirebaseAuth
 class SettingsViewModel {
     
     let database = DatabaseRepository(databaseReference: Database.database().reference())
-    var userSettingsList: [UserInformation] = []
+    var userSettingsList: [String: String] = [:]
     private weak var delegate: ViewModelDelegate?
     
     init(delegate: ViewModelDelegate) {
@@ -29,6 +29,22 @@ class SettingsViewModel {
                 self.delegate?.showUserErrorMessage(error: error)
             }
         }
+    }
+    
+    func updateFirstName(_ firstName: String) {
+        database.updateFirstNameUserInformationToDatabase(SignedInUser: Auth.auth().currentUser!.uid, username: firstName)
+    }
+    
+    func updateLastName(_ lastName: String) {
+        database.updateLastNameUserInformationToDatabase(SignedInUser: Auth.auth().currentUser!.uid, userLastName: lastName)
+    }
+    
+    func updateGender(_ gender: String) {
+        database.updateUserSettingsGender(SignedInUser: Auth.auth().currentUser!.uid, userGender: gender)
+    }
+    
+    func updateDateOfBirth(_ dateOfBirth: String) {
+        database.updateUserSettingsDateOfBirth(SignedInUser: Auth.auth().currentUser!.uid, DOB: dateOfBirth)
     }
     
     func signOutUser() {

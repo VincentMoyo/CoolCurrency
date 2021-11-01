@@ -32,16 +32,31 @@ class DatabaseRepository {
         }
     }
     
-    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[UserInformation], Error>) -> Void) {
-        database.child(baseUser).observeSingleEvent(of: .value) { snapshot in
-            guard let value = snapshot.value as? [UserInformation] else {
+    func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String) {
+        database.child("Users/\(userSettingsID)/FirstName").setValue(firstName)
+    }
+    
+    func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String) {
+        database.child("Users/\(userSettingsID)/LastName").setValue(lastName)
+    }
+    
+    func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) {
+        database.child("Users/\(userSettingsID)/Gender").setValue(gender)
+    }
+    
+    func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) {
+        database.child("Users/\(userSettingsID)/Date of Birth").setValue(DOB)
+    }
+    
+    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
+        database.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [String: String] else {
                 return
             }
             DispatchQueue.main.async {
-                
+                print(value)
                 completion(.success(value))
             }
         }
     }
-    
 }

@@ -428,6 +428,7 @@
         <scene sceneID="hIF-Xe-HNP">
             <objects>
                 <navigationController id="lxb-qu-qxc" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="vzh-qL-5oU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dAC-Ch-fVv">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -501,6 +502,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cdi-oD-NIm"/>
+                    <connections>
+                        <segue destination="Idh-KU-CtO" kind="showDetail" identifier="QuickSignIn" id="pKD-dO-x8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TL3-R2-ebC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -574,7 +578,7 @@
                         <outlet property="activityLoader" destination="kOl-xJ-eq3" id="tYN-cY-1X7"/>
                         <outlet property="emailTextField" destination="A54-oN-0ij" id="YAP-BV-7Tt"/>
                         <outlet property="passwordTextField" destination="xUO-Id-oWX" id="1ac-yO-FbH"/>
-                        <segue destination="Idh-KU-CtO" kind="showDetail" identifier="RegisterCell" id="8lo-P7-9RL"/>
+                        <segue destination="Idh-KU-CtO" kind="presentation" identifier="RegisterCell" modalPresentationStyle="fullScreen" id="8lo-P7-9RL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URg-HX-PL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -649,7 +653,7 @@
                         <outlet property="activityLoader" destination="XBD-7l-BEo" id="pHw-9u-EKi"/>
                         <outlet property="emailTextField" destination="2RA-0X-TD7" id="n4V-Tq-gWc"/>
                         <outlet property="passwordTextField" destination="wPi-74-wDP" id="GMT-hv-0Gu"/>
-                        <segue destination="Idh-KU-CtO" kind="showDetail" identifier="LoginCell" id="dMV-d1-ajQ"/>
+                        <segue destination="Idh-KU-CtO" kind="presentation" identifier="LoginCell" modalPresentationStyle="fullScreen" id="dMV-d1-ajQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36G-fM-POD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -659,7 +663,7 @@
         <!--Settings View Controller-->
         <scene sceneID="7Fm-uj-7Bc">
             <objects>
-                <viewController id="a10-aK-Pdy" customClass="SettingsViewController" customModule="BitCoinPredictor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a10-aK-Pdy" customClass="SettingsViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="egl-XA-7QB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -993,10 +997,11 @@
                     <connections>
                         <outlet property="activityLoader" destination="V38-j1-2ND" id="2Kn-eo-UIx"/>
                         <outlet property="datePicker" destination="XJG-mb-i9r" id="A2t-Bl-QeZ"/>
-                        <outlet property="firstNameLabel" destination="cSv-4V-MdC" id="gR0-9K-ltB"/>
+                        <outlet property="firstNameLabel" destination="cSv-4V-MdC" id="xRM-UF-E3e"/>
                         <outlet property="genderSegmentedControl" destination="pIK-l6-1xB" id="z0y-rO-zG1"/>
                         <outlet property="lastNameLabel" destination="C3R-4K-Uus" id="q8y-C7-38G"/>
                         <outlet property="profilePictureImage" destination="k3T-nv-w9y" id="zhy-ez-Zgc"/>
+                        <segue destination="lxb-qu-qxc" kind="presentation" identifier="welcome" modalPresentationStyle="fullScreen" id="BFJ-tQ-PnU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Np-8h-Lub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
