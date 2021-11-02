@@ -37,19 +37,19 @@ class SettingsViewModel {
     }
     
     func updateFirstName(_ firstName: String) {
-        database.updateFirstNameUserInformationToDatabase(SignedInUser: Auth.auth().currentUser!.uid, username: firstName)
+        database.updateFirstNameUserInformationToDatabase(SignedInUser: signedInUserIdentification(), username: firstName)
     }
     
     func updateLastName(_ lastName: String) {
-        database.updateLastNameUserInformationToDatabase(SignedInUser: Auth.auth().currentUser!.uid, userLastName: lastName)
+        database.updateLastNameUserInformationToDatabase(SignedInUser: signedInUserIdentification(), userLastName: lastName)
     }
     
     func updateGender(_ gender: String) {
-        database.updateUserSettingsGender(SignedInUser: Auth.auth().currentUser!.uid, userGender: gender)
+        database.updateUserSettingsGender(SignedInUser: signedInUserIdentification(), userGender: gender)
     }
     
     func updateDateOfBirth(_ dateOfBirth: String) {
-        database.updateUserSettingsDateOfBirth(SignedInUser: Auth.auth().currentUser!.uid, DOB: dateOfBirth)
+        database.updateUserSettingsDateOfBirth(SignedInUser: signedInUserIdentification(), DOB: dateOfBirth)
     }
     
     func checkUserList() {
@@ -75,10 +75,17 @@ class SettingsViewModel {
     func signOutUser() {
         let firebaseAuth = Auth.auth()
         do {
-           try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
             self.delegate?.bindViewModel()
         } catch let signOutError as NSError {
             self.delegate?.showUserErrorMessage(error: signOutError)
         }
+    }
+    
+    private func signedInUserIdentification() -> String {
+        guard let signedInUser = Auth.auth().currentUser?.uid else {
+            return ""
+        }
+        return signedInUser
     }
 }

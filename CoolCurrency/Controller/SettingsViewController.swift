@@ -9,12 +9,12 @@ import UIKit
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
-    @IBOutlet weak var firstNameLabel: UIButton!
-    @IBOutlet weak var lastNameLabel: UIButton!
-    @IBOutlet weak var profilePictureImage: UIImageView!
-    @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
+    @IBOutlet private weak var firstNameLabel: UIButton!
+    @IBOutlet private weak var lastNameLabel: UIButton!
+    @IBOutlet private weak var profilePictureImage: UIImageView!
+    @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var datePicker: UIDatePicker!
     
     private lazy var viewModel = SettingsViewModel(delegate: self)
     
@@ -85,25 +85,33 @@ extension SettingsViewController: ViewModelDelegate {
     }
     
     private func bindSignOutSettingsViewModel() {
-        DispatchQueue.main.async {
             self.performSegue(withIdentifier: "welcome", sender: self)
             self.activityLoader.stopAnimating()
-        }
     }
 }
 
 extension SettingsViewController {
     
     private func setupProfileNames(_ nameLabel: UIButton, isFirstName firstName: Bool) {
+        
         var textField = UITextField()
-        let alert = UIAlertController(title: "Set Name", message: "Set your username to complete your profile account setup", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Set Name",
+                                      message: "Set your username to complete your profile account setup",
+                                      preferredStyle: .alert)
+        
         let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
             if firstName {
-                nameLabel.setTitle(textField.text, for: .normal)
-                self.viewModel.updateFirstName(textField.text!)
+                guard let newFirstName = textField.text else {
+                    return
+                }
+                nameLabel.setTitle(newFirstName, for: .normal)
+                self.viewModel.updateFirstName(newFirstName)
             } else {
-                nameLabel.setTitle(textField.text, for: .normal)
-                self.viewModel.updateLastName(textField.text!)
+                guard let newLastName = textField.text else {
+                    return
+                }
+                nameLabel.setTitle(newLastName, for: .normal)
+                self.viewModel.updateLastName(newLastName)
             }
         })
         
@@ -111,6 +119,7 @@ extension SettingsViewController {
             alertTextField.placeholder = "New Name"
             textField = alertTextField
         }
+        
         alert.addAction(actions)
         present(alert, animated: true, completion: nil)
     }

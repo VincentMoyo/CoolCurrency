@@ -19,3 +19,9 @@ protocol CryptoAndMetalsRepositable {
     func performBitcoinValueRequest(for baseCurrency: String, completion: @escaping BitcoinDataResponseModel)
     func performMetalsValueRequest(for baseCurrency: String, completion: @escaping MetalsDataResponseModel)
 }
+
+protocol AuthenticationRepositable {
+    func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void)
+    func checkIfUserAlreadySignedIn() -> Bool
+}

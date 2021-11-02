@@ -52,7 +52,7 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
 }
 
-extension CryptoAndMetalViewController: CryptoAndMetalViewModelDelegate {
+extension CryptoAndMetalViewController: ViewModelDelegate {
     
     func bindViewModel() {
         bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin

@@ -9,9 +9,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
     private lazy var viewModel = LoginViewModel(delegate: self)
     
@@ -37,9 +37,7 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: ViewModelDelegate {
     func bindViewModel() {
-        DispatchQueue.main.async {
             self.performSegue(withIdentifier: "LoginCell", sender: self)
             self.activityLoader.stopAnimating()
-        }
     }
 }

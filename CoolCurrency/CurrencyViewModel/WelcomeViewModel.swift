@@ -10,8 +10,10 @@ import FirebaseAuth
 
 struct WelcomeViewModel {
     
+    private let authenticationRepo = AuthenticationRepository()
+    
     func sigInInUser() -> Bool {
-        if Auth.auth().currentUser != nil {
+        if authenticationRepo.checkIfUserAlreadySignedIn() {
             return true
         } else {
             return false

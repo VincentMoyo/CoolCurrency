@@ -52,6 +52,7 @@
 		78B50AFF271A00DB00596AA6 /* CurrencyConversionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B50AFD271A00DB00596AA6 /* CurrencyConversionsViewController.xib */; };
 		78B5F0282720157800E10B6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B5F0272720157800E10B6B /* GoogleService-Info.plist */; };
 		78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5F0292720427400E10B6B /* DatabaseRepository.swift */; };
+		78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D34C192731A43C0065A802 /* AuthenticationRepository.swift */; };
 		B6972832D510C9335B4AEFCD /* Pods_CoolCurrency_CoolCurrencyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3013581020F42A9A4B5ECC3B /* Pods_CoolCurrency_CoolCurrencyUITests.framework */; };
 		F8EF2D08A4745B80A8046C7B /* Pods_CoolCurrencyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53DAD1EE9FBE6CE02844486 /* Pods_CoolCurrencyTests.framework */; };
 /* End PBXBuildFile section */
@@ -132,6 +133,7 @@
 		78B50AFD271A00DB00596AA6 /* CurrencyConversionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyConversionsViewController.xib; sourceTree = "<group>"; };
 		78B5F0272720157800E10B6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B5F0292720427400E10B6B /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
+		78D34C192731A43C0065A802 /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		88141E861BCCFC58A70EEEA7 /* Pods-CoolCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.release.xcconfig"; sourceTree = "<group>"; };
 		8FD05D66887C1BF63EF34F2F /* Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A53DAD1EE9FBE6CE02844486 /* Pods_CoolCurrencyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolCurrencyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,6 +286,7 @@
 				785DA031270C877B00CB7996 /* CurrencyRepository.swift */,
 				78B5F0292720427400E10B6B /* DatabaseRepository.swift */,
 				78AA4EBF27219DD30044B3CB /* CryptoAndMetalsRepository.swift */,
+				78D34C192731A43C0065A802 /* AuthenticationRepository.swift */,
 			);
 			path = CurrencyRepository;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */,
 				7875C28627109AE20045922B /* Extensions.swift in Sources */,
 				7877D565272A9C2D003A2857 /* RegisterViewModel.swift in Sources */,
+				78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */,
 				78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */,
 				7884FFDE272AA7B00005454A /* RegisterViewController.swift in Sources */,
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,

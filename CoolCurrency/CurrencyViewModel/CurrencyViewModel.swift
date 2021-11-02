@@ -28,7 +28,7 @@ enum CurrencyName: String {
 class CurrencyViewModel: CurrencyViewModiable {
     
     private var currencyRepository: CurrencyRepositable
-    private weak var delegate: CurrencyViewModelDelegate?
+    private weak var delegate: ViewModelDelegate?
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
     private var previousCurrencyList: [String: Double] = [:]
@@ -40,7 +40,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     var selectedCurrency = ""
     private let database = DatabaseRepository(databaseReference: Database.database().reference())
     
-    init(repository: CurrencyRepositable, delegate: CurrencyViewModelDelegate) {
+    init(repository: CurrencyRepositable, delegate: ViewModelDelegate) {
         self.currencyRepository = repository
         self.delegate = delegate
     }

@@ -84,7 +84,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     }
 }
 
-extension HomeCurrencyViewController: CurrencyViewModelDelegate {
+extension HomeCurrencyViewController: ViewModelDelegate {
     
     func bindViewModel() {
             self.currencyTableView.reloadData()
