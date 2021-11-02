@@ -8,7 +8,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     @IBOutlet weak var firstNameLabel: UIButton!
     @IBOutlet weak var lastNameLabel: UIButton!
@@ -16,16 +16,16 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    private lazy var settingsViewModel = SettingsViewModel(delegate: self)
+    private lazy var viewModel = SettingsViewModel(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activityLoader.isHidden = true
-        settingsViewModel.loadUserSettingsFromDatabase()
+        viewModel.loadUserSettingsFromDatabase()
     }
     
     @IBAction func logOutPressed(_ sender: UIButton) {
-        settingsViewModel.signOutUser()
+        viewModel.signOutUser()
         activateActivityIndicatorView()
         bindSignOutSettingsViewModel()
     }
@@ -49,11 +49,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBAction func dateOfBirthPressed(_ sender: UIDatePicker) {
         Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
         let dateResult = Constants.FormatForDate.dateFormatterGet.string(from: datePicker.date)
-        settingsViewModel.updateDateOfBirth(dateResult)
+        viewModel.updateDateOfBirth(dateResult)
     }
     
     @IBAction func genderIndexChangedPressed(_ sender: Any) {
-        settingsViewModel.updateGender(genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex)!)
+        viewModel.updateGender(genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex)!)
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -72,31 +72,23 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
 extension SettingsViewController: ViewModelDelegate {
     
     func bindViewModel() {
-        self.settingsViewModel.userSettingsList.forEach { settings in
-            if settings.key == "FirstName" {
-                self.firstNameLabel.setTitle(settings.value, for: .normal)
-            } else if settings.key == "LastName" {
-                self.lastNameLabel.setTitle(settings.value, for: .normal)
-            } else if settings.key == "Gender" {
-                if settings.value == "Female" {
-                    genderSegmentedControl.selectedSegmentIndex = 0
-                } else {
-                    genderSegmentedControl.selectedSegmentIndex = 1
-                }
-            } else if settings.key == "Date of Birth" {
-                Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
-                let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value)
-                self.datePicker.setDate(dateResult!, animated: true)
-            }
-        }
+        viewModel.checkUserList()
+        retrieveUserInformation()
         self.activityLoader.stopAnimating()
     }
     
+    func retrieveUserInformation() {
+        self.firstNameLabel.setTitle(viewModel.firstName, for: .normal)
+        self.lastNameLabel.setTitle(viewModel.lastName, for: .normal)
+        genderSegmentedControl.selectedSegmentIndex = viewModel.gender
+        datePicker.setDate(viewModel.birthDate, animated: true)
+    }
+    
     private func bindSignOutSettingsViewModel() {
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "welcome", sender: self)
-                    self.activityLoader.stopAnimating()
-                }
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "welcome", sender: self)
+            self.activityLoader.stopAnimating()
+        }
     }
 }
 
@@ -108,10 +100,10 @@ extension SettingsViewController {
         let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
             if firstName {
                 nameLabel.setTitle(textField.text, for: .normal)
-                self.settingsViewModel.updateFirstName(textField.text!)
+                self.viewModel.updateFirstName(textField.text!)
             } else {
                 nameLabel.setTitle(textField.text, for: .normal)
-                self.settingsViewModel.updateLastName(textField.text!)
+                self.viewModel.updateLastName(textField.text!)
             }
         })
         

@@ -14,9 +14,14 @@ class SettingsViewModel {
     let database = DatabaseRepository(databaseReference: Database.database().reference())
     var userSettingsList: [String: String] = [:]
     private weak var delegate: ViewModelDelegate?
+    var firstName = ""
+    var lastName = ""
+    var gender = 0
+    var birthDate: Date
     
     init(delegate: ViewModelDelegate) {
         self.delegate = delegate
+        self.birthDate = Date.init()
     }
     
     func loadUserSettingsFromDatabase() {
@@ -45,6 +50,26 @@ class SettingsViewModel {
     
     func updateDateOfBirth(_ dateOfBirth: String) {
         database.updateUserSettingsDateOfBirth(SignedInUser: Auth.auth().currentUser!.uid, DOB: dateOfBirth)
+    }
+    
+    func checkUserList() {
+        self.userSettingsList.forEach { settings in
+            if settings.key == "FirstName" {
+                firstName = settings.value
+            } else if settings.key == "LastName" {
+                lastName = settings.value
+            } else if settings.key == "Gender" {
+                if settings.value == "Female" {
+                    gender = 0
+                } else {
+                    gender = 1
+                }
+            } else if settings.key == "Date of Birth" {
+                Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
+                let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value)
+                birthDate = dateResult!
+            }
+        }
     }
     
     func signOutUser() {
