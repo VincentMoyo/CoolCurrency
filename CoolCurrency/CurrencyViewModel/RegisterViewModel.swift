@@ -11,14 +11,14 @@ import FirebaseAuth
 class RegisterViewModel {
     
     private weak var delegate: ViewModelDelegate?
-    private let authenticationRepo = AuthenticationRepository(authenticationReference: Auth.auth())
+    private let authentication = AuthenticationRepository(authenticationReference: Auth.auth())
     
     init(delegate: ViewModelDelegate) {
         self.delegate = delegate
     }
     
     func registerUser(_ email: String, _ password: String) {
-        authenticationRepo.registerUser(email, password) { [weak self] result in
+        authentication.registerUser(email, password) { [weak self] result in
             switch result {
             case .success(_):
                 self?.delegate?.bindViewModel()

@@ -12,7 +12,7 @@ import FirebaseAuth
 class SettingsViewModel {
     
     let database = DatabaseRepository(databaseReference: Database.database().reference())
-    private let authenticationRepo = AuthenticationRepository(authenticationReference: Auth.auth())
+    private let authentication = AuthenticationRepository(authenticationReference: Auth.auth())
     var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
     var firstName = ""
@@ -26,7 +26,7 @@ class SettingsViewModel {
     }
     
     func loadUserSettingsFromDatabase() {
-        database.retrieveUserInformationFromDatabase(userID: authenticationRepo.signedInUserIdentification()) { [weak self] result in
+        database.retrieveUserInformationFromDatabase(userID: authentication.signedInUserIdentification()) { [weak self] result in
             do {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
@@ -38,19 +38,19 @@ class SettingsViewModel {
     }
     
     func updateFirstName(_ firstName: String) {
-        database.updateFirstNameUserInformationToDatabase(SignedInUser: authenticationRepo.signedInUserIdentification(), username: firstName)
+        database.updateFirstNameUserInformationToDatabase(SignedInUser: authentication.signedInUserIdentification(), username: firstName)
     }
     
     func updateLastName(_ lastName: String) {
-        database.updateLastNameUserInformationToDatabase(SignedInUser: authenticationRepo.signedInUserIdentification(), userLastName: lastName)
+        database.updateLastNameUserInformationToDatabase(SignedInUser: authentication.signedInUserIdentification(), userLastName: lastName)
     }
     
     func updateGender(_ gender: String) {
-        database.updateUserSettingsGender(SignedInUser: authenticationRepo.signedInUserIdentification(), userGender: gender)
+        database.updateUserSettingsGender(SignedInUser: authentication.signedInUserIdentification(), userGender: gender)
     }
     
     func updateDateOfBirth(_ dateOfBirth: String) {
-        database.updateUserSettingsDateOfBirth(SignedInUser: authenticationRepo.signedInUserIdentification(), DOB: dateOfBirth)
+        database.updateUserSettingsDateOfBirth(SignedInUser: authentication.signedInUserIdentification(), DOB: dateOfBirth)
     }
     
     func checkUserList() {
@@ -74,7 +74,7 @@ class SettingsViewModel {
     }
     
     func signOutCurrentUser() {
-        authenticationRepo.signOutUser { [weak self] result in
+        authentication.signOutUser { [weak self] result in
             switch result {
             case .success(_):
                 self?.delegate?.signOutBindViewModel()
