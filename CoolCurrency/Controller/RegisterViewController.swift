@@ -20,7 +20,7 @@ class RegisterViewController: UIViewController {
         activityLoader.isHidden = true
     }
     
-    @IBAction func registerButtonPressed(_ sender: UIButton) {
+    @IBAction private func registerButtonPressed(_ sender: UIButton) {
         if let email = emailTextField.text,
            let password = passwordTextField.text {
             viewModel.registerUser(email, password)

@@ -6,23 +6,24 @@
 //
 
 import Foundation
+import FirebaseAuth
 
-struct LoginViewModel {
+class LoginViewModel {
     
     private weak var delegate: ViewModelDelegate?
-    private let authenticationRepo = AuthenticationRepository()
+    private let authenticationRepo = AuthenticationRepository(authenticationReference: Auth.auth())
     
     init(delegate: ViewModelDelegate) {
         self.delegate = delegate
     }
     
     func authenticateUser(_ email: String, _ password: String) {
-        authenticationRepo.signInUser(email, password) { result in
+        authenticationRepo.signInUser(email, password) { [weak self] result in
             switch result {
             case .success(_):
-                self.delegate?.bindViewModel()
+                self?.delegate?.bindViewModel()
             case .failure(let signInError):
-                self.delegate?.showUserErrorMessage(error: signInError)
+                self?.delegate?.showUserErrorMessage(error: signInError)
             }
         }
     }

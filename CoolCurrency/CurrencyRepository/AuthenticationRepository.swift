@@ -10,16 +10,18 @@ import FirebaseAuth
 
 struct AuthenticationRepository: AuthenticationRepositable {
     
-    func checkIfUserAlreadySignedIn() -> Bool {
-        if Auth.auth().currentUser != nil {
-            return true
-        } else {
-            return false
-        }
+    private var authentication: Auth
+    
+    init(authenticationReference: Auth) {
+        self.authentication = authenticationReference
+    }
+    
+    var checkIfUserAlreadySignedIn: Bool {
+       return authentication.currentUser != nil
     }
     
     func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        Auth.auth().createUser(withEmail: email, password: password) { _, error in
+        authentication.createUser(withEmail: email, password: password) { _, error in
             if let err = error {
                 completion(.failure(err))
             } else {
@@ -29,7 +31,7 @@ struct AuthenticationRepository: AuthenticationRepositable {
     }
     
     func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        Auth.auth().signIn(withEmail: email, password: password) { _, error in
+        authentication.signIn(withEmail: email, password: password) { _, error in
             if let err = error {
                 completion(.failure(err))
             } else {
@@ -38,4 +40,10 @@ struct AuthenticationRepository: AuthenticationRepositable {
         }
     }
     
+    func signedInUserIdentification() -> String {
+        guard let signedInUser = authentication.currentUser?.uid else {
+            return ""
+        }
+        return signedInUser
+    }
 }

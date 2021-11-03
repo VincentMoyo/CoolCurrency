@@ -8,22 +8,22 @@
 import Foundation
 import FirebaseAuth
 
-struct RegisterViewModel {
+class RegisterViewModel {
     
     private weak var delegate: ViewModelDelegate?
-    private let authenticationRepo = AuthenticationRepository()
+    private let authenticationRepo = AuthenticationRepository(authenticationReference: Auth.auth())
     
     init(delegate: ViewModelDelegate) {
         self.delegate = delegate
     }
     
     func registerUser(_ email: String, _ password: String) {
-        authenticationRepo.registerUser(email, password) { result in
+        authenticationRepo.registerUser(email, password) { [weak self] result in
             switch result {
             case .success(_):
-                self.delegate?.bindViewModel()
+                self?.delegate?.bindViewModel()
             case .failure(let signInError):
-                self.delegate?.showUserErrorMessage(error: signInError)
+                self?.delegate?.showUserErrorMessage(error: signInError)
             }
         }
     }

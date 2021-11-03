@@ -26,7 +26,7 @@ class CryptoAndMetalViewController: UIViewController {
         currencyPicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+    @IBAction private func refreshButtonPressed(_ sender: UIButton) {
         viewModel.fetchBitcoinAndMetalPrices(for: viewModel.selectedCurrency)
     }
 }

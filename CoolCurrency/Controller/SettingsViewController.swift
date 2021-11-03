@@ -38,21 +38,21 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         self.present(myPickerController, animated: true, completion: nil)
     }
     
-    @IBAction func setFirstNamePressed(_ sender: UIButton) {
+    @IBAction private func setFirstNamePressed(_ sender: UIButton) {
         setupProfileNames(firstNameLabel, isFirstName: true)
     }
     
-    @IBAction func setLastNamePressed(_ sender: UIButton) {
+    @IBAction private func setLastNamePressed(_ sender: UIButton) {
         setupProfileNames(lastNameLabel, isFirstName: false)
     }
     
-    @IBAction func dateOfBirthPressed(_ sender: UIDatePicker) {
+    @IBAction private func dateOfBirthPressed(_ sender: UIDatePicker) {
         Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
         let dateResult = Constants.FormatForDate.dateFormatterGet.string(from: datePicker.date)
         viewModel.updateDateOfBirth(dateResult)
     }
     
-    @IBAction func genderIndexChangedPressed(_ sender: Any) {
+    @IBAction private func genderIndexChangedPressed(_ sender: Any) {
         viewModel.updateGender(genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex)!)
     }
     

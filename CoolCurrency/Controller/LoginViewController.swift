@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         activityLoader.isHidden = true
     }
     
-    @IBAction func loginButtonPressed(_ sender: UIButton) {
+    @IBAction private func loginButtonPressed(_ sender: UIButton) {
         if let email = self.emailTextField.text,
            let password = self.passwordTextField.text {
             viewModel.authenticateUser(email, password)

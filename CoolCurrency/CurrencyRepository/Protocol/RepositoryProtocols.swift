@@ -23,5 +23,5 @@ protocol CryptoAndMetalsRepositable {
 protocol AuthenticationRepositable {
     func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void)
     func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void)
-    func checkIfUserAlreadySignedIn() -> Bool
+    func signedInUserIdentification() -> String
 }
