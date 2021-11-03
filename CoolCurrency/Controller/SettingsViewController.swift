@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FirebaseDatabase
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -17,7 +18,9 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var datePicker: UIDatePicker!
     
-    private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference()), delegate: self)
+    private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference()),
+                                                   authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                   delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +56,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func genderIndexChangedPressed(_ sender: Any) {
-        viewModel.updateGender(genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex)!)
+        guard let forSegmentedControl = genderSegmentedControl.titleForSegment(at: genderSegmentedControl.selectedSegmentIndex) else { return }
+        viewModel.updateGender(forSegmentedControl)
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -83,10 +87,13 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
     
     func retrieveUserInformation() {
+        guard let dateOfBirth = viewModel.birthDate,
+        let gender = viewModel.gender else { return }
+        
         self.firstNameLabel.setTitle(viewModel.firstName, for: .normal)
         self.lastNameLabel.setTitle(viewModel.lastName, for: .normal)
-        genderSegmentedControl.selectedSegmentIndex = viewModel.gender
-        datePicker.setDate(viewModel.birthDate, animated: true)
+        genderSegmentedControl.selectedSegmentIndex = gender
+        datePicker.setDate(dateOfBirth, animated: true)
     }
 }
 
@@ -105,9 +112,7 @@ extension SettingsViewController {
                 nameLabel.setTitle(newFirstName, for: .normal)
                 self.viewModel.updateFirstName(newFirstName)
             } else {
-                guard let newLastName = textField.text else {
-                    return
-                }
+                guard let newLastName = textField.text else { return }
                 nameLabel.setTitle(newLastName, for: .normal)
                 self.viewModel.updateLastName(newLastName)
             }

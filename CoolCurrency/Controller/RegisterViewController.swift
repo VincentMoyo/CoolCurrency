@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
@@ -13,7 +14,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
-    private lazy var viewModel = RegisterViewModel(delegate: self)
+    private lazy var viewModel = RegisterViewModel(authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                   delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()

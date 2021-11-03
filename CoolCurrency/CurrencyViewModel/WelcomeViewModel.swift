@@ -6,11 +6,14 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 struct WelcomeViewModel {
     
-    private let authentication = AuthenticationRepository(authenticationReference: Auth.auth())
+    private var authentication: AuthenticationRepositable
+    
+    init(authenticationRepository: AuthenticationRepositable) {
+        self.authentication = authenticationRepository
+    }
     
     var isUserSignedIn: Bool {
        return authentication.checkIfUserAlreadySignedIn

@@ -17,7 +17,7 @@ struct AuthenticationRepository: AuthenticationRepositable {
     }
     
     var checkIfUserAlreadySignedIn: Bool {
-       return authentication.currentUser != nil
+        authentication.currentUser != nil
     }
     
     func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {

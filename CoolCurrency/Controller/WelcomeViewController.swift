@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class WelcomeViewController: UIViewController {
 
-    var welcomeViewModel = WelcomeViewModel()
+    private lazy var viewModel = WelcomeViewModel(authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if welcomeViewModel.isUserSignedIn {
+        if viewModel.isUserSignedIn {
             self.performSegue(withIdentifier: "QuickSignIn", sender: self)
         }
     }

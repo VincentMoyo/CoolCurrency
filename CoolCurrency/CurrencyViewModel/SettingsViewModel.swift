@@ -6,25 +6,22 @@
 //
 
 import Foundation
-import FirebaseDatabase
-import FirebaseAuth
 
 class SettingsViewModel: SettingsViewModiable {
     
-    let database = DatabaseRepository(databaseReference: Database.database().reference())
-    private let authentication = AuthenticationRepository(authenticationReference: Auth.auth())
-    private var databaseRepository: DatabaseRepositable
+    private var database: DatabaseRepositable
+    private var authentication: AuthenticationRepositable
     var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
-    var firstName = ""
-    var lastName = ""
-    var gender = 0
-    var birthDate: Date
+    var firstName: String?
+    var lastName: String?
+    var gender: Int?
+    var birthDate: Date?
     
-    init(databaseRepository: DatabaseRepositable, delegate: SettingsViewModelDelegate) {
-        self.databaseRepository = databaseRepository
+    init(databaseRepository: DatabaseRepositable, authenticationRepository: AuthenticationRepositable, delegate: SettingsViewModelDelegate) {
+        self.database = databaseRepository
+        self.authentication = authenticationRepository
         self.delegate = delegate
-        self.birthDate = Date.init()
     }
     
     func loadUserSettingsFromDatabase() {

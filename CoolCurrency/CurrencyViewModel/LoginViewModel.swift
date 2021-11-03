@@ -6,14 +6,14 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 class LoginViewModel {
     
     private weak var delegate: ViewModelDelegate?
-    private let authentication = AuthenticationRepository(authenticationReference: Auth.auth())
+    private var authentication: AuthenticationRepositable
     
-    init(delegate: ViewModelDelegate) {
+    init(authenticationRepository: AuthenticationRepositable, delegate: ViewModelDelegate) {
+        self.authentication = authenticationRepository
         self.delegate = delegate
     }
     
