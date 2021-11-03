@@ -100,7 +100,6 @@ extension SettingsViewController: SettingsViewModelDelegate {
 extension SettingsViewController {
     
     private func setupProfileNames(_ nameLabel: UIButton, isFirstName firstName: Bool) {
-        
         var textField = UITextField()
         let alert = UIAlertController(title: "Set Name",
                                       message: "Set your username to complete your profile account setup",
