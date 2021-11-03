@@ -24,12 +24,12 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         viewModel.loadUserSettingsFromDatabase()
     }
     
-    @IBAction func logOutPressed(_ sender: UIButton) {
+    @IBAction private func logOutPressed(_ sender: UIButton) {
         viewModel.signOutCurrentUser()
         activateActivityIndicatorView()
     }
     
-    @IBAction func setProfilePicturePressed(_ sender: UIButton) {
+    @IBAction private func setProfilePicturePressed(_ sender: UIButton) {
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
