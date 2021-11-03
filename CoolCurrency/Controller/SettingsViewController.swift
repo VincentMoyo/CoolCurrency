@@ -25,9 +25,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction func logOutPressed(_ sender: UIButton) {
-        viewModel.signOutUser()
+        viewModel.signOutCurrentUser()
         activateActivityIndicatorView()
-        bindSignOutSettingsViewModel()
     }
     
     @IBAction func setProfilePicturePressed(_ sender: UIButton) {
@@ -69,7 +68,12 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 }
 
-extension SettingsViewController: ViewModelDelegate {
+extension SettingsViewController: SettingsViewModelDelegate {
+    
+    func signOutBindViewModel() {
+        self.performSegue(withIdentifier: "welcome", sender: self)
+        self.activityLoader.stopAnimating()
+    }
     
     func bindViewModel() {
         viewModel.checkUserList()
@@ -82,11 +86,6 @@ extension SettingsViewController: ViewModelDelegate {
         self.lastNameLabel.setTitle(viewModel.lastName, for: .normal)
         genderSegmentedControl.selectedSegmentIndex = viewModel.gender
         datePicker.setDate(viewModel.birthDate, animated: true)
-    }
-    
-    private func bindSignOutSettingsViewModel() {
-            self.performSegue(withIdentifier: "welcome", sender: self)
-            self.activityLoader.stopAnimating()
     }
 }
 

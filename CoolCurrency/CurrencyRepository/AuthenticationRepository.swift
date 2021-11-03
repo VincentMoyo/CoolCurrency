@@ -30,6 +30,15 @@ struct AuthenticationRepository: AuthenticationRepositable {
         }
     }
     
+    func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) {
+        do {
+            try authentication.signOut()
+            completion(.success(true))
+        } catch let signOutError as NSError {
+            completion(.failure(signOutError))
+        }
+    }
+    
     func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         authentication.signIn(withEmail: email, password: password) { _, error in
             if let err = error {

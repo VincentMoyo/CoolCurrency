@@ -14,13 +14,13 @@ class SettingsViewModel {
     let database = DatabaseRepository(databaseReference: Database.database().reference())
     private let authenticationRepo = AuthenticationRepository(authenticationReference: Auth.auth())
     var userSettingsList: [String: String] = [:]
-    private weak var delegate: ViewModelDelegate?
+    private weak var delegate: SettingsViewModelDelegate?
     var firstName = ""
     var lastName = ""
     var gender = 0
     var birthDate: Date
     
-    init(delegate: ViewModelDelegate) {
+    init(delegate: SettingsViewModelDelegate) {
         self.delegate = delegate
         self.birthDate = Date.init()
     }
@@ -73,13 +73,14 @@ class SettingsViewModel {
         }
     }
     
-    func signOutUser() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.delegate?.bindViewModel()
-        } catch let signOutError as NSError {
-            self.delegate?.showUserErrorMessage(error: signOutError)
+    func signOutCurrentUser() {
+        authenticationRepo.signOutUser { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let signInError):
+                self?.delegate?.showUserErrorMessage(error: signInError)
+            }
         }
     }
 }
