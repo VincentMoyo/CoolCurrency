@@ -9,10 +9,11 @@ import Foundation
 import FirebaseDatabase
 import FirebaseAuth
 
-class SettingsViewModel {
+class SettingsViewModel: SettingsViewModiable {
     
     let database = DatabaseRepository(databaseReference: Database.database().reference())
     private let authentication = AuthenticationRepository(authenticationReference: Auth.auth())
+    private var databaseRepository: DatabaseRepositable
     var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
     var firstName = ""
@@ -20,7 +21,8 @@ class SettingsViewModel {
     var gender = 0
     var birthDate: Date
     
-    init(delegate: SettingsViewModelDelegate) {
+    init(databaseRepository: DatabaseRepositable, delegate: SettingsViewModelDelegate) {
+        self.databaseRepository = databaseRepository
         self.delegate = delegate
         self.birthDate = Date.init()
     }

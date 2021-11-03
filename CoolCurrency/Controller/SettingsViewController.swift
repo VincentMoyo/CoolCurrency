@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -16,7 +17,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var datePicker: UIDatePicker!
     
-    private lazy var viewModel = SettingsViewModel(delegate: self)
+    private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference()), delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,9 +101,7 @@ extension SettingsViewController {
         
         let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
             if firstName {
-                guard let newFirstName = textField.text else {
-                    return
-                }
+                guard let newFirstName = textField.text else { return }
                 nameLabel.setTitle(newFirstName, for: .normal)
                 self.viewModel.updateFirstName(newFirstName)
             } else {

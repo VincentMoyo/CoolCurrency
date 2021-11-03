@@ -9,7 +9,7 @@ import Foundation
 import FirebaseDatabase
 import UIKit
 
-class DatabaseRepository {
+class DatabaseRepository: DatabaseRepositable {
     
     private var database: DatabaseReference
     
@@ -54,7 +54,6 @@ class DatabaseRepository {
                 return
             }
             DispatchQueue.main.async {
-                print(value)
                 completion(.success(value))
             }
         }

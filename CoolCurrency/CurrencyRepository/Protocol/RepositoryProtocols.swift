@@ -26,3 +26,8 @@ protocol AuthenticationRepositable {
     func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void)
     func signedInUserIdentification() -> String
 }
+
+protocol DatabaseRepositable {
+    func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping (Result<[String: Double], Error>) -> Void)
+    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void)
+}
