@@ -40,6 +40,10 @@ class RegisterViewModelTests: XCTestCase {
     }
     
     class MockAuthenticationRepository: AuthenticationRepositable {
+        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { completion(.success(true)) }
+        func signedInUserIdentification() -> String { "" }
+        var checkIfUserAlreadySignedIn: Bool {return true}
+        func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
         func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
             if email == "emailAlreadyExist" {
                 completion(.failure(MyErrors.retrieveError("error")))
@@ -47,9 +51,5 @@ class RegisterViewModelTests: XCTestCase {
                 completion(.success(true))
             }
         }
-        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { completion(.success(true)) }
-        func signedInUserIdentification() -> String { "" }
-        var checkIfUserAlreadySignedIn: Bool {return true}
-        func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
     }
 }
