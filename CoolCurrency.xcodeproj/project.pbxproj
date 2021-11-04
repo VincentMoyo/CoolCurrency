@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26B538408414011EEBCC97F5 /* Pods_CoolCurrency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B8C0670977515B3C9C197CF /* Pods_CoolCurrency.framework */; };
+		78021ACA2732EA3A0045A828 /* SettingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78021AC92732EA3A0045A828 /* SettingViewModelTests.swift */; };
 		7811A922271716B200810C9F /* CurrencyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811A920271716B200810C9F /* CurrencyTableViewCell.swift */; };
 		7811A923271716B200810C9F /* CurrencyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7811A921271716B200810C9F /* CurrencyTableViewCell.xib */; };
 		7811A92527171F7800810C9F /* CurrencyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7811A92427171F7800810C9F /* CurrencyDataModel.swift */; };
@@ -81,6 +82,7 @@
 		5B8C0670977515B3C9C197CF /* Pods_CoolCurrency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolCurrency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A5E074E77586D7F03DC9AB /* Pods-CoolCurrencyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrencyTests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrencyTests/Pods-CoolCurrencyTests.release.xcconfig"; sourceTree = "<group>"; };
 		7486F5C6206255F82CA89857 /* Pods-CoolCurrencyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrencyTests.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrencyTests/Pods-CoolCurrencyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		78021AC92732EA3A0045A828 /* SettingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
 		7811A920271716B200810C9F /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		7811A921271716B200810C9F /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
 		7811A92427171F7800810C9F /* CurrencyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDataModel.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				7828E6D827145BCC00507B79 /* CurrencyResponseModelTests.swift */,
 				7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */,
 				788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */,
+				78021AC92732EA3A0045A828 /* SettingViewModelTests.swift */,
 			);
 			path = CoolCurrencyTests;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */,
 				788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */,
 				7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */,
+				78021ACA2732EA3A0045A828 /* SettingViewModelTests.swift in Sources */,
 				7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
