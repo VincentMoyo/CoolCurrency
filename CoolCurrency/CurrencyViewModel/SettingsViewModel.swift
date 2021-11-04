@@ -11,7 +11,7 @@ class SettingsViewModel: SettingsViewModiable {
     
     private var database: DatabaseRepositable
     private var authentication: AuthenticationRepositable
-    var userSettingsList: [String: String] = [:]
+    private var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
     var firstName: String?
     var lastName: String?
@@ -66,8 +66,8 @@ class SettingsViewModel: SettingsViewModiable {
                 }
             } else if settings.key == "Date of Birth" {
                 Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
-                let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value)
-                birthDate = dateResult!
+                guard let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value) else { return }
+                birthDate = dateResult
             }
         }
     }
