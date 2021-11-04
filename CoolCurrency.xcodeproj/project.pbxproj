@@ -18,6 +18,8 @@
 		7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */; };
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
+		7875603B2733C886000EA79D /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875603A2733C886000EA79D /* LoginViewModelTests.swift */; };
+		7875603D2733D07F000EA79D /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875603C2733D07F000EA79D /* RegisterViewModelTests.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
 		78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768183272BE78100F090C0 /* SettingsViewController.swift */; };
 		78768186272BEA1B00F090C0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768185272BEA1B00F090C0 /* SettingsViewModel.swift */; };
@@ -93,6 +95,8 @@
 		7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
+		7875603A2733C886000EA79D /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		7875603C2733D07F000EA79D /* RegisterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTests.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		78768183272BE78100F090C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		78768185272BEA1B00F090C0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -255,6 +259,8 @@
 				7828E6DA27145C4800507B79 /* CoolCurrencyTests-Bridging-Header.h */,
 				788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */,
 				78021AC92732EA3A0045A828 /* SettingViewModelTests.swift */,
+				7875603A2733C886000EA79D /* LoginViewModelTests.swift */,
+				7875603C2733D07F000EA79D /* RegisterViewModelTests.swift */,
 			);
 			path = CoolCurrencyTests;
 			sourceTree = "<group>";
@@ -668,8 +674,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7875603B2733C886000EA79D /* LoginViewModelTests.swift in Sources */,
 				7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */,
 				788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */,
+				7875603D2733D07F000EA79D /* RegisterViewModelTests.swift in Sources */,
 				7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */,
 				78021ACA2732EA3A0045A828 /* SettingViewModelTests.swift in Sources */,
 				7828E6D72714589B00507B79 /* MockedCurrencyRepository.swift in Sources */,

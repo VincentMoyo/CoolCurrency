@@ -24,9 +24,27 @@ class SettingViewModelTests: XCTestCase {
                                                      delegate: mockDelegate)
     }
     
-    func testCheckList() {
+    func testSignOutCurrentUserSuccess() {
         setUpMockResponse()
-        XCTAssertEqual(implementationUnderTests.firstName, "Nkosi")
+        implementationUnderTests.signOutCurrentUser()
+        XCTAssert(mockDelegate.signOutCalled)
+    }
+    
+    func testCheckListFirstName() {
+        setUpMockResponse()
+        XCTAssertEqual(implementationUnderTests.firstName, "Vincent")
+        XCTAssert(mockDelegate.refreshCalled)
+    }
+    
+    func testCheckListLastName() {
+        setUpMockResponse()
+        XCTAssertEqual(implementationUnderTests.lastName, "Moyo")
+        XCTAssert(mockDelegate.refreshCalled)
+    }
+
+    func testCheckListGenderIsMaleSuccess() {
+        setUpMockResponse()
+        XCTAssertEqual(implementationUnderTests.gender, 1)
         XCTAssert(mockDelegate.refreshCalled)
     }
     
@@ -37,35 +55,26 @@ class SettingViewModelTests: XCTestCase {
     }
     
     private var mockData: [String: String] {
-        ["FirstName": "Nkosi",
+        ["FirstName": "Vincent",
          "Date of Birth": "1999-03-01",
          "LastName": "Moyo",
          "Gender": "Male"]
     }
     
     class MockDelegate: SettingsViewModelDelegate {
-        
         var refreshCalled = false
         var showUserErrorCalled = false
         var signOutCalled = false
         
-        func showUserErrorMessage(error: Error) {
-            showUserErrorCalled = true
-        }
-        
-        func bindViewModel() {
-            refreshCalled = true
-        }
-        
-        func signOutBindViewModel() {
-            signOutCalled = true
-        }
+        func showUserErrorMessage(error: Error) { showUserErrorCalled = true }
+        func bindViewModel() { refreshCalled = true }
+        func signOutBindViewModel() { signOutCalled = true }
     }
     
     class MockAuthenticationRepository: AuthenticationRepositable {
         func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
         func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
-        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { }
+        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { completion(.success(true)) }
         func signedInUserIdentification() -> String { "" }
         var checkIfUserAlreadySignedIn: Bool {return true}
     }
@@ -79,7 +88,6 @@ class SettingViewModelTests: XCTestCase {
         func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) { }
         func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
             completion(response)
-            
         }
     }
 }
