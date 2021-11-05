@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoolCurrencyFramework
 
 class CryptoAndMetalViewController: UIViewController {
     
@@ -16,7 +17,7 @@ class CryptoAndMetalViewController: UIViewController {
     @IBOutlet private weak var silverValueLabel: UILabel!
     @IBOutlet private weak var currencyCodeLabel: UILabel!
     
-    private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepository(),
+    private lazy var viewModel = CryptoAndMetalViewModels(repositoryCryptoAndMetals: CryptoAndMetalsRepositorys(),
                                                          delegate: self)
     
     override func viewDidLoad() {
@@ -52,7 +53,7 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
 }
 
-extension CryptoAndMetalViewController: ViewModelDelegate {
+extension CryptoAndMetalViewController: ViewModelDelegates {
     
     func bindViewModel() {
         bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin

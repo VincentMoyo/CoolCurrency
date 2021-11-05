@@ -450,7 +450,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ijw-ze-IAN">
-                                <rect key="frame" x="0.0" y="735" width="414" height="61"/>
+                                <rect key="frame" x="50" y="735" width="314" height="61"/>
                                 <color key="backgroundColor" red="0.38738895740000001" green="0.28938567380000002" blue="0.63162138970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="745-Vw-R0e"/>
@@ -463,8 +463,15 @@
                                     <segue destination="3BM-q7-POh" kind="show" id="cwS-sU-epZ"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cool_currency_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CvI-SK-h6Q">
+                                <rect key="frame" x="20" y="281" width="374" height="334"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="334" id="V7b-CS-sO8"/>
+                                    <constraint firstAttribute="width" constant="374" id="uw8-5A-axL"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" alpha="0.20000000298023224" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeM-aP-58i">
-                                <rect key="frame" x="0.0" y="658" width="414" height="57"/>
+                                <rect key="frame" x="50" y="657" width="314" height="57"/>
                                 <color key="backgroundColor" red="0.60488523992028842" green="0.45546297737259533" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="8rH-mL-GTo"/>
@@ -478,24 +485,17 @@
                                     <segue destination="hPv-aX-VEm" kind="show" id="Tqb-Ep-d1v"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cool_currency_Icon" translatesAutoresizingMaskIntoConstraints="NO" id="CvI-SK-h6Q">
-                                <rect key="frame" x="20" y="281" width="374" height="334"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="334" id="V7b-CS-sO8"/>
-                                    <constraint firstAttribute="width" constant="374" id="uw8-5A-axL"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mKY-xF-beD"/>
-                        <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.83830623434047502" green="0.83830623434047502" blue="0.83830623434047502" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="CvI-SK-h6Q" firstAttribute="centerX" secondItem="Vru-ou-P3f" secondAttribute="centerX" id="8Dz-jb-V3Q"/>
-                            <constraint firstItem="Ijw-ze-IAN" firstAttribute="top" secondItem="DeM-aP-58i" secondAttribute="bottom" constant="20" id="NN9-Tr-Xje"/>
-                            <constraint firstItem="Ijw-ze-IAN" firstAttribute="leading" secondItem="mKY-xF-beD" secondAttribute="leading" id="Nxf-G6-3L9"/>
+                            <constraint firstItem="Ijw-ze-IAN" firstAttribute="top" secondItem="DeM-aP-58i" secondAttribute="bottom" constant="21" id="NN9-Tr-Xje"/>
+                            <constraint firstItem="Ijw-ze-IAN" firstAttribute="leading" secondItem="mKY-xF-beD" secondAttribute="leading" constant="50" id="Nxf-G6-3L9"/>
                             <constraint firstItem="DeM-aP-58i" firstAttribute="centerX" secondItem="Ijw-ze-IAN" secondAttribute="centerX" id="O2U-fl-tSU"/>
                             <constraint firstItem="mKY-xF-beD" firstAttribute="bottom" secondItem="Ijw-ze-IAN" secondAttribute="bottom" constant="66" id="Oot-Hw-Jyd"/>
                             <constraint firstItem="CvI-SK-h6Q" firstAttribute="centerX" secondItem="Vru-ou-P3f" secondAttribute="centerX" id="XZq-YY-D5n"/>
-                            <constraint firstItem="DeM-aP-58i" firstAttribute="leading" secondItem="mKY-xF-beD" secondAttribute="leading" id="dTR-6E-wai"/>
+                            <constraint firstItem="DeM-aP-58i" firstAttribute="leading" secondItem="mKY-xF-beD" secondAttribute="leading" constant="50" id="dTR-6E-wai"/>
                             <constraint firstItem="Ijw-ze-IAN" firstAttribute="centerX" secondItem="Vru-ou-P3f" secondAttribute="centerX" id="e3s-nJ-pax"/>
                             <constraint firstItem="CvI-SK-h6Q" firstAttribute="centerY" secondItem="Vru-ou-P3f" secondAttribute="centerY" id="eZ3-Rq-dIf"/>
                             <constraint firstItem="CvI-SK-h6Q" firstAttribute="centerY" secondItem="Vru-ou-P3f" secondAttribute="centerY" id="o5M-tH-j9t"/>
@@ -542,7 +542,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmT-wt-EMk">
-                                <rect key="frame" x="0.0" y="378" width="414" height="48"/>
+                                <rect key="frame" x="63" y="378" width="288" height="48"/>
                                 <color key="backgroundColor" red="0.38738895740000001" green="0.28938567380000002" blue="0.63162138970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="5fL-Ti-92J"/>
@@ -561,8 +561,8 @@
                         <constraints>
                             <constraint firstItem="GDf-xe-2qW" firstAttribute="trailing" secondItem="A54-oN-0ij" secondAttribute="trailing" constant="63" id="63T-mD-tjB"/>
                             <constraint firstItem="kOl-xJ-eq3" firstAttribute="centerX" secondItem="B0c-2f-G7N" secondAttribute="centerX" id="7Gy-uw-a7Y"/>
-                            <constraint firstItem="GDf-xe-2qW" firstAttribute="trailing" secondItem="LmT-wt-EMk" secondAttribute="trailing" id="BiF-jA-HSf"/>
-                            <constraint firstItem="LmT-wt-EMk" firstAttribute="leading" secondItem="GDf-xe-2qW" secondAttribute="leading" id="JLR-vo-4dO"/>
+                            <constraint firstItem="GDf-xe-2qW" firstAttribute="trailing" secondItem="LmT-wt-EMk" secondAttribute="trailing" constant="63" id="BiF-jA-HSf"/>
+                            <constraint firstItem="LmT-wt-EMk" firstAttribute="leading" secondItem="GDf-xe-2qW" secondAttribute="leading" constant="63" id="JLR-vo-4dO"/>
                             <constraint firstItem="LmT-wt-EMk" firstAttribute="top" secondItem="xUO-Id-oWX" secondAttribute="bottom" constant="71" id="KIY-aS-rRn"/>
                             <constraint firstItem="A54-oN-0ij" firstAttribute="leading" secondItem="GDf-xe-2qW" secondAttribute="leading" constant="63" id="PJo-T7-xa9"/>
                             <constraint firstItem="A54-oN-0ij" firstAttribute="top" secondItem="GDf-xe-2qW" secondAttribute="top" constant="68" id="e3X-QM-1nY"/>
@@ -583,7 +583,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URg-HX-PL4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2470" y="-927"/>
+            <point key="canvasLocation" x="-2471.0144927536235" y="-927.45535714285711"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="IR4-Yp-w6Q">
@@ -613,7 +613,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tvo-Bp-Qsw">
-                                <rect key="frame" x="0.0" y="356.5" width="414" height="48"/>
+                                <rect key="frame" x="63" y="357" width="288" height="48"/>
                                 <color key="backgroundColor" red="0.38738895740000001" green="0.28938567380000002" blue="0.63162138970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="fhi-ib-ZeZ"/>
@@ -642,10 +642,10 @@
                             <constraint firstItem="XBD-7l-BEo" firstAttribute="centerY" secondItem="BPu-TK-Jfh" secondAttribute="centerY" id="N9M-9G-5c8"/>
                             <constraint firstItem="R6n-cT-2S0" firstAttribute="trailing" secondItem="2RA-0X-TD7" secondAttribute="trailing" constant="63" id="TW2-8r-sXK"/>
                             <constraint firstItem="tvo-Bp-Qsw" firstAttribute="top" secondItem="wPi-74-wDP" secondAttribute="bottom" constant="49.666666666666686" id="aAo-3W-GAD"/>
-                            <constraint firstItem="tvo-Bp-Qsw" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" id="cHb-5N-gdi"/>
+                            <constraint firstItem="tvo-Bp-Qsw" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" constant="63" id="cHb-5N-gdi"/>
                             <constraint firstItem="wPi-74-wDP" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" constant="63" id="grE-lg-stj"/>
                             <constraint firstItem="XBD-7l-BEo" firstAttribute="centerX" secondItem="BPu-TK-Jfh" secondAttribute="centerX" id="hnT-Tc-UNA"/>
-                            <constraint firstItem="R6n-cT-2S0" firstAttribute="trailing" secondItem="tvo-Bp-Qsw" secondAttribute="trailing" id="t99-rw-WSU"/>
+                            <constraint firstItem="R6n-cT-2S0" firstAttribute="trailing" secondItem="tvo-Bp-Qsw" secondAttribute="trailing" constant="63" id="t99-rw-WSU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n3a-lP-GrX"/>
@@ -658,14 +658,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="36G-fM-POD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2471" y="9"/>
+            <point key="canvasLocation" x="-2471.0144927536235" y="8.7053571428571423"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="7Fm-uj-7Bc">
             <objects>
                 <viewController id="a10-aK-Pdy" customClass="SettingsViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="egl-XA-7QB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1246"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="QFW-QF-9uy">
@@ -699,7 +699,7 @@
                                 </constraints>
                             </stackView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dN-y1-MEq">
-                                <rect key="frame" x="0.0" y="28" width="414" height="814"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="1218"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dAw-jW-9SZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1300"/>
@@ -868,7 +868,7 @@
                                                 </constraints>
                                             </stackView>
                                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ObL-g8-wAh">
-                                                <rect key="frame" x="27.5" y="573.5" width="359" height="631.5"/>
+                                                <rect key="frame" x="27.5" y="573.5" width="359" height="266.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVO-hN-KXb">
                                                         <rect key="frame" x="8" y="8" width="186" height="54"/>
@@ -880,11 +880,11 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="115" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3M-r6-AEi">
-                                                        <rect key="frame" x="0.0" y="80" width="350" height="527.5"/>
+                                                        <rect key="frame" x="0.0" y="80" width="341" height="162.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="350" id="wyq-6r-80l"/>
                                                         </constraints>
-                                                        <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui vivamus arcu felis bibendum ut tristique et. Eu lobortis elementum nibh tellus molestie nunc non blandit massa. Mi quis hendrerit dolor magna eget est lorem ipsum dolor. Neque sodales ut etiam sit. Justo laoreet sit amet cursus sit. Vel elit scelerisque mauris pellentesque pulvinar. Eu volutpat odio facilisis mauris sit amet. Morbi blandit cursus risus at ultrices mi tempus. Lorem dolor sed viverra ipsum nunc aliquet. Volutpat diam ut venenatis tellus in metus vulputate eu. Aliquam etiam erat velit scelerisque in dictum non. Dui sapien eget mi proin sed. In nisl nisi scelerisque eu ultrices. Dictum at tempor commodo ullamcorper. Odio facilisis mauris sit amet massa vitae tortor. Lorem dolor sed viverra ipsum nunc aliquet. Volutpat diam ut venenatis tellus in metus vulputate eu. Aliquam etiam erat velit scelerisque in dictum non. Dui sapien eget mi proin sed. In nisl nisi scelerisque eu ultrices. Dictum at tempor commodo ullamcorper. Odio facilisis mauris sit amet massa vitae tortor. </string>
+                                                        <string key="text">Cool Application about cool currency. This application is about keeping track of the changes in the rates of currency aganist the base currency the user has set themselves. As an additional feature ther application also keeps track track of Bitcoin and precious metals such as Gold, Platinum and Silver against a base currency you chose yourself.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -994,6 +994,7 @@
                             <constraint firstItem="QFW-QF-9uy" firstAttribute="top" secondItem="1bx-KT-Xdf" secondAttribute="top" id="d25-Cr-i6g"/>
                         </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1300"/>
                     <connections>
                         <outlet property="activityLoader" destination="V38-j1-2ND" id="2Kn-eo-UIx"/>
                         <outlet property="datePicker" destination="XJG-mb-i9r" id="A2t-Bl-QeZ"/>
@@ -1010,7 +1011,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="8lo-P7-9RL"/>
+        <segue reference="dMV-d1-ajQ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Cool_currency_Icon" width="1024" height="1024"/>
