@@ -10,15 +10,15 @@ import Foundation
 class RegisterViewModel {
     
     private weak var delegate: ViewModelDelegate?
-    private var authentication: AuthenticationRepositable
+    private var authenticationRepository: AuthenticationRepositable
     
     init(authenticationRepository: AuthenticationRepositable, delegate: ViewModelDelegate) {
-        self.authentication = authenticationRepository
+        self.authenticationRepository = authenticationRepository
         self.delegate = delegate
     }
     
     func registerUser(_ email: String, _ password: String) {
-        authentication.registerUser(email, password) { [weak self] result in
+        authenticationRepository.registerUser(email, password) { [weak self] result in
             switch result {
             case .success(_):
                 self?.delegate?.bindViewModel()

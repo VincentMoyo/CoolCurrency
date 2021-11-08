@@ -9,13 +9,13 @@ import Foundation
 
 struct WelcomeViewModel {
     
-    private var authentication: AuthenticationRepositable
+    private var authenticationRepository: AuthenticationRepositable
     
     init(authenticationRepository: AuthenticationRepositable) {
-        self.authentication = authenticationRepository
+        self.authenticationRepository = authenticationRepository
     }
     
     var isUserSignedIn: Bool {
-       return authentication.checkIfUserAlreadySignedIn
+       return authenticationRepository.checkIfUserAlreadySignedIn
     }
 }
