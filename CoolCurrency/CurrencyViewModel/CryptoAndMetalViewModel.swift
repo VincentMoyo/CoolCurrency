@@ -11,12 +11,12 @@ class CryptoAndMetalViewModel: CryptoAndMetalViewModiable {
     
     private var price: CoinData = CoinData(rate: 0.0)
     private var metalsResponse: MetalRates?
-    private weak var delegate: CryptoAndMetalViewModelDelegate?
+    private weak var delegate: ViewModelDelegate?
     private var cryptoAndMetalsRepository: CryptoAndMetalsRepositable
     var selectedCurrency = ""
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
-    init(repositoryCryptoAndMetals: CryptoAndMetalsRepositable, delegate: CryptoAndMetalViewModelDelegate) {
+    init(repositoryCryptoAndMetals: CryptoAndMetalsRepositable, delegate: ViewModelDelegate) {
         self.cryptoAndMetalsRepository = repositoryCryptoAndMetals
         self.delegate = delegate
     }

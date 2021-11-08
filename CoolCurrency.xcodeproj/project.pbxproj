@@ -18,7 +18,16 @@
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
+		78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768183272BE78100F090C0 /* SettingsViewController.swift */; };
+		78768186272BEA1B00F090C0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768185272BEA1B00F090C0 /* SettingsViewModel.swift */; };
+		7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876818A272BF0B700F090C0 /* UserInformation.swift */; };
+		7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D55E272A9637003A2857 /* WelcomeViewController.swift */; };
+		7877D561272A9671003A2857 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D560272A9671003A2857 /* WelcomeViewModel.swift */; };
+		7877D563272A9BC1003A2857 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D562272A9BC1003A2857 /* LoginViewModel.swift */; };
+		7877D565272A9C2D003A2857 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D564272A9C2D003A2857 /* RegisterViewModel.swift */; };
+		7877D567272A9E76003A2857 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D566272A9E76003A2857 /* LoginViewController.swift */; };
 		787ADA5E270C38C9002494B1 /* CurrencyResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */; };
+		7884FFDE272AA7B00005454A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884FFDD272AA7AF0005454A /* RegisterViewController.swift */; };
 		788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */; };
 		788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC71270AFDCA0033493B /* AppDelegate.swift */; };
 		788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC73270AFDCA0033493B /* SceneDelegate.swift */; };
@@ -43,6 +52,7 @@
 		78B50AFF271A00DB00596AA6 /* CurrencyConversionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B50AFD271A00DB00596AA6 /* CurrencyConversionsViewController.xib */; };
 		78B5F0282720157800E10B6B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 78B5F0272720157800E10B6B /* GoogleService-Info.plist */; };
 		78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5F0292720427400E10B6B /* DatabaseRepository.swift */; };
+		78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D34C192731A43C0065A802 /* AuthenticationRepository.swift */; };
 		B6972832D510C9335B4AEFCD /* Pods_CoolCurrency_CoolCurrencyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3013581020F42A9A4B5ECC3B /* Pods_CoolCurrency_CoolCurrencyUITests.framework */; };
 		F8EF2D08A4745B80A8046C7B /* Pods_CoolCurrencyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A53DAD1EE9FBE6CE02844486 /* Pods_CoolCurrencyTests.framework */; };
 /* End PBXBuildFile section */
@@ -82,7 +92,16 @@
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		78768183272BE78100F090C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		78768185272BEA1B00F090C0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		7876818A272BF0B700F090C0 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
+		7877D55E272A9637003A2857 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		7877D560272A9671003A2857 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		7877D562272A9BC1003A2857 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		7877D564272A9C2D003A2857 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		7877D566272A9E76003A2857 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponseModel.swift; sourceTree = "<group>"; };
+		7884FFDD272AA7AF0005454A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		788DEC6E270AFDCA0033493B /* CoolCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		788DEC71270AFDCA0033493B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +133,7 @@
 		78B50AFD271A00DB00596AA6 /* CurrencyConversionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyConversionsViewController.xib; sourceTree = "<group>"; };
 		78B5F0272720157800E10B6B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		78B5F0292720427400E10B6B /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
+		78D34C192731A43C0065A802 /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
 		88141E861BCCFC58A70EEEA7 /* Pods-CoolCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.release.xcconfig"; sourceTree = "<group>"; };
 		8FD05D66887C1BF63EF34F2F /* Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A53DAD1EE9FBE6CE02844486 /* Pods_CoolCurrencyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolCurrencyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +274,7 @@
 				7811A92427171F7800810C9F /* CurrencyDataModel.swift */,
 				78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */,
 				78AA4EC12721E8CD0044B3CB /* MetalsResponseModel.swift */,
+				7876818A272BF0B700F090C0 /* UserInformation.swift */,
 			);
 			path = CurrencyResponseModel;
 			sourceTree = "<group>";
@@ -265,6 +286,7 @@
 				785DA031270C877B00CB7996 /* CurrencyRepository.swift */,
 				78B5F0292720427400E10B6B /* DatabaseRepository.swift */,
 				78AA4EBF27219DD30044B3CB /* CryptoAndMetalsRepository.swift */,
+				78D34C192731A43C0065A802 /* AuthenticationRepository.swift */,
 			);
 			path = CurrencyRepository;
 			sourceTree = "<group>";
@@ -278,6 +300,10 @@
 				78B50AFB271A00DB00596AA6 /* CurrencyConversionsViewController.h */,
 				78B50AFC271A00DB00596AA6 /* CurrencyConversionsViewController.m */,
 				78AFD3A9271D746300E16D47 /* CoolCurrency-Bridging-Header.h */,
+				7877D55E272A9637003A2857 /* WelcomeViewController.swift */,
+				7877D566272A9E76003A2857 /* LoginViewController.swift */,
+				7884FFDD272AA7AF0005454A /* RegisterViewController.swift */,
+				78768183272BE78100F090C0 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -300,6 +326,10 @@
 				78AA4EBD27219D5D0044B3CB /* CryptoAndMetalViewModel.swift */,
 				78AFD3AD271DC67E00E16D47 /* ConversionCurrencyViewModel.h */,
 				78AFD3AE271DC67E00E16D47 /* ConversionCurrencyViewModel.m */,
+				7877D560272A9671003A2857 /* WelcomeViewModel.swift */,
+				7877D562272A9BC1003A2857 /* LoginViewModel.swift */,
+				7877D564272A9C2D003A2857 /* RegisterViewModel.swift */,
+				78768185272BEA1B00F090C0 /* SettingsViewModel.swift */,
 			);
 			path = CurrencyViewModel;
 			sourceTree = "<group>";
@@ -596,24 +626,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7877D567272A9E76003A2857 /* LoginViewController.swift in Sources */,
 				78AA4EC027219DD40044B3CB /* CryptoAndMetalsRepository.swift in Sources */,
+				7877D561272A9671003A2857 /* WelcomeViewModel.swift in Sources */,
 				78B50AF72719C02C00596AA6 /* ConvertCurrencyDataModel.swift in Sources */,
 				787ADA5E270C38C9002494B1 /* CurrencyResponseModel.swift in Sources */,
+				78768186272BEA1B00F090C0 /* SettingsViewModel.swift in Sources */,
 				78935FAC270D8FCB007AE3EE /* RepositoryProtocols.swift in Sources */,
 				788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */,
+				7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */,
 				785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */,
 				7811A92527171F7800810C9F /* CurrencyDataModel.swift in Sources */,
 				7828E6D2271439B800507B79 /* ViewModelProtocols.swift in Sources */,
 				78AA4EBE27219D5D0044B3CB /* CryptoAndMetalViewModel.swift in Sources */,
 				7811A922271716B200810C9F /* CurrencyTableViewCell.swift in Sources */,
 				788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */,
+				7877D563272A9BC1003A2857 /* LoginViewModel.swift in Sources */,
 				78AFD3AF271DC67E00E16D47 /* ConversionCurrencyViewModel.m in Sources */,
 				785DA028270C41CE00CB7996 /* Constants.swift in Sources */,
 				78935FB1270DA6CC007AE3EE /* ViewControllerDelegates.swift in Sources */,
 				78AA4EC22721E8CD0044B3CB /* MetalsResponseModel.swift in Sources */,
+				7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */,
 				78AA4EBC27219D270044B3CB /* CryptoAndMetalViewController.swift in Sources */,
 				78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */,
 				7875C28627109AE20045922B /* Extensions.swift in Sources */,
+				7877D565272A9C2D003A2857 /* RegisterViewModel.swift in Sources */,
+				78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */,
+				78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */,
+				7884FFDE272AA7B00005454A /* RegisterViewController.swift in Sources */,
 				788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */,
 				78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */,
 				788DEC74270AFDCA0033493B /* SceneDelegate.swift in Sources */,
@@ -884,7 +924,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrencyTests/CoolCurrencyTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrency/Controller/CoolCurrency-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -914,7 +954,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrencyTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrencyTests/CoolCurrencyTests-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "CoolCurrency/Controller/CoolCurrency-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";

@@ -64,7 +64,7 @@ class CurrencyViewModelTests: XCTestCase {
                                                               australianDollar: 1.1)))
     }
     
-    class MockDelegate: CurrencyViewModelDelegate {
+    class MockDelegate: ViewModelDelegate {
         
         var refreshCalled = false
         var showUserErrorCalled = false

@@ -7,12 +7,13 @@
 
 import Foundation
 
-protocol CurrencyViewModelDelegate: AnyObject {
+protocol ViewModelDelegate: AnyObject {
     func showUserErrorMessage(error: Error)
     func bindViewModel()
 }
 
-protocol CryptoAndMetalViewModelDelegate: AnyObject {
+protocol SettingsViewModelDelegate: AnyObject {
     func showUserErrorMessage(error: Error)
     func bindViewModel()
+    func signOutBindViewModel()
 }

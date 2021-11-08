@@ -14,3 +14,7 @@ protocol CurrencyViewModiable {
 protocol CryptoAndMetalViewModiable {
     func fetchBitcoinAndMetalPrices(for baseCurrency: String)
 }
+
+protocol SettingsViewModiable {
+    func loadUserSettingsFromDatabase()
+}

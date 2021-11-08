@@ -26,7 +26,7 @@ class CryptoAndMetalViewController: UIViewController {
         currencyPicker.setValue(UIColor.white, forKeyPath: "textColor")
     }
     
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+    @IBAction private func refreshButtonPressed(_ sender: UIButton) {
         viewModel.fetchBitcoinAndMetalPrices(for: viewModel.selectedCurrency)
     }
 }
@@ -52,7 +52,7 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
 }
 
-extension CryptoAndMetalViewController: CryptoAndMetalViewModelDelegate {
+extension CryptoAndMetalViewController: ViewModelDelegate {
     
     func bindViewModel() {
         bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin

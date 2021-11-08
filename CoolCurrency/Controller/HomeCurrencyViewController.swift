@@ -23,7 +23,7 @@ class HomeCurrencyViewController: UIViewController {
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
     }
     
-    @IBAction func refreshButtonPressed(_ sender: UIButton) {
+    @IBAction private func refreshButtonPressed(_ sender: UIButton) {
         viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
         viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
     
@@ -84,7 +84,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     }
 }
 
-extension HomeCurrencyViewController: CurrencyViewModelDelegate {
+extension HomeCurrencyViewController: ViewModelDelegate {
     
     func bindViewModel() {
             self.currencyTableView.reloadData()
