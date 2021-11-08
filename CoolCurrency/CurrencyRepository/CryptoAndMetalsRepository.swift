@@ -60,7 +60,8 @@ struct CryptoAndMetalsRepository: CryptoAndMetalsRepositable {
         urlComponents.scheme = Constants.BitcoinAPI.URLBuilder.kScheme
         urlComponents.host = Constants.BitcoinAPI.URLBuilder.kHost
         urlComponents.path = Constants.BitcoinAPI.URLBuilder.kPath + baseCurrency
-        let apiKeyQueryItem = URLQueryItem(name: Constants.BitcoinAPI.URLBuilder.kAPIKeyString, value: Constants.BitcoinAPI.URLBuilder.kAPIKey)
+        let apiKeyQueryItem = URLQueryItem(name: Constants.BitcoinAPI.URLBuilder.kAPIKeyString,
+                                           value: Constants.BitcoinAPI.URLBuilder.kAPIKey)
         urlComponents.queryItems = [apiKeyQueryItem]
         return urlComponents.url
     }
@@ -70,8 +71,10 @@ struct CryptoAndMetalsRepository: CryptoAndMetalsRepositable {
         urlComponents.scheme = Constants.MetalAPI.URLBuilder.kScheme
         urlComponents.host = Constants.MetalAPI.URLBuilder.kHost
         urlComponents.path = Constants.MetalAPI.URLBuilder.kPath
-        let apiKeyQueryItem = URLQueryItem(name: Constants.MetalAPI.URLBuilder.kAPIKeyString, value: Constants.MetalAPI.URLBuilder.kAPIKey)
-        let currencyBaseQueryItem = URLQueryItem(name: Constants.MetalAPI.URLBuilder.kBaseString, value: baseCurrency)
+        let apiKeyQueryItem = URLQueryItem(name: Constants.MetalAPI.URLBuilder.kAPIKeyString,
+                                           value: Constants.MetalAPI.URLBuilder.kAPIKey)
+        let currencyBaseQueryItem = URLQueryItem(name: Constants.MetalAPI.URLBuilder.kBaseString,
+                                                 value: baseCurrency)
         urlComponents.queryItems = [apiKeyQueryItem, currencyBaseQueryItem]
         return urlComponents.url
     }
