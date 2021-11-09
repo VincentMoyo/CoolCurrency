@@ -9,6 +9,7 @@ target 'CoolCurrency' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
   target 'CoolCurrencyTests' do
     inherit! :search_paths
