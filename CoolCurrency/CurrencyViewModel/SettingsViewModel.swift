@@ -57,11 +57,11 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     func updateDefaultCurrency(_ defaultCurrency: String) {
-        database.updateDefaultCurrencyInformationToDatabase(SignedInUser: authentication.signedInUserIdentification(), currency: defaultCurrency)
+        databaseRepository.updateDefaultCurrencyInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), currency: defaultCurrency)
     }
     
     func updateMeasurementUnit(_ unit: String) {
-        database.updateMeasurementUnitToDatabase(SignedInUser: authentication.signedInUserIdentification(), measurementUnit: unit)
+        databaseRepository.updateMeasurementUnitToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), measurementUnit: unit)
     }
     
     func checkUserList() {
