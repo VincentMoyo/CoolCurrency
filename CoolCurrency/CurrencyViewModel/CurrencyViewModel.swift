@@ -27,10 +27,11 @@ enum CurrencyName: String {
 
 class CurrencyViewModel: CurrencyViewModiable {
     
+    var defaultCurrency: String?
+    var selectedCurrency = ""
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: ViewModelDelegate?
     private var response: CurrencyResponseModel?
-    public var defaultCurrency: String?
     private(set) var currencyList: [String: Double] = [:]
     private var userSettingsList: [String: String] = [:]
     private var previousCurrencyList: [String: Double] = [:]
@@ -39,15 +40,14 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
-    var selectedCurrency = ""
-    private let database = DatabaseRepository(databaseReference: Database.database().reference())
-    private let authentication: AuthenticationRepositable
+    private let databaseRepository = DatabaseRepository(databaseReference: Database.database().reference())
+    private let authenticationRepository: AuthenticationRepositable
     
     init(repository: CurrencyRepositable,
          authentication: AuthenticationRepositable,
          delegate: ViewModelDelegate) {
         self.currencyRepository = repository
-        self.authentication = authentication
+        self.authenticationRepository = authentication
         self.delegate = delegate
     }
     
@@ -58,7 +58,7 @@ class CurrencyViewModel: CurrencyViewModiable {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.database.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
+                self?.databaseRepository.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
                 self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
@@ -67,7 +67,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     func loadUserSettingsFromDatabase() {
-        database.retrieveUserInformationFromDatabase(userID: authentication.signedInUserIdentification()) { [weak self] result in
+        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification()) { [weak self] result in
             do {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
@@ -82,7 +82,7 @@ class CurrencyViewModel: CurrencyViewModiable {
         }
     }
     
-    public func checkUserList() {
+    private func checkUserList() {
         self.userSettingsList.forEach { settings in
             if settings.key == "DefaultCurrency" {
                 defaultCurrency = settings.value
@@ -92,7 +92,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {
-        database.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
+        databaseRepository.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
                                               completion: { [weak self] result in
             switch result {
             case .success(let response):
