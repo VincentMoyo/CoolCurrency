@@ -16,6 +16,7 @@ class HomeCurrencyViewController: UIViewController {
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                   database: DatabaseRepository(databaseReference: Database.database().reference()),
                                                    delegate: self)
     
     override func viewDidLoad() {
