@@ -82,6 +82,10 @@
 		417A2F709C0520BE21E7426C /* Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		57861C26658D482D73978F3F /* Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5F58B638C513114C5A7C1879 /* Pods-CoolCurrencyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrencyTests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrencyTests/Pods-CoolCurrencyTests.release.xcconfig"; sourceTree = "<group>"; };
+		047B0F5C32E6A8D4E097A471 /* Pods-CoolCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.release.xcconfig"; sourceTree = "<group>"; };
+		0620BE97C78412D164FC3766 /* Pods_CoolCurrency.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolCurrency.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2555D1BFDA00DAA5F63B056E /* Pods_CoolCurrencyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoolCurrencyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F00070D2AC42CD6D58BAC20 /* Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		78021AC92732EA3A0045A828 /* SettingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModelTests.swift; sourceTree = "<group>"; };
 		7811A920271716B200810C9F /* CurrencyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTableViewCell.swift; sourceTree = "<group>"; };
 		7811A921271716B200810C9F /* CurrencyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyTableViewCell.xib; sourceTree = "<group>"; };
@@ -169,6 +173,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		695D7F420DC828F616B323D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0620BE97C78412D164FC3766 /* Pods_CoolCurrency.framework */,
+				DF27D8713F5F94F9E0B40617 /* Pods_CoolCurrency_CoolCurrencyUITests.framework */,
+				2555D1BFDA00DAA5F63B056E /* Pods_CoolCurrencyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7811A91F2717167500810C9F /* CurrencyTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -933,7 +947,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
-				USER_HEADER_SEARCH_PATHS = $CONFIGURATION_TEMP_DIR/CoolCurrency.buld/DerivedSources;
+				USER_HEADER_SEARCH_PATHS = "$CONFIGURATION_TEMP_DIR/CoolCurrency.buld/DerivedSources";
 			};
 			name = Debug;
 		};
@@ -962,7 +976,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrency.app/CoolCurrency";
-				USER_HEADER_SEARCH_PATHS = $CONFIGURATION_TEMP_DIR/CoolCurrency.buld/DerivedSources;
+				USER_HEADER_SEARCH_PATHS = "$CONFIGURATION_TEMP_DIR/CoolCurrency.buld/DerivedSources";
 			};
 			name = Release;
 		};

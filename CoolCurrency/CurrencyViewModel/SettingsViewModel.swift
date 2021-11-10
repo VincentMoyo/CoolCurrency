@@ -9,8 +9,8 @@ import Foundation
 
 class SettingsViewModel: SettingsViewModiable {
     
-    private var database: DatabaseRepositable
-    private var authentication: AuthenticationRepositable
+    private var databaseRepository: DatabaseRepositable
+    private var authenticationRepository: AuthenticationRepositable
     private var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
     var firstName: String?
@@ -23,13 +23,13 @@ class SettingsViewModel: SettingsViewModiable {
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
     init(databaseRepository: DatabaseRepositable, authenticationRepository: AuthenticationRepositable, delegate: SettingsViewModelDelegate) {
-        self.database = databaseRepository
-        self.authentication = authenticationRepository
+        self.databaseRepository = databaseRepository
+        self.authenticationRepository = authenticationRepository
         self.delegate = delegate
     }
     
     func loadUserSettingsFromDatabase() {
-        database.retrieveUserInformationFromDatabase(userID: authentication.signedInUserIdentification()) { [weak self] result in
+        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification()) { [weak self] result in
             do {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
@@ -41,19 +41,19 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     func updateFirstName(_ firstName: String) {
-        database.updateFirstNameUserInformationToDatabase(SignedInUser: authentication.signedInUserIdentification(), username: firstName)
+        databaseRepository.updateFirstNameUserInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), username: firstName)
     }
     
     func updateLastName(_ lastName: String) {
-        database.updateLastNameUserInformationToDatabase(SignedInUser: authentication.signedInUserIdentification(), userLastName: lastName)
+        databaseRepository.updateLastNameUserInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), userLastName: lastName)
     }
     
     func updateGender(_ gender: String) {
-        database.updateUserSettingsGender(SignedInUser: authentication.signedInUserIdentification(), userGender: gender)
+        databaseRepository.updateUserSettingsGender(SignedInUser: authenticationRepository.signedInUserIdentification(), userGender: gender)
     }
     
     func updateDateOfBirth(_ dateOfBirth: String) {
-        database.updateUserSettingsDateOfBirth(SignedInUser: authentication.signedInUserIdentification(), DOB: dateOfBirth)
+        databaseRepository.updateUserSettingsDateOfBirth(SignedInUser: authenticationRepository.signedInUserIdentification(), DOB: dateOfBirth)
     }
     
     func updateDefaultCurrency(_ defaultCurrency: String) {
@@ -93,7 +93,7 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     func signOutCurrentUser() {
-        authentication.signOutUser { [weak self] result in
+        authenticationRepository.signOutUser { [weak self] result in
             switch result {
             case .success(_):
                 self?.delegate?.signOutBindViewModel()

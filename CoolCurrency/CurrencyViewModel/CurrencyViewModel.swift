@@ -58,7 +58,7 @@ class CurrencyViewModel: CurrencyViewModiable {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.database.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
+                self?.databaseRepository.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
                 self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
@@ -92,7 +92,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {
-        database.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
+        databaseRepository.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
                                               completion: { [weak self] result in
             switch result {
             case .success(let response):

@@ -30,6 +30,12 @@ class SettingViewModelTests: XCTestCase {
         XCTAssert(mockDelegate.signOutCalled)
     }
     
+    func testSignOutCurrentUserFailure() {
+        mockAuthenticationRepository.signOutSuccess = false
+        implementationUnderTests.signOutCurrentUser()
+        XCTAssert(mockDelegate.showUserErrorCalled)
+    }
+    
     func testCheckListFirstName() {
         setUpMockResponse()
         XCTAssertEqual(implementationUnderTests.firstName, "Vincent")
@@ -41,7 +47,7 @@ class SettingViewModelTests: XCTestCase {
         XCTAssertEqual(implementationUnderTests.lastName, "Moyo")
         XCTAssert(mockDelegate.refreshCalled)
     }
-
+    
     func testCheckListGenderIsMaleSuccess() {
         setUpMockResponse()
         XCTAssertEqual(implementationUnderTests.gender, 1)
@@ -72,9 +78,18 @@ class SettingViewModelTests: XCTestCase {
     }
     
     class MockAuthenticationRepository: AuthenticationRepositable {
+        var signOutSuccess = true
+        
+        var errorResponse: Result<Bool, Error> = .failure(MyErrors.retrieveError("error"))
         func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
         func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
-        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { completion(.success(true)) }
+        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) {
+            if signOutSuccess {
+                completion(.success(true))
+            } else {
+                completion(errorResponse)
+            }
+        }
         func signedInUserIdentification() -> String { "" }
         var checkIfUserAlreadySignedIn: Bool {return true}
     }
