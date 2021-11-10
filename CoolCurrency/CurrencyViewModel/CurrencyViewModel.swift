@@ -26,11 +26,13 @@ enum CurrencyName: String {
 }
 
 class CurrencyViewModel: CurrencyViewModiable {
+
+    var defaultCurrency: String?
+    var selectedCurrency = ""
     
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: ViewModelDelegate?
     private var response: CurrencyResponseModel?
-    public var defaultCurrency: String?
     private(set) var currencyList: [String: Double] = [:]
     private var userSettingsList: [String: String] = [:]
     private var previousCurrencyList: [String: Double] = [:]
@@ -39,14 +41,15 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
-    var selectedCurrency = ""
-    private let database = DatabaseRepository(databaseReference: Database.database().reference())
+    private let database: DatabaseRepositable
     private let authentication: AuthenticationRepositable
     
     init(repository: CurrencyRepositable,
+         database: DatabaseRepositable,
          authentication: AuthenticationRepositable,
          delegate: ViewModelDelegate) {
         self.currencyRepository = repository
+        self.database = database
         self.authentication = authentication
         self.delegate = delegate
     }

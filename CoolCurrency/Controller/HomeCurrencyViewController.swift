@@ -15,6 +15,7 @@ class HomeCurrencyViewController: UIViewController {
     @IBOutlet private weak var currencyTableView: UITableView!
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
+                                                   database: DatabaseRepository(databaseReference: Database.database().reference()),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
                                                    delegate: self)
     
