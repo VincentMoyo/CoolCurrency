@@ -1,0 +1,6 @@
+framework module CoolCurrencyFramework {
+  umbrella header "CoolCurrencyFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

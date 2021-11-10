@@ -1,0 +1,38 @@
+{
+  "name": "CoolCurrencyFramework",
+  "version": "0.0.1",
+  "summary": "A short description of CoolCurrencyFramework.",
+  "description": "This is where all my viewModels will go",
+  "homepage": "https://github.com/VincentMoyo/CoolCurrencyDevelopmentPod",
+  "license": {
+    "type": "MIT",
+    "file": "FILE_LICENSE"
+  },
+  "authors": {
+    "Vincent Moyo": "vmoyo2@jhb.dvt.co.za"
+  },
+  "source": {
+    "git": "https://github.com/VincentMoyo/CoolCurrencyDevelopmentPod.git",
+    "tag": "0.0.1"
+  },
+  "source_files": "CoolCurrencyDevelopmentPod/**/*.{h,m,swift}",
+  "exclude_files": "Classes/Exclude",
+  "static_framework": true,
+  "dependencies": {
+    "Firebase/Core": [
+
+    ],
+    "Firebase/Database": [
+
+    ],
+    "Firebase/Auth": [
+
+    ]
+  },
+  "platforms": {
+    "osx": null,
+    "ios": null,
+    "tvos": null,
+    "watchos": null
+  }
+}
