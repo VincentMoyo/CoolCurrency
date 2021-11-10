@@ -415,8 +415,11 @@
                         <outlet property="bitcoinValueLabel" destination="sEr-5h-9sO" id="ZyO-sU-Gwd"/>
                         <outlet property="currencyCodeLabel" destination="nv3-pQ-xgd" id="mOL-sM-DGz"/>
                         <outlet property="currencyPicker" destination="YDM-Ap-j7t" id="Ygj-4G-jv8"/>
+                        <outlet property="goldUnitMeasurement" destination="eR5-o4-W7n" id="PZB-Ij-rn8"/>
                         <outlet property="goldValueLabel" destination="jTJ-yN-8Xf" id="eCw-qF-a1x"/>
+                        <outlet property="platinumUnitMeasurement" destination="xt0-4A-u9W" id="RTZ-xS-1QC"/>
                         <outlet property="platinumValueLabel" destination="DVG-GF-TKs" id="ynv-Nv-dKc"/>
+                        <outlet property="silverUnitMeasurement" destination="i1W-0i-mb1" id="Kww-AG-rYI"/>
                         <outlet property="silverValueLabel" destination="Vl8-lV-dta" id="OAF-ku-ZwW"/>
                     </connections>
                 </viewController>
@@ -942,6 +945,7 @@
                                                                             <color key="titleColor" white="0.47205784940000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
                                                                         <connections>
+                                                                            <action selector="popUpDefaultCurrencyPicker:" destination="a10-aK-Pdy" eventType="touchUpInside" id="v0d-of-gR0"/>
                                                                             <action selector="setFirstNamePressed:" destination="a10-aK-Pdy" eventType="touchUpInside" id="CEM-Zh-jsu"/>
                                                                         </connections>
                                                                     </button>
@@ -980,6 +984,7 @@
                                                                         </segments>
                                                                         <connections>
                                                                             <action selector="genderIndexChangedPressed:" destination="a10-aK-Pdy" eventType="valueChanged" id="xEG-B8-cX7"/>
+                                                                            <action selector="measurementUnitIndexPressed:" destination="a10-aK-Pdy" eventType="valueChanged" id="tv3-Ws-qcB"/>
                                                                         </connections>
                                                                     </segmentedControl>
                                                                 </subviews>
@@ -1084,9 +1089,11 @@
                     <connections>
                         <outlet property="activityLoader" destination="V38-j1-2ND" id="2Kn-eo-UIx"/>
                         <outlet property="datePicker" destination="XJG-mb-i9r" id="A2t-Bl-QeZ"/>
+                        <outlet property="defaultCurrencyPickerViewButton" destination="Pyx-Ip-bfM" id="dx6-aJ-9rw"/>
                         <outlet property="firstNameLabel" destination="cSv-4V-MdC" id="xRM-UF-E3e"/>
                         <outlet property="genderSegmentedControl" destination="pIK-l6-1xB" id="z0y-rO-zG1"/>
                         <outlet property="lastNameLabel" destination="C3R-4K-Uus" id="q8y-C7-38G"/>
+                        <outlet property="measurementUnitSegmentedControl" destination="oI9-4l-nF7" id="6Dy-LW-CNB"/>
                         <outlet property="profilePictureImage" destination="k3T-nv-w9y" id="zhy-ez-Zgc"/>
                         <segue destination="lxb-qu-qxc" kind="presentation" identifier="welcome" modalPresentationStyle="fullScreen" id="BFJ-tQ-PnU"/>
                     </connections>

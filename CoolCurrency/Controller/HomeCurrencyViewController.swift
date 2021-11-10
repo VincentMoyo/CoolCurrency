@@ -6,17 +6,21 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class HomeCurrencyViewController: UIViewController {
     
     @IBOutlet private weak var currencyPickerView: UIPickerView!
     @IBOutlet private weak var currencyTableView: UITableView!
     
-    private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
+    private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
+                                                   authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                   delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchCurrencyListFromAPI(for: "ZAR")
+        viewModel.loadUserSettingsFromDatabase()
         setupCurrencyPickerView()
         setupCurrencyTableView()
         currencyPickerView.setValue(UIColor.white, forKeyPath: "textColor")

@@ -48,6 +48,14 @@ class DatabaseRepository: DatabaseRepositable {
         database.child("Users/\(userSettingsID)/Date of Birth").setValue(DOB)
     }
     
+    func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String) {
+        database.child("Users/\(userSettingsID)/DefaultCurrency").setValue(defaultCurrency)
+    }
+    
+    func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String) {
+        database.child("Users/\(userSettingsID)/MeasurementUnit").setValue(unit)
+    }
+    
     func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
         database.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: String] else {

@@ -30,7 +30,9 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: ViewModelDelegate?
     private var response: CurrencyResponseModel?
+    public var defaultCurrency: String?
     private(set) var currencyList: [String: Double] = [:]
+    private var userSettingsList: [String: String] = [:]
     private var previousCurrencyList: [String: Double] = [:]
     private var secondaryCurrencyValue = 0.0
     private var primaryCurrencyCode = ""
@@ -39,9 +41,13 @@ class CurrencyViewModel: CurrencyViewModiable {
     private var secondaryCurrencyFlagName = ""
     var selectedCurrency = ""
     private let database = DatabaseRepository(databaseReference: Database.database().reference())
+    private let authentication: AuthenticationRepositable
     
-    init(repository: CurrencyRepositable, delegate: ViewModelDelegate) {
+    init(repository: CurrencyRepositable,
+         authentication: AuthenticationRepositable,
+         delegate: ViewModelDelegate) {
         self.currencyRepository = repository
+        self.authentication = authentication
         self.delegate = delegate
     }
     
@@ -58,6 +64,31 @@ class CurrencyViewModel: CurrencyViewModiable {
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
+    }
+    
+    func loadUserSettingsFromDatabase() {
+        database.retrieveUserInformationFromDatabase(userID: authentication.signedInUserIdentification()) { [weak self] result in
+            do {
+                let newUserDetails = try result.get()
+                self?.userSettingsList = newUserDetails
+                self?.checkUserList()
+                if let newDefaultCurrency = self?.defaultCurrency {
+                    self?.fetchCurrencyListFromAPI(for: newDefaultCurrency)
+                }
+                self?.delegate?.bindViewModel()
+            } catch {
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        }
+    }
+    
+    public func checkUserList() {
+        self.userSettingsList.forEach { settings in
+            if settings.key == "DefaultCurrency" {
+                defaultCurrency = settings.value
+                
+            }
+        }
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {

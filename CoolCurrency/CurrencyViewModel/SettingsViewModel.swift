@@ -17,6 +17,10 @@ class SettingsViewModel: SettingsViewModiable {
     var lastName: String?
     var gender: Int?
     var birthDate: Date?
+    var defaultCurrency: String?
+    var unitMeasurement: Int?
+    var selectedRow = 0
+    let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
     init(databaseRepository: DatabaseRepositable, authenticationRepository: AuthenticationRepositable, delegate: SettingsViewModelDelegate) {
         self.database = databaseRepository
@@ -52,6 +56,14 @@ class SettingsViewModel: SettingsViewModiable {
         database.updateUserSettingsDateOfBirth(SignedInUser: authentication.signedInUserIdentification(), DOB: dateOfBirth)
     }
     
+    func updateDefaultCurrency(_ defaultCurrency: String) {
+        database.updateDefaultCurrencyInformationToDatabase(SignedInUser: authentication.signedInUserIdentification(), currency: defaultCurrency)
+    }
+    
+    func updateMeasurementUnit(_ unit: String) {
+        database.updateMeasurementUnitToDatabase(SignedInUser: authentication.signedInUserIdentification(), measurementUnit: unit)
+    }
+    
     func checkUserList() {
         self.userSettingsList.forEach { settings in
             if settings.key == "FirstName" {
@@ -68,6 +80,14 @@ class SettingsViewModel: SettingsViewModiable {
                 Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
                 guard let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value) else { return }
                 birthDate = dateResult
+            } else if settings.key == "DefaultCurrency" {
+                defaultCurrency = settings.value
+            } else if settings.key == "MeasurementUnit" {
+                if settings.value == "Grams" {
+                    unitMeasurement = 0
+                } else {
+                    unitMeasurement = 1
+                }
             }
         }
     }
