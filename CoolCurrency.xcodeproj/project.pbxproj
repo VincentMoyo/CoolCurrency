@@ -47,6 +47,7 @@
 		78935FB4270DF82B007AE3EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78935FB6270DF82B007AE3EE /* Localizable.strings */; };
 		78AA4EBC27219D270044B3CB /* CryptoAndMetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA4EBB27219D270044B3CB /* CryptoAndMetalViewController.swift */; };
 		78AFD3AF271DC67E00E16D47 /* ConversionCurrencyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AFD3AE271DC67E00E16D47 /* ConversionCurrencyViewModel.m */; };
+		78B38F6C273BC8C400EBE8CC /* CryptoAndMetalsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B38F6B273BC8C400EBE8CC /* CryptoAndMetalsRepository.swift */; };
 		78B50AF72719C02C00596AA6 /* ConvertCurrencyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */; };
 		78B50AFE271A00DB00596AA6 /* CurrencyConversionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B50AFC271A00DB00596AA6 /* CurrencyConversionsViewController.m */; };
 		78B50AFF271A00DB00596AA6 /* CurrencyConversionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78B50AFD271A00DB00596AA6 /* CurrencyConversionsViewController.xib */; };
@@ -128,6 +129,7 @@
 		78AFD3A9271D746300E16D47 /* CoolCurrency-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoolCurrency-Bridging-Header.h"; sourceTree = "<group>"; };
 		78AFD3AD271DC67E00E16D47 /* ConversionCurrencyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversionCurrencyViewModel.h; sourceTree = "<group>"; };
 		78AFD3AE271DC67E00E16D47 /* ConversionCurrencyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConversionCurrencyViewModel.m; sourceTree = "<group>"; };
+		78B38F6B273BC8C400EBE8CC /* CryptoAndMetalsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAndMetalsRepository.swift; sourceTree = "<group>"; };
 		78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertCurrencyDataModel.swift; sourceTree = "<group>"; };
 		78B50AFB271A00DB00596AA6 /* CurrencyConversionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyConversionsViewController.h; sourceTree = "<group>"; };
 		78B50AFC271A00DB00596AA6 /* CurrencyConversionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyConversionsViewController.m; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				785DA031270C877B00CB7996 /* CurrencyRepository.swift */,
 				78B5F0292720427400E10B6B /* DatabaseRepository.swift */,
 				78D34C192731A43C0065A802 /* AuthenticationRepository.swift */,
+				78B38F6B273BC8C400EBE8CC /* CryptoAndMetalsRepository.swift */,
 			);
 			path = CurrencyRepository;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				78935FAC270D8FCB007AE3EE /* RepositoryProtocols.swift in Sources */,
 				788DEC76270AFDCA0033493B /* HomeCurrencyViewController.swift in Sources */,
 				7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */,
+				78B38F6C273BC8C400EBE8CC /* CryptoAndMetalsRepository.swift in Sources */,
 				785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */,
 				7811A92527171F7800810C9F /* CurrencyDataModel.swift in Sources */,
 				7828E6D2271439B800507B79 /* ViewModelProtocols.swift in Sources */,
