@@ -20,8 +20,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet private weak var measurementUnitSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var defaultCurrencyPickerViewButton: UIButton!
     
-    let screenWidth = UIScreen.main.bounds.width - 10
-    let screenHeight = UIScreen.main.bounds.width / 2
+    private let screenWidth = UIScreen.main.bounds.width - 10
+    private let screenHeight = UIScreen.main.bounds.width / 2
     
     private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference()),
                                                    authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
