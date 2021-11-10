@@ -22,7 +22,7 @@ class CryptoAndMetalViewController: UIViewController {
     @IBOutlet private weak var platinumUnitMeasurement: UILabel!
     @IBOutlet private weak var silverUnitMeasurement: UILabel!
     
-    private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepository(),
+    private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepositorys(),
                                                          database: CryptoDatabaseRepository(databaseReference: Database.database().reference()),
                                                          authentication: CryptoAuthenticationRepository(authenticationReference: Auth.auth()),
                                                          delegate: self)
