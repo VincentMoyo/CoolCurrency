@@ -136,7 +136,6 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
     
     func bindViewModel() {
-        viewModel.checkUserList()
         retrieveUserInformation()
         self.activityLoader.stopAnimating()
     }

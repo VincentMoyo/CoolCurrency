@@ -33,6 +33,7 @@ class SettingsViewModel: SettingsViewModiable {
             do {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
+                self?.checkUserList()
                 self?.delegate?.bindViewModel()
             } catch {
                 self?.delegate?.showUserErrorMessage(error: error)
@@ -64,7 +65,7 @@ class SettingsViewModel: SettingsViewModiable {
         databaseRepository.updateMeasurementUnitToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), measurementUnit: unit)
     }
     
-    func checkUserList() {
+    private func checkUserList() {
         self.userSettingsList.forEach { settings in
             if settings.key == "FirstName" {
                 firstName = settings.value
