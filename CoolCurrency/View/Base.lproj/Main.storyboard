@@ -59,6 +59,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TVY-g6-lMK"/>
                         <segue destination="ALu-NT-k0j" kind="relationship" relationship="viewControllers" id="zJ9-oG-RbX"/>
+                        <segue destination="ZWW-Qb-fea" kind="relationship" relationship="viewControllers" id="cwR-ui-BgF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sN-Gq-EFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -135,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569.56521739130437" y="-866.51785714285711"/>
+            <point key="canvasLocation" x="526" y="-1171"/>
         </scene>
         <!--Minerals-->
         <scene sceneID="gVo-uO-OyJ">
@@ -425,7 +426,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggw-Kp-hLz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569.56521739130437" y="-54.241071428571423"/>
+            <point key="canvasLocation" x="525" y="-494"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hIF-Xe-HNP">
@@ -1101,6 +1102,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Np-8h-Lub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-581.15942028985512" y="378.34821428571428"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="f6S-0W-Of6">
+            <objects>
+                <viewController id="ZWW-Qb-fea" customClass="MatchCurrencyGameViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gqx-d2-kvv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5l-mc-Wic">
+                                <rect key="frame" x="0.0" y="198" width="414" height="500"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="500" id="Ox9-I7-20l"/>
+                                </constraints>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdy-hG-mXh">
+                                <rect key="frame" x="63" y="725" width="288" height="48"/>
+                                <color key="backgroundColor" red="0.38738895740000001" green="0.28938567380000002" blue="0.63162138970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Tdy-hG-mXh" secondAttribute="height" multiplier="6:1" id="2qb-wG-PzH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Match">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="3BM-q7-POh" eventType="touchUpInside" id="OO3-73-scS"/>
+                                    <action selector="matchButtonPressed:" destination="ZWW-Qb-fea" eventType="touchUpInside" id="66d-7k-hBB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WSn-iJ-Wko"/>
+                        <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="centerY" secondItem="gqx-d2-kvv" secondAttribute="centerY" id="4bb-Vp-ybc"/>
+                            <constraint firstItem="Tdy-hG-mXh" firstAttribute="top" secondItem="Y5l-mc-Wic" secondAttribute="bottom" constant="27" id="Gt5-1x-6Tu"/>
+                            <constraint firstItem="WSn-iJ-Wko" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Tdy-hG-mXh" secondAttribute="trailing" constant="63" id="HIO-df-PAn"/>
+                            <constraint firstItem="Tdy-hG-mXh" firstAttribute="centerX" secondItem="gqx-d2-kvv" secondAttribute="centerX" id="Jmu-69-4hA"/>
+                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" id="a1v-xJ-xPD"/>
+                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="centerX" secondItem="gqx-d2-kvv" secondAttribute="centerX" id="hc2-Kq-W3V"/>
+                            <constraint firstItem="WSn-iJ-Wko" firstAttribute="trailing" secondItem="Y5l-mc-Wic" secondAttribute="trailing" id="pFV-CZ-QEM"/>
+                            <constraint firstItem="Tdy-hG-mXh" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" constant="63" id="piT-YQ-Zof"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="j0f-HO-oFn"/>
+                    <connections>
+                        <outlet property="matchCurrencyPickerView" destination="Y5l-mc-Wic" id="uul-t8-ncS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="of8-us-UhH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="524.63768115942037" y="243.75"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
