@@ -75,6 +75,7 @@ class CurrencyViewModel: CurrencyViewModiable {
                 self?.checkUserList()
                 if let newDefaultCurrency = self?.defaultCurrency {
                     self?.fetchCurrencyListFromAPI(for: newDefaultCurrency)
+                    self?.selectedCurrency = newDefaultCurrency
                 }
                 self?.delegate?.bindViewModel()
             } catch {
