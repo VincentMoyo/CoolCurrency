@@ -18,7 +18,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var datePicker: UIDatePicker!
     @IBOutlet private weak var measurementUnitSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var defaultCurrencyPickerViewButton: UIButton!
+    @IBOutlet private weak var defaultCurrencyPickerViewButton: UIButton!
     
     let screenWidth = UIScreen.main.bounds.width - 10
     let screenHeight = UIScreen.main.bounds.width / 2
