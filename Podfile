@@ -10,6 +10,8 @@ target 'CoolCurrency' do
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
+pod 'CoolCurrencyFramework', :path => '/Users/vmoyo2/Desktop/CoolCurrencyDevelopmentPod'
+# pod 'CoolCurrencyFramework', :git => 'https://github.com/VincentMoyo/CoolCurrencyDevelopmentPod.git'
 
   target 'CoolCurrencyTests' do
     inherit! :search_paths
