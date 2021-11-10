@@ -10,7 +10,7 @@ target 'CoolCurrency' do
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
-pod 'CoolCurrencyFramework', :path => '/Users/vmoyo2/Desktop/CoolCurrencyDevelopmentPod'
+pod 'CoolCurrencyFramework', :path => '/Users/vmoyo2/Documents/BackUpThings/CoolCurrencyDevelopmentPod'
 # pod 'CoolCurrencyFramework', :git => 'https://github.com/VincentMoyo/CoolCurrencyDevelopmentPod.git'
 
   target 'CoolCurrencyTests' do
