@@ -65,13 +65,13 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         viewModel.updateGender(forSegmentedControl)
     }
     
-    @IBAction func measurementUnitIndexPressed(_ sender: UISegmentedControl) {
+    @IBAction private func measurementUnitIndexPressed(_ sender: UISegmentedControl) {
         guard let measurementUnitSegmentedControl = measurementUnitSegmentedControl.titleForSegment(at: measurementUnitSegmentedControl.selectedSegmentIndex)
         else { return }
         viewModel.updateMeasurementUnit(measurementUnitSegmentedControl)
     }
     
-    @IBAction func popUpDefaultCurrencyPicker(_ sender: Any) {
+    @IBAction private func popUpDefaultCurrencyPicker(_ sender: Any) {
         let pickerViewController = UIViewController()
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
         
