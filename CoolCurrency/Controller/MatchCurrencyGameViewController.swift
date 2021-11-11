@@ -29,9 +29,9 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 1 {
-            return Constants.List.listOfCountries.count
+            return viewModel.listOfCountriess.count
         } else {
-            return Constants.List.listOfCurrencySymbols.count
+            return viewModel.listOfCurrencySymbols.count
         }
     }
     
@@ -44,7 +44,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
             let countryFlagsView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             let countryFlagsImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             
-            countryFlagsImageView.image = UIImage(named: Array(Constants.List.listOfCountries.values)[row])
+            countryFlagsImageView.image = UIImage(named: Array(viewModel.listOfCountriess.values)[row])
             countryFlagsView.addSubview(countryFlagsImageView)
             
             return countryFlagsView
@@ -52,7 +52,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
             let currencySymbolsView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             let currencySymbolsImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             
-            currencySymbolsImageView.image = UIImage(named: Array(Constants.List.listOfCurrencySymbols.values)[row])
+            currencySymbolsImageView.image = UIImage(named: Array(viewModel.listOfCurrencySymbols.values)[row])
             currencySymbolsView.addSubview(currencySymbolsImageView)
             
             return currencySymbolsView
@@ -61,9 +61,9 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 1 {
-            viewModel.selectedFlag = Array(Constants.List.listOfCountries.keys)[row]
+            viewModel.selectedFlag = Array(viewModel.listOfCountriess.keys)[row]
         } else {
-            viewModel.selectedSymbol = Array(Constants.List.listOfCurrencySymbols.keys)[row]
+            viewModel.selectedSymbol = Array(viewModel.listOfCurrencySymbols.keys)[row]
         }
     }
     

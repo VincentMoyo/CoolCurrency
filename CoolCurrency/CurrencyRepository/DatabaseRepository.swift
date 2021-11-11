@@ -17,60 +17,107 @@ class DatabaseRepository: DatabaseRepositable {
         self.databaseReference = databaseReference
     }
 
-    func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double]) {
+    func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) {
         databaseReference.child(baseCurrency).setValue(currencyList)
     }
     
-    func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping (Result<[String: Double], Error>) -> Void) {
+    func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) {
         databaseReference.child(baseCurrency).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: Double] else {
                 return
             }
             DispatchQueue.main.async {
+                print(value)
                 completion(.success(value))
             }
         }
     }
     
-    func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String) {
-        databaseReference.child("Users/\(userSettingsID)/FirstName").setValue(firstName)
+    func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/FirstName").setValue(firstName) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
-    func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String) {
-        databaseReference.child("Users/\(userSettingsID)/LastName").setValue(lastName)
+    func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/LastName").setValue(lastName) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
-    func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) {
-        databaseReference.child("Users/\(userSettingsID)/Gender").setValue(gender)
+    func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/Gender").setValue(gender) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
-    func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) {
-        databaseReference.child("Users/\(userSettingsID)/Date of Birth").setValue(DOB)
+    func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/Date of Birth").setValue(DOB) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
-    func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String) {
-        databaseReference.child("Users/\(userSettingsID)/DefaultCurrency").setValue(defaultCurrency)
+    func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/DefaultCurrency").setValue(defaultCurrency) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
-    func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String) {
-        databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue(unit)
+    func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue(unit) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
      
-    func createNewUserSettings(SignedInUser userSettingsID: String) {
-        databaseReference.child("Users/\(userSettingsID)/FirstName").setValue("Not Set")
-        databaseReference.child("Users/\(userSettingsID)/LastName").setValue("Not Set")
-        databaseReference.child("Users/\(userSettingsID)/Gender").setValue("Not Set")
-        databaseReference.child("Users/\(userSettingsID)/Date of Birth").setValue("Not Set")
-        databaseReference.child("Users/\(userSettingsID)/DefaultCurrency").setValue("Not Set")
-        databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue("Not Set")
+    func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse) {
+        let newUserInformation = ["FirstName": "Not Set",
+                                  "LastName": "Not Set",
+                                  "Gender": "Not Set",
+                                  "Date of Birth": "Not Set",
+                                  "DefaultCurrency": "Not Set",
+                                  "MeasurementUnit": "Not Set"]
+        
+        databaseReference.child("Users/\(userSettingsID)").setValue(newUserInformation) { (error: Error?) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
-    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
+    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse) {
         databaseReference.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: String] else {
                 return
             }
+            
             DispatchQueue.main.async {
+                print(value)
                 completion(.success(value))
             }
         }

@@ -67,13 +67,24 @@ class CurrencyViewModel: CurrencyViewModiable {
             case .success(let response):
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
-                self?.databaseRepository.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
-                print(self!.currencyList)
+                self?.insertCurrencyListIntoDatabase(baseCurrency: baseCurrency)
                 self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
+    }
+    
+    private func insertCurrencyListIntoDatabase(baseCurrency: String) {
+        databaseRepository.insertCurrencyIntoDatabase(for: baseCurrency, with: self.currencyList, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.bindViewModel()
+            case .failure(let error):
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        })
+       
     }
     
     func loadUserSettingsFromDatabase() {
@@ -85,7 +96,6 @@ class CurrencyViewModel: CurrencyViewModiable {
                 if let newDefaultCurrency = self?.retriveDefaultCurrency {
                     self?.fetchCurrencyListFromAPI(for: newDefaultCurrency)
                     self?.selectedCurrency = newDefaultCurrency
-                    print(newDefaultCurrency)
                 }
                 self?.delegate?.bindViewModel()
             } catch {

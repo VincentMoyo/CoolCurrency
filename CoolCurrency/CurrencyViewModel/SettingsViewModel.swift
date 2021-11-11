@@ -29,7 +29,7 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     func loadUserSettingsFromDatabase() {
-        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification()) { [weak self] result in
+        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(), completion: { [weak self] result in
             do {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
@@ -38,7 +38,7 @@ class SettingsViewModel: SettingsViewModiable {
             } catch {
                 self?.delegate?.showUserErrorMessage(error: error)
             }
-        }
+        })
     }
     
     var retriveFirstName: String {
@@ -66,27 +66,75 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     func updateFirstName(_ firstName: String) {
-        databaseRepository.updateFirstNameUserInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), username: firstName)
+        databaseRepository.updateFirstNameUserInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                                    username: firstName, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateLastName(_ lastName: String) {
-        databaseRepository.updateLastNameUserInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), userLastName: lastName)
+        databaseRepository.updateLastNameUserInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                                   userLastName: lastName, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateGender(_ gender: String) {
-        databaseRepository.updateUserSettingsGender(SignedInUser: authenticationRepository.signedInUserIdentification(), userGender: gender)
+        databaseRepository.updateUserSettingsGender(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                    userGender: gender, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateDateOfBirth(_ dateOfBirth: String) {
-        databaseRepository.updateUserSettingsDateOfBirth(SignedInUser: authenticationRepository.signedInUserIdentification(), DOB: dateOfBirth)
+        databaseRepository.updateUserSettingsDateOfBirth(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                         DOB: dateOfBirth, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateDefaultCurrency(_ defaultCurrency: String) {
-        databaseRepository.updateDefaultCurrencyInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), currency: defaultCurrency)
+        databaseRepository.updateDefaultCurrencyInformationToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                                      currency: defaultCurrency, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateMeasurementUnit(_ unit: String) {
-        databaseRepository.updateMeasurementUnitToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(), measurementUnit: unit)
+        databaseRepository.updateMeasurementUnitToDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                           measurementUnit: unit, completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.delegate?.signOutBindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     private func checkUserList() {

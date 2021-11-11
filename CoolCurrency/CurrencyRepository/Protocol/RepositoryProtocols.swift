@@ -8,6 +8,9 @@
 import Foundation
 
 typealias ListCurrencyResponseModel = (Result<CurrencyResponseModel, Error>) -> Void
+typealias DatabaseResponse = (Result<Bool, Error>) -> Void
+typealias CurrencyFromDatabaseResponse = (Result<[String: Double], Error>) -> Void
+typealias UserInformationFromDatabaseResponse = (Result<[String: String], Error>) -> Void
 
 protocol CurrencyRepositable {
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel)
@@ -22,14 +25,14 @@ protocol AuthenticationRepositable {
 }
 
 protocol DatabaseRepositable {
-    func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping (Result<[String: Double], Error>) -> Void)
-    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void)
-    func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String)
-    func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String)
-    func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String)
-    func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String)
-    func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String)
-    func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String)
-    func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double])
-    func createNewUserSettings(SignedInUser userSettingsID: String)
+    func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse)
+    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse)
+    func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse)
+    func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse)
+    func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String, completion: @escaping DatabaseResponse)
+    func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String, completion: @escaping DatabaseResponse)
+    func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String, completion: @escaping DatabaseResponse)
+    func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse)
+    func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse)
+    func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse)
 }
