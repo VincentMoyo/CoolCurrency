@@ -53,14 +53,15 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     var retriveDefaultCurrency: String {
-        defaultCurrency ?? "USD"
+        defaultCurrency ?? "Dollar"
     }
     
     var retrieveSelectedCurrency: String {
-        selectedCurrency ?? "USD"
+        selectedCurrency ?? "Dollar"
     }
     
     func fetchCurrencyListFromAPI(for baseCurrency: String) {
+        print(baseCurrency)
         currencyRepository.performCurrencyRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
             switch result {
@@ -84,7 +85,6 @@ class CurrencyViewModel: CurrencyViewModiable {
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
-       
     }
     
     func loadUserSettingsFromDatabase() {
@@ -108,12 +108,12 @@ class CurrencyViewModel: CurrencyViewModiable {
         self.userSettingsList.forEach { settings in
             if settings.key == "DefaultCurrency" {
                 defaultCurrency = settings.value
-                
             }
         }
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {
+        print("dfgsdfbhsdfb \(baseCurrency)")
         databaseRepository.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
                                               completion: { [weak self] result in
             switch result {

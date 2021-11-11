@@ -9,7 +9,7 @@ import UIKit
 
 class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    @IBOutlet weak var matchCurrencyPickerView: UIPickerView!
+    @IBOutlet private weak var matchCurrencyPickerView: UIPickerView!
     
     private lazy var viewModel = MatchCurrencyGameViewModel()
     
