@@ -33,7 +33,7 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/FirstName").setValue(firstName) { (error: Error?) in
+        databaseReference.child("Users/\(userSettingsID)/FirstName").setValue(firstName) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -43,7 +43,7 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/LastName").setValue(lastName) { (error: Error?) in
+        databaseReference.child("Users/\(userSettingsID)/LastName").setValue(lastName) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -53,7 +53,7 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/Gender").setValue(gender) { (error: Error?) in
+        databaseReference.child("Users/\(userSettingsID)/Gender").setValue(gender) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -63,7 +63,7 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/Date of Birth").setValue(DOB) { (error: Error?) in
+        databaseReference.child("Users/\(userSettingsID)/Date of Birth").setValue(DOB) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -73,7 +73,7 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/DefaultCurrency").setValue(defaultCurrency) { (error: Error?) in
+        databaseReference.child("Users/\(userSettingsID)/DefaultCurrency").setValue(defaultCurrency) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -83,7 +83,7 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue(unit) { (error: Error?) in
+        databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue(unit) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {

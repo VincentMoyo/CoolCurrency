@@ -41,27 +41,27 @@ class SettingsViewModel: SettingsViewModiable {
         })
     }
     
-    var retriveFirstName: String {
+    var retrieveFirstName: String {
         firstName ?? "Not Set"
     }
     
-    var retriveLastName: String {
+    var retrieveLastName: String {
         lastName ?? "Not Set"
     }
     
-    var retriveGender: Int {
+    var retrieveGender: Int {
         gender ?? 0
     }
     
-    var retriveBirthDate: Date {
+    var retrieveBirthDate: Date {
         birthDate ?? Date.now
     }
     
-    var retriveDefaultCurrency: String {
+    var retrieveDefaultCurrency: String {
         defaultCurrency ?? "Not Set"
     }
     
-    var retriveUnitMeasurement: Int {
+    var retrieveUnitMeasurement: Int {
         unitMeasurement ?? 0
     }
     
@@ -70,7 +70,7 @@ class SettingsViewModel: SettingsViewModiable {
                                                                     username: firstName, completion: { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.signOutBindViewModel()
+                self?.loadUserSettingsFromDatabase()
             case .failure(let updateToDataError):
                 self?.delegate?.showUserErrorMessage(error: updateToDataError)
             }
@@ -82,7 +82,7 @@ class SettingsViewModel: SettingsViewModiable {
                                                                    userLastName: lastName, completion: { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.signOutBindViewModel()
+                self?.loadUserSettingsFromDatabase()
             case .failure(let updateToDataError):
                 self?.delegate?.showUserErrorMessage(error: updateToDataError)
             }
@@ -94,7 +94,7 @@ class SettingsViewModel: SettingsViewModiable {
                                                     userGender: gender, completion: { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.signOutBindViewModel()
+                self?.loadUserSettingsFromDatabase()
             case .failure(let updateToDataError):
                 self?.delegate?.showUserErrorMessage(error: updateToDataError)
             }
@@ -106,7 +106,7 @@ class SettingsViewModel: SettingsViewModiable {
                                                          DOB: dateOfBirth, completion: { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.signOutBindViewModel()
+                self?.loadUserSettingsFromDatabase()
             case .failure(let updateToDataError):
                 self?.delegate?.showUserErrorMessage(error: updateToDataError)
             }
@@ -118,7 +118,7 @@ class SettingsViewModel: SettingsViewModiable {
                                                                       currency: defaultCurrency, completion: { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.signOutBindViewModel()
+                self?.loadUserSettingsFromDatabase()
             case .failure(let updateToDataError):
                 self?.delegate?.showUserErrorMessage(error: updateToDataError)
             }
@@ -130,7 +130,7 @@ class SettingsViewModel: SettingsViewModiable {
                                                            measurementUnit: unit, completion: { [weak self] result in
             switch result {
             case .success(_):
-                self?.delegate?.signOutBindViewModel()
+                self?.loadUserSettingsFromDatabase()
             case .failure(let updateToDataError):
                 self?.delegate?.showUserErrorMessage(error: updateToDataError)
             }

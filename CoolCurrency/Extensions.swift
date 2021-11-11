@@ -44,3 +44,18 @@ extension Array {
         return indices.contains(index) ? self[index] : nil
     }
 }
+
+extension UIAlertController {
+
+    class func showUserSuccessAlertExtension(_ isCorrectAnswer: Bool, title: String, message: String, action: @escaping ((UIAlertAction) -> Void)) -> UIAlertController {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK",
+                                                style: .default,
+                                                handler: action))
+        
+        return alertController
+    }
+}

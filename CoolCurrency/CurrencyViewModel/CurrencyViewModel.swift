@@ -61,7 +61,6 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     func fetchCurrencyListFromAPI(for baseCurrency: String) {
-        print(baseCurrency)
         currencyRepository.performCurrencyRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
             switch result {

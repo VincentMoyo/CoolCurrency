@@ -142,12 +142,12 @@ extension SettingsViewController: SettingsViewModelDelegate {
     
     func retrieveUserInformation() {
         
-        self.firstNameLabel.setTitle(viewModel.retriveFirstName, for: .normal)
-        self.lastNameLabel.setTitle(viewModel.retriveLastName, for: .normal)
-        self.defaultCurrencyPickerViewButton.setTitle(viewModel.retriveDefaultCurrency, for: .normal)
-        genderSegmentedControl.selectedSegmentIndex = viewModel.retriveGender
-        measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retriveUnitMeasurement
-        datePicker.setDate(viewModel.retriveBirthDate, animated: true)
+        self.firstNameLabel.setTitle(viewModel.retrieveFirstName, for: .normal)
+        self.lastNameLabel.setTitle(viewModel.retrieveLastName, for: .normal)
+        self.defaultCurrencyPickerViewButton.setTitle(viewModel.retrieveDefaultCurrency, for: .normal)
+        genderSegmentedControl.selectedSegmentIndex = viewModel.retrieveGender
+        measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retrieveUnitMeasurement
+        datePicker.setDate(viewModel.retrieveBirthDate, animated: true)
     }
 }
 
