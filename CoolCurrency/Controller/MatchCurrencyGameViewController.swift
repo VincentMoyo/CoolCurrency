@@ -29,7 +29,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 1 {
-            return viewModel.listOfCountriess.count
+            return viewModel.listOfCountries.count
         } else {
             return viewModel.listOfCurrencySymbols.count
         }
@@ -44,7 +44,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
             let countryFlagsView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             let countryFlagsImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             
-            countryFlagsImageView.image = UIImage(named: Array(viewModel.listOfCountriess.values)[row])
+            countryFlagsImageView.image = UIImage(named: Array(viewModel.listOfCountries.values)[row])
             countryFlagsView.addSubview(countryFlagsImageView)
             
             return countryFlagsView
@@ -61,7 +61,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 1 {
-            viewModel.selectedFlag = Array(viewModel.listOfCountriess.keys)[row]
+            viewModel.selectedFlag = Array(viewModel.listOfCountries.keys)[row]
         } else {
             viewModel.selectedSymbol = Array(viewModel.listOfCurrencySymbols.keys)[row]
         }

@@ -16,7 +16,7 @@ class DatabaseRepository: DatabaseRepositable {
     init(databaseReference: DatabaseReference) {
         self.databaseReference = databaseReference
     }
-
+    
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) {
         databaseReference.child(baseCurrency).setValue(currencyList)
     }
@@ -92,16 +92,18 @@ class DatabaseRepository: DatabaseRepositable {
             }
         }
     }
-     
+    
     func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse) {
-        let newUserInformation = ["FirstName": "Not Set",
-                                  "LastName": "Not Set",
-                                  "Gender": "Not Set",
-                                  "Date of Birth": "Not Set",
-                                  "DefaultCurrency": "Not Set",
-                                  "MeasurementUnit": "Not Set"]
+        let newUserInformation: [String: Any] = [
+            "FirstName": "Not Set",
+            "LastName": "Not Set",
+            "Gender": "Not Set",
+            "Date of Birth": "Not Set",
+            "DefaultCurrency": "Not Set",
+            "MeasurementUnit": "Not Set"
+        ]
         
-        databaseReference.child("Users/\(userSettingsID)").setValue(newUserInformation) { (error: Error?) in
+        databaseReference.child("Users").child(userSettingsID).setValue(newUserInformation) { (error: Error?, _:DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {

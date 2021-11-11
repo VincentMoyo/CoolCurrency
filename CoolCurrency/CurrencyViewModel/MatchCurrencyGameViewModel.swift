@@ -12,7 +12,7 @@ struct MatchCurrencyGameViewModel {
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
     
-    let listOfCountriess: [String: String] = ["Britain": "BritishFlag",
+    let listOfCountries: [String: String] = ["Britain": "BritishFlag",
                                              "UnitedStates": "UnitedStatesFlag",
                                              "India": "IndianFlag",
                                              "Botswana": "BostwanaFlag",
