@@ -13,12 +13,12 @@ class SettingsViewModel: SettingsViewModiable {
     private var authenticationRepository: AuthenticationRepositable
     private var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
-    var firstName: String?
-    var lastName: String?
-    var gender: Int?
-    var birthDate: Date?
-    var defaultCurrency: String?
-    var unitMeasurement: Int?
+    private var firstName: String?
+    private var lastName: String?
+    private var gender: Int?
+    private var birthDate: Date?
+    private var defaultCurrency: String?
+    private var unitMeasurement: Int?
     var selectedRow = 0
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
@@ -39,6 +39,30 @@ class SettingsViewModel: SettingsViewModiable {
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         }
+    }
+    
+    var retriveFirstName: String {
+        firstName ?? "Not Set"
+    }
+    
+    var retriveLastName: String {
+        lastName ?? "Not Set"
+    }
+    
+    var retriveGender: Int {
+        gender ?? 0
+    }
+    
+    var retriveBirthDate: Date {
+        birthDate ?? Date.now
+    }
+    
+    var retriveDefaultCurrency: String {
+        defaultCurrency ?? "Not Set"
+    }
+    
+    var retriveUnitMeasurement: Int {
+        unitMeasurement ?? 0
     }
     
     func updateFirstName(_ firstName: String) {

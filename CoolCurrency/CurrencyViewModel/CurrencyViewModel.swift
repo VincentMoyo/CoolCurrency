@@ -26,8 +26,8 @@ enum CurrencyName: String {
 
 class CurrencyViewModel: CurrencyViewModiable {
     
-    var defaultCurrency: String?
-    var selectedCurrency = ""
+    var selectedCurrency: String?
+    private var defaultCurrency: String?
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: ViewModelDelegate?
     private var response: CurrencyResponseModel?
@@ -52,6 +52,14 @@ class CurrencyViewModel: CurrencyViewModiable {
         self.delegate = delegate
     }
     
+    var retriveDefaultCurrency: String {
+        defaultCurrency ?? "USD"
+    }
+    
+    var retrieveSelectedCurrency: String {
+        selectedCurrency ?? "USD"
+    }
+    
     func fetchCurrencyListFromAPI(for baseCurrency: String) {
         currencyRepository.performCurrencyRequest(for: baseCurrency,
                                                      completion: { [weak self] result in
@@ -60,6 +68,7 @@ class CurrencyViewModel: CurrencyViewModiable {
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
                 self?.databaseRepository.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
+                print(self!.currencyList)
                 self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
@@ -73,9 +82,10 @@ class CurrencyViewModel: CurrencyViewModiable {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
                 self?.checkUserList()
-                if let newDefaultCurrency = self?.defaultCurrency {
+                if let newDefaultCurrency = self?.retriveDefaultCurrency {
                     self?.fetchCurrencyListFromAPI(for: newDefaultCurrency)
                     self?.selectedCurrency = newDefaultCurrency
+                    print(newDefaultCurrency)
                 }
                 self?.delegate?.bindViewModel()
             } catch {

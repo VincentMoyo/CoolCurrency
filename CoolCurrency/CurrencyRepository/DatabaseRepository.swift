@@ -55,6 +55,15 @@ class DatabaseRepository: DatabaseRepositable {
     func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String) {
         databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue(unit)
     }
+     
+    func createNewUserSettings(SignedInUser userSettingsID: String) {
+        databaseReference.child("Users/\(userSettingsID)/FirstName").setValue("Not Set")
+        databaseReference.child("Users/\(userSettingsID)/LastName").setValue("Not Set")
+        databaseReference.child("Users/\(userSettingsID)/Gender").setValue("Not Set")
+        databaseReference.child("Users/\(userSettingsID)/Date of Birth").setValue("Not Set")
+        databaseReference.child("Users/\(userSettingsID)/DefaultCurrency").setValue("Not Set")
+        databaseReference.child("Users/\(userSettingsID)/MeasurementUnit").setValue("Not Set")
+    }
     
     func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
         databaseReference.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in

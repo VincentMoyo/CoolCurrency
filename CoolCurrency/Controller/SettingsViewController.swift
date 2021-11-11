@@ -141,16 +141,13 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
     
     func retrieveUserInformation() {
-        guard let dateOfBirth = viewModel.birthDate,
-              let unitMeasurement = viewModel.unitMeasurement,
-              let gender = viewModel.gender else { return }
         
-        self.firstNameLabel.setTitle(viewModel.firstName, for: .normal)
-        self.lastNameLabel.setTitle(viewModel.lastName, for: .normal)
-        self.defaultCurrencyPickerViewButton.setTitle(viewModel.defaultCurrency, for: .normal)
-        genderSegmentedControl.selectedSegmentIndex = gender
-        measurementUnitSegmentedControl.selectedSegmentIndex = unitMeasurement
-        datePicker.setDate(dateOfBirth, animated: true)
+        self.firstNameLabel.setTitle(viewModel.retriveFirstName, for: .normal)
+        self.lastNameLabel.setTitle(viewModel.retriveLastName, for: .normal)
+        self.defaultCurrencyPickerViewButton.setTitle(viewModel.retriveDefaultCurrency, for: .normal)
+        genderSegmentedControl.selectedSegmentIndex = viewModel.retriveGender
+        measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retriveUnitMeasurement
+        datePicker.setDate(viewModel.retriveBirthDate, animated: true)
     }
 }
 
