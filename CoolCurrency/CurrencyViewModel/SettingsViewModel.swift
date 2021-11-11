@@ -13,12 +13,12 @@ class SettingsViewModel: SettingsViewModiable {
     private var authenticationRepository: AuthenticationRepositable
     private var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
-    var firstName: String?
-    var lastName: String?
-    var gender: Int?
-    var birthDate: Date?
-    var defaultCurrency: String?
-    var unitMeasurement: Int?
+    private var firstName: String?
+    private var lastName: String?
+    private var gender: Int?
+    private var birthDate: Date?
+    private var defaultCurrency: String?
+    private var unitMeasurement: Int?
     var selectedRow = 0
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
     
@@ -39,6 +39,30 @@ class SettingsViewModel: SettingsViewModiable {
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         }
+    }
+    
+    var retriveFirstName: String {
+        firstName ?? "Not Set"
+    }
+    
+    var retriveLastName: String {
+        lastName ?? "Not Set"
+    }
+    
+    var retriveGender: Int {
+        gender ?? 0
+    }
+    
+    var retriveBirthDate: Date {
+        birthDate ?? Date.now
+    }
+    
+    var retriveDefaultCurrency: String {
+        defaultCurrency ?? "Not Set"
+    }
+    
+    var retriveUnitMeasurement: Int {
+        unitMeasurement ?? 0
     }
     
     func updateFirstName(_ firstName: String) {
@@ -66,29 +90,24 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     private func checkUserList() {
-        self.userSettingsList.forEach { settings in
-            if settings.key == "FirstName" {
-                firstName = settings.value
-            } else if settings.key == "LastName" {
-                lastName = settings.value
-            } else if settings.key == "Gender" {
-                if settings.value == "Female" {
-                    gender = 0
-                } else {
-                    gender = 1
-                }
-            } else if settings.key == "Date of Birth" {
+        for (key, value) in userSettingsList {
+            switch key {
+            case "FirstName":
+                firstName = value
+            case "LastName":
+                lastName = value
+            case "Gender":
+                gender = value == "Female" ? 0 : 1
+            case "Date of Birth":
                 Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
-                guard let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value) else { return }
+                guard let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: value) else { return }
                 birthDate = dateResult
-            } else if settings.key == "DefaultCurrency" {
-                defaultCurrency = settings.value
-            } else if settings.key == "MeasurementUnit" {
-                if settings.value == "Grams" {
-                    unitMeasurement = 0
-                } else {
-                    unitMeasurement = 1
-                }
+            case "DefaultCurrency":
+                defaultCurrency = value
+            case "MeasurementUnit":
+                unitMeasurement = value == "Grams" ? 0 : 1
+            default:
+                break
             }
         }
     }

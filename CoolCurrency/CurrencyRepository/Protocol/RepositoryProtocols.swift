@@ -31,4 +31,5 @@ protocol DatabaseRepositable {
     func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String)
     func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String)
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double])
+    func createNewUserSettings(SignedInUser userSettingsID: String)
 }
