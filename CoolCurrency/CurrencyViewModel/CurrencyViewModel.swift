@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import FirebaseDatabase
 
 enum CurrencyName: String {
     case pound = "Pound"
@@ -27,22 +26,38 @@ enum CurrencyName: String {
 
 class CurrencyViewModel: CurrencyViewModiable {
     
+    var selectedCurrency: String?
+    private var defaultCurrency: String?
     private var currencyRepository: CurrencyRepositable
     private weak var delegate: ViewModelDelegate?
     private var response: CurrencyResponseModel?
     private(set) var currencyList: [String: Double] = [:]
+    private var userSettingsList: [String: String] = [:]
     private var previousCurrencyList: [String: Double] = [:]
     private var secondaryCurrencyValue = 0.0
     private var primaryCurrencyCode = ""
     private var secondaryCurrencyCode = ""
     private var primaryCurrencyFlagName = ""
     private var secondaryCurrencyFlagName = ""
-    var selectedCurrency = ""
-    private let databaseRepository = DatabaseRepository(databaseReference: Database.database().reference())
+    private let databaseRepository: DatabaseRepositable
+    private let authenticationRepository: AuthenticationRepositable
     
-    init(repository: CurrencyRepositable, delegate: ViewModelDelegate) {
+    init(repository: CurrencyRepositable,
+         authentication: AuthenticationRepositable,
+         database: DatabaseRepositable,
+         delegate: ViewModelDelegate) {
         self.currencyRepository = repository
+        self.authenticationRepository = authentication
+        self.databaseRepository = database
         self.delegate = delegate
+    }
+    
+    var retriveDefaultCurrency: String {
+        defaultCurrency ?? "USD"
+    }
+    
+    var retrieveSelectedCurrency: String {
+        selectedCurrency ?? "USD"
     }
     
     func fetchCurrencyListFromAPI(for baseCurrency: String) {
@@ -53,11 +68,39 @@ class CurrencyViewModel: CurrencyViewModiable {
                 self?.response = response
                 self?.setCurrencyDataList(currencyData: response.response.rates)
                 self?.databaseRepository.insertCurrencyIntoDatabase(for: baseCurrency, with: self!.currencyList)
+                print(self!.currencyList)
                 self?.delegate?.bindViewModel()
             case .failure(let error):
                 self?.delegate?.showUserErrorMessage(error: error)
             }
         })
+    }
+    
+    func loadUserSettingsFromDatabase() {
+        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification()) { [weak self] result in
+            do {
+                let newUserDetails = try result.get()
+                self?.userSettingsList = newUserDetails
+                self?.checkUserList()
+                if let newDefaultCurrency = self?.retriveDefaultCurrency {
+                    self?.fetchCurrencyListFromAPI(for: newDefaultCurrency)
+                    self?.selectedCurrency = newDefaultCurrency
+                    print(newDefaultCurrency)
+                }
+                self?.delegate?.bindViewModel()
+            } catch {
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        }
+    }
+    
+    private func checkUserList() {
+        self.userSettingsList.forEach { settings in
+            if settings.key == "DefaultCurrency" {
+                defaultCurrency = settings.value
+                
+            }
+        }
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {

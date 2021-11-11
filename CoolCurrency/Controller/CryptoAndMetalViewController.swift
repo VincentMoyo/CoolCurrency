@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import CoolCurrencyFramework
+import FirebaseAuth
+import FirebaseDatabase
 
 class CryptoAndMetalViewController: UIViewController {
     
@@ -15,8 +18,13 @@ class CryptoAndMetalViewController: UIViewController {
     @IBOutlet private weak var platinumValueLabel: UILabel!
     @IBOutlet private weak var silverValueLabel: UILabel!
     @IBOutlet private weak var currencyCodeLabel: UILabel!
+    @IBOutlet private weak var goldUnitMeasurement: UILabel!
+    @IBOutlet private weak var platinumUnitMeasurement: UILabel!
+    @IBOutlet private weak var silverUnitMeasurement: UILabel!
     
-    private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepository(),
+    private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepositorys(),
+                                                         database: CryptoDatabaseRepository(databaseReference: Database.database().reference()),
+                                                         authentication: CryptoAuthenticationRepository(authenticationReference: Auth.auth()),
                                                          delegate: self)
     
     override func viewDidLoad() {
@@ -24,6 +32,7 @@ class CryptoAndMetalViewController: UIViewController {
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
         currencyPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        viewModel.loadDefaultCurrency()
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
@@ -48,13 +57,16 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel.selectedCurrency = viewModel.currencyList[row]
         viewModel.fetchBitcoinAndMetalPrices(for: viewModel.selectedCurrency)
-        currencyCodeLabel.text = viewModel.selectedCurrency
     }
 }
 
-extension CryptoAndMetalViewController: ViewModelDelegate {
+extension CryptoAndMetalViewController: ViewModelDelegates {
     
     func bindViewModel() {
+        currencyCodeLabel.text = viewModel.selectedCurrency
+        goldUnitMeasurement.text = viewModel.unitMeasurementSymbol
+        platinumUnitMeasurement.text = viewModel.unitMeasurementSymbol
+        silverUnitMeasurement.text = viewModel.unitMeasurementSymbol
         bitcoinValueLabel.text = viewModel.retrieveRoundedOffPriceOfBitcoin
         platinumValueLabel.text = viewModel.retrieveRoundedOffPriceOfPlatinum
         silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver

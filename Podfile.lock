@@ -1,4 +1,8 @@
 PODS:
+  - CoolCurrencyFramework (0.0.1):
+    - Firebase/Auth
+    - Firebase/Core
+    - Firebase/Database
   - Firebase/Auth (8.4.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 8.4.0)
@@ -96,6 +100,7 @@ PODS:
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
+  - CoolCurrencyFramework (from `/Users/vmoyo2/Documents/BackUpThings/CoolCurrencyDevelopmentPod`)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -117,7 +122,12 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
 
+EXTERNAL SOURCES:
+  CoolCurrencyFramework:
+    :path: "/Users/vmoyo2/Documents/BackUpThings/CoolCurrencyDevelopmentPod"
+
 SPEC CHECKSUMS:
+  CoolCurrencyFramework: cd2bbd09fcd8dbc87bc70545507384c3b8172d3d
   Firebase: 54cdc8bc9c9b3de54f43dab86e62f5a76b47034f
   FirebaseAnalytics: 4751d6a49598a2b58da678cc07df696bcd809ab9
   FirebaseAuth: 8ef169751d795f20921d425f7b0131cc1c70935c
@@ -133,6 +143,6 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 3b0ba410b4527430b09f9c992a04b530eaa2b8ab
+PODFILE CHECKSUM: 6a37af60402afe984cf98fda3542ab317c8447ab
 
 COCOAPODS: 1.10.1

@@ -6,17 +6,22 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class HomeCurrencyViewController: UIViewController {
     
     @IBOutlet private weak var currencyPickerView: UIPickerView!
     @IBOutlet private weak var currencyTableView: UITableView!
     
-    private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(), delegate: self)
+    private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
+                                                   authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                   database: DatabaseRepository(databaseReference: Database.database().reference()),
+                                                   delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.fetchCurrencyListFromAPI(for: "ZAR")
+        viewModel.loadUserSettingsFromDatabase()
         setupCurrencyPickerView()
         setupCurrencyTableView()
         currencyPickerView.setValue(UIColor.white, forKeyPath: "textColor")
@@ -24,8 +29,8 @@ class HomeCurrencyViewController: UIViewController {
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
-        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
-        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
+        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
+        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
     
     }
     
@@ -78,9 +83,9 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel.selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
-        viewModel.setPrimaryCurrencyCode(for: viewModel.selectedCurrency)
-        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.selectedCurrency))
+        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
+        viewModel.setPrimaryCurrencyCode(for: viewModel.retrieveSelectedCurrency)
+        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
     }
 }
 

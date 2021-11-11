@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class RegisterViewController: UIViewController {
     
@@ -15,7 +16,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
     private lazy var viewModel = RegisterViewModel(authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
-                                                   delegate: self)
+                                                   delegate: self,
+                                                   database: DatabaseRepository(databaseReference: Database.database().reference()))
     
     override func viewDidLoad() {
         super.viewDidLoad()

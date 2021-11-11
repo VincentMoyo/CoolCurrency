@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import FirebaseDatabase
 
 struct AuthenticationRepository: AuthenticationRepositable {
     

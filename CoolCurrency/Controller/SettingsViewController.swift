@@ -17,6 +17,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet private weak var profilePictureImage: UIImageView!
     @IBOutlet private weak var genderSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var datePicker: UIDatePicker!
+    @IBOutlet private weak var measurementUnitSegmentedControl: UISegmentedControl!
+    @IBOutlet private weak var defaultCurrencyPickerViewButton: UIButton!
+    
+    private let screenWidth = UIScreen.main.bounds.width - 10
+    private let screenHeight = UIScreen.main.bounds.width / 2
     
     private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference()),
                                                    authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
@@ -60,6 +65,21 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         viewModel.updateGender(forSegmentedControl)
     }
     
+    @IBAction private func measurementUnitIndexPressed(_ sender: UISegmentedControl) {
+        guard let measurementUnitSegmentedControl = measurementUnitSegmentedControl.titleForSegment(at: measurementUnitSegmentedControl.selectedSegmentIndex)
+        else { return }
+        viewModel.updateMeasurementUnit(measurementUnitSegmentedControl)
+    }
+    
+    @IBAction private func popUpDefaultCurrencyPicker(_ sender: Any) {
+        let pickerViewController = UIViewController()
+        let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        
+        setupDefaultCurrencyPickerView(for: pickerView)
+        setLayoutOfPickerViewController(for: pickerViewController, with: pickerView)
+        setupDefaultCurrencyPickerAlert(for: pickerViewController, with: pickerView)
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         profilePictureImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
@@ -73,6 +93,41 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 }
 
+extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 30))
+        label.text = viewModel.currencyList[row]
+        label.sizeToFit()
+        return label
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        viewModel.currencyList.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        60
+    }
+    
+    private func setupDefaultCurrencyPickerView(for pickerView: UIPickerView) {
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        pickerView.selectRow(viewModel.selectedRow, inComponent: 0, animated: false)
+    }
+    
+    private func setLayoutOfPickerViewController(for pickerViewController: UIViewController, with pickerView: UIPickerView) {
+        pickerViewController.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
+        pickerViewController.view.addSubview(pickerView)
+        pickerView.centerXAnchor.constraint(equalTo: pickerViewController.view.centerXAnchor).isActive = true
+        pickerView.centerYAnchor.constraint(equalTo: pickerViewController.view.centerYAnchor).isActive = true
+    }
+}
+
 extension SettingsViewController: SettingsViewModelDelegate {
     
     func signOutBindViewModel() {
@@ -81,19 +136,18 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
     
     func bindViewModel() {
-        viewModel.checkUserList()
         retrieveUserInformation()
         self.activityLoader.stopAnimating()
     }
     
     func retrieveUserInformation() {
-        guard let dateOfBirth = viewModel.birthDate,
-        let gender = viewModel.gender else { return }
         
-        self.firstNameLabel.setTitle(viewModel.firstName, for: .normal)
-        self.lastNameLabel.setTitle(viewModel.lastName, for: .normal)
-        genderSegmentedControl.selectedSegmentIndex = gender
-        datePicker.setDate(dateOfBirth, animated: true)
+        self.firstNameLabel.setTitle(viewModel.retriveFirstName, for: .normal)
+        self.lastNameLabel.setTitle(viewModel.retriveLastName, for: .normal)
+        self.defaultCurrencyPickerViewButton.setTitle(viewModel.retriveDefaultCurrency, for: .normal)
+        genderSegmentedControl.selectedSegmentIndex = viewModel.retriveGender
+        measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retriveUnitMeasurement
+        datePicker.setDate(viewModel.retriveBirthDate, animated: true)
     }
 }
 
@@ -124,5 +178,26 @@ extension SettingsViewController {
         
         alert.addAction(actions)
         present(alert, animated: true, completion: nil)
+    }
+    
+    private func setupDefaultCurrencyPickerAlert(for pickerViewController: UIViewController, with pickerView: UIPickerView) {
+        let alert = UIAlertController(title: "Select Currency",
+                                      message: "",
+                                      preferredStyle: .actionSheet)
+        
+        alert.popoverPresentationController?.sourceView = defaultCurrencyPickerViewButton
+        alert.popoverPresentationController?.sourceRect = defaultCurrencyPickerViewButton.bounds
+        
+        alert.setValue(pickerViewController, forKeyPath: "contentViewController")
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (_) in
+            self.viewModel.selectedRow = pickerView.selectedRow(inComponent: 0)
+            let selected = self.viewModel.currencyList[self.viewModel.selectedRow]
+            let newDefaultCurrency = selected
+            self.defaultCurrencyPickerViewButton.setTitle(newDefaultCurrency, for: .normal)
+            self.viewModel.updateDefaultCurrency(newDefaultCurrency)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
