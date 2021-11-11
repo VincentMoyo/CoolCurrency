@@ -27,7 +27,6 @@ class DatabaseRepository: DatabaseRepositable {
                 return
             }
             DispatchQueue.main.async {
-                print(value)
                 completion(.success(value))
             }
         }
@@ -119,7 +118,6 @@ class DatabaseRepository: DatabaseRepositable {
             }
             
             DispatchQueue.main.async {
-                print(value)
                 completion(.success(value))
             }
         }

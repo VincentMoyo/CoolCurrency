@@ -43,10 +43,6 @@ struct MatchCurrencyGameViewModel {
                                                    "Australia": "AustrialianDollarSymbol"]
     
     func checkIfCorrect() -> Bool {
-        if selectedFlag == selectedSymbol {
-            return true
-        } else {
-            return false
-        }
+        selectedFlag == selectedFlag ? true : false
     }
 }
