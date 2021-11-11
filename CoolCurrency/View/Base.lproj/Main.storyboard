@@ -1103,7 +1103,7 @@
             </objects>
             <point key="canvasLocation" x="-581.15942028985512" y="378.34821428571428"/>
         </scene>
-        <!--Item-->
+        <!--Match-->
         <scene sceneID="f6S-0W-Of6">
             <objects>
                 <viewController id="ZWW-Qb-fea" customClass="MatchCurrencyGameViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
@@ -1134,7 +1134,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WSn-iJ-Wko"/>
-                        <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.10196078431372549" green="0.019607843137254902" blue="0.035294117647058823" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Y5l-mc-Wic" firstAttribute="centerY" secondItem="gqx-d2-kvv" secondAttribute="centerY" id="4bb-Vp-ybc"/>
                             <constraint firstItem="Tdy-hG-mXh" firstAttribute="top" secondItem="Y5l-mc-Wic" secondAttribute="bottom" constant="27" id="Gt5-1x-6Tu"/>
@@ -1146,7 +1146,7 @@
                             <constraint firstItem="Tdy-hG-mXh" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" constant="63" id="piT-YQ-Zof"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="j0f-HO-oFn"/>
+                    <tabBarItem key="tabBarItem" title="Match" image="arrowtriangle.right.and.line.vertical.and.arrowtriangle.left" catalog="system" id="j0f-HO-oFn"/>
                     <connections>
                         <outlet property="matchCurrencyPickerView" destination="Y5l-mc-Wic" id="uul-t8-ncS"/>
                     </connections>
@@ -1164,6 +1164,7 @@
         <image name="GoldSymbol" width="244" height="245"/>
         <image name="PlatinumSysmbol" width="245" height="246"/>
         <image name="SilverSysmbol" width="244" height="246"/>
+        <image name="arrowtriangle.right.and.line.vertical.and.arrowtriangle.left" catalog="system" width="128" height="89"/>
         <image name="bitcoinLabel" width="800" height="533"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

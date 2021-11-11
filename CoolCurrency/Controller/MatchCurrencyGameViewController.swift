@@ -11,38 +11,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     @IBOutlet weak var matchCurrencyPickerView: UIPickerView!
     
-    var selectedFlag = ""
-    var selectedSymbol = ""
-    
-    let listOfCountries = ["BritishFlag",
-                           "UnitedStatesFlag",
-                           "IndianFlag",
-                           "BostwanaFlag",
-                           "CanadianFlag",
-                           "GhanianFlag",
-                           "SouthAfricanFlag",
-                           "JapaneseFlag",
-                           "RussianFlag",
-                           "ChineseFlag",
-                           "EuroFlag",
-                           "unitedArabFlag",
-                           "BrazilianFlag",
-                           "AustralianFlag"]
-    
-    let listOfCurrencySymbols = ["AustrialianDollarSymbol",
-                                 "YuanSymbol",
-                                 "DirhamSymbol",
-                                 "CanadianDollarSymbol",
-                                 "EuroSymbol",
-                                 "PoundSymbol",
-                                 "PulaSymbol",
-                                 "RealSymbol",
-                                 "RubleSymbol",
-                                 "RandSymbol",
-                                 "RupeeSymbol",
-                                 "USDollarSymbol",
-                                 "YenSymbol",
-                                 "CediSymbol"]
+    private lazy var viewModel = MatchCurrencyGameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +20,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     }
     
     @IBAction func matchButtonPressed(_ sender: UIButton) {
-        
-    }
-    
-    func matchFlagWithSymbol() -> Bool {
-        false
+        showUserSuccessAlert(viewModel.checkIfCorrect())
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -64,9 +29,9 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if component == 1 {
-            return listOfCountries.count
+            return Constants.List.listOfCountries.count
         } else {
-            return listOfCurrencySymbols.count
+            return Constants.List.listOfCurrencySymbols.count
         }
     }
     
@@ -76,31 +41,50 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         if component == 1 {
-            let myView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
-            let myImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
+            let countryFlagsView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
+            let countryFlagsImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             
-            myImageView.image = UIImage(named: listOfCountries[row])
+            countryFlagsImageView.image = UIImage(named: Array(Constants.List.listOfCountries.values)[row])
+            countryFlagsView.addSubview(countryFlagsImageView)
             
-            myView.addSubview(myImageView)
-            
-            return myView
+            return countryFlagsView
         } else {
-            let myView1 = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
-            let myImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
-
-            myImageView.image = UIImage(named: listOfCurrencySymbols[row])
+            let currencySymbolsView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
+            let currencySymbolsImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 150, height: 110))
             
-            myView1.addSubview(myImageView)
+            currencySymbolsImageView.image = UIImage(named: Array(Constants.List.listOfCurrencySymbols.values)[row])
+            currencySymbolsView.addSubview(currencySymbolsImageView)
             
-            return myView1
+            return currencySymbolsView
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if component == 1 {
-            selectedFlag = listOfCountries[row]
+            viewModel.selectedFlag = Array(Constants.List.listOfCountries.keys)[row]
         } else {
-            selectedSymbol = listOfCurrencySymbols[row]
+            viewModel.selectedSymbol = Array(Constants.List.listOfCurrencySymbols.keys)[row]
         }
+    }
+    
+    private func resetBackgroundColour(action: UIAlertAction! = nil) {
+        view.backgroundColor = UIColor(red: 26, green: 5, blue: 9, alpha: 0)
+    }
+    
+    private func showUserSuccessAlert(_ isCorrectAnswer: Bool) {
+        
+        let title = isCorrectAnswer == true ? "Correct" : "Incorrect"
+        let message = isCorrectAnswer == true ? "Correct Flag matched" : "Incorrect Flag matched"
+        view.backgroundColor = isCorrectAnswer == true ? .systemGreen : .systemRed
+        
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: "OK",
+                                                style: .default,
+                                                handler: resetBackgroundColour))
+        
+        present(alertController, animated: true)
     }
 }
