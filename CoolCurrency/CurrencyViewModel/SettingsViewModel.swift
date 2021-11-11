@@ -66,29 +66,24 @@ class SettingsViewModel: SettingsViewModiable {
     }
     
     private func checkUserList() {
-        self.userSettingsList.forEach { settings in
-            if settings.key == "FirstName" {
-                firstName = settings.value
-            } else if settings.key == "LastName" {
-                lastName = settings.value
-            } else if settings.key == "Gender" {
-                if settings.value == "Female" {
-                    gender = 0
-                } else {
-                    gender = 1
-                }
-            } else if settings.key == "Date of Birth" {
+        for (key, value) in userSettingsList {
+            switch key {
+            case "FirstName":
+                firstName = value
+            case "LastName":
+                lastName = value
+            case "Gender":
+                gender = value == "Female" ? 0 : 1
+            case "Date of Birth":
                 Constants.FormatForDate.dateFormatterGet.dateFormat = Constants.FormatForDate.DateFormate
-                guard let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: settings.value) else { return }
+                guard let dateResult = Constants.FormatForDate.dateFormatterGet.date(from: value) else { return }
                 birthDate = dateResult
-            } else if settings.key == "DefaultCurrency" {
-                defaultCurrency = settings.value
-            } else if settings.key == "MeasurementUnit" {
-                if settings.value == "Grams" {
-                    unitMeasurement = 0
-                } else {
-                    unitMeasurement = 1
-                }
+            case "DefaultCurrency":
+                defaultCurrency = value
+            case "MeasurementUnit":
+                unitMeasurement = value == "Grams" ? 0 : 1
+            default:
+                break
             }
         }
     }
