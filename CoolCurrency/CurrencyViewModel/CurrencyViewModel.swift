@@ -112,7 +112,6 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {
-        print("dfgsdfbhsdfb \(baseCurrency)")
         databaseRepository.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
                                               completion: { [weak self] result in
             switch result {
