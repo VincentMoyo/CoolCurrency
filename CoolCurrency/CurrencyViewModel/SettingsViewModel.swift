@@ -44,19 +44,6 @@ class SettingsViewModel: SettingsViewModiable {
         })
     }
     
-    func downloadProfileImageFromDatabase() {
-        guard let urlString = profilePictureURLString else { return }
-        databaseRepository.performProfilePictureRequest(for: urlString, completion: { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.profilePictureDataImage = imageData
-                self?.delegate?.bindViewModel()
-            case .failure(let updateToDataError):
-                self?.delegate?.showUserErrorMessage(error: updateToDataError)
-            }
-        })
-    }
-    
     var retrieveFirstName: String {
         firstName ?? "Not Set"
     }
@@ -83,6 +70,19 @@ class SettingsViewModel: SettingsViewModiable {
     
     var retrieveUnitMeasurement: Int {
         unitMeasurement ?? 0
+    }
+    
+    func downloadProfileImageFromDatabase() {
+        guard let urlString = profilePictureURLString else { return }
+        databaseRepository.performProfilePictureRequest(for: urlString, completion: { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.profilePictureDataImage = imageData
+                self?.delegate?.bindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateProfilePicture(_ imagePNG: Data) {

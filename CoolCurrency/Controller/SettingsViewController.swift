@@ -92,8 +92,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         guard let imageData = image.pngData() else { return }
         
         viewModel.updateProfilePicture(imageData)
-        
-        // profilePictureImage.image = image
+
         self.dismiss(animated: true, completion: nil)
     }
     
