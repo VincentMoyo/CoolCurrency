@@ -23,12 +23,18 @@ class RegisterViewModel {
         authenticationRepository.registerUser(email, password) { [weak self] result in
             switch result {
             case .success(_):
-                guard let checkUserID = self?.authenticationRepository.signedInUserIdentification()
-                else {
-                    return
-                    
-                }
-                self?.databaseRepository.createNewUserSettings(SignedInUser: checkUserID)
+                guard let checkUserID = self?.authenticationRepository.signedInUserIdentification() else { return }
+                self?.createNewUserInformation(userID: checkUserID)
+            case .failure(let signInError):
+                self?.delegate?.showUserErrorMessage(error: signInError)
+            }
+        }
+    }
+    
+    private func createNewUserInformation(userID checkUserID: String) {
+        databaseRepository.createNewUserSettings(SignedInUser: checkUserID) { [weak self] result in
+            switch result {
+            case .success(_):
                 self?.delegate?.bindViewModel()
             case .failure(let signInError):
                 self?.delegate?.showUserErrorMessage(error: signInError)

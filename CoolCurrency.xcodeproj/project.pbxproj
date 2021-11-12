@@ -44,6 +44,8 @@
 		78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78935FAD270DA2D3007AE3EE /* CurrencyViewModel.swift */; };
 		78935FB1270DA6CC007AE3EE /* ViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78935FB0270DA6CC007AE3EE /* ViewControllerDelegates.swift */; };
 		78935FB4270DF82B007AE3EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78935FB6270DF82B007AE3EE /* Localizable.strings */; };
+		789CC6C0273C3A5700567264 /* MatchCurrencyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CC6BF273C3A5700567264 /* MatchCurrencyGameViewController.swift */; };
+		789CC6C2273D117800567264 /* MatchCurrencyGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CC6C1273D117800567264 /* MatchCurrencyGameViewModel.swift */; };
 		78AA4EBC27219D270044B3CB /* CryptoAndMetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA4EBB27219D270044B3CB /* CryptoAndMetalViewController.swift */; };
 		78AFD3AF271DC67E00E16D47 /* ConversionCurrencyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 78AFD3AE271DC67E00E16D47 /* ConversionCurrencyViewModel.m */; };
 		78B50AF72719C02C00596AA6 /* ConvertCurrencyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */; };
@@ -123,6 +125,8 @@
 		78935FAD270DA2D3007AE3EE /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		78935FB0270DA6CC007AE3EE /* ViewControllerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegates.swift; sourceTree = "<group>"; };
 		78935FB5270DF82B007AE3EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		789CC6BF273C3A5700567264 /* MatchCurrencyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewController.swift; sourceTree = "<group>"; };
+		789CC6C1273D117800567264 /* MatchCurrencyGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewModel.swift; sourceTree = "<group>"; };
 		78AA4EBB27219D270044B3CB /* CryptoAndMetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAndMetalViewController.swift; sourceTree = "<group>"; };
 		78AFD3A9271D746300E16D47 /* CoolCurrency-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoolCurrency-Bridging-Header.h"; sourceTree = "<group>"; };
 		78AFD3AD271DC67E00E16D47 /* ConversionCurrencyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConversionCurrencyViewModel.h; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				7877D566272A9E76003A2857 /* LoginViewController.swift */,
 				7884FFDD272AA7AF0005454A /* RegisterViewController.swift */,
 				78768183272BE78100F090C0 /* SettingsViewController.swift */,
+				789CC6BF273C3A5700567264 /* MatchCurrencyGameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 				7877D562272A9BC1003A2857 /* LoginViewModel.swift */,
 				7877D564272A9C2D003A2857 /* RegisterViewModel.swift */,
 				78768185272BEA1B00F090C0 /* SettingsViewModel.swift */,
+				789CC6C1273D117800567264 /* MatchCurrencyGameViewModel.swift */,
 			);
 			path = CurrencyViewModel;
 			sourceTree = "<group>";
@@ -636,11 +642,13 @@
 				7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */,
 				785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */,
 				7811A92527171F7800810C9F /* CurrencyDataModel.swift in Sources */,
+				789CC6C2273D117800567264 /* MatchCurrencyGameViewModel.swift in Sources */,
 				7828E6D2271439B800507B79 /* ViewModelProtocols.swift in Sources */,
 				7811A922271716B200810C9F /* CurrencyTableViewCell.swift in Sources */,
 				788DEC7C270AFDCA0033493B /* CoolCurrency.xcdatamodeld in Sources */,
 				7877D563272A9BC1003A2857 /* LoginViewModel.swift in Sources */,
 				78AFD3AF271DC67E00E16D47 /* ConversionCurrencyViewModel.m in Sources */,
+				789CC6C0273C3A5700567264 /* MatchCurrencyGameViewController.swift in Sources */,
 				785DA028270C41CE00CB7996 /* Constants.swift in Sources */,
 				78935FB1270DA6CC007AE3EE /* ViewControllerDelegates.swift in Sources */,
 				7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */,
