@@ -11,6 +11,7 @@ typealias ListCurrencyResponseModel = (Result<CurrencyResponseModel, Error>) -> 
 typealias DatabaseResponse = (Result<Bool, Error>) -> Void
 typealias CurrencyFromDatabaseResponse = (Result<[String: Double], Error>) -> Void
 typealias UserInformationFromDatabaseResponse = (Result<[String: String], Error>) -> Void
+typealias ProfilePictureResponse = (Result<Data, Error>) -> Void
 
 protocol CurrencyRepositable {
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel)
@@ -35,4 +36,6 @@ protocol DatabaseRepositable {
     func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse)
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse)
     func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse)
+    func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse)
+    func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse)
 }
