@@ -14,6 +14,7 @@ class HomeCurrencyViewController: UIViewController {
     
     @IBOutlet private weak var currencyPickerView: UIPickerView!
     @IBOutlet private weak var currencyTableView: UITableView!
+    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
@@ -23,6 +24,7 @@ class HomeCurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activateActivityIndicatorView()
         viewModel.loadUserSettingsFromDatabase()
         setupCurrencyPickerView()
         setupCurrencyTableView()
@@ -43,6 +45,11 @@ class HomeCurrencyViewController: UIViewController {
     private func setupCurrencyTableView() {
         currencyTableView.dataSource = self
         currencyTableView.delegate = self
+    }
+    
+    private func activateActivityIndicatorView() {
+        activityLoader.hidesWhenStopped = true
+        activityLoader.startAnimating()
     }
 }
 
@@ -93,7 +100,8 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
 extension HomeCurrencyViewController: ViewModelDelegate {
     
     func bindViewModel() {
-            self.currencyTableView.reloadData()
-            self.currencyPickerView.reloadAllComponents()
+        self.currencyTableView.reloadData()
+        self.currencyPickerView.reloadAllComponents()
+        self.activityLoader.stopAnimating()
     }
 }

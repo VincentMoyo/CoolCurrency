@@ -149,15 +149,15 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension SettingsViewController: SettingsViewModelDelegate {
     
     func signOutBindViewModel() {
+        activateActivityIndicatorView()
         self.performSegue(withIdentifier: "welcome", sender: self)
-        self.activityLoader.stopAnimating()
     }
     
     func bindViewModel() {
+        activateActivityIndicatorView()
         retrieveUserInformation()
         guard let imageData = viewModel.profilePictureDataImage else { return }
         self.profilePictureImage.image = UIImage(data: imageData)
-        self.activityLoader.stopAnimating()
     }
     
     func retrieveUserInformation() {

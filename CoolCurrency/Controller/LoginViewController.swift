@@ -12,7 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
+    @IBOutlet weak var activityLoader: UIActivityIndicatorView!
     
     private lazy var viewModel = LoginViewModel(authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
                                                 delegate: self)
