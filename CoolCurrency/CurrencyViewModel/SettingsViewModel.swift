@@ -14,6 +14,8 @@ class SettingsViewModel: SettingsViewModiable {
     private var userSettingsList: [String: String] = [:]
     private weak var delegate: SettingsViewModelDelegate?
     private var firstName: String?
+    private var profilePictureURLString: String?
+    var profilePictureDataImage: Data?
     private var lastName: String?
     private var gender: Int?
     private var birthDate: Date?
@@ -34,6 +36,7 @@ class SettingsViewModel: SettingsViewModiable {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
                 self?.checkUserList()
+                self?.downloadProfileImageFromDatabase()
                 self?.delegate?.bindViewModel()
             } catch {
                 self?.delegate?.showUserErrorMessage(error: error)
@@ -43,6 +46,10 @@ class SettingsViewModel: SettingsViewModiable {
     
     var retrieveFirstName: String {
         firstName ?? "Not Set"
+    }
+    
+    var retrieveProfilePictureURLString: String {
+        profilePictureURLString ?? ""
     }
     
     var retrieveLastName: String {
@@ -63,6 +70,32 @@ class SettingsViewModel: SettingsViewModiable {
     
     var retrieveUnitMeasurement: Int {
         unitMeasurement ?? 0
+    }
+    
+    func downloadProfileImageFromDatabase() {
+        guard let urlString = profilePictureURLString else { return }
+        databaseRepository.performProfilePictureRequest(for: urlString, completion: { [weak self] result in
+            switch result {
+            case .success(let imageData):
+                self?.profilePictureDataImage = imageData
+                self?.delegate?.bindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
+    }
+    
+    func updateProfilePicture(_ imagePNG: Data) {
+        databaseRepository.insertProfilePictureIntoDatabase(SignedInUser: authenticationRepository.signedInUserIdentification(),
+                                                            forImage: imagePNG,
+                                                            completion: { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.loadUserSettingsFromDatabase()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
     }
     
     func updateFirstName(_ firstName: String) {
@@ -154,6 +187,8 @@ class SettingsViewModel: SettingsViewModiable {
                 defaultCurrency = value
             case "MeasurementUnit":
                 unitMeasurement = value == "Grams" ? 0 : 1
+            case "ProfileImage":
+                profilePictureURLString = value
             default:
                 break
             }

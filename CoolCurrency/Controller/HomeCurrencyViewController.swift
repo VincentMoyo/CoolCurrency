@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class HomeCurrencyViewController: UIViewController {
     
@@ -16,7 +17,8 @@ class HomeCurrencyViewController: UIViewController {
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
-                                                   database: DatabaseRepository(databaseReference: Database.database().reference()),
+                                                   database: DatabaseRepository(databaseReference: Database.database().reference(),
+                                                                                storageReference: Storage.storage().reference()),
                                                    delegate: self)
     
     override func viewDidLoad() {

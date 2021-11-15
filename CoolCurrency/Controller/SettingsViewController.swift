@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -23,7 +24,10 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     private let screenWidth = UIScreen.main.bounds.width - 10
     private let screenHeight = UIScreen.main.bounds.width / 2
     
-    private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference()),
+    private let storage = Storage.storage().reference()
+    
+    private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
+                                                                                          storageReference: Storage.storage().reference()),
                                                    authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
                                                    delegate: self)
     
@@ -31,6 +35,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         activityLoader.isHidden = true
         viewModel.loadUserSettingsFromDatabase()
+
     }
     
     @IBAction private func logOutPressed(_ sender: UIButton) {
@@ -42,6 +47,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        myPickerController.allowsEditing = true
         
         self.present(myPickerController, animated: true, completion: nil)
     }
@@ -82,8 +88,16 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
-        profilePictureImage.image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+        guard let imageData = image.pngData() else { return }
+        
+        viewModel.updateProfilePicture(imageData)
+
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     private func activateActivityIndicatorView() {
@@ -137,6 +151,8 @@ extension SettingsViewController: SettingsViewModelDelegate {
     
     func bindViewModel() {
         retrieveUserInformation()
+        guard let imageData = viewModel.profilePictureDataImage else { return }
+        self.profilePictureImage.image = UIImage(data: imageData)
         self.activityLoader.stopAnimating()
     }
     

@@ -7,18 +7,56 @@
 
 import Foundation
 import FirebaseDatabase
+import FirebaseStorage
 import UIKit
 
 class DatabaseRepository: DatabaseRepositable {
     
     private var databaseReference: DatabaseReference
+    private let storageReference: StorageReference
     
-    init(databaseReference: DatabaseReference) {
+    init(databaseReference: DatabaseReference, storageReference: StorageReference) {
         self.databaseReference = databaseReference
+        self.storageReference = storageReference
     }
     
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) {
         databaseReference.child(baseCurrency).setValue(currencyList)
+    }
+    
+    func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) {
+        storageReference.child("ProfilePictures/\(userSettingsID).png").putData(imageData,
+                                                                                     metadata: nil,
+                                                                                     completion: { _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                self.storageReference.child("ProfilePictures/\(userSettingsID).png").downloadURL(completion: {url, error in
+                    guard let url = url, error == nil else {
+                        return
+                    }
+                    let urlString = url.absoluteString
+                    self.updateProfilePictureToDatabase(SignedInUser: userSettingsID, userURLString: urlString, completion: { result in
+                        switch result {
+                        case .success(_):
+                            completion(.success(true))
+                        case .failure(let updateToDataError):
+                            completion(.failure(updateToDataError))
+                        }
+                    })
+                })
+            }
+        })
+    }
+    
+    func updateProfilePictureToDatabase(SignedInUser userSettingsID: String, userURLString urlString: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/ProfileImage").setValue(urlString) { (error: Error?, _: DatabaseReference) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
     
     func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) {
@@ -121,5 +159,20 @@ class DatabaseRepository: DatabaseRepositable {
                 completion(.success(value))
             }
         }
+    }
+    
+    func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse) {
+        guard let url = URL(string: urlString) else { return }
+        let task = URLSession.shared.dataTask(with: url, completionHandler: { data, _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                guard let data = data else { return }
+                DispatchQueue.main.async {
+                    completion(.success(data))
+                }
+            }
+        })
+        task.resume()
     }
 }
