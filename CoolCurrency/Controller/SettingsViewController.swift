@@ -86,6 +86,10 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         setupDefaultCurrencyPickerAlert(for: pickerViewController, with: pickerView)
     }
     
+    @IBAction private func resetEmailPressed(_ sender: UIButton) {
+        resetEmailAlert()
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
@@ -196,6 +200,27 @@ extension SettingsViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    private func resetEmailAlert() {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Set Email",
+                                      message: "Reset to new Email",
+                                      preferredStyle: .alert)
+        
+        let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
+            guard let email = textField.text else { return }
+            self.viewModel.resetEmail(newEmail: email)
+        })
+        
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "New Name"
+            textField = alertTextField
+        }
+        
+        alert.addAction(actions)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func setupDefaultCurrencyPickerAlert(for pickerViewController: UIViewController, with pickerView: UIPickerView) {
         let alert = UIAlertController(title: "Select Currency",
                                       message: "",
@@ -213,7 +238,6 @@ extension SettingsViewController {
             self.defaultCurrencyPickerViewButton.setTitle(newDefaultCurrency, for: .normal)
             self.viewModel.updateDefaultCurrency(newDefaultCurrency)
         }))
-        
         self.present(alert, animated: true, completion: nil)
     }
 }

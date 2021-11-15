@@ -18,9 +18,10 @@ protocol CurrencyRepositable {
 }
 
 protocol AuthenticationRepositable {
-    func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void)
-    func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void)
-    func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void)
+    func registerUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse)
+    func signInUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse)
+    func resetEmailToDatabase(newEmail email: String, completion: @escaping DatabaseResponse)
+    func signOutUser(completion: @escaping DatabaseResponse)
     func signedInUserIdentification() -> String
     var checkIfUserAlreadySignedIn: Bool { get }
 }

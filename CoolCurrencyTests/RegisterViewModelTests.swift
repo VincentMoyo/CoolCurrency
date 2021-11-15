@@ -18,7 +18,7 @@ class RegisterViewModelTests: XCTestCase {
         mockDelegate = MockDelegate()
         mockAuthenticationRepository = MockAuthenticationRepository()
         implementationUnderTests = RegisterViewModel(authenticationRepository: mockAuthenticationRepository,
-                                                     delegate: mockDelegate)
+                                                     delegate: mockDelegate, database: MockDatabaseRepository())
     }
     
     func testAuthenticateUserSuccess() {
@@ -39,17 +39,30 @@ class RegisterViewModelTests: XCTestCase {
         func bindViewModel() { refreshCalled = true }
     }
     
+    class MockDatabaseRepository: DatabaseRepositable {
+        func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }
+        func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse) { }
+        func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) { }
+        func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse) { }
+        func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String, completion: @escaping DatabaseResponse) { }
+        func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String, completion: @escaping DatabaseResponse) { }
+        func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String, completion: @escaping DatabaseResponse) { }
+        func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse) { }
+        func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) { }
+        func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse) { completion(.success(true)) }
+        func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) { }
+        func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse) { }
+    }
+    
     class MockAuthenticationRepository: AuthenticationRepositable {
+        var checkIfUserAlreadySignedIn: Bool {return true}
+        
+        func resetEmailToDatabase(newEmail email: String, completion: @escaping DatabaseResponse) { }
         func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { completion(.success(true)) }
         func signedInUserIdentification() -> String { "" }
-        var checkIfUserAlreadySignedIn: Bool {return true}
         func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
         func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-            if email == "emailAlreadyExist" {
-                completion(.failure(MyErrors.retrieveError("error")))
-            } else {
-                completion(.success(true))
-            }
+            email == "emailAlreadyExist" ? completion(.failure(MyErrors.retrieveError("error"))) : completion(.success(true))
         }
     }
 }

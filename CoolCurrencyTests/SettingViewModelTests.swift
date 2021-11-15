@@ -38,26 +38,43 @@ class SettingViewModelTests: XCTestCase {
     
     func testCheckListFirstName() {
         setUpMockResponse()
-        XCTAssertEqual(implementationUnderTests.firstName, "Vincent")
+        XCTAssertEqual(implementationUnderTests.retrieveFirstName, "Vincent")
         XCTAssert(mockDelegate.refreshCalled)
     }
     
     func testCheckListLastName() {
         setUpMockResponse()
-        XCTAssertEqual(implementationUnderTests.lastName, "Moyo")
+        XCTAssertEqual(implementationUnderTests.retrieveLastName, "Moyo")
         XCTAssert(mockDelegate.refreshCalled)
     }
     
     func testCheckListGenderIsMaleSuccess() {
         setUpMockResponse()
-        XCTAssertEqual(implementationUnderTests.gender, 1)
+        XCTAssertEqual(implementationUnderTests.retrieveGender, 1)
         XCTAssert(mockDelegate.refreshCalled)
     }
     
-    func setUpMockResponse() {
+    func testResetEmailSuccess() {
+        setUpMockResponse()
+        implementationUnderTests.resetEmail(newEmail: "Vince@sam.com")
+        XCTAssert(mockDelegate.refreshCalled)
+    }
+    
+    func testResetEmailWithoutComKeywordFailure() {
+        setUpMockResponse()
+        implementationUnderTests.resetEmail(newEmail: "Vince@sam")
+        XCTAssert(mockDelegate.showUserErrorCalled)
+    }
+    
+    func testResetEmailWithoutAtKeywordFailure() {
+        setUpMockResponse()
+        implementationUnderTests.resetEmail(newEmail: "Vince.com")
+        XCTAssert(mockDelegate.showUserErrorCalled)
+    }
+    
+    private func setUpMockResponse() {
         mockDatabaseRepository.response = .success(mockData)
         implementationUnderTests.loadUserSettingsFromDatabase()
-        implementationUnderTests.checkUserList()
     }
     
     private var mockData: [String: String] {
@@ -81,24 +98,32 @@ class SettingViewModelTests: XCTestCase {
         var signOutSuccess = true
         
         var errorResponse: Result<Bool, Error> = .failure(MyErrors.retrieveError("error"))
-        func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
-        func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
-        func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) {
-            if signOutSuccess {
-                completion(.success(true))
-            } else {
-                completion(errorResponse)
-            }
+        func registerUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
+        func resetEmailToDatabase(newEmail email: String, completion: @escaping DatabaseResponse) {
+            email.contains(".com") && email.contains("@") == true ? completion(.success(true)) : completion(errorResponse)
+        }
+        func signInUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
+        func signOutUser(completion: @escaping DatabaseResponse) {
+            signOutSuccess == true ? completion(.success(true)) : completion(errorResponse)
         }
         func signedInUserIdentification() -> String { "" }
-        var checkIfUserAlreadySignedIn: Bool {return true}
+        var checkIfUserAlreadySignedIn: Bool { return true }
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
         var response: Result<[String: String], Error> = .failure(MyErrors.retrieveError("error"))
-        func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping (Result<[String: Double], Error>) -> Void) { }
-        func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String) { }
-        func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String) { }
+        
+        func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }
+        func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) { }
+        func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse) { }
+        func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String, completion: @escaping DatabaseResponse) { }
+        func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String, completion: @escaping DatabaseResponse) { }
+        func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String, completion: @escaping DatabaseResponse) { }
+        func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse) { }
+        func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) { }
+        func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse) { }
+        func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) { }
+        func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse) { }
         func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) { }
         func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) { }
         func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
