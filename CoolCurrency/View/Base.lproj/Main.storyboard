@@ -37,14 +37,12 @@
         <!--Cool Currency-->
         <scene sceneID="aZe-Ey-xAy">
             <objects>
-                <tabBarController id="0kD-l1-ZuI" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Cool Currency" id="DGG-ko-KbE">
-                        <barButtonItem key="rightBarButtonItem" image="person.fill" catalog="system" style="done" id="Eum-xx-a6l">
-                            <color key="tintColor" red="0.47379369310000002" green="0.35675442530000001" blue="0.78327864830000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <tabBarController id="0kD-l1-ZuI" customClass="NavigationViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Cool Currency" leftItemsSupplementBackButton="YES" id="DGG-ko-KbE">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.fill" catalog="system" width="7" changesSelectionAsPrimaryAction="YES" id="Eum-xx-a6l">
+                            <color key="tintColor" red="0.38738895740000001" green="0.28938567380000002" blue="0.63162138970000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="a10-aK-Pdy" kind="popoverPresentation" popoverAnchorBarButtonItem="Eum-xx-a6l" id="9L9-Fn-XGf">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <segue destination="a10-aK-Pdy" kind="presentation" id="dn2-OD-ZJg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -57,9 +55,11 @@
                         <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="profilePictureButton" destination="Eum-xx-a6l" id="Vnz-xV-EvR"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TVY-g6-lMK"/>
                         <segue destination="ALu-NT-k0j" kind="relationship" relationship="viewControllers" id="zJ9-oG-RbX"/>
                         <segue destination="ZWW-Qb-fea" kind="relationship" relationship="viewControllers" id="cwR-ui-BgF"/>
+                        <segue destination="a10-aK-Pdy" kind="presentation" identifier="settingsCell" id="yLL-Y7-2Ml"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sN-Gq-EFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1179,7 +1179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Np-8h-Lub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-581.15942028985512" y="378.34821428571428"/>
+            <point key="canvasLocation" x="-616" y="514"/>
         </scene>
         <!--Match-->
         <scene sceneID="f6S-0W-Of6">
@@ -1235,6 +1235,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="yLL-Y7-2Ml"/>
         <segue reference="dMV-d1-ajQ"/>
     </inferredMetricsTieBreakers>
     <resources>

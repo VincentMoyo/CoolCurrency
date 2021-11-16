@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityLoader.isHidden = true
+        activateActivityIndicatorView()
         viewModel.loadUserSettingsFromDatabase()
 
     }
@@ -53,11 +53,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func setFirstNamePressed(_ sender: UIButton) {
-        setupProfileNames(firstNameLabel, isFirstName: true)
+        Alerts.setupProfileIntoDatabase(for: self, buttonLabelText: firstNameLabel, updateNamesToDatabase: viewModel.updateFirstName(_:))
     }
     
     @IBAction private func setLastNamePressed(_ sender: UIButton) {
-        setupProfileNames(lastNameLabel, isFirstName: false)
+        Alerts.setupProfileIntoDatabase(for: self, buttonLabelText: lastNameLabel, updateNamesToDatabase: viewModel.updateLastName(_:))
     }
     
     @IBAction private func dateOfBirthPressed(_ sender: UIDatePicker) {
@@ -87,7 +87,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func resetEmailPressed(_ sender: UIButton) {
-        resetEmailAlert()
+        Alerts.setupProfileIntoDatabase(for: self, updateNamesToDatabase: viewModel.resetEmail(newEmail:))
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
@@ -105,7 +105,6 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     private func activateActivityIndicatorView() {
-        activityLoader.isHidden = false
         activityLoader.hidesWhenStopped = true
         activityLoader.startAnimating()
     }
@@ -149,77 +148,29 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension SettingsViewController: SettingsViewModelDelegate {
     
     func signOutBindViewModel() {
-        activateActivityIndicatorView()
         self.performSegue(withIdentifier: "welcome", sender: self)
+        self.activityLoader.stopAnimating()
     }
     
     func bindViewModel() {
-        activateActivityIndicatorView()
         retrieveUserInformation()
         guard let imageData = viewModel.profilePictureDataImage else { return }
         self.profilePictureImage.image = UIImage(data: imageData)
+        self.activityLoader.stopAnimating()
     }
     
     func retrieveUserInformation() {
-        
         self.firstNameLabel.setTitle(viewModel.retrieveFirstName, for: .normal)
         self.lastNameLabel.setTitle(viewModel.retrieveLastName, for: .normal)
         self.defaultCurrencyPickerViewButton.setTitle(viewModel.retrieveDefaultCurrency, for: .normal)
         genderSegmentedControl.selectedSegmentIndex = viewModel.retrieveGender
         measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retrieveUnitMeasurement
         datePicker.setDate(viewModel.retrieveBirthDate, animated: true)
+        self.activityLoader.stopAnimating()
     }
 }
 
 extension SettingsViewController {
-    
-    private func setupProfileNames(_ nameLabel: UIButton, isFirstName firstName: Bool) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Set Name",
-                                      message: "Set your username to complete your profile account setup",
-                                      preferredStyle: .alert)
-        
-        let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
-            if firstName {
-                guard let newFirstName = textField.text else { return }
-                nameLabel.setTitle(newFirstName, for: .normal)
-                self.viewModel.updateFirstName(newFirstName)
-            } else {
-                guard let newLastName = textField.text else { return }
-                nameLabel.setTitle(newLastName, for: .normal)
-                self.viewModel.updateLastName(newLastName)
-            }
-        })
-        
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "New Name"
-            textField = alertTextField
-        }
-        
-        alert.addAction(actions)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    private func resetEmailAlert() {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Set Email",
-                                      message: "Reset to new Email",
-                                      preferredStyle: .alert)
-        
-        let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
-            guard let email = textField.text else { return }
-            self.viewModel.resetEmail(newEmail: email)
-        })
-        
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "New Name"
-            textField = alertTextField
-        }
-        
-        alert.addAction(actions)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
     
     private func setupDefaultCurrencyPickerAlert(for pickerViewController: UIViewController, with pickerView: UIPickerView) {
         let alert = UIAlertController(title: "Select Currency",

@@ -46,16 +46,28 @@ extension Array {
 }
 
 extension UIAlertController {
-
-    class func showUserSuccessAlertExtension(_ isCorrectAnswer: Bool, title: String, message: String, action: @escaping ((UIAlertAction) -> Void)) -> UIAlertController {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
+    
+    class func setupProfileIntoDatabase(for viewController: UIViewController,
+                                        buttonLabelText nameLabel: UIButton? = nil,
+                                        updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Set Name",
+                                      message: "Set your username to complete your profile account setup",
+                                      preferredStyle: .alert)
         
-        alertController.addAction(UIAlertAction(title: "OK",
-                                                style: .default,
-                                                handler: action))
+        let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
+            guard let newFirstName = textField.text else { return }
+            nameLabel?.setTitle(newFirstName, for: .normal)
+            updateNamesToDatabase(newFirstName)
+        })
         
-        return alertController
+        alert.addTextField { alertTextField in
+            alertTextField.placeholder = "New Name"
+            textField = alertTextField
+        }
+        
+        alert.addAction(actions)
+        viewController.present(alert, animated: true, completion: nil)
     }
+    
 }
