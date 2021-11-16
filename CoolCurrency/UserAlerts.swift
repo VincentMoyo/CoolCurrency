@@ -10,12 +10,6 @@ import UIKit
 
 struct Alerts {
     
-    static let updateFirstName = "Update First Name"
-    static let updateLastName = "Update Last Name"
-    static let correctMatch = "Correct Match"
-    static let incorrectMatch = "Incorrect Match"
-    static let resetEmail = "Reset Email"
-    
     static func showUserSuccessAlertExtension(for viewController: UIViewController,
                                               forAnswer isCorrectAnswer: Bool,
                                               title: String,

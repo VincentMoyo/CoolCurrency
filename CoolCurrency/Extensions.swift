@@ -44,30 +44,3 @@ extension Array {
         return indices.contains(index) ? self[index] : nil
     }
 }
-
-extension UIAlertController {
-    
-    class func setupProfileIntoDatabase(for viewController: UIViewController,
-                                        buttonLabelText nameLabel: UIButton? = nil,
-                                        updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Set Name",
-                                      message: "Set your username to complete your profile account setup",
-                                      preferredStyle: .alert)
-        
-        let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
-            guard let newFirstName = textField.text else { return }
-            nameLabel?.setTitle(newFirstName, for: .normal)
-            updateNamesToDatabase(newFirstName)
-        })
-        
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "New Name"
-            textField = alertTextField
-        }
-        
-        alert.addAction(actions)
-        viewController.present(alert, animated: true, completion: nil)
-    }
-    
-}
