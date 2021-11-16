@@ -53,11 +53,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func setFirstNamePressed(_ sender: UIButton) {
-        Alerts.setupProfileIntoDatabase(for: self, buttonLabelText: firstNameLabel, updateNamesToDatabase: viewModel.updateFirstName(_:))
+        Alerts.showUpdateFirstNameAlert(for: self, buttonLabelText: firstNameLabel, updateNamesToDatabase: viewModel.updateFirstName(_:))
     }
     
     @IBAction private func setLastNamePressed(_ sender: UIButton) {
-        Alerts.setupProfileIntoDatabase(for: self, buttonLabelText: lastNameLabel, updateNamesToDatabase: viewModel.updateLastName(_:))
+        Alerts.showUpdateLastNameAlert(for: self, buttonLabelText: lastNameLabel, updateNamesToDatabase: viewModel.updateLastName(_:))
     }
     
     @IBAction private func dateOfBirthPressed(_ sender: UIDatePicker) {
@@ -87,7 +87,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func resetEmailPressed(_ sender: UIButton) {
-        Alerts.setupProfileIntoDatabase(for: self, updateNamesToDatabase: viewModel.resetEmail(newEmail:))
+        Alerts.showResetEmailAlert(for: self, updateNamesToDatabase: viewModel.resetEmail(newEmail:))
     }
     
     func imagePickerController(_ picker: UIImagePickerController,
