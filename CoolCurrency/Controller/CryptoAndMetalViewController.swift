@@ -33,7 +33,7 @@ class CryptoAndMetalViewController: UIViewController {
         activateActivityIndicatorView()
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
-        currencyPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        currencyPicker.setValue(UIColor(named: "SecondaryNavy"), forKeyPath: "textColor")
         viewModel.loadDefaultCurrency()
     }
     

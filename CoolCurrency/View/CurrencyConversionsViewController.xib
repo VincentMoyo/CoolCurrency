@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,6 +27,10 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackgroundImages" translatesAutoresizingMaskIntoConstraints="NO" id="ooi-yi-69P">
+                    <rect key="frame" x="-13" y="-18" width="440" height="932"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CHK-l5-25M">
                     <rect key="frame" x="20" y="54" width="374" height="798"/>
                     <subviews>
@@ -100,7 +105,8 @@
                                 </stackView>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Value" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trw-L0-taO">
                                     <rect key="frame" x="10" y="8" width="354" height="100"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="SecondaryNavy"/>
+                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="pNT-FE-ydT"/>
                                     </constraints>
@@ -109,8 +115,8 @@
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2r-fc-p9Y">
-                                    <rect key="frame" x="10" y="318" width="354" height="31"/>
-                                    <color key="backgroundColor" red="0.2627450980392157" green="0.25882352941176467" blue="0.65098039215686276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <rect key="frame" x="10" y="301" width="354" height="31"/>
+                                    <color key="backgroundColor" name="TertiaryOrange"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="O2r-fc-p9Y" secondAttribute="height" multiplier="354:31" id="2dV-12-6LG"/>
                                         <constraint firstAttribute="height" constant="31" id="ugV-lz-Vpa"/>
@@ -118,17 +124,22 @@
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="Convert"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="ConvertCurrencyPressed:" destination="-1" eventType="touchUpInside" id="Hg6-0U-zB9"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerX" secondItem="Wsa-Pq-5lq" secondAttribute="centerX" id="3cj-mk-t86"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" id="74T-4r-kCB"/>
                                 <constraint firstItem="trw-L0-taO" firstAttribute="leading" secondItem="KtI-1N-n26" secondAttribute="leading" constant="10" id="Baj-BS-t8x"/>
-                                <constraint firstItem="O2r-fc-p9Y" firstAttribute="top" secondItem="Wsa-Pq-5lq" secondAttribute="bottom" constant="47" id="DEx-J9-HP6"/>
+                                <constraint firstItem="O2r-fc-p9Y" firstAttribute="top" secondItem="Wsa-Pq-5lq" secondAttribute="bottom" constant="30" id="DEx-J9-HP6"/>
                                 <constraint firstAttribute="trailing" secondItem="Wsa-Pq-5lq" secondAttribute="trailing" id="N7W-3P-eac"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="top" secondItem="trw-L0-taO" secondAttribute="bottom" constant="15" id="TPc-dU-HHw"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="centerY" secondItem="KtI-1N-n26" secondAttribute="centerY" id="g03-rX-vxe"/>
@@ -149,7 +160,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9j-oM-Nlt">
                                     <rect key="frame" x="10" y="10" width="356" height="160"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="SecondaryNavy"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="160" id="Sf4-2k-n1r"/>
                                     </constraints>
@@ -165,7 +176,7 @@
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 ZAR = 10.54 GBP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-E9-SI8">
                                     <rect key="frame" x="80" y="190" width="284" height="37.5"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="SecondaryNavy"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -178,7 +189,7 @@
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 GBP = 0.15 ZAR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9c0-2R-Jtr">
                                     <rect key="frame" x="80" y="247.5" width="284" height="20.5"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="SecondaryNavy"/>
                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -190,7 +201,6 @@
                                     </userDefinedRuntimeAttributes>
                                 </label>
                             </subviews>
-                            <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="9c0-2R-Jtr" secondAttribute="trailing" constant="10" id="7Du-Ym-53b"/>
                                 <constraint firstAttribute="trailing" secondItem="uxl-E9-SI8" secondAttribute="trailing" constant="10" id="BIH-mp-7NK"/>
@@ -208,7 +218,7 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <color key="backgroundColor" red="0.1011981386" green="0.018112823359999999" blue="0.034331730929999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" name="PrimaryBlue"/>
             <constraints>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="CHK-l5-25M" secondAttribute="trailing" constant="20" id="Icy-jo-rjP"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="CHK-l5-25M" secondAttribute="bottom" constant="10" id="Nef-M3-Tja"/>
@@ -222,8 +232,18 @@
     </objects>
     <resources>
         <image name="AustralianFlag" width="300" height="168"/>
+        <image name="BackgroundImages" width="518" height="600"/>
         <image name="BrazilianFlag" width="284" height="177"/>
-        <image name="rectangle.2.swap" catalog="system" width="128" height="101"/>
+        <image name="rectangle.2.swap" catalog="system" width="32" height="32"/>
+        <namedColor name="PrimaryBlue">
+            <color red="0.53333333333333333" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryNavy">
+            <color red="0.086274509803921567" green="0.11764705882352941" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TertiaryOrange">
+            <color red="1" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -25,10 +25,10 @@ class HomeCurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activateActivityIndicatorView()
+        currencyPickerView.setValue(UIColor(named: "SecondaryNavy"), forKeyPath: "textColor")
         viewModel.loadUserSettingsFromDatabase()
         setupCurrencyPickerView()
         setupCurrencyTableView()
-        currencyPickerView.setValue(UIColor.white, forKeyPath: "textColor")
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
     }
     
