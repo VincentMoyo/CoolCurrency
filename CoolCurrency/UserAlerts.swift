@@ -16,77 +16,90 @@ struct Alerts {
     static let updateFirstNameTitle = "Set First name"
     static let updateLastNameTitle = "Set Last  name"
     static let resetEmailTitle = "Reset Email"
+    static let correctTitle = "Correct"
+    
+    static func showUpdateFirstNameAlert(for viewController: UIViewController,
+                                         buttonLabelText nameLabel: UIButton? = nil,
+                                         updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
+        
+        implementTextFieldAlert(for: viewController,
+                                   buttonLabelText: nameLabel,
+                                   updateNamesToDatabase: updateNamesToDatabase,
+                                   newTitle: updateFirstNameTitle,
+                                   newMessage: updateFirstNameMessage)
+    }
+    
+    static func showUpdateLastNameAlert(for viewController: UIViewController,
+                                        buttonLabelText nameLabel: UIButton? = nil,
+                                        updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
+        implementTextFieldAlert(for: viewController,
+                                   buttonLabelText: nameLabel,
+                                   updateNamesToDatabase: updateNamesToDatabase,
+                                   newTitle: updateLastNameTitle,
+                                   newMessage: updateLastNameMessage)
+    }
+    
+    static func showResetEmailAlert(for viewController: UIViewController,
+                                    updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
+        
+        implementTextFieldAlert(for: viewController, updateNamesToDatabase: updateNamesToDatabase,
+                                   newTitle: resetEmailTitle, newMessage: resetEmailMessage)
+    }
     
     static func showUserSuccessAlertExtension(for viewController: UIViewController,
                                               forAnswer isCorrectAnswer: Bool,
                                               title: String,
                                               message: String,
                                               action: @escaping ((UIAlertAction) -> Void)) {
-        let alert = UIAlertController(title: title,
-                                      message: message,
-                                      preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "OK",
-                                      style: .default,
-                                      handler: action))
-        
-        viewController.present(alert, animated: true, completion: nil)
-    }
-    
-    static func showUpdateFirstNameAlert(for viewController: UIViewController,
-                                         buttonLabelText nameLabel: UIButton? = nil,
-                                         updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
+        let actions = UIAlertAction(title: "OK",
+                                    style: .default,
+                                    handler: action)
         
         setupProfileIntoDatabase(for: viewController,
-                                    buttonLabelText: nameLabel,
-                                    updateNamesToDatabase: updateNamesToDatabase,
-                                    title: updateFirstNameTitle,
-                                    message: updateFirstNameMessage)
+                                    forAction: actions,
+                                    title: title,
+                                    message: message)
     }
     
-    static func showUpdateLastNameAlert(for viewController: UIViewController,
-                                        buttonLabelText nameLabel: UIButton? = nil,
-                                        updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
+    private static func implementTextFieldAlert(for viewController: UIViewController,
+                                                buttonLabelText nameLabel: UIButton? = nil,
+                                                updateNamesToDatabase: @escaping (_ newName: String) -> Void,
+                                                newTitle title: String,
+                                                newMessage message: String) {
         
-        setupProfileIntoDatabase(for: viewController,
-                                    buttonLabelText: nameLabel,
-                                    updateNamesToDatabase: updateNamesToDatabase,
-                                    title: updateLastNameTitle,
-                                    message: updateLastNameMessage)
-    }
-    
-    static func showResetEmailAlert(for viewController: UIViewController,
-                                    updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
-        
-        setupProfileIntoDatabase(for: viewController,
-                                    updateNamesToDatabase: updateNamesToDatabase,
-                                    title: resetEmailTitle,
-                                    message: resetEmailMessage)
-    }
-    
-    private static func setupProfileIntoDatabase(for viewController: UIViewController,
-                                                 buttonLabelText nameLabel: UIButton? = nil,
-                                                 updateNamesToDatabase: @escaping (_ newName: String) -> Void,
-                                                 title newTitle: String,
-                                                 message newMessage: String) {
         var textField = UITextField()
-        let alert = UIAlertController(title: newTitle,
-                                      message: newMessage,
-                                      preferredStyle: .alert)
-        
         let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
             guard let newFirstName = textField.text else { return }
             nameLabel?.setTitle(newFirstName, for: .normal)
             updateNamesToDatabase(newFirstName)
         })
         
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "New Name"
-            textField = alertTextField
+        let newTextField: ((UITextField) -> Void) = { textFields in
+            textFields.placeholder = "New Name"
+            textField = textFields
         }
         
-        alert.addAction(actions)
-        viewController.present(alert, animated: true, completion: nil)
+        setupProfileIntoDatabase(for: viewController,
+                                    forAction: actions,
+                                    addTextField: newTextField,
+                                    buttonLabelText: nameLabel,
+                                    title: title,
+                                    message: message)
     }
     
+    private static func setupProfileIntoDatabase(for viewController: UIViewController,
+                                                 forAction action: UIAlertAction,
+                                                 addTextField configurationHandlers: ((UITextField) -> Void)? = nil,
+                                                 buttonLabelText nameLabel: UIButton? = nil,
+                                                 title newTitle: String,
+                                                 message newMessage: String) {
+        
+        let alert = UIAlertController(title: newTitle,
+                                      message: newMessage,
+                                      preferredStyle: .alert)
+        configurationHandlers != nil ? alert.addTextField(configurationHandler: configurationHandlers) : 
+        alert.addAction(action)
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }

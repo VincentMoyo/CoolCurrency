@@ -37,7 +37,7 @@ class SettingsViewModel: SettingsViewModiable {
                 self?.userSettingsList = newUserDetails
                 self?.checkUserList()
                 self?.downloadProfileImageFromDatabase()
-                 self?.delegate?.bindViewModel()
+                self?.delegate?.bindViewModel()
             } catch {
                 self?.delegate?.showUserErrorMessage(error: error)
             }

@@ -33,7 +33,6 @@ class NavigationViewModel {
                 self?.userSettingsList = newUserDetails
                 self?.checkUserList()
                 self?.downloadProfileImageFromDatabase()
-                // self?.delegate?.bindViewModel()
             } catch {
                 self?.delegate?.showUserErrorMessage(error: error)
             }
