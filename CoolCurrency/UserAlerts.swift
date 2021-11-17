@@ -22,7 +22,7 @@ struct Alerts {
                                          buttonLabelText nameLabel: UIButton? = nil,
                                          updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
         
-        implementTextFieldAlert(for: viewController,
+        implementTextFieldForAlert(for: viewController,
                                    buttonLabelText: nameLabel,
                                    updateNamesToDatabase: updateNamesToDatabase,
                                    newTitle: updateFirstNameTitle,
@@ -32,7 +32,7 @@ struct Alerts {
     static func showUpdateLastNameAlert(for viewController: UIViewController,
                                         buttonLabelText nameLabel: UIButton? = nil,
                                         updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
-        implementTextFieldAlert(for: viewController,
+        implementTextFieldForAlert(for: viewController,
                                    buttonLabelText: nameLabel,
                                    updateNamesToDatabase: updateNamesToDatabase,
                                    newTitle: updateLastNameTitle,
@@ -42,7 +42,7 @@ struct Alerts {
     static func showResetEmailAlert(for viewController: UIViewController,
                                     updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
         
-        implementTextFieldAlert(for: viewController, updateNamesToDatabase: updateNamesToDatabase,
+        implementTextFieldForAlert(for: viewController, updateNamesToDatabase: updateNamesToDatabase,
                                    newTitle: resetEmailTitle, newMessage: resetEmailMessage)
     }
     
@@ -56,13 +56,13 @@ struct Alerts {
                                     style: .default,
                                     handler: action)
         
-        setupProfileIntoDatabase(for: viewController,
+        showUserAlert(for: viewController,
                                     forAction: actions,
                                     title: title,
                                     message: message)
     }
     
-    private static func implementTextFieldAlert(for viewController: UIViewController,
+    private static func implementTextFieldForAlert(for viewController: UIViewController,
                                                 buttonLabelText nameLabel: UIButton? = nil,
                                                 updateNamesToDatabase: @escaping (_ newName: String) -> Void,
                                                 newTitle title: String,
@@ -80,7 +80,7 @@ struct Alerts {
             textField = textFields
         }
         
-        setupProfileIntoDatabase(for: viewController,
+        showUserAlert(for: viewController,
                                     forAction: actions,
                                     addTextField: newTextField,
                                     buttonLabelText: nameLabel,
@@ -88,7 +88,7 @@ struct Alerts {
                                     message: message)
     }
     
-    private static func setupProfileIntoDatabase(for viewController: UIViewController,
+    private static func showUserAlert(for viewController: UIViewController,
                                                  forAction action: UIAlertAction,
                                                  addTextField configurationHandlers: ((UITextField) -> Void)? = nil,
                                                  buttonLabelText nameLabel: UIButton? = nil,
@@ -98,7 +98,7 @@ struct Alerts {
         let alert = UIAlertController(title: newTitle,
                                       message: newMessage,
                                       preferredStyle: .alert)
-        configurationHandlers != nil ? alert.addTextField(configurationHandler: configurationHandlers) : 
+        configurationHandlers != nil ? alert.addTextField(configurationHandler: configurationHandlers) :
         alert.addAction(action)
         viewController.present(alert, animated: true, completion: nil)
     }
