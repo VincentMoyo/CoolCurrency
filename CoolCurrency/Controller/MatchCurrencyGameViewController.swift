@@ -10,17 +10,21 @@ import UIKit
 class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet private weak var matchCurrencyPickerView: UIPickerView!
+    @IBOutlet weak var finalTitle: UILabel!
+    @IBOutlet weak var finalScore: UILabel!
     
     private lazy var viewModel = MatchCurrencyGameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabelsHidden(true)
         matchCurrencyPickerView.delegate = self
         matchCurrencyPickerView.dataSource = self
     }
     
     @IBAction func matchButtonPressed(_ sender: UIButton) {
         showUserSuccessAlert(viewModel.checkIfCorrect())
+        viewModel.shouldDisplayAnswer() == true ? setLabelsHidden(false) : setLabelsHidden(true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -67,8 +71,14 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
         }
     }
     
+    private func setLabelsHidden (_ hideButton: Bool) {
+        finalTitle.isHidden = hideButton
+        finalScore.isHidden = hideButton
+        finalScore.text = viewModel.retrieveCorrectAnswer
+    }
+    
     private func resetBackgroundColour(action: UIAlertAction! = nil) {
-            view.backgroundColor = UIColor(named: "PrimaryPurple")
+        view.backgroundColor = UIColor(named: "PrimaryBlue")
     }
     
     private func showUserSuccessAlert(_ isCorrectAnswer: Bool) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lxb-qu-qxc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZWW-Qb-fea">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
@@ -1243,15 +1243,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BackgroundImages" translatesAutoresizingMaskIntoConstraints="NO" id="eMr-pK-nIL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundImages" translatesAutoresizingMaskIntoConstraints="NO" id="eMr-pK-nIL">
                                 <rect key="frame" x="-13" y="-18" width="440" height="932"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="932" id="0Ju-yR-tGa"/>
+                                </constraints>
                             </imageView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5l-mc-Wic">
-                                <rect key="frame" x="0.0" y="198" width="414" height="500"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="Ox9-I7-20l"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="352" width="414" height="346"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" highlighted="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdy-hG-mXh">
                                 <rect key="frame" x="63" y="725" width="288" height="48"/>
@@ -1274,22 +1273,55 @@
                                     <action selector="matchButtonPressed:" destination="ZWW-Qb-fea" eventType="touchUpInside" id="66d-7k-hBB"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EPD-n5-B8R">
+                                <rect key="frame" x="20" y="134" width="374" height="178"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your final Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OUb-xS-Crt">
+                                        <rect key="frame" x="104" y="8" width="166" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8TW-Qr-WVa">
+                                        <rect key="frame" x="100" y="59" width="174" height="84"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="SecondaryNavy"/>
+                                <constraints>
+                                    <constraint firstItem="OUb-xS-Crt" firstAttribute="centerX" secondItem="EPD-n5-B8R" secondAttribute="centerX" id="4Pb-xk-bHH"/>
+                                    <constraint firstItem="OUb-xS-Crt" firstAttribute="top" secondItem="EPD-n5-B8R" secondAttribute="top" constant="8" id="5F5-vH-VhD"/>
+                                    <constraint firstItem="8TW-Qr-WVa" firstAttribute="centerX" secondItem="EPD-n5-B8R" secondAttribute="centerX" id="KkU-Gl-9u0"/>
+                                    <constraint firstItem="8TW-Qr-WVa" firstAttribute="top" secondItem="OUb-xS-Crt" secondAttribute="bottom" constant="22" id="U9q-T7-shB"/>
+                                    <constraint firstAttribute="width" secondItem="EPD-n5-B8R" secondAttribute="height" multiplier="187:89" id="Xcq-OG-yyQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="8TW-Qr-WVa" secondAttribute="bottom" constant="35" id="hAy-ai-WWh"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WSn-iJ-Wko"/>
                         <color key="backgroundColor" name="PrimaryBlue"/>
                         <constraints>
-                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="centerY" secondItem="gqx-d2-kvv" secondAttribute="centerY" id="4bb-Vp-ybc"/>
-                            <constraint firstItem="Tdy-hG-mXh" firstAttribute="top" secondItem="Y5l-mc-Wic" secondAttribute="bottom" constant="27" id="Gt5-1x-6Tu"/>
+                            <constraint firstItem="EPD-n5-B8R" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" constant="20" id="08e-9e-ePa"/>
+                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" id="2SG-H2-0ZR"/>
+                            <constraint firstItem="Tdy-hG-mXh" firstAttribute="top" secondItem="Y5l-mc-Wic" secondAttribute="bottom" constant="27" id="4bB-4i-3Gs"/>
                             <constraint firstItem="WSn-iJ-Wko" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Tdy-hG-mXh" secondAttribute="trailing" constant="63" id="HIO-df-PAn"/>
-                            <constraint firstItem="Tdy-hG-mXh" firstAttribute="centerX" secondItem="gqx-d2-kvv" secondAttribute="centerX" id="Jmu-69-4hA"/>
-                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" id="a1v-xJ-xPD"/>
-                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="centerX" secondItem="gqx-d2-kvv" secondAttribute="centerX" id="hc2-Kq-W3V"/>
-                            <constraint firstItem="WSn-iJ-Wko" firstAttribute="trailing" secondItem="Y5l-mc-Wic" secondAttribute="trailing" id="pFV-CZ-QEM"/>
+                            <constraint firstItem="eMr-pK-nIL" firstAttribute="leading" secondItem="gqx-d2-kvv" secondAttribute="leadingMargin" constant="-33" id="HqJ-A7-2ow"/>
+                            <constraint firstItem="EPD-n5-B8R" firstAttribute="centerX" secondItem="eMr-pK-nIL" secondAttribute="centerX" id="QqR-Iz-Pwe"/>
+                            <constraint firstItem="EPD-n5-B8R" firstAttribute="top" secondItem="WSn-iJ-Wko" secondAttribute="top" constant="46" id="ZoS-mB-Aco"/>
+                            <constraint firstItem="WSn-iJ-Wko" firstAttribute="trailing" secondItem="EPD-n5-B8R" secondAttribute="trailing" constant="20" id="gIH-sY-rEQ"/>
+                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="trailing" secondItem="WSn-iJ-Wko" secondAttribute="trailing" id="i2p-3X-OtE"/>
+                            <constraint firstItem="WSn-iJ-Wko" firstAttribute="bottom" secondItem="Tdy-hG-mXh" secondAttribute="bottom" constant="40" id="iUi-k3-ajo"/>
                             <constraint firstItem="Tdy-hG-mXh" firstAttribute="leading" secondItem="WSn-iJ-Wko" secondAttribute="leading" constant="63" id="piT-YQ-Zof"/>
+                            <constraint firstItem="Y5l-mc-Wic" firstAttribute="top" secondItem="EPD-n5-B8R" secondAttribute="bottom" constant="40" id="u3S-EN-FHz"/>
+                            <constraint firstItem="eMr-pK-nIL" firstAttribute="centerY" secondItem="gqx-d2-kvv" secondAttribute="centerY" id="wB0-Lg-eLP"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Match" image="arrowtriangle.right.and.line.vertical.and.arrowtriangle.left" catalog="system" id="j0f-HO-oFn"/>
                     <connections>
+                        <outlet property="finalScore" destination="8TW-Qr-WVa" id="PcL-il-qPo"/>
+                        <outlet property="finalTitle" destination="OUb-xS-Crt" id="QcQ-d6-Dgr"/>
                         <outlet property="matchCurrencyPickerView" destination="Y5l-mc-Wic" id="uul-t8-ncS"/>
                     </connections>
                 </viewController>
@@ -1316,16 +1348,16 @@
             <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="OldBrown">
-            <color red="1" green="0.60784313725490191" blue="0.41568627450980389" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.60799998044967651" blue="0.41600000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="PrimaryBlue">
-            <color red="0.53333333333333333" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.53299999237060547" green="0.87800002098083496" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryNavy">
-            <color red="0.086274509803921567" green="0.11764705882352941" blue="0.32941176470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.086000002920627594" green="0.11800000071525574" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TertiaryOrange">
-            <color red="1" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.31799998879432678" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

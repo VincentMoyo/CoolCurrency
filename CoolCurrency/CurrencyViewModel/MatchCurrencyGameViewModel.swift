@@ -7,10 +7,13 @@
 
 import Foundation
 
-struct MatchCurrencyGameViewModel {
+class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
+    var totalChances = 5
+    var counter = 0
+    var correctAnswer = 0
     
     let listOfCountries: [String: String] = ["Britain": "BritishFlag",
                                              "UnitedStates": "UnitedStatesFlag",
@@ -44,5 +47,28 @@ struct MatchCurrencyGameViewModel {
     
     func checkIfCorrect() -> Bool {
         selectedFlag == selectedSymbol ? true : false
+    }
+    
+    var retrieveCorrectAnswer: String {
+        "\(correctAnswer) / 5"
+    }
+    
+    func shouldDisplayAnswer() -> Bool {
+        counter += 1
+        if counter < 5 {
+            if selectedFlag == selectedSymbol {
+                correctAnswer += 1
+            }
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func calculatePercentage(_ score: Int, _ questionNumber: Int) -> Int {
+        guard questionNumber >= 0 else {
+            return 0
+        }
+        return Int((Double(score)/Double(questionNumber)) * 100)
     }
 }
