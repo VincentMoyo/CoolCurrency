@@ -47,7 +47,16 @@ ConvertCurrencyDataModel *_dataModel;
 
 - (NSString *)multiplyCurrencyBy: (double)multipler {
     double multipliedCurrency = multipler * _dataModel.secondCurrency;
-    return [NSString stringWithFormat: @"%f", multipliedCurrency];
+    return roundToTwo(multipliedCurrency);
+}
+
+NSString* roundToTwo(double number) {
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    formatter.maximumFractionDigits = 2;
+    formatter.roundingMode = NSNumberFormatterRoundUp;
+    
+    return [formatter stringFromNumber:@(number)];
 }
 
 - (NSString *)primaryCurrencyValueComparison {

@@ -106,8 +106,15 @@
                     <constraint firstItem="YuC-mh-H3T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="xQW-nB-qMP"/>
                     <constraint firstItem="FTZ-2j-ua2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="21" id="zFv-63-yHa"/>
                 </constraints>
+                <userDefinedRuntimeAttributes>
+                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                        <integer key="value" value="30"/>
+                    </userDefinedRuntimeAttribute>
+                </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" name="PrimaryColour"/>
             <connections>
                 <outlet property="currencyFlagImageView" destination="FTZ-2j-ua2" id="GKj-wP-Cl6"/>
                 <outlet property="currencyNameLabel" destination="GFW-d7-3Cu" id="iP4-41-MFf"/>
@@ -121,6 +128,9 @@
         <image name="AustralianFlag" width="300" height="168"/>
         <image name="greenArrow" width="225" height="225"/>
         <namedColor name="PrimaryBlue">
+            <color red="0.53333333333333333" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColour">
             <color red="0.53333333333333333" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="SecondaryNavy">
