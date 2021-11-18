@@ -10,11 +10,11 @@ import UIKit
 class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet private weak var matchCurrencyPickerView: UIPickerView!
-    @IBOutlet weak var finalTitle: UILabel!
-    @IBOutlet weak var finalScore: UILabel!
-    @IBOutlet weak var playAgain: UIButton!
-    @IBOutlet weak var matchSymbolToFlag: UIButton!
-    @IBOutlet weak var scoreBoard: UIView!
+    @IBOutlet private weak var finalTitle: UILabel!
+    @IBOutlet private weak var finalScore: UILabel!
+    @IBOutlet private weak var playAgain: UIButton!
+    @IBOutlet private weak var matchSymbolToFlag: UIButton!
+    @IBOutlet private weak var scoreBoard: UIView!
     
     private lazy var viewModel = MatchCurrencyGameViewModel()
     
