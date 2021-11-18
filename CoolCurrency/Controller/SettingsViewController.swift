@@ -161,7 +161,6 @@ extension SettingsViewController: SettingsViewModelDelegate {
     
     func retrieveUserInformation() {
         self.firstNameLabel.setTitle(viewModel.retrieveFirstName, for: .normal)
-        print("ssvvdf \(viewModel.retrieveGender)")
         self.lastNameLabel.setTitle(viewModel.retrieveLastName, for: .normal)
         self.defaultCurrencyPickerViewButton.setTitle(viewModel.retrieveDefaultCurrency, for: .normal)
         genderSegmentedControl.selectedSegmentIndex = viewModel.retrieveGender
