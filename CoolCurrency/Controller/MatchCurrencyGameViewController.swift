@@ -78,7 +78,7 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     }
     
     private func resetBackgroundColour(action: UIAlertAction! = nil) {
-        view.backgroundColor = UIColor(named: "PrimaryBlue")
+        view.backgroundColor = AppColours.primaryBackgroundColour
     }
     
     private func showUserSuccessAlert(_ isCorrectAnswer: Bool) {

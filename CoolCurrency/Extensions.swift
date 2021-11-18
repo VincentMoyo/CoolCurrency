@@ -44,3 +44,21 @@ extension Array {
         return indices.contains(index) ? self[index] : nil
     }
 }
+
+extension UIColor {
+    static var primaryColour: UIColor? {
+        return UIColor(named: "PrimaryColour")
+    }
+    
+    static var secondaryColour: UIColor? {
+        return UIColor(named: "SecondaryColour")
+    }
+    
+    static var tertiaryColour: UIColor? {
+        return UIColor(named: "TertiaryColour")
+    }
+    
+    static var quaternaryColour: UIColor? {
+        return UIColor(named: "OldBrown")
+    }
+}
