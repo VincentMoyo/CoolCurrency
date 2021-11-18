@@ -47,14 +47,18 @@ extension Array {
 
 extension UIColor {
     static var primaryColour: UIColor? {
-        return UIColor(named: "primaryColour")
+        return UIColor(named: "PrimaryColour")
     }
     
     static var secondaryColour: UIColor? {
-        return UIColor(named: "secondaryColour")
+        return UIColor(named: "SecondaryColour")
     }
     
     static var tertiaryColour: UIColor? {
-        return UIColor(named: "tertiaryColour")
+        return UIColor(named: "TertiaryColour")
+    }
+    
+    static var quaternaryColour: UIColor? {
+        return UIColor(named: "OldBrown")
     }
 }

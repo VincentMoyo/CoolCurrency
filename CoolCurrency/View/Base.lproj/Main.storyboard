@@ -116,7 +116,7 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="cC0-hY-QtN">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -413,7 +413,7 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OKW-08-sH2">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZiW-Qf-Uue"/>
@@ -560,7 +560,7 @@
                             </imageView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kOl-xJ-eq3">
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A54-oN-0ij">
                                 <rect key="frame" x="63" y="156" width="288" height="52"/>
@@ -683,12 +683,8 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="XBD-7l-BEo">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <rect key="frame" x="189" y="430" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ML2-Kk-W5Q">
-                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
-                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R6n-cT-2S0"/>
@@ -701,12 +697,10 @@
                             <constraint firstItem="cxB-po-PAf" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" id="8It-4x-QDG"/>
                             <constraint firstItem="2RA-0X-TD7" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" constant="63" id="Dhb-gg-ZDg"/>
                             <constraint firstItem="R6n-cT-2S0" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="tvo-Bp-Qsw" secondAttribute="bottom" constant="487.33333333333331" id="Dst-07-rCI"/>
-                            <constraint firstItem="ML2-Kk-W5Q" firstAttribute="centerX" secondItem="BPu-TK-Jfh" secondAttribute="centerX" id="JD4-p8-bD8"/>
                             <constraint firstItem="XBD-7l-BEo" firstAttribute="centerY" secondItem="BPu-TK-Jfh" secondAttribute="centerY" id="N9M-9G-5c8"/>
                             <constraint firstItem="R6n-cT-2S0" firstAttribute="trailing" secondItem="2RA-0X-TD7" secondAttribute="trailing" constant="63" id="TW2-8r-sXK"/>
                             <constraint firstAttribute="bottomMargin" secondItem="cxB-po-PAf" secondAttribute="bottom" constant="-34" id="U5j-AE-2Su"/>
                             <constraint firstItem="tvo-Bp-Qsw" firstAttribute="top" secondItem="wPi-74-wDP" secondAttribute="bottom" constant="49.666666666666686" id="aAo-3W-GAD"/>
-                            <constraint firstItem="ML2-Kk-W5Q" firstAttribute="centerY" secondItem="BPu-TK-Jfh" secondAttribute="centerY" id="bC8-bJ-3bF"/>
                             <constraint firstItem="tvo-Bp-Qsw" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" constant="63" id="cHb-5N-gdi"/>
                             <constraint firstItem="R6n-cT-2S0" firstAttribute="trailing" secondItem="cxB-po-PAf" secondAttribute="trailing" id="cby-Ry-2TI"/>
                             <constraint firstItem="wPi-74-wDP" firstAttribute="leading" secondItem="R6n-cT-2S0" secondAttribute="leading" constant="63" id="grE-lg-stj"/>
@@ -716,7 +710,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="n3a-lP-GrX"/>
                     <connections>
-                        <outlet property="activityLoader" destination="ML2-Kk-W5Q" id="mCu-qh-1FC"/>
+                        <outlet property="activityLoader" destination="XBD-7l-BEo" id="TUl-w3-aQw"/>
                         <outlet property="emailTextField" destination="2RA-0X-TD7" id="n4V-Tq-gWc"/>
                         <outlet property="passwordTextField" destination="wPi-74-wDP" id="GMT-hv-0Gu"/>
                         <segue destination="Idh-KU-CtO" kind="presentation" identifier="LoginCell" modalPresentationStyle="fullScreen" id="dMV-d1-ajQ"/>
