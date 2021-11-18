@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum CheckCounter: String {
+    case lowerThanFive
+    case equalToFive
+    case higherThanFive
+}
+
 class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
@@ -45,27 +51,40 @@ class MatchCurrencyGameViewModel {
                                                    "Australia": "AustrialianDollarSymbol"]
     
     func checkIfCorrect() -> Bool {
-        selectedFlag == selectedSymbol ? true : false
+        return selectedFlag == selectedSymbol ? true : false
     }
     
     var retrieveCorrectAnswer: String {
         "\(correctAnswer) / 5"
     }
-    
-    func shouldDisplayAnswer() -> Bool {
+      
+    func shouldDisplayFinalAnswer() -> Bool {
         counter += 1
         if counter < 5 {
-            if selectedFlag == selectedSymbol {
-                correctAnswer += 1
-            }
-            return false
+            return checkIfCorrectAnswerForCounter(at: CheckCounter.lowerThanFive)
         } else if counter == 5 {
-            if selectedFlag == selectedSymbol {
-                correctAnswer += 1
-            }
-            return true
+            return checkIfCorrectAnswerForCounter(at: CheckCounter.equalToFive)
         } else {
+            return checkIfCorrectAnswerForCounter(at: CheckCounter.higherThanFive)
+        }
+    }
+    
+    private func checkIfCorrectAnswerForCounter(at counterCheck: CheckCounter) -> Bool {
+        switch counterCheck {
+        case .lowerThanFive:
+            shouldIncrementCorrectAnswer()
+            return false
+        case .equalToFive:
+            shouldIncrementCorrectAnswer()
             return true
+        case .higherThanFive:
+            return true
+        }
+    }
+    
+    private func shouldIncrementCorrectAnswer() {
+        if selectedFlag == selectedSymbol {
+            correctAnswer += 1
         }
     }
     

@@ -27,13 +27,9 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     @IBAction private func matchButtonPressed(_ sender: UIButton) {
         showUserSuccessAlert(viewModel.checkIfCorrect())
-        if viewModel.shouldDisplayAnswer() == true {
-            setLabelsHidden(false)
-            setButtonsHidden(true)
-        } else {
-            setLabelsHidden(true)
-            setButtonsHidden(false)
-        }
+        let shouldDisplayAnswer = viewModel.shouldDisplayFinalAnswer()
+        setLabelsHidden(!shouldDisplayAnswer)
+        setButtonsHidden(shouldDisplayAnswer)
     }
     
     @IBAction private func playAgainPressed(_ sender: UIButton) {
