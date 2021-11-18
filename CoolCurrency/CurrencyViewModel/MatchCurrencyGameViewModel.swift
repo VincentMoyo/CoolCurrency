@@ -11,8 +11,8 @@ class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
-    var counter = 0
-    var correctAnswer = 0
+    private var counter = 0
+    private var correctAnswer = 0
     
     let listOfCountries: [String: String] = ["Britain": "BritishFlag",
                                              "UnitedStates": "UnitedStatesFlag",
