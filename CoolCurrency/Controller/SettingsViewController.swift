@@ -33,7 +33,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityLoader.isHidden = true
+        activateActivityIndicatorView()
         viewModel.loadUserSettingsFromDatabase()
 
     }
@@ -53,11 +53,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func setFirstNamePressed(_ sender: UIButton) {
-        setupProfileNames(firstNameLabel, isFirstName: true)
+        Alerts.showUpdateFirstNameAlert(for: self, buttonLabelText: firstNameLabel, updateNamesToDatabase: viewModel.updateFirstName(_:))
     }
     
     @IBAction private func setLastNamePressed(_ sender: UIButton) {
-        setupProfileNames(lastNameLabel, isFirstName: false)
+        Alerts.showUpdateLastNameAlert(for: self, buttonLabelText: lastNameLabel, updateNamesToDatabase: viewModel.updateLastName(_:))
     }
     
     @IBAction private func dateOfBirthPressed(_ sender: UIDatePicker) {
@@ -86,6 +86,10 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         setupDefaultCurrencyPickerAlert(for: pickerViewController, with: pickerView)
     }
     
+    @IBAction private func resetEmailPressed(_ sender: UIButton) {
+        Alerts.showResetEmailAlert(for: self, updateNamesToDatabase: viewModel.resetEmail(newEmail:))
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
@@ -101,7 +105,6 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     private func activateActivityIndicatorView() {
-        activityLoader.isHidden = false
         activityLoader.hidesWhenStopped = true
         activityLoader.startAnimating()
     }
@@ -157,44 +160,17 @@ extension SettingsViewController: SettingsViewModelDelegate {
     }
     
     func retrieveUserInformation() {
-        
         self.firstNameLabel.setTitle(viewModel.retrieveFirstName, for: .normal)
         self.lastNameLabel.setTitle(viewModel.retrieveLastName, for: .normal)
         self.defaultCurrencyPickerViewButton.setTitle(viewModel.retrieveDefaultCurrency, for: .normal)
         genderSegmentedControl.selectedSegmentIndex = viewModel.retrieveGender
         measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retrieveUnitMeasurement
         datePicker.setDate(viewModel.retrieveBirthDate, animated: true)
+        self.activityLoader.stopAnimating()
     }
 }
 
 extension SettingsViewController {
-    
-    private func setupProfileNames(_ nameLabel: UIButton, isFirstName firstName: Bool) {
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Set Name",
-                                      message: "Set your username to complete your profile account setup",
-                                      preferredStyle: .alert)
-        
-        let actions = UIAlertAction(title: "Change", style: .default, handler: { (_) in
-            if firstName {
-                guard let newFirstName = textField.text else { return }
-                nameLabel.setTitle(newFirstName, for: .normal)
-                self.viewModel.updateFirstName(newFirstName)
-            } else {
-                guard let newLastName = textField.text else { return }
-                nameLabel.setTitle(newLastName, for: .normal)
-                self.viewModel.updateLastName(newLastName)
-            }
-        })
-        
-        alert.addTextField { alertTextField in
-            alertTextField.placeholder = "New Name"
-            textField = alertTextField
-        }
-        
-        alert.addAction(actions)
-        present(alert, animated: true, completion: nil)
-    }
     
     private func setupDefaultCurrencyPickerAlert(for pickerViewController: UIViewController, with pickerView: UIPickerView) {
         let alert = UIAlertController(title: "Select Currency",
@@ -213,7 +189,6 @@ extension SettingsViewController {
             self.defaultCurrencyPickerViewButton.setTitle(newDefaultCurrency, for: .normal)
             self.viewModel.updateDefaultCurrency(newDefaultCurrency)
         }))
-        
         self.present(alert, animated: true, completion: nil)
     }
 }

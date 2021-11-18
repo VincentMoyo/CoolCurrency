@@ -40,16 +40,14 @@ class LoginViewModelTests: XCTestCase {
     }
     
     class MockAuthenticationRepository: AuthenticationRepositable {
+        var checkIfUserAlreadySignedIn: Bool {return true}
+        
+        func resetEmailToDatabase(newEmail email: String, completion: @escaping DatabaseResponse) { }
         func registerUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) { }
         func signOutUser(completion: @escaping (Result<Bool, Error>) -> Void) { completion(.success(true)) }
         func signedInUserIdentification() -> String { "" }
-        var checkIfUserAlreadySignedIn: Bool {return true}
         func signInUser(_ email: String, _ password: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-            if password == "correctPassword" {
-                completion(.success(true))
-            } else {
-                completion(.failure(MyErrors.retrieveError("error")))
-            }
+            password == "correctPassword" ?  completion(.success(true)) : completion(.failure(MyErrors.retrieveError("error")))
         }
     }
 }

@@ -45,17 +45,20 @@ extension Array {
     }
 }
 
-extension UIAlertController {
-
-    class func showUserSuccessAlertExtension(_ isCorrectAnswer: Bool, title: String, message: String, action: @escaping ((UIAlertAction) -> Void)) -> UIAlertController {
-        let alertController = UIAlertController(title: title,
-                                                message: message,
-                                                preferredStyle: .alert)
-        
-        alertController.addAction(UIAlertAction(title: "OK",
-                                                style: .default,
-                                                handler: action))
-        
-        return alertController
+extension UIColor {
+    static var primaryColour: UIColor? {
+        return UIColor(named: "PrimaryColour")
+    }
+    
+    static var secondaryColour: UIColor? {
+        return UIColor(named: "SecondaryColour")
+    }
+    
+    static var tertiaryColour: UIColor? {
+        return UIColor(named: "TertiaryColour")
+    }
+    
+    static var quaternaryColour: UIColor? {
+        return UIColor(named: "OldBrown")
     }
 }

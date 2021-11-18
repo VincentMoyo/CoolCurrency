@@ -18,6 +18,8 @@ class CurrencyViewModelTests: XCTestCase {
         mockDelegate = MockDelegate()
         mockRepository = MockRepository()
         implementationUnderTests = CurrencyViewModel(repository: mockRepository,
+                                                     authentication: MockAuthenticationRepository(),
+                                                     database: MockDatabaseRepository(),
                                                      delegate: mockDelegate)
     }
     
@@ -65,25 +67,48 @@ class CurrencyViewModelTests: XCTestCase {
     }
     
     class MockDelegate: ViewModelDelegate {
-        
         var refreshCalled = false
         var showUserErrorCalled = false
         
-        func showUserErrorMessage(error: Error) {
-            showUserErrorCalled = true
-        }
-        
-        func bindViewModel() {
-            refreshCalled = true
-        }
+        func showUserErrorMessage(error: Error) { showUserErrorCalled = true }
+        func bindViewModel() { refreshCalled = true }
     }
     
     class MockRepository: CurrencyRepositable {
-        
         var response: Result<CurrencyResponseModel, Error> = .failure(MyErrors.retrieveError("error"))
-        
         func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
             completion(response)
         }
+    }
+    
+    class MockAuthenticationRepository: AuthenticationRepositable {
+        var signOutSuccess = true
+        
+        var errorResponse: Result<Bool, Error> = .failure(MyErrors.retrieveError("error"))
+        func registerUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
+        func resetEmailToDatabase(newEmail email: String, completion: @escaping DatabaseResponse) { }
+        func signInUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
+        func signOutUser(completion: @escaping DatabaseResponse) { }
+        func signedInUserIdentification() -> String { "" }
+        var checkIfUserAlreadySignedIn: Bool {return true}
+    }
+    
+    class MockDatabaseRepository: DatabaseRepositable {
+        var response: Result<[String: String], Error> = .failure(MyErrors.retrieveError("error"))
+        
+        func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }
+        func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) { }
+        func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse) { }
+        func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String, completion: @escaping DatabaseResponse) { }
+        func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String, completion: @escaping DatabaseResponse) { }
+        func updateDefaultCurrencyInformationToDatabase(SignedInUser userSettingsID: String, currency defaultCurrency: String, completion: @escaping DatabaseResponse) { }
+        func updateMeasurementUnitToDatabase(SignedInUser userSettingsID: String, measurementUnit unit: String, completion: @escaping DatabaseResponse) { }
+        func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) { }
+        func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse) { }
+        func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) { }
+        func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse) { }
+        func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) { }
+        func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) { }
+        func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) { }
     }
 }

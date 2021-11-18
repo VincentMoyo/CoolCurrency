@@ -21,6 +21,7 @@ class CryptoAndMetalViewController: UIViewController {
     @IBOutlet private weak var goldUnitMeasurement: UILabel!
     @IBOutlet private weak var platinumUnitMeasurement: UILabel!
     @IBOutlet private weak var silverUnitMeasurement: UILabel!
+    @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
     private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepositorys(),
                                                          database: CryptoDatabaseRepository(databaseReference: Database.database().reference()),
@@ -29,14 +30,20 @@ class CryptoAndMetalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activateActivityIndicatorView()
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
-        currencyPicker.setValue(UIColor.white, forKeyPath: "textColor")
+        currencyPicker.setValue(AppColours.primaryPickerColour, forKeyPath: "textColor")
         viewModel.loadDefaultCurrency()
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
         viewModel.fetchBitcoinAndMetalPrices(for: viewModel.selectedCurrency)
+    }
+    
+    private func activateActivityIndicatorView() {
+        activityLoader.hidesWhenStopped = true
+        activityLoader.startAnimating()
     }
 }
 
@@ -71,5 +78,6 @@ extension CryptoAndMetalViewController: ViewModelDelegates {
         platinumValueLabel.text = viewModel.retrieveRoundedOffPriceOfPlatinum
         silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver
         goldValueLabel.text = viewModel.retrieveRoundedOffPriceOfGold
+        activityLoader.stopAnimating()
     }
 }

@@ -195,6 +195,17 @@ class SettingsViewModel: SettingsViewModiable {
         }
     }
     
+    func resetEmail(newEmail email: String) {
+        authenticationRepository.resetEmailToDatabase(newEmail: email) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.loadUserSettingsFromDatabase()
+            case .failure(let signInError):
+                self?.delegate?.showUserErrorMessage(error: signInError)
+            }
+        }
+    }
+    
     func signOutCurrentUser() {
         authenticationRepository.signOutUser { [weak self] result in
             switch result {
