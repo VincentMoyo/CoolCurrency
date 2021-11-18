@@ -12,6 +12,9 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     @IBOutlet private weak var matchCurrencyPickerView: UIPickerView!
     @IBOutlet weak var finalTitle: UILabel!
     @IBOutlet weak var finalScore: UILabel!
+    @IBOutlet weak var playAgain: UIButton!
+    @IBOutlet weak var matchSymbolToFlag: UIButton!
+    @IBOutlet weak var scoreBoard: UIView!
     
     private lazy var viewModel = MatchCurrencyGameViewModel()
     
@@ -24,7 +27,19 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     
     @IBAction func matchButtonPressed(_ sender: UIButton) {
         showUserSuccessAlert(viewModel.checkIfCorrect())
-        viewModel.shouldDisplayAnswer() == true ? setLabelsHidden(false) : setLabelsHidden(true)
+        if viewModel.shouldDisplayAnswer() == true {
+            setLabelsHidden(false)
+            setButtonsHidden(true)
+        } else {
+            setLabelsHidden(true)
+            setButtonsHidden(false)
+        }
+    }
+    
+    @IBAction func playAgainPressed(_ sender: UIButton) {
+        viewModel.resetScore()
+        setLabelsHidden(true)
+        setButtonsHidden(false)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -74,7 +89,14 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
     private func setLabelsHidden (_ hideButton: Bool) {
         finalTitle.isHidden = hideButton
         finalScore.isHidden = hideButton
+        playAgain.isHidden = hideButton
+        scoreBoard.isHidden = hideButton
         finalScore.text = viewModel.retrieveCorrectAnswer
+    }
+    
+    private func setButtonsHidden (_ hideButton: Bool) {
+        matchSymbolToFlag.isHidden = hideButton
+        matchCurrencyPickerView.isHidden = hideButton
     }
     
     private func resetBackgroundColour(action: UIAlertAction! = nil) {

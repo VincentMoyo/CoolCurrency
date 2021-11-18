@@ -11,7 +11,6 @@ class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
-    var totalChances = 5
     var counter = 0
     var correctAnswer = 0
     
@@ -60,15 +59,18 @@ class MatchCurrencyGameViewModel {
                 correctAnswer += 1
             }
             return false
+        } else if counter == 5 {
+            if selectedFlag == selectedSymbol {
+                correctAnswer += 1
+            }
+            return true
         } else {
             return true
         }
     }
     
-    func calculatePercentage(_ score: Int, _ questionNumber: Int) -> Int {
-        guard questionNumber >= 0 else {
-            return 0
-        }
-        return Int((Double(score)/Double(questionNumber)) * 100)
+    func resetScore() {
+        counter = 0
+        correctAnswer = 0
     }
 }
