@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct MatchCurrencyGameViewModel {
+enum CheckCounter: String {
+    case lowerThanFive
+    case equalToFive
+    case higherThanFive
+}
+
+class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
+    private var counter = 0
+    private var correctAnswer = 0
     
     let listOfCountries: [String: String] = ["Britain": "BritishFlag",
                                              "UnitedStates": "UnitedStatesFlag",
@@ -43,6 +51,45 @@ struct MatchCurrencyGameViewModel {
                                                    "Australia": "AustrialianDollarSymbol"]
     
     func checkIfCorrect() -> Bool {
-        selectedFlag == selectedSymbol ? true : false
+        return selectedFlag == selectedSymbol ? true : false
+    }
+    
+    var retrieveCorrectAnswer: String {
+        "\(correctAnswer) / 5"
+    }
+      
+    func shouldDisplayFinalAnswer() -> Bool {
+        counter += 1
+        if counter < 5 {
+            return checkIfCorrectAnswerForCounter(at: CheckCounter.lowerThanFive)
+        } else if counter == 5 {
+            return checkIfCorrectAnswerForCounter(at: CheckCounter.equalToFive)
+        } else {
+            return checkIfCorrectAnswerForCounter(at: CheckCounter.higherThanFive)
+        }
+    }
+    
+    private func checkIfCorrectAnswerForCounter(at counterCheck: CheckCounter) -> Bool {
+        switch counterCheck {
+        case .lowerThanFive:
+            shouldIncrementCorrectAnswer()
+            return false
+        case .equalToFive:
+            shouldIncrementCorrectAnswer()
+            return true
+        case .higherThanFive:
+            return true
+        }
+    }
+    
+    private func shouldIncrementCorrectAnswer() {
+        if selectedFlag == selectedSymbol {
+            correctAnswer += 1
+        }
+    }
+    
+    func resetScore() {
+        counter = 0
+        correctAnswer = 0
     }
 }

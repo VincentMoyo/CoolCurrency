@@ -10,17 +10,32 @@ import UIKit
 class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet private weak var matchCurrencyPickerView: UIPickerView!
+    @IBOutlet private weak var finalTitle: UILabel!
+    @IBOutlet private weak var finalScore: UILabel!
+    @IBOutlet private weak var playAgain: UIButton!
+    @IBOutlet private weak var matchSymbolToFlag: UIButton!
+    @IBOutlet private weak var scoreBoard: UIView!
     
     private lazy var viewModel = MatchCurrencyGameViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setLabelsHidden(true)
         matchCurrencyPickerView.delegate = self
         matchCurrencyPickerView.dataSource = self
     }
     
-    @IBAction func matchButtonPressed(_ sender: UIButton) {
+    @IBAction private func matchButtonPressed(_ sender: UIButton) {
         showUserSuccessAlert(viewModel.checkIfCorrect())
+        let shouldDisplayAnswer = viewModel.shouldDisplayFinalAnswer()
+        setLabelsHidden(!shouldDisplayAnswer)
+        setButtonsHidden(shouldDisplayAnswer)
+    }
+    
+    @IBAction private func playAgainPressed(_ sender: UIButton) {
+        viewModel.resetScore()
+        setLabelsHidden(true)
+        setButtonsHidden(false)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -65,6 +80,19 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
         } else {
             viewModel.selectedSymbol = Array(viewModel.listOfCurrencySymbols.keys)[row]
         }
+    }
+    
+    private func setLabelsHidden (_ hideButton: Bool) {
+        finalTitle.isHidden = hideButton
+        finalScore.isHidden = hideButton
+        playAgain.isHidden = hideButton
+        scoreBoard.isHidden = hideButton
+        finalScore.text = viewModel.retrieveCorrectAnswer
+    }
+    
+    private func setButtonsHidden (_ hideButton: Bool) {
+        matchSymbolToFlag.isHidden = hideButton
+        matchCurrencyPickerView.isHidden = hideButton
     }
     
     private func resetBackgroundColour(action: UIAlertAction! = nil) {
