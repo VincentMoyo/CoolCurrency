@@ -20,14 +20,14 @@ Cool Application about cool currency. This application is about keeping track of
 
 ## Screenshots
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80006278/142460216-bd6231f3-657c-4067-8bb3-aed6ca86dc92.png" width="300" height="800" />
-<img src="https://user-images.githubusercontent.com/80006278/142460243-bf030755-488b-47ad-a724-9924193eead1.png" width="300" height="800" />
+<img src="https://user-images.githubusercontent.com/80006278/142460216-bd6231f3-657c-4067-8bb3-aed6ca86dc92.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/80006278/142460243-bf030755-488b-47ad-a724-9924193eead1.png" width="300" height="600" />
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80006278/142460259-c4da8fb8-5a2a-41e2-ae3e-56fb6ba4432c.png" width="300" height="800" />
-<img src="https://user-images.githubusercontent.com/80006278/142460277-c1410366-daa5-4fba-91d3-f025807ea101.png" width="300" height="800" />
+<img src="https://user-images.githubusercontent.com/80006278/142460259-c4da8fb8-5a2a-41e2-ae3e-56fb6ba4432c.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/80006278/142460277-c1410366-daa5-4fba-91d3-f025807ea101.png" width="300" height="600" />
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80006278/142460266-42c1ea05-63fb-46d6-866b-c7997c78ed0c.png" width="300" height="800" />
-<img src="https://user-images.githubusercontent.com/80006278/142682181-08c9ac26-e9c4-493f-8085-6b92952dbe9e.png" width="300" height="800" />
+<img src="https://user-images.githubusercontent.com/80006278/142460266-42c1ea05-63fb-46d6-866b-c7997c78ed0c.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/80006278/142682181-08c9ac26-e9c4-493f-8085-6b92952dbe9e.png" width="300" height="600" />
 </p>
