@@ -51,13 +51,18 @@ class MatchCurrencyGameViewModel {
                                                    "Australia": "AustrialianDollarSymbol"]
     
     func checkIfCorrect() -> Bool {
-        return selectedFlag == selectedSymbol ? true : false
+        selectedFlag == selectedSymbol ? true : false
     }
     
     var retrieveCorrectAnswer: String {
         "\(correctAnswer) / 5"
     }
-      
+    
+    func resetScore() {
+        counter = 0
+        correctAnswer = 0
+    }
+    
     func shouldDisplayFinalAnswer() -> Bool {
         counter += 1
         if counter < 5 {
@@ -86,10 +91,5 @@ class MatchCurrencyGameViewModel {
         if selectedFlag == selectedSymbol {
             correctAnswer += 1
         }
-    }
-    
-    func resetScore() {
-        counter = 0
-        correctAnswer = 0
     }
 }

@@ -26,8 +26,8 @@ class DatabaseRepository: DatabaseRepositable {
     
     func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) {
         storageReference.child("ProfilePictures/\(userSettingsID).png").putData(imageData,
-                                                                                     metadata: nil,
-                                                                                     completion: { _, error in
+                                                                                metadata: nil,
+                                                                                completion: { _, error in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -154,7 +154,6 @@ class DatabaseRepository: DatabaseRepositable {
             guard let value = snapshot.value as? [String: String] else {
                 return
             }
-            
             DispatchQueue.main.async {
                 completion(.success(value))
             }

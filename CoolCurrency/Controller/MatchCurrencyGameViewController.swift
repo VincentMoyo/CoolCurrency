@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class MatchCurrencyGameViewController: UIViewController {
     
     @IBOutlet private weak var matchCurrencyPickerView: UIPickerView!
     @IBOutlet private weak var finalTitle: UILabel!
@@ -37,6 +37,35 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
         setLabelsHidden(true)
         setButtonsHidden(false)
     }
+    
+    private func setLabelsHidden (_ hideButton: Bool) {
+        finalTitle.isHidden = hideButton
+        finalScore.isHidden = hideButton
+        playAgain.isHidden = hideButton
+        scoreBoard.isHidden = hideButton
+        finalScore.text = viewModel.retrieveCorrectAnswer
+    }
+    
+    private func setButtonsHidden (_ hideButton: Bool) {
+        matchSymbolToFlag.isHidden = hideButton
+        matchCurrencyPickerView.isHidden = hideButton
+    }
+    
+    private func resetBackgroundColour(action: UIAlertAction! = nil) {
+        view.backgroundColor = AppColours.primaryBackgroundColour
+    }
+    
+    private func showUserSuccessAlert(_ isCorrectAnswer: Bool) {
+        let title = isCorrectAnswer == true ? "Correct" : "Incorrect"
+        let message = isCorrectAnswer == true ? "Correct Flag matched" : "Incorrect Flag matched"
+        view.backgroundColor = isCorrectAnswer == true ? .systemGreen : .systemRed
+        
+        Alerts.showUserSuccessAlertExtension(for: self, forAnswer: isCorrectAnswer, title: title, message: message, action: resetBackgroundColour)
+    }
+}
+
+// MARK: - Picker View Methods
+extension MatchCurrencyGameViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         2
@@ -80,30 +109,5 @@ class MatchCurrencyGameViewController: UIViewController, UIPickerViewDelegate, U
         } else {
             viewModel.selectedSymbol = Array(viewModel.listOfCurrencySymbols.keys)[row]
         }
-    }
-    
-    private func setLabelsHidden (_ hideButton: Bool) {
-        finalTitle.isHidden = hideButton
-        finalScore.isHidden = hideButton
-        playAgain.isHidden = hideButton
-        scoreBoard.isHidden = hideButton
-        finalScore.text = viewModel.retrieveCorrectAnswer
-    }
-    
-    private func setButtonsHidden (_ hideButton: Bool) {
-        matchSymbolToFlag.isHidden = hideButton
-        matchCurrencyPickerView.isHidden = hideButton
-    }
-    
-    private func resetBackgroundColour(action: UIAlertAction! = nil) {
-        view.backgroundColor = AppColours.primaryBackgroundColour
-    }
-    
-    private func showUserSuccessAlert(_ isCorrectAnswer: Bool) {
-        let title = isCorrectAnswer == true ? "Correct" : "Incorrect"
-        let message = isCorrectAnswer == true ? "Correct Flag matched" : "Incorrect Flag matched"
-        view.backgroundColor = isCorrectAnswer == true ? .systemGreen : .systemRed
-        
-        Alerts.showUserSuccessAlertExtension(for: self, forAnswer: isCorrectAnswer, title: title, message: message, action: resetBackgroundColour)
     }
 }

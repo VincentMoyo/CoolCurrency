@@ -53,6 +53,7 @@ class HomeCurrencyViewController: UIViewController {
     }
 }
 
+// MARK: - Table View Methods
 extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,6 +76,7 @@ extension HomeCurrencyViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
+// MARK: - Picker View Methods
 extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -97,6 +99,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     }
 }
 
+// MARK: - View Model Delegates
 extension HomeCurrencyViewController: ViewModelDelegate {
     
     func bindViewModel() {

@@ -16,6 +16,6 @@ struct WelcomeViewModel {
     }
     
     var isUserSignedIn: Bool {
-       return authenticationRepository.checkIfUserAlreadySignedIn
+        authenticationRepository.checkIfUserAlreadySignedIn
     }
 }

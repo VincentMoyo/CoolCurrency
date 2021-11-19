@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+// MARK: - View Controller extensions
 extension UIViewController {
     func showUserErrorMessage(error: Error) {
         let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
@@ -20,6 +21,7 @@ extension UIViewController {
     }
 }
 
+// MARK: - Double extensions
 extension Double {
     func roundedOffCurrency() -> Double {
         let convertedCurrency = 1 / self
@@ -39,26 +41,28 @@ extension Double {
     }
 }
 
+// MARK: - Array extensions
 extension Array {
     subscript(safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
+        indices.contains(index) ? self[index] : nil
     }
 }
 
+// MARK: - UIColour extenstions
 extension UIColor {
     static var primaryColour: UIColor? {
-        return UIColor(named: "PrimaryColour")
+        UIColor(named: "PrimaryColour")
     }
     
     static var secondaryColour: UIColor? {
-        return UIColor(named: "SecondaryColour")
+        UIColor(named: "SecondaryColour")
     }
     
     static var tertiaryColour: UIColor? {
-        return UIColor(named: "TertiaryColour")
+        UIColor(named: "TertiaryColour")
     }
     
     static var quaternaryColour: UIColor? {
-        return UIColor(named: "OldBrown")
+        UIColor(named: "OldBrown")
     }
 }

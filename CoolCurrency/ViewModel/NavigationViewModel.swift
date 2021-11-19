@@ -9,12 +9,12 @@ import Foundation
 
 class NavigationViewModel {
     
+    var profilePictureDataImage: Data?
     private weak var delegate: ViewModelDelegate?
     private var databaseRepository: DatabaseRepositable
     private var authenticationRepository: AuthenticationRepositable
     private var userSettingsList: [String: String] = [:]
     private var profilePictureURLString: String?
-    var profilePictureDataImage: Data?
     
     init(delegate: ViewModelDelegate, database: DatabaseRepositable, authenticationRepository: AuthenticationRepositable) {
         self.delegate = delegate
@@ -62,5 +62,4 @@ class NavigationViewModel {
             }
         }
     }
-    
 }
