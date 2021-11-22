@@ -167,7 +167,6 @@ extension SettingsViewController: SettingsViewModelDelegate {
         genderSegmentedControl.selectedSegmentIndex = viewModel.retrieveGender
         measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retrieveUnitMeasurement
         datePicker.setDate(viewModel.retrieveBirthDate, animated: true)
-        self.activityLoader.stopAnimating()
     }
 }
 
