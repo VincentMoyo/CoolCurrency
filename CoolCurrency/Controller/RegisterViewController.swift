@@ -41,6 +41,7 @@ class RegisterViewController: UIViewController {
     }
 }
 
+// MARK: - View Model Delegate
 extension RegisterViewController: ViewModelDelegate {
     
     func bindViewModel() {

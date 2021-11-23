@@ -37,7 +37,9 @@ class LoginViewController: UIViewController {
     }
 }
 
+// MARK: - View Model Delegate
 extension LoginViewController: ViewModelDelegate {
+    
     func bindViewModel() {
             self.performSegue(withIdentifier: "LoginCell", sender: self)
             self.activityLoader.stopAnimating()

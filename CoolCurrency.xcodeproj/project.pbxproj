@@ -28,7 +28,6 @@
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
 		78768184272BE78100F090C0 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768183272BE78100F090C0 /* SettingsViewController.swift */; };
 		78768186272BEA1B00F090C0 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78768185272BEA1B00F090C0 /* SettingsViewModel.swift */; };
-		7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7876818A272BF0B700F090C0 /* UserInformation.swift */; };
 		7877D55F272A9637003A2857 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D55E272A9637003A2857 /* WelcomeViewController.swift */; };
 		7877D561272A9671003A2857 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D560272A9671003A2857 /* WelcomeViewModel.swift */; };
 		7877D563272A9BC1003A2857 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D562272A9BC1003A2857 /* LoginViewModel.swift */; };
@@ -103,7 +102,6 @@
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		78768183272BE78100F090C0 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		78768185272BEA1B00F090C0 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		7876818A272BF0B700F090C0 /* UserInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformation.swift; sourceTree = "<group>"; };
 		7877D55E272A9637003A2857 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		7877D560272A9671003A2857 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		7877D562272A9BC1003A2857 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -188,6 +186,16 @@
 			path = CurrencyTableView;
 			sourceTree = "<group>";
 		};
+		7864C8CA2747C941005F4918 /* Extensions + Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				7864C8C827463787005F4918 /* AppColours.swift */,
+				78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */,
+				7875C28527109AE20045922B /* Extensions.swift */,
+			);
+			path = "Extensions + Alerts";
+			sourceTree = "<group>";
+		};
 		7875C27527104D580045922B /* MockedClasses */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,9 +237,10 @@
 		788DEC70270AFDCA0033493B /* CoolCurrency */ = {
 			isa = PBXGroup;
 			children = (
-				788DECA6270B07110033493B /* CurrencyResponseModel */,
-				788DECA7270B07190033493B /* CurrencyRepository */,
-				78935FA9270D8F38007AE3EE /* CurrencyViewModel */,
+				7864C8CA2747C941005F4918 /* Extensions + Alerts */,
+				788DECA6270B07110033493B /* ResponseModel */,
+				788DECA7270B07190033493B /* Repository */,
+				78935FA9270D8F38007AE3EE /* ViewModel */,
 				788DECA8270B07260033493B /* Controller */,
 				788DECA9270B07310033493B /* View */,
 				788DEC71270AFDCA0033493B /* AppDelegate.swift */,
@@ -241,9 +250,6 @@
 				78B5F0272720157800E10B6B /* GoogleService-Info.plist */,
 				788DEC82270AFDCC0033493B /* Info.plist */,
 				788DEC7A270AFDCA0033493B /* CoolCurrency.xcdatamodeld */,
-				7875C28527109AE20045922B /* Extensions.swift */,
-				78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */,
-				7864C8C827463787005F4918 /* AppColours.swift */,
 			);
 			path = CoolCurrency;
 			sourceTree = "<group>";
@@ -272,7 +278,7 @@
 			path = CoolCurrencyUITests;
 			sourceTree = "<group>";
 		};
-		788DECA6270B07110033493B /* CurrencyResponseModel */ = {
+		788DECA6270B07110033493B /* ResponseModel */ = {
 			isa = PBXGroup;
 			children = (
 				787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */,
@@ -280,12 +286,11 @@
 				78935FB6270DF82B007AE3EE /* Localizable.strings */,
 				7811A92427171F7800810C9F /* CurrencyDataModel.swift */,
 				78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */,
-				7876818A272BF0B700F090C0 /* UserInformation.swift */,
 			);
-			path = CurrencyResponseModel;
+			path = ResponseModel;
 			sourceTree = "<group>";
 		};
-		788DECA7270B07190033493B /* CurrencyRepository */ = {
+		788DECA7270B07190033493B /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				78935FAA270D8F92007AE3EE /* Protocol */,
@@ -293,7 +298,7 @@
 				78B5F0292720427400E10B6B /* DatabaseRepository.swift */,
 				78D34C192731A43C0065A802 /* AuthenticationRepository.swift */,
 			);
-			path = CurrencyRepository;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		788DECA8270B07260033493B /* Controller */ = {
@@ -325,7 +330,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		78935FA9270D8F38007AE3EE /* CurrencyViewModel */ = {
+		78935FA9270D8F38007AE3EE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				7875C27A271060690045922B /* Protocol */,
@@ -339,7 +344,7 @@
 				78768185272BEA1B00F090C0 /* SettingsViewModel.swift */,
 				789CC6C1273D117800567264 /* MatchCurrencyGameViewModel.swift */,
 			);
-			path = CurrencyViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		78935FAA270D8F92007AE3EE /* Protocol */ = {
@@ -666,7 +671,6 @@
 				785DA028270C41CE00CB7996 /* Constants.swift in Sources */,
 				7864C8C927463787005F4918 /* AppColours.swift in Sources */,
 				78935FB1270DA6CC007AE3EE /* ViewControllerDelegates.swift in Sources */,
-				7876818B272BF0B700F090C0 /* UserInformation.swift in Sources */,
 				78AA4EBC27219D270044B3CB /* CryptoAndMetalViewController.swift in Sources */,
 				78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */,
 				7875C28627109AE20045922B /* Extensions.swift in Sources */,

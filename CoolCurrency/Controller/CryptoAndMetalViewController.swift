@@ -47,6 +47,7 @@ class CryptoAndMetalViewController: UIViewController {
     }
 }
 
+// MARK: - Picker View Methods
 extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -67,6 +68,7 @@ extension CryptoAndMetalViewController: UIPickerViewDelegate, UIPickerViewDataSo
     }
 }
 
+// MARK: - View Model Delegate
 extension CryptoAndMetalViewController: ViewModelDelegates {
     
     func bindViewModel() {

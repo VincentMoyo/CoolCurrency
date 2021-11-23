@@ -24,8 +24,6 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     private let screenWidth = UIScreen.main.bounds.width - 10
     private let screenHeight = UIScreen.main.bounds.width / 2
     
-    private let storage = Storage.storage().reference()
-    
     private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
                                                                                           storageReference: Storage.storage().reference()),
                                                    authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
@@ -90,6 +88,12 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         Alerts.showResetEmailAlert(for: self, updateNamesToDatabase: viewModel.resetEmail(newEmail:))
     }
     
+    private func activateActivityIndicatorView() {
+        activityLoader.hidesWhenStopped = true
+        activityLoader.startAnimating()
+    }
+    
+// MARK: - Set up Image Picker Controller
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
@@ -103,13 +107,9 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    private func activateActivityIndicatorView() {
-        activityLoader.hidesWhenStopped = true
-        activityLoader.startAnimating()
-    }
 }
 
+// MARK: - Picker View Mdethods
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -145,6 +145,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 }
 
+// MARK: - View Model Delegates
 extension SettingsViewController: SettingsViewModelDelegate {
     
     func signOutBindViewModel() {
@@ -166,7 +167,6 @@ extension SettingsViewController: SettingsViewModelDelegate {
         genderSegmentedControl.selectedSegmentIndex = viewModel.retrieveGender
         measurementUnitSegmentedControl.selectedSegmentIndex = viewModel.retrieveUnitMeasurement
         datePicker.setDate(viewModel.retrieveBirthDate, animated: true)
-        self.activityLoader.stopAnimating()
     }
 }
 

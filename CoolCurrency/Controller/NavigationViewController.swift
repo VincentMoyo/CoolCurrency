@@ -10,7 +10,7 @@ import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
 
-class NavigationViewController: UITabBarController, ViewModelDelegate {
+class NavigationViewController: UITabBarController {
     
     @IBOutlet private var profilePictureButton: UIBarButtonItem!
     
@@ -51,6 +51,10 @@ class NavigationViewController: UITabBarController, ViewModelDelegate {
             performSegue(withIdentifier: "settingsCell", sender: self)
         }
     }
+}
+
+// MARK: - View Model Delegate
+extension NavigationViewController: ViewModelDelegate {
     
     func bindViewModel() {
         setupImageView()
