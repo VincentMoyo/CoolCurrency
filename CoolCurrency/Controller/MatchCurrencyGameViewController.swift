@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class MatchCurrencyGameViewController: UIViewController {
     
@@ -15,14 +18,22 @@ class MatchCurrencyGameViewController: UIViewController {
     @IBOutlet private weak var playAgain: UIButton!
     @IBOutlet private weak var matchSymbolToFlag: UIButton!
     @IBOutlet private weak var scoreBoard: UIView!
+    @IBOutlet weak var leadershipBoardTableView: UITableView!
     
-    private lazy var viewModel = MatchCurrencyGameViewModel()
+    private lazy var viewModel = MatchCurrencyGameViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
+                                                                                                   storageReference: Storage.storage().reference()),
+                                                            authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                            delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelsHidden(true)
         matchCurrencyPickerView.delegate = self
         matchCurrencyPickerView.dataSource = self
+        viewModel.loadUserSettingsFromDatabase()
+        leadershipBoardTableView.dataSource = self
+        leadershipBoardTableView.delegate = self
+        leadershipBoardTableView.register(LeadershipBoardTableViewCell.nibs, forCellReuseIdentifier: LeadershipBoardTableViewCell.identifiers)
     }
     
     @IBAction private func matchButtonPressed(_ sender: UIButton) {
@@ -109,5 +120,28 @@ extension MatchCurrencyGameViewController: UIPickerViewDelegate, UIPickerViewDat
         } else {
             viewModel.selectedSymbol = Array(viewModel.listOfCurrencySymbols.keys)[row]
         }
+    }
+}
+
+// MARK: - Table View Methods
+extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.retrieveLoadScoreboardLeaders.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LeadershipTableViewCell", for: indexPath) as? LeadershipBoardTableViewCell
+        guard let newModel = viewModel.leadershipTableViewCellModel(at: indexPath.row) else { return LeadershipBoardTableViewCell() }
+        cell?.configure(with: newModel)
+        
+        return cell ?? LeadershipBoardTableViewCell()
+    }
+}
+
+extension MatchCurrencyGameViewController: ViewModelDelegate {
+    
+    func bindViewModel() {
+        self.leadershipBoardTableView.reloadData()
     }
 }

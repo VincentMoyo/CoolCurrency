@@ -18,7 +18,17 @@ class MatchCurrencyGameViewModel {
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
     private var counter = 0
-    private var correctAnswer = 0
+    private var totalCorrectAnswers = 0
+    private var totalScores = 0
+    private var firstName: String?
+    private var userNumber: Int?
+    var userScoreList: [LeadershipBoardDataModel] = []
+    private var userSettingsList: [String: String] = [:]
+    var leaderBoardArray: [LeadershipBoardDataModel] = []
+    
+    private var databaseRepository: DatabaseRepositable
+    private var authenticationRepository: AuthenticationRepositable
+    private weak var delegate: ViewModelDelegate?
     
     let listOfCountries: [String: String] = ["Britain": "BritishFlag",
                                              "UnitedStates": "UnitedStatesFlag",
@@ -50,17 +60,96 @@ class MatchCurrencyGameViewModel {
                                                    "Brazil": "RealSymbol",
                                                    "Australia": "AustrialianDollarSymbol"]
     
+    init(databaseRepository: DatabaseRepositable, authenticationRepository: AuthenticationRepositable, delegate: ViewModelDelegate) {
+        self.databaseRepository = databaseRepository
+        self.authenticationRepository = authenticationRepository
+        self.delegate = delegate
+    }
+    
+    var retrieveUserNumber: Int {
+        userNumber ?? userScoreList.count
+    }
+    
+    var retrieveLoadScoreboardLeaders: [LeadershipBoardDataModel] {
+        userScoreList.sorted(by: { $0.correctAnswers < $1.correctAnswers })
+    }
+    
+    func loadUserSettingsFromDatabase() {
+        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(),
+                                                               completion: { [weak self] result in
+            do {
+                let newUserDetails = try result.get()
+                self?.userSettingsList = newUserDetails
+                self?.checkUserList()
+                self?.loadUserScoreboardsFromDatabase()
+                self?.delegate?.bindViewModel()
+            } catch {
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        })
+    }
+    
+    func loadUserScoreboardsFromDatabase() {
+        databaseRepository.retrieveUserScoreboards(completion: { [weak self] result in
+            switch result {
+            case .success(let boardsLeaderArray):
+                self?.userScoreList = boardsLeaderArray
+                self?.assignSpecificUserScores()
+                self?.delegate?.bindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
+    }
+    
+    func assignSpecificUserScores() {
+        userScoreList.forEach { specificUser in
+            if specificUser.name == firstName {
+                guard let totalScore = Int(specificUser.totalScore), let correctAnswer = Int(specificUser.correctAnswers) else { return }
+                totalScores = totalScore
+                totalCorrectAnswers = correctAnswer
+                userNumber = specificUser.userNumber
+            }
+        }
+    }
+    
+    func leadershipTableViewCellModel(at index: Int) -> LeadershipBoardDataModel? {
+        
+        return LeadershipBoardDataModel(userNumber: userScoreList[index].userNumber,
+                                        name: userScoreList[index].name,
+                                        correctAnswers: userScoreList[index].correctAnswers,
+                                        totalScore: userScoreList[index].totalScore)
+    }
+    
     func checkIfCorrect() -> Bool {
         selectedFlag == selectedSymbol ? true : false
     }
     
+    var retrieveFirstName: String {
+        firstName ?? "Unidentified"
+    }
+    
     var retrieveCorrectAnswer: String {
-        "\(correctAnswer) / 5"
+        "\(totalCorrectAnswers) / \(totalScores)"
     }
     
     func resetScore() {
         counter = 0
-        correctAnswer = 0
+    }
+    
+    func insertScoreIntoDatabase() {
+        guard let userFirstName = firstName else { return }
+        databaseRepository.updateUsersScoreboard(SignedInUser: retrieveUserNumber,
+                                                 name: userFirstName,
+                                                 finalScore: String(totalCorrectAnswers),
+                                                 totalScore: String(totalScores)) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.loadUserSettingsFromDatabase()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        }
     }
     
     func shouldDisplayFinalAnswer() -> Bool {
@@ -80,7 +169,9 @@ class MatchCurrencyGameViewModel {
             shouldIncrementCorrectAnswer()
             return false
         case .equalToFive:
+            totalScores += 5
             shouldIncrementCorrectAnswer()
+            insertScoreIntoDatabase()
             return true
         case .higherThanFive:
             return true
@@ -89,7 +180,18 @@ class MatchCurrencyGameViewModel {
     
     private func shouldIncrementCorrectAnswer() {
         if selectedFlag == selectedSymbol {
-            correctAnswer += 1
+            totalCorrectAnswers += 1
+        }
+    }
+    
+    private func checkUserList() {
+        for (key, value) in userSettingsList {
+            switch key {
+            case "FirstName":
+                firstName = value
+            default:
+                break
+            }
         }
     }
 }

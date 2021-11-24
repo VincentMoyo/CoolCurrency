@@ -33,7 +33,6 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         activateActivityIndicatorView()
         viewModel.loadUserSettingsFromDatabase()
-
     }
     
     @IBAction private func logOutPressed(_ sender: UIButton) {
