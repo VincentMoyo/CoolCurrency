@@ -18,7 +18,7 @@ class MatchCurrencyGameViewController: UIViewController {
     @IBOutlet private weak var playAgain: UIButton!
     @IBOutlet private weak var matchSymbolToFlag: UIButton!
     @IBOutlet private weak var scoreBoard: UIView!
-    @IBOutlet weak var leadershipBoardTableView: UITableView!
+    @IBOutlet private weak var leadershipBoardTableView: UITableView!
     
     private lazy var viewModel = MatchCurrencyGameViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
                                                                                                    storageReference: Storage.storage().reference()),
@@ -28,9 +28,17 @@ class MatchCurrencyGameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelsHidden(true)
+        viewModel.loadUserSettingsFromDatabase()
+        setPickerViewMethods()
+        setTableViewMethods()
+      }
+    
+    private func setPickerViewMethods() {
         matchCurrencyPickerView.delegate = self
         matchCurrencyPickerView.dataSource = self
-        viewModel.loadUserSettingsFromDatabase()
+    }
+    
+    private func setTableViewMethods() {
         leadershipBoardTableView.dataSource = self
         leadershipBoardTableView.delegate = self
         leadershipBoardTableView.register(UINib(nibName: "LeadershipBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
@@ -139,6 +147,7 @@ extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataS
     }
 }
 
+// MARK: - View Model Delegates
 extension MatchCurrencyGameViewController: ViewModelDelegate {
     
     func bindViewModel() {

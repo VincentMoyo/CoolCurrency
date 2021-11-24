@@ -56,14 +56,14 @@ class DatabaseRepository: DatabaseRepositable {
             "FinalScore": userFinalScore,
             "TotalScore": userTotalScore
         ]
-
-            self.databaseReference.child("Scoreboard/UserNumber\(number)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(true))
-                }
+        
+        self.databaseReference.child("Scoreboard/UserNumber\(number)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
             }
+        }
     }
     
     func retrieveUserScoreboards(completion: @escaping(Result<[LeadershipBoardDataModel], Error>) -> Void) {
@@ -87,11 +87,13 @@ class DatabaseRepository: DatabaseRepositable {
                 }
             }
             self.dispatchGroup.notify(queue: DispatchQueue.main, work: completionLeaderBoardItem)
+            // swiftlint:disable multiple_closures_with_trailing_closure
         }) {(error) in
+            // swiftlint:enable multiple_closures_with_trailing_closure
             completion(.failure(error))
         }
     }
-            
+    
     func updateProfilePictureToDatabase(SignedInUser userSettingsID: String, userURLString urlString: String, completion: @escaping DatabaseResponse) {
         databaseReference.child("Users/\(userSettingsID)/ProfileImage").setValue(urlString) { (error: Error?, _: DatabaseReference) in
             if let error = error {

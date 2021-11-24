@@ -1372,13 +1372,12 @@
                                 <color key="backgroundColor" name="SecondaryColour"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="TaI-7U-aqJ" secondAttribute="bottom" constant="20" id="DU8-Jk-Pwc"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="TaI-7U-aqJ" secondAttribute="trailing" id="JZN-WY-95g"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="XvE-My-0CZ" secondAttribute="trailing" id="KfW-s7-DPs"/>
                                     <constraint firstAttribute="bottom" secondItem="XvE-My-0CZ" secondAttribute="bottom" constant="2" id="RCY-4h-bZA"/>
                                     <constraint firstItem="1Ms-sc-ofL" firstAttribute="top" secondItem="u6A-zZ-dBR" secondAttribute="top" constant="8" id="T8L-IK-evY"/>
                                     <constraint firstItem="TaI-7U-aqJ" firstAttribute="top" secondItem="1Ms-sc-ofL" secondAttribute="bottom" constant="8" symbolic="YES" id="Whl-za-hka"/>
                                     <constraint firstItem="XvE-My-0CZ" firstAttribute="leading" secondItem="u6A-zZ-dBR" secondAttribute="leading" constant="142" id="kzD-57-huM"/>
-                                    <constraint firstItem="TaI-7U-aqJ" firstAttribute="leading" secondItem="u6A-zZ-dBR" secondAttribute="leading" constant="93" id="pgX-9h-r1K"/>
+                                    <constraint firstItem="TaI-7U-aqJ" firstAttribute="centerX" secondItem="u6A-zZ-dBR" secondAttribute="centerX" id="pNg-nO-FYv"/>
                                     <constraint firstItem="1Ms-sc-ofL" firstAttribute="leading" secondItem="u6A-zZ-dBR" secondAttribute="leading" constant="86" id="sEY-Sg-Nnw"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="1Ms-sc-ofL" secondAttribute="trailing" id="sHT-DI-gGy"/>
                                 </constraints>
@@ -1399,16 +1398,16 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="144" translatesAutoresizingMaskIntoConstraints="NO" id="EqW-dV-Ba2">
-                                        <rect key="frame" x="25" y="41" width="234" height="20.5"/>
+                                        <rect key="frame" x="25" y="41" width="334" height="20.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="921-LI-1Sd">
-                                                <rect key="frame" x="0.0" y="0.0" width="45.5" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="145.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7M8-bS-RaU">
-                                                <rect key="frame" x="189.5" y="0.0" width="44.5" height="20.5"/>
+                                                <rect key="frame" x="289.5" y="0.0" width="44.5" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1417,7 +1416,8 @@
                                     </stackView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lm5-Mu-g5M">
                                         <rect key="frame" x="8" y="69.5" width="358" height="187"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" name="SecondaryColour"/>
+                                        <color key="sectionIndexBackgroundColor" name="SecondaryColour"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" name="SecondaryColour"/>
@@ -1431,7 +1431,7 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7wU-jR-Ijs" secondAttribute="trailing" constant="20" symbolic="YES" id="TwN-Dm-FZt"/>
                                     <constraint firstItem="7wU-jR-Ijs" firstAttribute="top" secondItem="yXf-MT-CHK" secondAttribute="top" constant="8" id="VUf-6A-yB0"/>
                                     <constraint firstItem="lm5-Mu-g5M" firstAttribute="top" secondItem="EqW-dV-Ba2" secondAttribute="bottom" constant="8" id="rr8-Gv-9ij"/>
-                                    <constraint firstAttribute="trailing" secondItem="EqW-dV-Ba2" secondAttribute="trailing" constant="115" id="xDu-sp-Jr7"/>
+                                    <constraint firstAttribute="trailing" secondItem="EqW-dV-Ba2" secondAttribute="trailing" constant="15" id="xDu-sp-Jr7"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
@@ -1510,9 +1510,6 @@
         <namedColor name="TertiaryColour">
             <color red="1" green="0.31799998879432678" blue="0.31799998879432678" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
