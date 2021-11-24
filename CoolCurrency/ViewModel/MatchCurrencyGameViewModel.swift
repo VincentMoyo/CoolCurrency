@@ -115,10 +115,10 @@ class MatchCurrencyGameViewModel {
     
     func leadershipTableViewCellModel(at index: Int) -> LeadershipBoardDataModel? {
         
-        return LeadershipBoardDataModel(userNumber: userScoreList[index].userNumber,
-                                        name: userScoreList[index].name,
-                                        correctAnswers: userScoreList[index].correctAnswers,
-                                        totalScore: userScoreList[index].totalScore)
+        return LeadershipBoardDataModel(userNumber: retrieveLoadScoreboardLeaders[index].userNumber,
+                                        name: retrieveLoadScoreboardLeaders[index].name,
+                                        correctAnswers: retrieveLoadScoreboardLeaders[index].correctAnswers,
+                                        totalScore: retrieveLoadScoreboardLeaders[index].totalScore)
     }
     
     func checkIfCorrect() -> Bool {

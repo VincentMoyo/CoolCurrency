@@ -33,7 +33,7 @@ class MatchCurrencyGameViewController: UIViewController {
         viewModel.loadUserSettingsFromDatabase()
         leadershipBoardTableView.dataSource = self
         leadershipBoardTableView.delegate = self
-        leadershipBoardTableView.register(LeadershipBoardTableViewCell.nibs, forCellReuseIdentifier: LeadershipBoardTableViewCell.identifiers)
+        leadershipBoardTableView.register(UINib(nibName: "LeadershipBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
     
     @IBAction private func matchButtonPressed(_ sender: UIButton) {
@@ -131,7 +131,7 @@ extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeadershipTableViewCell", for: indexPath) as? LeadershipBoardTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? LeadershipBoardTableViewCell
         guard let newModel = viewModel.leadershipTableViewCellModel(at: indexPath.row) else { return LeadershipBoardTableViewCell() }
         cell?.configure(with: newModel)
         
