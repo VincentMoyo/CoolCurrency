@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class MatchCurrencyGameViewController: UIViewController {
     
@@ -15,14 +18,30 @@ class MatchCurrencyGameViewController: UIViewController {
     @IBOutlet private weak var playAgain: UIButton!
     @IBOutlet private weak var matchSymbolToFlag: UIButton!
     @IBOutlet private weak var scoreBoard: UIView!
+    @IBOutlet private weak var leadershipBoardTableView: UITableView!
     
-    private lazy var viewModel = MatchCurrencyGameViewModel()
+    private lazy var viewModel = MatchCurrencyGameViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
+                                                                                                   storageReference: Storage.storage().reference()),
+                                                            authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
+                                                            delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelsHidden(true)
+        viewModel.loadUserSettingsFromDatabase()
+        setPickerViewMethods()
+        setTableViewMethods()
+    }
+    
+    private func setPickerViewMethods() {
         matchCurrencyPickerView.delegate = self
         matchCurrencyPickerView.dataSource = self
+    }
+    
+    private func setTableViewMethods() {
+        leadershipBoardTableView.dataSource = self
+        leadershipBoardTableView.delegate = self
+        leadershipBoardTableView.register(UINib(nibName: "LeadershipBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
     
     @IBAction private func matchButtonPressed(_ sender: UIButton) {
@@ -109,5 +128,29 @@ extension MatchCurrencyGameViewController: UIPickerViewDelegate, UIPickerViewDat
         } else {
             viewModel.selectedSymbol = Array(viewModel.listOfCurrencySymbols.keys)[row]
         }
+    }
+}
+
+// MARK: - Table View Methods
+extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.retrieveUserScoreListCount
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? LeadershipBoardTableViewCell
+        guard let newModel = viewModel.leadershipTableViewCellModel(at: indexPath.row) else { return LeadershipBoardTableViewCell() }
+        cell?.configure(with: newModel, for: viewModel.retrievePositionNumber)
+        return cell ?? LeadershipBoardTableViewCell()
+    }
+}
+
+// MARK: - View Model Delegates
+extension MatchCurrencyGameViewController: ViewModelDelegate {
+    
+    func bindViewModel() {
+        self.viewModel.resetPosition()
+        self.leadershipBoardTableView.reloadData()
     }
 }

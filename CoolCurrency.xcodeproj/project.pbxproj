@@ -23,6 +23,8 @@
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7864C8C927463787005F4918 /* AppColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864C8C827463787005F4918 /* AppColours.swift */; };
+		7872C479274E99C900B49B3E /* LeadershipBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */; };
+		7872C47A274E99C900B49B3E /* LeadershipBoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */; };
 		7875603B2733C886000EA79D /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875603A2733C886000EA79D /* LoginViewModelTests.swift */; };
 		7875603D2733D07F000EA79D /* RegisterViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875603C2733D07F000EA79D /* RegisterViewModelTests.swift */; };
 		7875C28627109AE20045922B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875C28527109AE20045922B /* Extensions.swift */; };
@@ -60,6 +62,7 @@
 		78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5F0292720427400E10B6B /* DatabaseRepository.swift */; };
 		78C8FFA42743C5E500E5FF9A /* UserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */; };
 		78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D34C192731A43C0065A802 /* AuthenticationRepository.swift */; };
+		78F033DB274CF04D0093FB7A /* LeadershipBoardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +100,8 @@
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7864C8C827463787005F4918 /* AppColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColours.swift; sourceTree = "<group>"; };
+		7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardTableViewCell.swift; sourceTree = "<group>"; };
+		7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeadershipBoardTableViewCell.xib; sourceTree = "<group>"; };
 		7875603A2733C886000EA79D /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		7875603C2733D07F000EA79D /* RegisterViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModelTests.swift; sourceTree = "<group>"; };
 		7875C28527109AE20045922B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -141,6 +146,7 @@
 		78B5F0292720427400E10B6B /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
 		78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlerts.swift; sourceTree = "<group>"; };
 		78D34C192731A43C0065A802 /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
+		78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardDataModel.swift; sourceTree = "<group>"; };
 		7D7F7199E279B90E5957E0C8 /* Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		86C31FA7A22B7A22CB4B916C /* Pods-CoolCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.debug.xcconfig"; sourceTree = "<group>"; };
 		AE052AE516548B4B72DA8695 /* Pods-CoolCurrencyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrencyTests.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrencyTests/Pods-CoolCurrencyTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,13 +183,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7811A91F2717167500810C9F /* CurrencyTableView */ = {
+		7811A91F2717167500810C9F /* CurrencyTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				7811A920271716B200810C9F /* CurrencyTableViewCell.swift */,
 				7811A921271716B200810C9F /* CurrencyTableViewCell.xib */,
 			);
-			path = CurrencyTableView;
+			path = CurrencyTableViewCell;
 			sourceTree = "<group>";
 		};
 		7864C8CA2747C941005F4918 /* Extensions + Alerts */ = {
@@ -194,6 +200,15 @@
 				7875C28527109AE20045922B /* Extensions.swift */,
 			);
 			path = "Extensions + Alerts";
+			sourceTree = "<group>";
+		};
+		7872C476274E997200B49B3E /* LeadershipBoardTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */,
+				7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */,
+			);
+			path = LeadershipBoardTableViewCell;
 			sourceTree = "<group>";
 		};
 		7875C27527104D580045922B /* MockedClasses */ = {
@@ -286,6 +301,7 @@
 				78935FB6270DF82B007AE3EE /* Localizable.strings */,
 				7811A92427171F7800810C9F /* CurrencyDataModel.swift */,
 				78B50AF62719C02C00596AA6 /* ConvertCurrencyDataModel.swift */,
+				78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */,
 			);
 			path = ResponseModel;
 			sourceTree = "<group>";
@@ -323,7 +339,8 @@
 		788DECA9270B07310033493B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7811A91F2717167500810C9F /* CurrencyTableView */,
+				7872C476274E997200B49B3E /* LeadershipBoardTableViewCell */,
+				7811A91F2717167500810C9F /* CurrencyTableViewCell */,
 				78B50AFD271A00DB00596AA6 /* CurrencyConversionsViewController.xib */,
 				788DEC77270AFDCA0033493B /* Main.storyboard */,
 			);
@@ -500,6 +517,7 @@
 			files = (
 				788DEC81270AFDCC0033493B /* LaunchScreen.storyboard in Resources */,
 				78B50AFF271A00DB00596AA6 /* CurrencyConversionsViewController.xib in Resources */,
+				7872C47A274E99C900B49B3E /* LeadershipBoardTableViewCell.xib in Resources */,
 				7811A923271716B200810C9F /* CurrencyTableViewCell.xib in Resources */,
 				78935FB4270DF82B007AE3EE /* Localizable.strings in Resources */,
 				788DEC7E270AFDCC0033493B /* Assets.xcassets in Resources */,
@@ -650,6 +668,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7877D567272A9E76003A2857 /* LoginViewController.swift in Sources */,
+				7872C479274E99C900B49B3E /* LeadershipBoardTableViewCell.swift in Sources */,
+				78F033DB274CF04D0093FB7A /* LeadershipBoardDataModel.swift in Sources */,
 				7877D561272A9671003A2857 /* WelcomeViewModel.swift in Sources */,
 				78B50AF72719C02C00596AA6 /* ConvertCurrencyDataModel.swift in Sources */,
 				78057E902742CC6400BB2589 /* NavigationViewModel.swift in Sources */,

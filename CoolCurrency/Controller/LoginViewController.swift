@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activityLoader.isHidden = true
+        self.activityLoader.stopAnimating()
     }
     
     @IBAction private func loginButtonPressed(_ sender: UIButton) {
@@ -38,10 +39,13 @@ class LoginViewController: UIViewController {
 }
 
 // MARK: - View Model Delegate
-extension LoginViewController: ViewModelDelegate {
+extension LoginViewController: AuthenticationViewModelDelegate {
     
     func bindViewModel() {
             self.performSegue(withIdentifier: "LoginCell", sender: self)
-            self.activityLoader.stopAnimating()
+    }
+    
+    func stopActivityLoader() {
+        self.activityLoader.stopAnimating()
     }
 }

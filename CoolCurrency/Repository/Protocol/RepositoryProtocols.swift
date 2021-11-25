@@ -39,4 +39,6 @@ protocol DatabaseRepositable {
     func createNewUserSettings(SignedInUser userSettingsID: String, completion: @escaping DatabaseResponse)
     func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse)
     func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse)
+    func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse)
+    func retrieveUserScoreboards(completion: @escaping(Result<[LeadershipBoardDataModel], Error>) -> Void)
 }

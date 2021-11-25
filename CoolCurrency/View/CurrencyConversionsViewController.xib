@@ -134,6 +134,12 @@
                                         <action selector="ConvertCurrencyPressed:" destination="-1" eventType="touchUpInside" id="Hg6-0U-zB9"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zup-Xk-c3E">
+                                    <rect key="frame" x="20" y="21.5" width="86.5" height="20.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerX" secondItem="Wsa-Pq-5lq" secondAttribute="centerX" id="3cj-mk-t86"/>
@@ -142,9 +148,11 @@
                                 <constraint firstItem="O2r-fc-p9Y" firstAttribute="top" secondItem="Wsa-Pq-5lq" secondAttribute="bottom" constant="30" id="DEx-J9-HP6"/>
                                 <constraint firstAttribute="trailing" secondItem="Wsa-Pq-5lq" secondAttribute="trailing" id="N7W-3P-eac"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="top" secondItem="trw-L0-taO" secondAttribute="bottom" constant="15" id="TPc-dU-HHw"/>
+                                <constraint firstItem="zup-Xk-c3E" firstAttribute="leading" secondItem="trw-L0-taO" secondAttribute="leading" constant="10" id="eP8-8e-6QA"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="centerY" secondItem="KtI-1N-n26" secondAttribute="centerY" id="g03-rX-vxe"/>
                                 <constraint firstItem="trw-L0-taO" firstAttribute="top" secondItem="KtI-1N-n26" secondAttribute="top" constant="8" id="hsc-wd-Yl8"/>
                                 <constraint firstAttribute="trailing" secondItem="trw-L0-taO" secondAttribute="trailing" constant="10" id="htI-DM-F8q"/>
+                                <constraint firstItem="trw-L0-taO" firstAttribute="top" secondItem="zup-Xk-c3E" secondAttribute="bottom" constant="-34" id="iYM-J8-ThT"/>
                                 <constraint firstItem="YIm-Mo-dKK" firstAttribute="centerY" secondItem="Wsa-Pq-5lq" secondAttribute="centerY" id="mrD-af-eUE"/>
                                 <constraint firstItem="Wsa-Pq-5lq" firstAttribute="centerX" secondItem="KtI-1N-n26" secondAttribute="centerX" id="zlF-4G-XOR"/>
                             </constraints>
@@ -173,6 +181,13 @@
                                             <integer key="value" value="5"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Final Value" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Um-R7-ho0">
+                                    <rect key="frame" x="20" y="20" width="82" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="1 ZAR = 10.54 GBP" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxl-E9-SI8">
                                     <rect key="frame" x="80" y="190" width="284" height="37.5"/>
@@ -229,12 +244,20 @@
             </constraints>
             <point key="canvasLocation" x="131.8840579710145" y="102.45535714285714"/>
         </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qxr-qu-cwf">
+            <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="715.94202898550725" y="-19.754464285714285"/>
+        </label>
     </objects>
     <resources>
         <image name="AustralianFlag" width="300" height="168"/>
         <image name="BackgroundImages" width="518" height="600"/>
         <image name="BrazilianFlag" width="284" height="177"/>
-        <image name="rectangle.2.swap" catalog="system" width="32" height="32"/>
+        <image name="rectangle.2.swap" catalog="system" width="128" height="101"/>
         <namedColor name="PrimaryBlue">
             <color red="0.53333333333333333" green="0.8784313725490196" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

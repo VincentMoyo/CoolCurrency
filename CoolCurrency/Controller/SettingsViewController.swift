@@ -33,7 +33,6 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         activateActivityIndicatorView()
         viewModel.loadUserSettingsFromDatabase()
-
     }
     
     @IBAction private func logOutPressed(_ sender: UIButton) {
@@ -155,9 +154,9 @@ extension SettingsViewController: SettingsViewModelDelegate {
     
     func bindViewModel() {
         retrieveUserInformation()
+        self.activityLoader.stopAnimating()
         guard let imageData = viewModel.profilePictureDataImage else { return }
         self.profilePictureImage.image = UIImage(data: imageData)
-        self.activityLoader.stopAnimating()
     }
     
     func retrieveUserInformation() {

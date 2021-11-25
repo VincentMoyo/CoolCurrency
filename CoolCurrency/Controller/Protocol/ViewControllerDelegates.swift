@@ -12,6 +12,12 @@ protocol ViewModelDelegate: AnyObject {
     func bindViewModel()
 }
 
+protocol AuthenticationViewModelDelegate: AnyObject {
+    func showUserErrorMessage(error: Error)
+    func bindViewModel()
+    func stopActivityLoader()
+}
+
 protocol SettingsViewModelDelegate: AnyObject {
     func showUserErrorMessage(error: Error)
     func bindViewModel()

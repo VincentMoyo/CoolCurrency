@@ -14,6 +14,7 @@ class DatabaseRepository: DatabaseRepositable {
     
     private var databaseReference: DatabaseReference
     private let storageReference: StorageReference
+    let dispatchGroup = DispatchGroup()
     
     init(databaseReference: DatabaseReference, storageReference: StorageReference) {
         self.databaseReference = databaseReference
@@ -49,6 +50,50 @@ class DatabaseRepository: DatabaseRepositable {
         })
     }
     
+    func updateUsersScoreboard(SignedInUser userNumber: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
+        let userObject: [String: Any] = [
+            "Name": userName as NSObject,
+            "FinalScore": userFinalScore,
+            "TotalScore": userTotalScore
+        ]
+        
+        self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
+    }
+    
+    func retrieveUserScoreboards(completion: @escaping(Result<[LeadershipBoardDataModel], Error>) -> Void) {
+        var leaderBoardsList: [LeadershipBoardDataModel] = []
+        let completionLeaderBoardItem = DispatchWorkItem { completion(.success(leaderBoardsList)) }
+        databaseReference.child("Scoreboard").observeSingleEvent(of: .value, with: { (snapshot) in
+            let numberOfUsers = snapshot.childrenCount
+            for userNumber in 0..<numberOfUsers {
+                self.dispatchGroup.enter()
+                self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").observeSingleEvent(of: .value) { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let username = value?["Name"] as? String ?? ""
+                    let correctAnswers = value?["FinalScore"] as? String ?? ""
+                    let totalScores = value?["TotalScore"] as? String ?? ""
+                    let tempLeadershipBoard = LeadershipBoardDataModel(userNumber: Int(userNumber),
+                                                                       name: username,
+                                                                       correctAnswers: Int(correctAnswers) ?? 0,
+                                                                       totalScore: Int(totalScores) ?? 0)
+                    leaderBoardsList.append(tempLeadershipBoard)
+                    self.dispatchGroup.leave()
+                }
+            }
+            self.dispatchGroup.notify(queue: DispatchQueue.main, work: completionLeaderBoardItem)
+            // swiftlint:disable multiple_closures_with_trailing_closure
+        }) {(error) in
+            // swiftlint:enable multiple_closures_with_trailing_closure
+            completion(.failure(error))
+        }
+    }
+    
     func updateProfilePictureToDatabase(SignedInUser userSettingsID: String, userURLString urlString: String, completion: @escaping DatabaseResponse) {
         databaseReference.child("Users/\(userSettingsID)/ProfileImage").setValue(urlString) { (error: Error?, _: DatabaseReference) in
             if let error = error {
@@ -58,7 +103,6 @@ class DatabaseRepository: DatabaseRepositable {
             }
         }
     }
-    
     func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) {
         databaseReference.child(baseCurrency).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: Double] else {

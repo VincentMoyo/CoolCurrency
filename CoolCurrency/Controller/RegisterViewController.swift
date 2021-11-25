@@ -42,10 +42,14 @@ class RegisterViewController: UIViewController {
 }
 
 // MARK: - View Model Delegate
-extension RegisterViewController: ViewModelDelegate {
+extension RegisterViewController: AuthenticationViewModelDelegate {
     
     func bindViewModel() {
             self.performSegue(withIdentifier: "RegisterCell", sender: self)
             self.activityLoader.stopAnimating()
+    }
+    
+    func stopActivityLoader() {
+        self.activityLoader.stopAnimating()
     }
 }

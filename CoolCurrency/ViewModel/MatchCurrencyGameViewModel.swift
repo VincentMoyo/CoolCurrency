@@ -17,8 +17,17 @@ class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
+    private var positionNumber = 0
+    private var userScoreList: [LeadershipBoardDataModel] = []
     private var counter = 0
-    private var correctAnswer = 0
+    private var totalCorrectAnswers = 0
+    private var totalScores = 0
+    private var firstName: String?
+    private var userNumber: Int?
+    private var userSettingsList: [String: String] = [:]
+    private var databaseRepository: DatabaseRepositable
+    private var authenticationRepository: AuthenticationRepositable
+    private weak var delegate: ViewModelDelegate?
     
     let listOfCountries: [String: String] = ["Britain": "BritishFlag",
                                              "UnitedStates": "UnitedStatesFlag",
@@ -50,17 +59,70 @@ class MatchCurrencyGameViewModel {
                                                    "Brazil": "RealSymbol",
                                                    "Australia": "AustrialianDollarSymbol"]
     
+    init(databaseRepository: DatabaseRepositable, authenticationRepository: AuthenticationRepositable, delegate: ViewModelDelegate) {
+        self.databaseRepository = databaseRepository
+        self.authenticationRepository = authenticationRepository
+        self.delegate = delegate
+    }
+    
+    var retrieveUserNumber: Int {
+        userNumber ?? userScoreList.count
+    }
+    
+    var retrieveLoadScoreboardLeaders: [LeadershipBoardDataModel] {
+        userScoreList.sorted(by: { $0.correctAnswers > $1.correctAnswers })
+    }
+    
+    var retrieveFirstName: String {
+        firstName ?? "Unidentified"
+    }
+    
+    var retrieveCorrectAnswer: String {
+        "\(totalCorrectAnswers) / \(totalScores)"
+    }
+    
+    var retrieveUserScoreListCount: Int {
+        userScoreList.count
+    }
+    
+    var retrievePositionNumber: Int {
+        positionNumber
+    }
+    
     func checkIfCorrect() -> Bool {
         selectedFlag == selectedSymbol ? true : false
     }
     
-    var retrieveCorrectAnswer: String {
-        "\(correctAnswer) / 5"
-    }
-    
     func resetScore() {
         counter = 0
-        correctAnswer = 0
+    }
+    
+    func resetPosition() {
+        positionNumber = 0
+    }
+    
+    func loadUserSettingsFromDatabase() {
+        databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(),
+                                                               completion: { [weak self] result in
+            do {
+                let newUserDetails = try result.get()
+                self?.userSettingsList = newUserDetails
+                self?.checkUserList()
+                self?.loadUserScoreboardsFromDatabase()
+                self?.delegate?.bindViewModel()
+            } catch {
+                self?.delegate?.showUserErrorMessage(error: error)
+            }
+        })
+    }
+    
+    func leadershipTableViewCellModel(at index: Int) -> LeadershipBoardDataModel? {
+        let sortedData = retrieveLoadScoreboardLeaders
+        positionNumber += 1
+        return LeadershipBoardDataModel(userNumber: sortedData[index].userNumber,
+                                        name: sortedData[index].name,
+                                        correctAnswers: sortedData[index].correctAnswers,
+                                        totalScore: sortedData[index].totalScore)
     }
     
     func shouldDisplayFinalAnswer() -> Bool {
@@ -74,13 +136,53 @@ class MatchCurrencyGameViewModel {
         }
     }
     
+    private func loadUserScoreboardsFromDatabase() {
+        databaseRepository.retrieveUserScoreboards(completion: { [weak self] result in
+            switch result {
+            case .success(let boardsLeaderArray):
+                self?.userScoreList = boardsLeaderArray
+                self?.assignSpecificUserScores()
+                self?.delegate?.bindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
+    }
+    
+    private func assignSpecificUserScores() {
+        userScoreList.forEach { specificUser in
+            if specificUser.name == firstName {
+                totalScores = specificUser.totalScore
+                totalCorrectAnswers = specificUser.correctAnswers
+                userNumber = specificUser.userNumber
+            }
+        }
+    }
+    
+    private func updateScoreIntoDatabase() {
+        guard let userFirstName = firstName else { return }
+        databaseRepository.updateUsersScoreboard(SignedInUser: retrieveUserNumber,
+                                                 name: userFirstName,
+                                                 finalScore: String(totalCorrectAnswers),
+                                                 totalScore: String(totalScores)) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.loadUserSettingsFromDatabase()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        }
+    }
+    
     private func checkIfCorrectAnswerForCounter(at counterCheck: CheckCounter) -> Bool {
         switch counterCheck {
         case .lowerThanFive:
             shouldIncrementCorrectAnswer()
             return false
         case .equalToFive:
+            totalScores += 5
             shouldIncrementCorrectAnswer()
+            updateScoreIntoDatabase()
             return true
         case .higherThanFive:
             return true
@@ -89,7 +191,18 @@ class MatchCurrencyGameViewModel {
     
     private func shouldIncrementCorrectAnswer() {
         if selectedFlag == selectedSymbol {
-            correctAnswer += 1
+            totalCorrectAnswers += 1
+        }
+    }
+    
+    private func checkUserList() {
+        for (key, value) in userSettingsList {
+            switch key {
+            case "FirstName":
+                firstName = value
+            default:
+                break
+            }
         }
     }
 }
