@@ -152,9 +152,8 @@ class MatchCurrencyGameViewModel {
     private func assignSpecificUserScores() {
         userScoreList.forEach { specificUser in
             if specificUser.name == firstName {
-                guard let totalScore = Int(specificUser.totalScore), let correctAnswer = Int(specificUser.correctAnswers) else { return }
-                totalScores = totalScore
-                totalCorrectAnswers = correctAnswer
+                totalScores = specificUser.totalScore
+                totalCorrectAnswers = specificUser.correctAnswers
                 userNumber = specificUser.userNumber
             }
         }

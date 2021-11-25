@@ -10,6 +10,6 @@ import Foundation
 struct LeadershipBoardDataModel {
     let userNumber: Int
     let name: String
-    let correctAnswers: String
-    let totalScore: String
+    let correctAnswers: Int
+    let totalScore: Int
 }

@@ -80,8 +80,8 @@ class DatabaseRepository: DatabaseRepositable {
                     let totalScores = value?["TotalScore"] as? String ?? ""
                     let tempLeadershipBoard = LeadershipBoardDataModel(userNumber: Int(userNumber),
                                                                        name: username,
-                                                                       correctAnswers: correctAnswers,
-                                                                       totalScore: totalScores)
+                                                                       correctAnswers: Int(correctAnswers) ?? 0,
+                                                                       totalScore: Int(totalScores) ?? 0)
                     leaderBoardsList.append(tempLeadershipBoard)
                     self.dispatchGroup.leave()
                 }

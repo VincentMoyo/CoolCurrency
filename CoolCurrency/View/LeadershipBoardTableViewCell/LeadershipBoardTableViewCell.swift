@@ -17,7 +17,7 @@ class LeadershipBoardTableViewCell: UITableViewCell {
     func configure(with model: LeadershipBoardDataModel, for position: Int) {
         positionNumber.text = "\(position)."
         userName.text = model.name
-        totalCorrectAnswers.text = model.correctAnswers
-        totalScore.text = model.totalScore
+        totalCorrectAnswers.text = String(model.correctAnswers)
+        totalScore.text = String(model.totalScore)
     }
 }
