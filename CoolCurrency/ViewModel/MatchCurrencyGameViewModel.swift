@@ -97,6 +97,10 @@ class MatchCurrencyGameViewModel {
         counter = 0
     }
     
+    func resetPosition() {
+        positionNumber = 0
+    }
+    
     func loadUserSettingsFromDatabase() {
         databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(),
                                                                completion: { [weak self] result in
@@ -157,7 +161,6 @@ class MatchCurrencyGameViewModel {
     }
     
     private func updateScoreIntoDatabase() {
-        positionNumber = 0
         guard let userFirstName = firstName else { return }
         databaseRepository.updateUsersScoreboard(SignedInUser: retrieveUserNumber,
                                                  name: userFirstName,
@@ -179,7 +182,6 @@ class MatchCurrencyGameViewModel {
             return false
         case .equalToFive:
             totalScores += 5
-            positionNumber = 0
             shouldIncrementCorrectAnswer()
             updateScoreIntoDatabase()
             return true

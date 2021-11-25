@@ -31,7 +31,7 @@ class MatchCurrencyGameViewController: UIViewController {
         viewModel.loadUserSettingsFromDatabase()
         setPickerViewMethods()
         setTableViewMethods()
-      }
+    }
     
     private func setPickerViewMethods() {
         matchCurrencyPickerView.delegate = self
@@ -142,7 +142,6 @@ extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataS
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? LeadershipBoardTableViewCell
         guard let newModel = viewModel.leadershipTableViewCellModel(at: indexPath.row) else { return LeadershipBoardTableViewCell() }
         cell?.configure(with: newModel, for: viewModel.retrievePositionNumber)
-        
         return cell ?? LeadershipBoardTableViewCell()
     }
 }
@@ -151,6 +150,7 @@ extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataS
 extension MatchCurrencyGameViewController: ViewModelDelegate {
     
     func bindViewModel() {
+        self.viewModel.resetPosition()
         self.leadershipBoardTableView.reloadData()
     }
 }
