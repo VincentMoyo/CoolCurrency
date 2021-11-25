@@ -9,11 +9,11 @@ import Foundation
 
 class RegisterViewModel {
     
-    private weak var delegate: ViewModelDelegate?
+    private weak var delegate: AuthenticationViewModelDelegate?
     private var authenticationRepository: AuthenticationRepositable
     private var databaseRepository: DatabaseRepositable
     
-    init(authenticationRepository: AuthenticationRepositable, delegate: ViewModelDelegate, database: DatabaseRepositable) {
+    init(authenticationRepository: AuthenticationRepositable, delegate: AuthenticationViewModelDelegate, database: DatabaseRepositable) {
         self.authenticationRepository = authenticationRepository
         self.delegate = delegate
         self.databaseRepository = database
@@ -36,8 +36,10 @@ class RegisterViewModel {
             switch result {
             case .success(_):
                 self?.delegate?.bindViewModel()
+                self?.delegate?.stopActivityLoader()
             case .failure(let signInError):
                 self?.delegate?.showUserErrorMessage(error: signInError)
+                self?.delegate?.stopActivityLoader()
             }
         }
     }

@@ -135,13 +135,13 @@ extension MatchCurrencyGameViewController: UIPickerViewDelegate, UIPickerViewDat
 extension MatchCurrencyGameViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.retrieveLoadScoreboardLeaders.count
+        viewModel.retrieveUserScoreListCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? LeadershipBoardTableViewCell
         guard let newModel = viewModel.leadershipTableViewCellModel(at: indexPath.row) else { return LeadershipBoardTableViewCell() }
-        cell?.configure(with: newModel)
+        cell?.configure(with: newModel, for: viewModel.retrievePositionNumber)
         
         return cell ?? LeadershipBoardTableViewCell()
     }

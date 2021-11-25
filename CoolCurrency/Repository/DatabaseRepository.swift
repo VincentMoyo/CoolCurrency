@@ -50,14 +50,14 @@ class DatabaseRepository: DatabaseRepositable {
         })
     }
     
-    func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
+    func updateUsersScoreboard(SignedInUser userNumber: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
         let userObject: [String: Any] = [
             "Name": userName as NSObject,
             "FinalScore": userFinalScore,
             "TotalScore": userTotalScore
         ]
         
-        self.databaseReference.child("Scoreboard/UserNumber\(number)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
+        self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -70,15 +70,15 @@ class DatabaseRepository: DatabaseRepositable {
         var leaderBoardsList: [LeadershipBoardDataModel] = []
         let completionLeaderBoardItem = DispatchWorkItem { completion(.success(leaderBoardsList)) }
         databaseReference.child("Scoreboard").observeSingleEvent(of: .value, with: { (snapshot) in
-            let data = snapshot.childrenCount
-            for number in 0..<data {
+            let numberOfUsers = snapshot.childrenCount
+            for userNumber in 0..<numberOfUsers {
                 self.dispatchGroup.enter()
-                self.databaseReference.child("Scoreboard/UserNumber\(number)").observeSingleEvent(of: .value) { (snapshot) in
+                self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").observeSingleEvent(of: .value) { (snapshot) in
                     let value = snapshot.value as? NSDictionary
                     let username = value?["Name"] as? String ?? ""
                     let correctAnswers = value?["FinalScore"] as? String ?? ""
                     let totalScores = value?["TotalScore"] as? String ?? ""
-                    let tempLeadershipBoard = LeadershipBoardDataModel(userNumber: Int(number),
+                    let tempLeadershipBoard = LeadershipBoardDataModel(userNumber: Int(userNumber),
                                                                        name: username,
                                                                        correctAnswers: correctAnswers,
                                                                        totalScore: totalScores)

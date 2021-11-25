@@ -154,9 +154,9 @@ extension SettingsViewController: SettingsViewModelDelegate {
     
     func bindViewModel() {
         retrieveUserInformation()
+        self.activityLoader.stopAnimating()
         guard let imageData = viewModel.profilePictureDataImage else { return }
         self.profilePictureImage.image = UIImage(data: imageData)
-        self.activityLoader.stopAnimating()
     }
     
     func retrieveUserInformation() {

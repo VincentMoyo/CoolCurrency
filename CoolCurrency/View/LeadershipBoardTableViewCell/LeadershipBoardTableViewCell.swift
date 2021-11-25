@@ -14,7 +14,8 @@ class LeadershipBoardTableViewCell: UITableViewCell {
     @IBOutlet private weak var totalCorrectAnswers: UILabel!
     @IBOutlet private weak var totalScore: UILabel!
     
-    func configure(with model: LeadershipBoardDataModel) {
+    func configure(with model: LeadershipBoardDataModel, for position: Int) {
+        positionNumber.text = "\(position)."
         userName.text = model.name
         totalCorrectAnswers.text = model.correctAnswers
         totalScore.text = model.totalScore

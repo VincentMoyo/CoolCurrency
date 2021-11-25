@@ -17,7 +17,8 @@ class MatchCurrencyGameViewModel {
     
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
-    var userScoreList: [LeadershipBoardDataModel] = []
+    private var positionNumber = 0
+    private var userScoreList: [LeadershipBoardDataModel] = []
     private var counter = 0
     private var totalCorrectAnswers = 0
     private var totalScores = 0
@@ -80,6 +81,14 @@ class MatchCurrencyGameViewModel {
         "\(totalCorrectAnswers) / \(totalScores)"
     }
     
+    var retrieveUserScoreListCount: Int {
+        userScoreList.count
+    }
+    
+    var retrievePositionNumber: Int {
+        positionNumber
+    }
+    
     func checkIfCorrect() -> Bool {
         selectedFlag == selectedSymbol ? true : false
     }
@@ -105,6 +114,7 @@ class MatchCurrencyGameViewModel {
     
     func leadershipTableViewCellModel(at index: Int) -> LeadershipBoardDataModel? {
         let sortedData = retrieveLoadScoreboardLeaders
+        positionNumber += 1
         return LeadershipBoardDataModel(userNumber: sortedData[index].userNumber,
                                         name: sortedData[index].name,
                                         correctAnswers: sortedData[index].correctAnswers,
@@ -147,6 +157,7 @@ class MatchCurrencyGameViewModel {
     }
     
     private func updateScoreIntoDatabase() {
+        positionNumber = 0
         guard let userFirstName = firstName else { return }
         databaseRepository.updateUsersScoreboard(SignedInUser: retrieveUserNumber,
                                                  name: userFirstName,
@@ -168,6 +179,7 @@ class MatchCurrencyGameViewModel {
             return false
         case .equalToFive:
             totalScores += 5
+            positionNumber = 0
             shouldIncrementCorrectAnswer()
             updateScoreIntoDatabase()
             return true
