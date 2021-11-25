@@ -23,6 +23,18 @@
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7864C8C927463787005F4918 /* AppColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864C8C827463787005F4918 /* AppColours.swift */; };
+		786FD091274FAB8C008D6D8C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786FD08F274FAB8C008D6D8C /* Interface.storyboard */; };
+		786FD093274FAB90008D6D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786FD092274FAB90008D6D8C /* Assets.xcassets */; };
+		786FD099274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 786FD098274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		786FD09E274FAB90008D6D8C /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD09D274FAB90008D6D8C /* InterfaceController.swift */; };
+		786FD0A0274FAB90008D6D8C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD09F274FAB90008D6D8C /* ExtensionDelegate.swift */; };
+		786FD0A2274FAB90008D6D8C /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0A1274FAB90008D6D8C /* NotificationController.swift */; };
+		786FD0A4274FAB90008D6D8C /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0A3274FAB90008D6D8C /* ComplicationController.swift */; };
+		786FD0A6274FAB92008D6D8C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786FD0A5274FAB92008D6D8C /* Assets.xcassets */; };
+		786FD0B2274FAB92008D6D8C /* CoolCurrencyWatchAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0B1274FAB92008D6D8C /* CoolCurrencyWatchAppTests.swift */; };
+		786FD0BC274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0BB274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.swift */; };
+		786FD0BE274FAB92008D6D8C /* CoolCurrencyWatchAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0BD274FAB92008D6D8C /* CoolCurrencyWatchAppUITestsLaunchTests.swift */; };
+		786FD0C1274FAB92008D6D8C /* CoolCurrencyWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 786FD08D274FAB8C008D6D8C /* CoolCurrencyWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7872C479274E99C900B49B3E /* LeadershipBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */; };
 		7872C47A274E99C900B49B3E /* LeadershipBoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */; };
 		7875603B2733C886000EA79D /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875603A2733C886000EA79D /* LoginViewModelTests.swift */; };
@@ -66,6 +78,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		786FD09A274FAB90008D6D8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 786FD097274FAB90008D6D8C;
+			remoteInfo = "CoolCurrencyWatchApp WatchKit Extension";
+		};
+		786FD0AE274FAB92008D6D8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 786FD097274FAB90008D6D8C;
+			remoteInfo = "CoolCurrencyWatchApp WatchKit Extension";
+		};
+		786FD0B8274FAB92008D6D8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 786FD08C274FAB8C008D6D8C;
+			remoteInfo = CoolCurrencyWatchApp;
+		};
+		786FD0BF274FAB92008D6D8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 786FD08C274FAB8C008D6D8C;
+			remoteInfo = CoolCurrencyWatchApp;
+		};
 		788DEC88270AFDCD0033493B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
@@ -81,6 +121,31 @@
 			remoteInfo = CoolCurrency;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		786FD0C2274FAB92008D6D8C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				786FD0C1274FAB92008D6D8C /* CoolCurrencyWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0C5274FAB92008D6D8C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				786FD099274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05A8DCFD88A25A306421EAF9 /* Pods-CoolCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +165,22 @@
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7864C8C827463787005F4918 /* AppColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColours.swift; sourceTree = "<group>"; };
+		786FD08D274FAB8C008D6D8C /* CoolCurrencyWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrencyWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		786FD090274FAB8C008D6D8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		786FD092274FAB90008D6D8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		786FD098274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CoolCurrencyWatchApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		786FD09D274FAB90008D6D8C /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		786FD09F274FAB90008D6D8C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		786FD0A1274FAB90008D6D8C /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		786FD0A3274FAB90008D6D8C /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		786FD0A5274FAB92008D6D8C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		786FD0A7274FAB92008D6D8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		786FD0A8274FAB92008D6D8C /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		786FD0AD274FAB92008D6D8C /* CoolCurrencyWatchAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCurrencyWatchAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		786FD0B1274FAB92008D6D8C /* CoolCurrencyWatchAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyWatchAppTests.swift; sourceTree = "<group>"; };
+		786FD0B7274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolCurrencyWatchAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		786FD0BB274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyWatchAppUITests.swift; sourceTree = "<group>"; };
+		786FD0BD274FAB92008D6D8C /* CoolCurrencyWatchAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolCurrencyWatchAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardTableViewCell.swift; sourceTree = "<group>"; };
 		7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeadershipBoardTableViewCell.xib; sourceTree = "<group>"; };
 		7875603A2733C886000EA79D /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -156,6 +237,27 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		786FD095274FAB90008D6D8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0AA274FAB92008D6D8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0B4274FAB92008D6D8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		788DEC6B270AFDCA0033493B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +304,46 @@
 			path = "Extensions + Alerts";
 			sourceTree = "<group>";
 		};
+		786FD08E274FAB8C008D6D8C /* CoolCurrencyWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				786FD08F274FAB8C008D6D8C /* Interface.storyboard */,
+				786FD092274FAB90008D6D8C /* Assets.xcassets */,
+			);
+			path = CoolCurrencyWatchApp;
+			sourceTree = "<group>";
+		};
+		786FD09C274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				786FD09D274FAB90008D6D8C /* InterfaceController.swift */,
+				786FD09F274FAB90008D6D8C /* ExtensionDelegate.swift */,
+				786FD0A1274FAB90008D6D8C /* NotificationController.swift */,
+				786FD0A3274FAB90008D6D8C /* ComplicationController.swift */,
+				786FD0A5274FAB92008D6D8C /* Assets.xcassets */,
+				786FD0A7274FAB92008D6D8C /* Info.plist */,
+				786FD0A8274FAB92008D6D8C /* PushNotificationPayload.apns */,
+			);
+			path = "CoolCurrencyWatchApp WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		786FD0B0274FAB92008D6D8C /* CoolCurrencyWatchAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				786FD0B1274FAB92008D6D8C /* CoolCurrencyWatchAppTests.swift */,
+			);
+			path = CoolCurrencyWatchAppTests;
+			sourceTree = "<group>";
+		};
+		786FD0BA274FAB92008D6D8C /* CoolCurrencyWatchAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				786FD0BB274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.swift */,
+				786FD0BD274FAB92008D6D8C /* CoolCurrencyWatchAppUITestsLaunchTests.swift */,
+			);
+			path = CoolCurrencyWatchAppUITests;
+			sourceTree = "<group>";
+		};
 		7872C476274E997200B49B3E /* LeadershipBoardTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +375,10 @@
 				788DEC70270AFDCA0033493B /* CoolCurrency */,
 				788DEC8A270AFDCD0033493B /* CoolCurrencyTests */,
 				788DEC94270AFDCD0033493B /* CoolCurrencyUITests */,
+				786FD08E274FAB8C008D6D8C /* CoolCurrencyWatchApp */,
+				786FD09C274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension */,
+				786FD0B0274FAB92008D6D8C /* CoolCurrencyWatchAppTests */,
+				786FD0BA274FAB92008D6D8C /* CoolCurrencyWatchAppUITests */,
 				788DEC6F270AFDCA0033493B /* Products */,
 				FFEECE9B6CBF253BFA047B5C /* Pods */,
 				B6DBEEBA27B3CD77008CDE5B /* Frameworks */,
@@ -245,6 +391,10 @@
 				788DEC6E270AFDCA0033493B /* CoolCurrency.app */,
 				788DEC87270AFDCD0033493B /* CoolCurrencyTests.xctest */,
 				788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */,
+				786FD08D274FAB8C008D6D8C /* CoolCurrencyWatchApp.app */,
+				786FD098274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension.appex */,
+				786FD0AD274FAB92008D6D8C /* CoolCurrencyWatchAppTests.xctest */,
+				786FD0B7274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -406,6 +556,76 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		786FD08C274FAB8C008D6D8C /* CoolCurrencyWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786FD0CD274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp" */;
+			buildPhases = (
+				786FD08B274FAB8C008D6D8C /* Resources */,
+				786FD0C5274FAB92008D6D8C /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				786FD09B274FAB90008D6D8C /* PBXTargetDependency */,
+			);
+			name = CoolCurrencyWatchApp;
+			productName = CoolCurrencyWatchApp;
+			productReference = 786FD08D274FAB8C008D6D8C /* CoolCurrencyWatchApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		786FD097274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786FD0CC274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp WatchKit Extension" */;
+			buildPhases = (
+				786FD094274FAB90008D6D8C /* Sources */,
+				786FD095274FAB90008D6D8C /* Frameworks */,
+				786FD096274FAB90008D6D8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoolCurrencyWatchApp WatchKit Extension";
+			productName = "CoolCurrencyWatchApp WatchKit Extension";
+			productReference = 786FD098274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		786FD0AC274FAB92008D6D8C /* CoolCurrencyWatchAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786FD0CE274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchAppTests" */;
+			buildPhases = (
+				786FD0A9274FAB92008D6D8C /* Sources */,
+				786FD0AA274FAB92008D6D8C /* Frameworks */,
+				786FD0AB274FAB92008D6D8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				786FD0AF274FAB92008D6D8C /* PBXTargetDependency */,
+			);
+			name = CoolCurrencyWatchAppTests;
+			productName = CoolCurrencyWatchAppTests;
+			productReference = 786FD0AD274FAB92008D6D8C /* CoolCurrencyWatchAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		786FD0B6274FAB92008D6D8C /* CoolCurrencyWatchAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786FD0CF274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchAppUITests" */;
+			buildPhases = (
+				786FD0B3274FAB92008D6D8C /* Sources */,
+				786FD0B4274FAB92008D6D8C /* Frameworks */,
+				786FD0B5274FAB92008D6D8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				786FD0B9274FAB92008D6D8C /* PBXTargetDependency */,
+			);
+			name = CoolCurrencyWatchAppUITests;
+			productName = CoolCurrencyWatchAppUITests;
+			productReference = 786FD0B7274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		788DEC6D270AFDCA0033493B /* CoolCurrency */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 788DEC9B270AFDCD0033493B /* Build configuration list for PBXNativeTarget "CoolCurrency" */;
@@ -416,10 +636,12 @@
 				788DEC6B270AFDCA0033493B /* Frameworks */,
 				788DEC6C270AFDCA0033493B /* Resources */,
 				F1382CC2D08218461157A4D6 /* [CP] Embed Pods Frameworks */,
+				786FD0C2274FAB92008D6D8C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				786FD0C0274FAB92008D6D8C /* PBXTargetDependency */,
 			);
 			name = CoolCurrency;
 			productName = CoolCurrency;
@@ -472,9 +694,23 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					786FD08C274FAB8C008D6D8C = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					786FD097274FAB90008D6D8C = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					786FD0AC274FAB92008D6D8C = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 786FD097274FAB90008D6D8C;
+					};
+					786FD0B6274FAB92008D6D8C = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 786FD08C274FAB8C008D6D8C;
+					};
 					788DEC6D270AFDCA0033493B = {
 						CreatedOnToolsVersion = 13.0;
 						LastSwiftMigration = 1300;
@@ -506,11 +742,46 @@
 				788DEC6D270AFDCA0033493B /* CoolCurrency */,
 				788DEC86270AFDCD0033493B /* CoolCurrencyTests */,
 				788DEC90270AFDCD0033493B /* CoolCurrencyUITests */,
+				786FD08C274FAB8C008D6D8C /* CoolCurrencyWatchApp */,
+				786FD097274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension */,
+				786FD0AC274FAB92008D6D8C /* CoolCurrencyWatchAppTests */,
+				786FD0B6274FAB92008D6D8C /* CoolCurrencyWatchAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		786FD08B274FAB8C008D6D8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786FD093274FAB90008D6D8C /* Assets.xcassets in Resources */,
+				786FD091274FAB8C008D6D8C /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD096274FAB90008D6D8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786FD0A6274FAB92008D6D8C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0AB274FAB92008D6D8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0B5274FAB92008D6D8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		788DEC6C270AFDCA0033493B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -663,6 +934,34 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		786FD094274FAB90008D6D8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786FD0A2274FAB90008D6D8C /* NotificationController.swift in Sources */,
+				786FD0A4274FAB90008D6D8C /* ComplicationController.swift in Sources */,
+				786FD0A0274FAB90008D6D8C /* ExtensionDelegate.swift in Sources */,
+				786FD09E274FAB90008D6D8C /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0A9274FAB92008D6D8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786FD0B2274FAB92008D6D8C /* CoolCurrencyWatchAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		786FD0B3274FAB92008D6D8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786FD0BE274FAB92008D6D8C /* CoolCurrencyWatchAppUITestsLaunchTests.swift in Sources */,
+				786FD0BC274FAB92008D6D8C /* CoolCurrencyWatchAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		788DEC6A270AFDCA0033493B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -732,6 +1031,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		786FD09B274FAB90008D6D8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 786FD097274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension */;
+			targetProxy = 786FD09A274FAB90008D6D8C /* PBXContainerItemProxy */;
+		};
+		786FD0AF274FAB92008D6D8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 786FD097274FAB90008D6D8C /* CoolCurrencyWatchApp WatchKit Extension */;
+			targetProxy = 786FD0AE274FAB92008D6D8C /* PBXContainerItemProxy */;
+		};
+		786FD0B9274FAB92008D6D8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 786FD08C274FAB8C008D6D8C /* CoolCurrencyWatchApp */;
+			targetProxy = 786FD0B8274FAB92008D6D8C /* PBXContainerItemProxy */;
+		};
+		786FD0C0274FAB92008D6D8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 786FD08C274FAB8C008D6D8C /* CoolCurrencyWatchApp */;
+			targetProxy = 786FD0BF274FAB92008D6D8C /* PBXContainerItemProxy */;
+		};
 		788DEC89270AFDCD0033493B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 788DEC6D270AFDCA0033493B /* CoolCurrency */;
@@ -745,6 +1064,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		786FD08F274FAB8C008D6D8C /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				786FD090274FAB8C008D6D8C /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		788DEC77270AFDCA0033493B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -772,6 +1099,218 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		786FD0C3274FAB92008D6D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = CoolCurrencyWatchApp_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = CoolCurrencyWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.DVT.CoolCurrency;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		786FD0C4274FAB92008D6D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = CoolCurrencyWatchApp_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = CoolCurrencyWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.DVT.CoolCurrency;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		786FD0C6274FAB92008D6D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CoolCurrencyWatchApp WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoolCurrencyWatchApp WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		786FD0C7274FAB92008D6D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CoolCurrencyWatchApp WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoolCurrencyWatchApp WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		786FD0C8274FAB92008D6D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.CoolCurrencyWatchAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrencyWatchApp WatchKit Extension.appex/CoolCurrencyWatchApp WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		786FD0C9274FAB92008D6D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.CoolCurrencyWatchAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoolCurrencyWatchApp WatchKit Extension.appex/CoolCurrencyWatchApp WatchKit Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		786FD0CA274FAB92008D6D8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.CoolCurrencyWatchAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = CoolCurrencyWatchApp;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		786FD0CB274FAB92008D6D8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.CoolCurrencyWatchAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = CoolCurrencyWatchApp;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
 		788DEC99270AFDCD0033493B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1061,6 +1600,42 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		786FD0CC274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786FD0C6274FAB92008D6D8C /* Debug */,
+				786FD0C7274FAB92008D6D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		786FD0CD274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786FD0C3274FAB92008D6D8C /* Debug */,
+				786FD0C4274FAB92008D6D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		786FD0CE274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786FD0C8274FAB92008D6D8C /* Debug */,
+				786FD0C9274FAB92008D6D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		786FD0CF274FAB92008D6D8C /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786FD0CA274FAB92008D6D8C /* Debug */,
+				786FD0CB274FAB92008D6D8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		788DEC69270AFDCA0033493B /* Build configuration list for PBXProject "CoolCurrency" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

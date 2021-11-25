@@ -9,12 +9,15 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import WatchConnectivity
 
 class HomeCurrencyViewController: UIViewController {
     
     @IBOutlet private weak var currencyPickerView: UIPickerView!
     @IBOutlet private weak var currencyTableView: UITableView!
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
+    
+    var watchSession: WCSession?
     
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
@@ -24,6 +27,7 @@ class HomeCurrencyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         activateActivityIndicatorView()
         currencyPickerView.setValue(AppColours.primaryPickerColour, forKeyPath: "textColor")
         viewModel.loadUserSettingsFromDatabase()
