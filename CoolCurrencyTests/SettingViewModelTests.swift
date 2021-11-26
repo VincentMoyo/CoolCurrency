@@ -111,6 +111,15 @@ class SettingViewModelTests: XCTestCase {
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
+        
+        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
+            
+        }
+        
+        func retrieveUserScoreboards(completion: @escaping (Result<[LeadershipBoardDataModel], Error>) -> Void) {
+            
+        }
+        
         var response: Result<[String: String], Error> = .failure(MyErrors.retrieveError("error"))
         
         func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }

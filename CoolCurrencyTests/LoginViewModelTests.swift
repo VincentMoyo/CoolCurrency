@@ -31,11 +31,12 @@ class LoginViewModelTests: XCTestCase {
         XCTAssert(mockDelegate.showUserErrorCalled)
     }
     
-    class MockDelegate: ViewModelDelegate {
+    class MockDelegate: AuthenticationViewModelDelegate {
         var refreshCalled = false
         var showUserErrorCalled = false
         
         func showUserErrorMessage(error: Error) { showUserErrorCalled = true }
+        func stopActivityLoader() { refreshCalled = true }
         func bindViewModel() { refreshCalled = true }
     }
     

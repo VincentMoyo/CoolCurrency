@@ -23,6 +23,7 @@
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
 		7864C8C927463787005F4918 /* AppColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864C8C827463787005F4918 /* AppColours.swift */; };
+		786FD0D1274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */; };
 		7872C479274E99C900B49B3E /* LeadershipBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */; };
 		7872C47A274E99C900B49B3E /* LeadershipBoardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */; };
 		7875603B2733C886000EA79D /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875603A2733C886000EA79D /* LoginViewModelTests.swift */; };
@@ -100,6 +101,7 @@
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
 		7864C8C827463787005F4918 /* AppColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColours.swift; sourceTree = "<group>"; };
+		786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewModelTests.swift; sourceTree = "<group>"; };
 		7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardTableViewCell.swift; sourceTree = "<group>"; };
 		7872C478274E99C900B49B3E /* LeadershipBoardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeadershipBoardTableViewCell.xib; sourceTree = "<group>"; };
 		7875603A2733C886000EA79D /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				78021AC92732EA3A0045A828 /* SettingViewModelTests.swift */,
 				7875603A2733C886000EA79D /* LoginViewModelTests.swift */,
 				7875603C2733D07F000EA79D /* RegisterViewModelTests.swift */,
+				786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */,
 			);
 			path = CoolCurrencyTests;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7875603B2733C886000EA79D /* LoginViewModelTests.swift in Sources */,
+				786FD0D1274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift in Sources */,
 				7828E6D927145BCC00507B79 /* CurrencyResponseModelTests.swift in Sources */,
 				788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */,
 				7875603D2733D07F000EA79D /* RegisterViewModelTests.swift in Sources */,

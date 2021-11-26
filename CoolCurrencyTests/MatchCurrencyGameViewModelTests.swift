@@ -1,69 +1,23 @@
 //
-//  CurrencyViewModelTest.swift
+//  MatchCurrencyGameViewModelTests.swift
 //  CoolCurrencyTests
 //
-//  Created by Vincent Moyo on 2021/10/11.
+//  Created by Vincent Moyo on 2021/11/25.
 //
 
 import XCTest
 @testable import CoolCurrency
 
-class CurrencyViewModelTests: XCTestCase {
-    
-    private var implementationUnderTests: CurrencyViewModel!
+class MatchCurrencyGameViewModelTests: XCTestCase {
+
+    private var implementationUnderTests: MatchCurrencyGameViewModel!
     private var mockDelegate: MockDelegate!
-    private var mockRepository: MockRepository!
     
-    override func setUp() {
+    override func setUpWithError() throws {
         mockDelegate = MockDelegate()
-        mockRepository = MockRepository()
-        implementationUnderTests = CurrencyViewModel(repository: mockRepository,
-                                                     authentication: MockAuthenticationRepository(),
-                                                     database: MockDatabaseRepository(),
-                                                     delegate: mockDelegate)
-    }
-    
-    func testFetchCurrencySuccess() {
-        setUpMockResponse()
-        XCTAssertEqual(14, implementationUnderTests.currencyList.values.count)
-        XCTAssert(mockDelegate.refreshCalled)
-    }
-    
-    func testFetchCurrencyFailure() {
-        implementationUnderTests.fetchCurrencyListFromAPI(for: "ZAR")
-        XCTAssert(mockDelegate.showUserErrorCalled)
-    }
-    
-    func testConvertCurrencyToCodeSuccess() {
-        XCTAssertEqual("ZAR", implementationUnderTests.convertCurrencyToCode(for: "Rand"))
-    }
-    
-    func testCurrencyModelReturnsCorrectValue() {
-        setUpMockResponse()
-        XCTAssertEqual("Rand", implementationUnderTests.currencyDataModel(at: 1)?.currencyName)
-    }
-    
-    func setUpMockResponse() {
-        mockRepository.response = .success(mockData)
-        implementationUnderTests.fetchCurrencyListFromAPI(for: "ZAR")
-    }
-    
-    private var mockData: CurrencyResponseModel {
-        CurrencyResponseModel(response: Response(base: "ZAR",
-                                                 rates: Rates(unitedStatesDollar: 1.1,
-                                                              euro: 1.1,
-                                                              indianRupee: 1.1,
-                                                              bostwanaPula: 1.1,
-                                                              canadianDollar: 1.1,
-                                                              ghanaCedi: 1.1,
-                                                              greatBritishPound: 1.1,
-                                                              japaneseYen: 1.1,
-                                                              russianRuble: 1.1,
-                                                              chineseYuan: 1.1,
-                                                              southAfricanRand: 1.1,
-                                                              unitedArabDirham: 1.1,
-                                                              brazilianReal: 1.1,
-                                                              australianDollar: 1.1)))
+        implementationUnderTests = MatchCurrencyGameViewModel(databaseRepository: MockDatabaseRepository(),
+                                                              authenticationRepository: MockAuthenticationRepository(),
+                                                              delegate: mockDelegate)
     }
     
     class MockDelegate: ViewModelDelegate {
@@ -72,13 +26,6 @@ class CurrencyViewModelTests: XCTestCase {
         
         func showUserErrorMessage(error: Error) { showUserErrorCalled = true }
         func bindViewModel() { refreshCalled = true }
-    }
-    
-    class MockRepository: CurrencyRepositable {
-        var response: Result<CurrencyResponseModel, Error> = .failure(MyErrors.retrieveError("error"))
-        func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
-            completion(response)
-        }
     }
     
     class MockAuthenticationRepository: AuthenticationRepositable {
@@ -94,13 +41,11 @@ class CurrencyViewModelTests: XCTestCase {
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
-        
         func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
             
         }
         
         func retrieveUserScoreboards(completion: @escaping (Result<[LeadershipBoardDataModel], Error>) -> Void) {
-            
         }
         
         var response: Result<[String: String], Error> = .failure(MyErrors.retrieveError("error"))
@@ -118,6 +63,6 @@ class CurrencyViewModelTests: XCTestCase {
         func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse) { }
         func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) { }
         func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) { }
-        func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) { }
+        func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) { completion(response) }
     }
 }

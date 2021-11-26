@@ -31,15 +31,18 @@ class RegisterViewModelTests: XCTestCase {
         XCTAssert(mockDelegate.showUserErrorCalled)
     }
     
-    class MockDelegate: ViewModelDelegate {
+    class MockDelegate: AuthenticationViewModelDelegate {
         var refreshCalled = false
         var showUserErrorCalled = false
         
         func showUserErrorMessage(error: Error) { showUserErrorCalled = true }
+        func stopActivityLoader() { refreshCalled = true }
         func bindViewModel() { refreshCalled = true }
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
+        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) { }
+        func retrieveUserScoreboards(completion: @escaping (Result<[LeadershipBoardDataModel], Error>) -> Void) { }
         func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }
         func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse) { }
         func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) { }
