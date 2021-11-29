@@ -96,18 +96,18 @@ class SettingViewModelTests: XCTestCase {
     
     class MockAuthenticationRepository: AuthenticationRepositable {
         var signOutSuccess = true
-        
+        var checkIfUserAlreadySignedIn: Bool { return true }
         var errorResponse: Result<Bool, Error> = .failure(MyErrors.retrieveError("error"))
+        
         func registerUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
+        func signedInUserIdentification() -> String { "" }
+        func signInUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
         func resetEmailToDatabase(newEmail email: String, completion: @escaping DatabaseResponse) {
             email.contains(".com") && email.contains("@") == true ? completion(.success(true)) : completion(errorResponse)
         }
-        func signInUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
         func signOutUser(completion: @escaping DatabaseResponse) {
             signOutSuccess == true ? completion(.success(true)) : completion(errorResponse)
         }
-        func signedInUserIdentification() -> String { "" }
-        var checkIfUserAlreadySignedIn: Bool { return true }
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
@@ -126,8 +126,8 @@ class SettingViewModelTests: XCTestCase {
         func performProfilePictureRequest(for urlString: String, completion: @escaping ProfilePictureResponse) { }
         func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) { }
         func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) { }
-        func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) {
-            completion(response)
-        }
+        func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) { completion(response) }
+        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) { }
+        func retrieveUserScoreboards(completion: @escaping (Result<[LeadershipBoardDataModel], Error>) -> Void) { }
     }
 }

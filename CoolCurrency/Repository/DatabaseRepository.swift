@@ -87,9 +87,7 @@ class DatabaseRepository: DatabaseRepositable {
                 }
             }
             self.dispatchGroup.notify(queue: DispatchQueue.main, work: completionLeaderBoardItem)
-            // swiftlint:disable multiple_closures_with_trailing_closure
         }) {(error) in
-            // swiftlint:enable multiple_closures_with_trailing_closure
             completion(.failure(error))
         }
     }
