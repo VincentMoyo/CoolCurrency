@@ -86,6 +86,7 @@ class MatchCurrencyGameViewModelTests: XCTestCase {
     
     class MockAuthenticationRepository: AuthenticationRepositable {
         var signOutSuccess = true
+        var checkIfUserAlreadySignedIn: Bool {return true}
         
         var errorResponse: Result<Bool, Error> = .failure(MyErrors.retrieveError("error"))
         func registerUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
@@ -93,18 +94,12 @@ class MatchCurrencyGameViewModelTests: XCTestCase {
         func signInUser(_ email: String, _ password: String, completion: @escaping DatabaseResponse) { }
         func signOutUser(completion: @escaping DatabaseResponse) { }
         func signedInUserIdentification() -> String { "" }
-        var checkIfUserAlreadySignedIn: Bool {return true}
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
-        
         var response: Result<[String: String], Error> = .failure(MyErrors.retrieveError("error"))
-        
         var userScoreResponse: Result<Bool, Error> = .failure(MyErrors.retrieveError("error"))
         
-        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
-            completion(userScoreResponse)
-        }
         func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }
         func updateFirstNameUserInformationToDatabase(SignedInUser userSettingsID: String, username firstName: String, completion: @escaping DatabaseResponse) { }
         func updateLastNameUserInformationToDatabase(SignedInUser userSettingsID: String, userLastName lastName: String, completion: @escaping DatabaseResponse) { }
@@ -124,6 +119,9 @@ class MatchCurrencyGameViewModelTests: XCTestCase {
                                                           name: "Vincent",
                                                           correctAnswers: 6,
                                                           totalScore: 10)]))
+        }
+        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
+            completion(userScoreResponse)
         }
     }
 }

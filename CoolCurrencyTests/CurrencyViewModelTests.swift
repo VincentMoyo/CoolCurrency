@@ -76,9 +76,8 @@ class CurrencyViewModelTests: XCTestCase {
     
     class MockRepository: CurrencyRepositable {
         var response: Result<CurrencyResponseModel, Error> = .failure(MyErrors.retrieveError("error"))
-        func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) {
-            completion(response)
-        }
+        
+        func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel) { completion(response) }
     }
     
     class MockAuthenticationRepository: AuthenticationRepositable {
@@ -94,15 +93,6 @@ class CurrencyViewModelTests: XCTestCase {
     }
     
     class MockDatabaseRepository: DatabaseRepositable {
-        
-        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
-            
-        }
-        
-        func retrieveUserScoreboards(completion: @escaping (Result<[LeadershipBoardDataModel], Error>) -> Void) {
-            
-        }
-        
         var response: Result<[String: String], Error> = .failure(MyErrors.retrieveError("error"))
         
         func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) { }
@@ -119,5 +109,7 @@ class CurrencyViewModelTests: XCTestCase {
         func updateUserSettingsGender(SignedInUser userSettingsID: String, userGender gender: String) { }
         func updateUserSettingsDateOfBirth(SignedInUser userSettingsID: String, DOB: String) { }
         func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping (Result<[String: String], Error>) -> Void) { }
+        func updateUsersScoreboard(SignedInUser number: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) { }
+        func retrieveUserScoreboards(completion: @escaping (Result<[LeadershipBoardDataModel], Error>) -> Void) { }
     }
 }
