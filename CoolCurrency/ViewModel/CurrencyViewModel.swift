@@ -90,6 +90,26 @@ class CurrencyViewModel: CurrencyViewModiable {
                                  currencyIncreaseIndicator: indicatorIncreased(at: index),
                                  currencyValue: String(newCurrencyValue))
     }
+
+    func currencyDataModelForWatchApp() -> [String: [String]]? {
+        var currencyListForWatchApp: [String: [String]] = [:]
+        
+        currencyList.forEach { (key: String, value: Double) in
+            currencyListForWatchApp[key] = [retrieveFlagIndicatorName(for: checkSomething(for: key)), String(value)]
+        }
+        
+        return currencyListForWatchApp
+    }
+    
+    private func retrieveFlagIndicatorName(for flagName: Int) -> String {
+        if flagName == 1 {
+            return "greyArrow"
+        } else if flagName == 2 {
+            return "greenArrow"
+        } else {
+            return "redArrow"
+        }
+    }
     
     func convertCurrencyToCode(for currency: String) -> String {
         let newCurrency = CurrencyName(rawValue: currency)
@@ -132,6 +152,16 @@ class CurrencyViewModel: CurrencyViewModiable {
             if settings.key == "DefaultCurrency" {
                 defaultCurrency = settings.value
             }
+        }
+    }
+    
+    private func checkSomething(for value: String) -> Int {
+        if currencyList[value] ?? 0.0 < previousCurrencyList[value] ?? 0.0 {
+            return 0
+        } else if currencyList[value] == previousCurrencyList[value] {
+            return 1
+        } else {
+            return 2
         }
     }
     

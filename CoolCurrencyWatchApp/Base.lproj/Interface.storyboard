@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch41"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CoolCurrencyWatchApp" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="Exchange Rates" id="Ang-6n-4FM">
+                            <connections>
+                                <action selector="exchangeRatePressed" destination="AgC-eL-Hgc" id="kmP-gX-yX2"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Crypto" id="ZX5-gF-8Ly">
+                            <connections>
+                                <action selector="cryptoPressed" destination="AgC-eL-Hgc" id="d8V-SQ-9cX"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Precious Minerals" id="5jE-j7-HAi">
+                            <connections>
+                                <action selector="mineralsPressed" destination="AgC-eL-Hgc" id="Ti4-6O-8OE"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="48.68181818181818" y="-10.674418604651164"/>
+        </scene>
+        <!--rates-->
+        <scene sceneID="wzs-OE-U2I">
+            <objects>
+                <controller identifier="rates" id="XU2-uE-rCb" customClass="ExchangeRatesInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="e5a-mU-FS1">
+                            <items>
+                                <tableRow identifier="currencyCell" id="fBx-3N-aNn" customClass="RowController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="52H-cU-EaD">
+                                        <items>
+                                            <label width="66" alignment="left" verticalAlignment="center" text="ZAR" textAlignment="justified" id="w6k-Vy-iou">
+                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            </label>
+                                            <imageView width="21" height="23" alignment="left" verticalAlignment="center" image="greenArrow" id="en8-nt-AeL">
+                                                <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <label width="71" alignment="left" verticalAlignment="center" text="15.00" textAlignment="right" id="rfq-qF-ArG"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="currencyCodeLabel" destination="w6k-Vy-iou" id="ZsG-De-yAa"/>
+                                        <outlet property="currencyIndicator" destination="en8-nt-AeL" id="duO-2v-OOq"/>
+                                        <outlet property="currencyValueLabel" destination="rfq-qF-ArG" id="Uvf-8I-qT4"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="currencyTable" destination="e5a-mU-FS1" id="cR7-zE-NSq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="311.40909090909088" y="-322.2093023255814"/>
+        </scene>
+        <!--crypto-->
+        <scene sceneID="iue-uu-LLz">
+            <objects>
+                <controller identifier="crypto" id="mTA-F3-Spc">
+                    <items>
+                        <label alignment="left" text="crypto" id="cq6-p7-adR"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="318" y="-30"/>
+        </scene>
+        <!--minerals-->
+        <scene sceneID="Qmm-8P-qcp">
+            <objects>
+                <controller identifier="minerals" id="eGl-kK-I56">
+                    <items>
+                        <label alignment="left" text="Gold" id="JaC-WT-dtO"/>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="318" y="253"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="greenArrow" width="225" height="225"/>
+    </resources>
+</document>
