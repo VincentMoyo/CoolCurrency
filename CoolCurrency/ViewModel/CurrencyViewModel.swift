@@ -101,16 +101,6 @@ class CurrencyViewModel: CurrencyViewModiable {
         return currencyListForWatchApp
     }
     
-    private func retrieveFlagIndicatorName(for flagName: Int) -> String {
-        if flagName == 1 {
-            return "greyArrow"
-        } else if flagName == 2 {
-            return "greenArrow"
-        } else {
-            return "redArrow"
-        }
-    }
-    
     func convertCurrencyToCode(for currency: String) -> String {
         let newCurrency = CurrencyName(rawValue: currency)
         switch newCurrency {
@@ -210,6 +200,16 @@ class CurrencyViewModel: CurrencyViewModiable {
             return "BrazilianFlag"
         case .australianDollar:
             return "AustralianFlag"
+        }
+    }
+    
+    private func retrieveFlagIndicatorName(for flagName: Int) -> String {
+        if flagName == 1 {
+            return "greyArrow"
+        } else if flagName == 2 {
+            return "greenArrow"
+        } else {
+            return "redArrow"
         }
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import WatchConnectivity
 
 class MatchCurrencyGameViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class MatchCurrencyGameViewController: UIViewController {
     @IBOutlet private weak var scoreBoard: UIView!
     @IBOutlet private weak var leadershipBoardTableView: UITableView!
     
+    private var watchSession: WCSession?
     private lazy var viewModel = MatchCurrencyGameViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
                                                                                                    storageReference: Storage.storage().reference()),
                                                             authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
@@ -31,6 +33,10 @@ class MatchCurrencyGameViewController: UIViewController {
         viewModel.loadUserSettingsFromDatabase()
         setPickerViewMethods()
         setTableViewMethods()
+        
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
     }
     
     private func setPickerViewMethods() {
@@ -152,5 +158,30 @@ extension MatchCurrencyGameViewController: ViewModelDelegate {
     func bindViewModel() {
         self.viewModel.resetPosition()
         self.leadershipBoardTableView.reloadData()
+        self.sendMessage()
+    }
+}
+
+// MARK: - Watch Session Functions
+extension MatchCurrencyGameViewController: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    func sessionDidDeactivate(_ session: WCSession) { }
+    
+    private func sendMessage() {
+        watchSession?.sendMessage(viewModel.leadershipBoardForWatchApp() ?? ["Not Set": ["1", "Not Set", "Not Set"]],
+                                  replyHandler: nil,
+                                  errorHandler: nil)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        DispatchQueue.main.async {
+            if let value = message["getScores"] as? Bool {
+                if value {
+                    self.viewModel.loadUserSettingsFromDatabase()
+                }
+            }
+        }
     }
 }

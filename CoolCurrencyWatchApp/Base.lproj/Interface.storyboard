@@ -26,10 +26,15 @@
                                 <action selector="mineralsPressed" destination="AgC-eL-Hgc" id="Ti4-6O-8OE"/>
                             </connections>
                         </button>
+                        <button width="1" alignment="left" title="Leadership Board" id="Fyh-Ep-3hd">
+                            <connections>
+                                <action selector="leadershipBoardPressed" destination="AgC-eL-Hgc" id="dUi-Rw-xZC"/>
+                            </connections>
+                        </button>
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="48.68181818181818" y="-10.674418604651164"/>
+            <point key="canvasLocation" x="39" y="-30"/>
         </scene>
         <!--rates-->
         <scene sceneID="wzs-OE-U2I">
@@ -38,16 +43,16 @@
                     <items>
                         <table alignment="left" id="e5a-mU-FS1">
                             <items>
-                                <tableRow identifier="currencyCell" id="fBx-3N-aNn" customClass="RowController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                                <tableRow identifier="currencyCell" selectable="NO" id="fBx-3N-aNn" customClass="ExchangeRateRowController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
                                     <group key="rootItem" width="1" alignment="left" id="52H-cU-EaD">
                                         <items>
-                                            <label width="66" alignment="left" verticalAlignment="center" text="ZAR" textAlignment="justified" id="w6k-Vy-iou">
+                                            <label width="66" alignment="left" verticalAlignment="center" text="." textAlignment="justified" id="w6k-Vy-iou">
                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                             </label>
                                             <imageView width="21" height="23" alignment="left" verticalAlignment="center" image="greenArrow" id="en8-nt-AeL">
                                                 <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
-                                            <label width="71" alignment="left" verticalAlignment="center" text="15.00" textAlignment="right" id="rfq-qF-ArG"/>
+                                            <label width="71" alignment="left" verticalAlignment="center" text="." textAlignment="right" id="rfq-qF-ArG"/>
                                         </items>
                                     </group>
                                     <connections>
@@ -64,32 +69,147 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="311.40909090909088" y="-322.2093023255814"/>
+            <point key="canvasLocation" x="566" y="-162"/>
         </scene>
         <!--crypto-->
         <scene sceneID="iue-uu-LLz">
             <objects>
-                <controller identifier="crypto" id="mTA-F3-Spc">
+                <controller identifier="crypto" id="mTA-F3-Spc" customClass="CryptoInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="crypto" id="cq6-p7-adR"/>
+                        <group width="1" height="30" alignment="left" id="d4O-iR-OLw">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Bitcoin" textAlignment="center" id="WJj-GH-NXz"/>
+                            </items>
+                            <color key="backgroundColor" white="0.14595083638924319" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="wbi-Y9-pKT">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="bitcoinLabel" id="OKW-tJ-CcC">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" alignment="left" verticalAlignment="center" text="0.0" textAlignment="center" id="cq6-p7-adR"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="Wg5-jj-BnH"/>
+                            </items>
+                        </group>
                     </items>
+                    <connections>
+                        <outlet property="bitcoinCurrencyCode" destination="Wg5-jj-BnH" id="Twk-q3-OOR"/>
+                        <outlet property="bitcoinValue" destination="cq6-p7-adR" id="gRh-eI-vDV"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="318" y="-30"/>
+            <point key="canvasLocation" x="311" y="-162"/>
+        </scene>
+        <!--leadershipBoard-->
+        <scene sceneID="KIs-Nc-HPz">
+            <objects>
+                <controller identifier="leadershipBoard" id="zkU-s8-yfZ" customClass="LeadershipBoardInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="30" alignment="left" id="sCy-js-yft">
+                            <items>
+                                <label width="40" alignment="left" verticalAlignment="center" text="No." textAlignment="left" id="6Sd-gQ-KvG"/>
+                                <label width="78" alignment="center" verticalAlignment="center" text="Name" textAlignment="left" id="HcL-zL-tKl"/>
+                                <label alignment="center" verticalAlignment="center" text="Score" textAlignment="left" id="nvo-Pv-hUH"/>
+                            </items>
+                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <table alignment="left" id="i4T-sR-h1b">
+                            <items>
+                                <tableRow identifier="leadershipBoardCell" selectable="NO" id="JEe-7a-9Rv" customClass="LeadershipBoardRowController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="W41-UH-Nau">
+                                        <items>
+                                            <label width="27" alignment="left" verticalAlignment="center" text="1." id="Sc5-Gs-PMc"/>
+                                            <label width="83" alignment="left" verticalAlignment="center" text="." id="NRi-8d-MPB"/>
+                                            <label alignment="left" verticalAlignment="center" text="." id="JTw-VK-5jR"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabel" destination="NRi-8d-MPB" id="VX6-KF-66k"/>
+                                        <outlet property="positionLabel" destination="Sc5-Gs-PMc" id="gEj-Ye-rQV"/>
+                                        <outlet property="scoreLabel" destination="JTw-VK-5jR" id="Df8-ES-p8K"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="leadershipBoardTable" destination="i4T-sR-h1b" id="d9n-cA-Shc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="311" y="127"/>
         </scene>
         <!--minerals-->
         <scene sceneID="Qmm-8P-qcp">
             <objects>
-                <controller identifier="minerals" id="eGl-kK-I56">
+                <controller identifier="minerals" id="eGl-kK-I56" customClass="PreciousMineralsInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
                     <items>
-                        <label alignment="left" text="Gold" id="JaC-WT-dtO"/>
+                        <group width="1" height="30" alignment="left" id="rRS-L2-XSO">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Gold" textAlignment="center" id="eq2-Jh-4CE"/>
+                            </items>
+                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="d56-kW-a79">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="GoldSymbol" id="vCf-9k-c7r">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" height="20" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="v5m-eT-YJb"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="iUd-dr-AGi"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" alpha="0.59999999999999998" id="d7Z-cK-Flo"/>
+                        <group width="1" height="30" alignment="left" id="Odd-eL-f48">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Platinum" textAlignment="center" id="421-Kh-Kmu"/>
+                            </items>
+                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="Cvb-zA-pty">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="PlatinumSysmbol" id="6Qn-yX-Z2T">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="mDn-Ig-j3D"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="zSs-wS-NcG"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" alpha="0.59999999999999998" id="ykJ-qI-6fc"/>
+                        <group width="1" height="30" alignment="left" id="x5j-kj-hNT">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Silver" textAlignment="center" id="jjV-VJ-eZE"/>
+                            </items>
+                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="Ks0-vg-Tsh">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="SilverSysmbol" id="MRK-OQ-4jo">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="pNs-Oe-3yv"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="HfC-sJ-gaa"/>
+                            </items>
+                        </group>
                     </items>
+                    <connections>
+                        <outlet property="goldUnitSymbol" destination="iUd-dr-AGi" id="1PE-gs-qgd"/>
+                        <outlet property="goldValue" destination="v5m-eT-YJb" id="cwX-lM-i5D"/>
+                        <outlet property="platinumUnitSymbol" destination="zSs-wS-NcG" id="phj-f2-xQC"/>
+                        <outlet property="platinumValue" destination="mDn-Ig-j3D" id="vfJ-DA-c1h"/>
+                        <outlet property="silverUnitSymbol" destination="HfC-sJ-gaa" id="NGO-Yk-15k"/>
+                        <outlet property="silverValue" destination="pNs-Oe-3yv" id="gjs-YB-AaF"/>
+                    </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="318" y="253"/>
+            <point key="canvasLocation" x="566" y="162"/>
         </scene>
     </scenes>
     <resources>
+        <image name="GoldSymbol" width="244" height="245"/>
+        <image name="PlatinumSysmbol" width="245" height="246"/>
+        <image name="SilverSysmbol" width="244" height="246"/>
+        <image name="bitcoinLabel" width="800" height="533"/>
         <image name="greenArrow" width="225" height="225"/>
     </resources>
 </document>

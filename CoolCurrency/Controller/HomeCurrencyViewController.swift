@@ -18,7 +18,6 @@ class HomeCurrencyViewController: UIViewController {
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
     private var watchSession: WCSession?
-    
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
                                                    database: DatabaseRepository(databaseReference: Database.database().reference(),
@@ -118,21 +117,17 @@ extension HomeCurrencyViewController: ViewModelDelegate {
     }
 }
 
+// MARK: - Watch Session Functions
 extension HomeCurrencyViewController: WCSessionDelegate {
     
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { print("This is the error \(String(describing: error))") }
-    func sessionDidBecomeInactive(_ session: WCSession) { print("did become active") }
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    func sessionDidBecomeInactive(_ session: WCSession) { }
     func sessionDidDeactivate(_ session: WCSession) { }
     
     private func sendMessage() {
-        let array = [
-            "Not Set": ["greyArrow", "Not Set"]
-        ]
-        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? array, replyHandler: nil, errorHandler: nil)
-    }
-    
-    private func resetBackgroundColour(action: UIAlertAction! = nil) {
-        view.backgroundColor = AppColours.primaryBackgroundColour
+        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? ["Not Set": ["greyArrow", "Not Set"]],
+                                  replyHandler: nil,
+                                  errorHandler: nil)
     }
     
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {

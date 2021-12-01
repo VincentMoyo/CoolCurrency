@@ -9,6 +9,7 @@ import UIKit
 import CoolCurrencyFramework
 import FirebaseAuth
 import FirebaseDatabase
+import WatchConnectivity
 
 class CryptoAndMetalViewController: UIViewController {
     
@@ -23,6 +24,7 @@ class CryptoAndMetalViewController: UIViewController {
     @IBOutlet private weak var silverUnitMeasurement: UILabel!
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
+    private var watchSession: WCSession?
     private lazy var viewModel = CryptoAndMetalViewModel(repositoryCryptoAndMetals: CryptoAndMetalsRepositorys(),
                                                          database: CryptoDatabaseRepository(databaseReference: Database.database().reference()),
                                                          authentication: CryptoAuthenticationRepository(authenticationReference: Auth.auth()),
@@ -35,6 +37,10 @@ class CryptoAndMetalViewController: UIViewController {
         currencyPicker.dataSource = self
         currencyPicker.setValue(AppColours.primaryPickerColour, forKeyPath: "textColor")
         viewModel.loadDefaultCurrency()
+        
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
@@ -81,5 +87,38 @@ extension CryptoAndMetalViewController: ViewModelDelegates {
         silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver
         goldValueLabel.text = viewModel.retrieveRoundedOffPriceOfGold
         activityLoader.stopAnimating()
+        sendBitcoinMessage()
+        sendPreciousMinerals()
+    }
+}
+
+// MARK: - Watch Session Functions
+extension CryptoAndMetalViewController: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    func sessionDidDeactivate(_ session: WCSession) { }
+    
+    private func sendBitcoinMessage() {
+        watchSession?.sendMessage(viewModel.retrieveBitcoinArray, replyHandler: nil, errorHandler: nil)
+    }
+    
+    private func sendPreciousMinerals() {
+        watchSession?.sendMessage(viewModel.retrievePreciousMineralsArray, replyHandler: nil, errorHandler: nil)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        DispatchQueue.main.async {
+            if let value = message["getBitcoinRate"] as? Bool {
+                if value {
+                    self.viewModel.fetchBitcoinPrice(for: self.viewModel.selectedCurrency)
+                }
+            }
+            if let value = message["getPreciousMinerals"] as? Bool {
+                if value {
+                    self.viewModel.fetchPriceOfMetals(for: self.viewModel.selectedCurrency)
+                }
+            }
+        }
     }
 }

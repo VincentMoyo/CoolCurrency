@@ -7,26 +7,13 @@
 
 import WatchKit
 import Foundation
-import WatchConnectivity
 import UIKit
 
 class InterfaceController: WKInterfaceController {
     
-    private var watchSession: WCSession?
-    
-    override func awake(withContext context: Any?) {
-        watchSession = WCSession.default
-        watchSession?.delegate = self
-        watchSession?.activate()
-    }
-    
-    override func willActivate() {
-        
-    }
-    
-    override func didDeactivate() {
-        
-    }
+    override func awake(withContext context: Any?) { }
+    override func willActivate() { }
+    override func didDeactivate() { }
     
     func alertAction(for currency: String) -> WKAlertAction {
         let rateController = { self.pushController(withName: "rates", context: currency) }
@@ -73,15 +60,10 @@ class InterfaceController: WKInterfaceController {
     }
     
     @IBAction func mineralsPressed() {
+        self.pushController(withName: "minerals", context: nil)
     }
-}
-
-extension InterfaceController: WCSessionDelegate {
-    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
     
-    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-        if let message = message["iPhoneMessage"] as? String {
-            print(message)
-        }
+    @IBAction func leadershipBoardPressed() {
+        self.pushController(withName: "leadershipBoard", context: nil)
     }
 }

@@ -125,6 +125,18 @@ class MatchCurrencyGameViewModel {
                                         totalScore: sortedData[index].totalScore)
     }
     
+    func leadershipBoardForWatchApp() -> [String: [String]]? {
+        var sortedData: [String: [String]] = [:]
+        var counter = 0
+        for userItem in retrieveLoadScoreboardLeaders {
+            counter += 1
+            sortedData[userItem.name] = [String(counter),
+                                         String(userItem.correctAnswers),
+                                         String(userItem.totalScore)]
+        }
+        return sortedData
+    }
+    
     func shouldDisplayFinalAnswer() -> Bool {
         counter += 1
         if counter < 5 {

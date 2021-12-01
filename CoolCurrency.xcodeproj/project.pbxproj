@@ -22,7 +22,7 @@
 		7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */; };
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
-		785E48422754E7050038FA6C /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785E48412754E7050038FA6C /* RowController.swift */; };
+		785E48422754E7050038FA6C /* ExchangeRateRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785E48412754E7050038FA6C /* ExchangeRateRowController.swift */; };
 		785E4844275517790038FA6C /* ExchangeRatesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785E4843275517790038FA6C /* ExchangeRatesInterfaceController.swift */; };
 		7864C8C927463787005F4918 /* AppColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864C8C827463787005F4918 /* AppColours.swift */; };
 		786FD0D1274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */; };
@@ -73,6 +73,10 @@
 		78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5F0292720427400E10B6B /* DatabaseRepository.swift */; };
 		78C8FFA42743C5E500E5FF9A /* UserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */; };
 		78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D34C192731A43C0065A802 /* AuthenticationRepository.swift */; };
+		78E5EF2027577AA600FE647C /* PreciousMineralsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF1F27577AA600FE647C /* PreciousMineralsInterfaceController.swift */; };
+		78E5EF2227577AC500FE647C /* CryptoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */; };
+		78E5EF242757C71800FE647C /* LeadershipBoardRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */; };
+		78E5EF262757C9D900FE647C /* LeadershipBoardInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */; };
 		78F033DB274CF04D0093FB7A /* LeadershipBoardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -149,7 +153,7 @@
 		7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
-		785E48412754E7050038FA6C /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
+		785E48412754E7050038FA6C /* ExchangeRateRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRowController.swift; sourceTree = "<group>"; };
 		785E4843275517790038FA6C /* ExchangeRatesInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesInterfaceController.swift; sourceTree = "<group>"; };
 		7864C8C827463787005F4918 /* AppColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColours.swift; sourceTree = "<group>"; };
 		786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewModelTests.swift; sourceTree = "<group>"; };
@@ -208,6 +212,10 @@
 		78B5F0292720427400E10B6B /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
 		78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlerts.swift; sourceTree = "<group>"; };
 		78D34C192731A43C0065A802 /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
+		78E5EF1F27577AA600FE647C /* PreciousMineralsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciousMineralsInterfaceController.swift; sourceTree = "<group>"; };
+		78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoInterfaceController.swift; sourceTree = "<group>"; };
+		78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardRowController.swift; sourceTree = "<group>"; };
+		78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardInterfaceController.swift; sourceTree = "<group>"; };
 		78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardDataModel.swift; sourceTree = "<group>"; };
 		7D7F7199E279B90E5957E0C8 /* Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		86C31FA7A22B7A22CB4B916C /* Pods-CoolCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.debug.xcconfig"; sourceTree = "<group>"; };
@@ -471,8 +479,12 @@
 				78971AA32754C4FA00D0E64A /* ComplicationController.swift */,
 				78971AA52754C4FB00D0E64A /* Assets.xcassets */,
 				78971AA72754C4FB00D0E64A /* Info.plist */,
-				785E48412754E7050038FA6C /* RowController.swift */,
+				785E48412754E7050038FA6C /* ExchangeRateRowController.swift */,
 				785E4843275517790038FA6C /* ExchangeRatesInterfaceController.swift */,
+				78E5EF1F27577AA600FE647C /* PreciousMineralsInterfaceController.swift */,
+				78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */,
+				78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */,
+				78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */,
 			);
 			path = "CoolCurrencyWatchApp WatchKit Extension";
 			sourceTree = "<group>";
@@ -894,8 +906,12 @@
 			files = (
 				78971AA22754C4FA00D0E64A /* ExtensionDelegate.swift in Sources */,
 				785E4844275517790038FA6C /* ExchangeRatesInterfaceController.swift in Sources */,
+				78E5EF242757C71800FE647C /* LeadershipBoardRowController.swift in Sources */,
+				78E5EF262757C9D900FE647C /* LeadershipBoardInterfaceController.swift in Sources */,
+				78E5EF2027577AA600FE647C /* PreciousMineralsInterfaceController.swift in Sources */,
 				78971AA02754C4FA00D0E64A /* InterfaceController.swift in Sources */,
-				785E48422754E7050038FA6C /* RowController.swift in Sources */,
+				78E5EF2227577AC500FE647C /* CryptoInterfaceController.swift in Sources */,
+				785E48422754E7050038FA6C /* ExchangeRateRowController.swift in Sources */,
 				78971AA42754C4FA00D0E64A /* ComplicationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

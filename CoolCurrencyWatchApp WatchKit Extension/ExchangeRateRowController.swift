@@ -8,7 +8,7 @@
 import UIKit
 import WatchKit
 
-class RowController: NSObject {
+class ExchangeRateRowController: NSObject {
     @IBOutlet var currencyCodeLabel: WKInterfaceLabel!
     @IBOutlet var currencyValueLabel: WKInterfaceLabel!
     @IBOutlet var currencyIndicator: WKInterfaceImage!
