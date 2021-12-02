@@ -156,9 +156,12 @@ class CurrencyViewModel: CurrencyViewModiable {
     }
     
     private func checkForChangeInCurrencyRate(for value: String) -> Int {
-        if currencyList[value] ?? 0.0 < previousCurrencyList[value] ?? 0.0 {
+        guard let currentValue = currencyList[value],
+              let previousValue = previousCurrencyList[value] else { return 1 }
+        
+        if currentValue < previousValue {
             return 0
-        } else if currencyList[value] == previousCurrencyList[value] {
+        } else if currentValue == previousValue {
             return 1
         } else {
             return 2
