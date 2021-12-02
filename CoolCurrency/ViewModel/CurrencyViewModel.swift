@@ -24,6 +24,12 @@ enum CurrencyName: String {
     case australianDollar
 }
 
+enum CheckChangeCurrentRate: String {
+    case increased
+    case equal
+    case decreased
+}
+
 class CurrencyViewModel: CurrencyViewModiable {
     
     var selectedCurrency: String?
@@ -160,11 +166,22 @@ class CurrencyViewModel: CurrencyViewModiable {
               let previousValue = previousCurrencyList[value] else { return 1 }
         
         if currentValue < previousValue {
-            return 0
+            return retrieveNumberChangeInRate(at: CheckChangeCurrentRate.decreased)
         } else if currentValue == previousValue {
-            return 1
+            return retrieveNumberChangeInRate(at: CheckChangeCurrentRate.equal)
         } else {
+            return retrieveNumberChangeInRate(at: CheckChangeCurrentRate.increased)
+        }
+    }
+    
+    private func retrieveNumberChangeInRate(at counterCheck: CheckChangeCurrentRate) -> Int {
+        switch counterCheck {
+        case .increased:
             return 2
+        case .equal:
+            return 1
+        case .decreased:
+            return 0
         }
     }
     
