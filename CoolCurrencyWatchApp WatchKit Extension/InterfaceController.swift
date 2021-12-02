@@ -15,44 +15,34 @@ class InterfaceController: WKInterfaceController {
     override func willActivate() { }
     override func didDeactivate() { }
     
-    func alertAction(for currency: String) -> WKAlertAction {
-        let rateController = { self.pushController(withName: "rates", context: currency) }
-        return WKAlertAction(title: currency, style: .default, handler: rateController)
-    }
+    let currencyArray = [
+        "Pound",
+        "Dollar",
+        "Rupee",
+        "Pula",
+        "canadianDollar",
+        "Cedi",
+        "Rand",
+        "Yen",
+        "Ruble",
+        "Yuan",
+        "euros",
+        "Dirham",
+        "Real",
+        "australianDollar"
+    ]
     
     @IBAction func exchangeRatePressed() {
         
-        let poundCurrencyAction = alertAction(for: "Pound")
-        let dollarCurrencyAction = alertAction(for: "Dollar")
-        let rupeeCurrencyAction = alertAction(for: "Rupee")
-        let pulaCurrencyAction = alertAction(for: "Pula")
-        let canadianDollarCurrencyAction = alertAction(for: "canadianDollar")
-        let cediCurrencyAction = alertAction(for: "Cedi")
-        let randCurrencyAction = alertAction(for: "Rand")
-        let yenCurrencyAction = alertAction(for: "Yen")
-        let rubleCurrencyAction = alertAction(for: "Ruble")
-        let yuanCurrencyAction = alertAction(for: "Yuan")
-        let eurosCurrencyAction = alertAction(for: "euros")
-        let dirhamCurrencyAction = alertAction(for: "Dirham")
-        let realCurrencyAction = alertAction(for: "Real")
-        let autralianDollarCurrencyAction = alertAction(for: "australianDollar")
+        var actions: [WKAlertAction] = []
+        
+        for currency in currencyArray {
+            actions.append(alertAction(for: currency))
+        }
         
         presentAlert(withTitle: "Choose Currency",
                      message: "Select Default Currency",
-                     preferredStyle: .alert, actions: [poundCurrencyAction,
-                                                       dollarCurrencyAction,
-                                                       rupeeCurrencyAction,
-                                                       pulaCurrencyAction,
-                                                       canadianDollarCurrencyAction,
-                                                       cediCurrencyAction,
-                                                       randCurrencyAction,
-                                                       yenCurrencyAction,
-                                                       rubleCurrencyAction,
-                                                       yuanCurrencyAction,
-                                                       eurosCurrencyAction,
-                                                       dirhamCurrencyAction,
-                                                       realCurrencyAction,
-                                                       autralianDollarCurrencyAction])
+                     preferredStyle: .alert, actions: actions)
     }
     
     @IBAction func cryptoPressed() {
@@ -65,5 +55,10 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func leadershipBoardPressed() {
         self.pushController(withName: "leadershipBoard", context: nil)
+    }
+    
+    private func alertAction(for currency: String) -> WKAlertAction {
+        let rateController = { self.pushController(withName: "rates", context: currency) }
+        return WKAlertAction(title: currency, style: .default, handler: rateController)
     }
 }

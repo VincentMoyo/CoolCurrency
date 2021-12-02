@@ -100,9 +100,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel.selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
-        viewModel.setPrimaryCurrencyCode(for: viewModel.retrieveSelectedCurrency)
-        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
+        viewModel.updateExchangeRateInformation()
     }
 }
 
@@ -133,10 +131,9 @@ extension HomeCurrencyViewController: WCSessionDelegate {
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         DispatchQueue.main.async {
             if let value = message["getExchangeRate"] as? String {
+                self.activateActivityIndicatorView()
                 self.viewModel.selectedCurrency = value
-                self.viewModel.fetchCurrencyListFromDatabase(for: self.viewModel.convertCurrencyToCode(for: self.viewModel.retrieveSelectedCurrency))
-                self.viewModel.setPrimaryCurrencyCode(for: self.viewModel.retrieveSelectedCurrency)
-                self.viewModel.fetchCurrencyListFromAPI(for: self.viewModel.convertCurrencyToCode(for: self.viewModel.retrieveSelectedCurrency))
+                self.viewModel.updateExchangeRateInformation()
             }
         }
     }
