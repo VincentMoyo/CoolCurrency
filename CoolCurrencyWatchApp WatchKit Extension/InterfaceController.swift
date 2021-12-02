@@ -34,11 +34,7 @@ class InterfaceController: WKInterfaceController {
     
     @IBAction func exchangeRatePressed() {
         
-        var actions: [WKAlertAction] = []
-        
-        for currency in currencyArray {
-            actions.append(alertAction(for: currency))
-        }
+        let actions = currencyArray.map({ alertAction(for: $0) })
         
         presentAlert(withTitle: "Choose Currency",
                      message: "Select Default Currency",

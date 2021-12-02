@@ -9,7 +9,14 @@ import UIKit
 import WatchKit
 
 class LeadershipBoardRowController: NSObject {
-    @IBOutlet var positionLabel: WKInterfaceLabel!
-    @IBOutlet var nameLabel: WKInterfaceLabel!
-    @IBOutlet var scoreLabel: WKInterfaceLabel!
+    
+    @IBOutlet private var positionLabel: WKInterfaceLabel!
+    @IBOutlet private var nameLabel: WKInterfaceLabel!
+    @IBOutlet private var scoreLabel: WKInterfaceLabel!
+    
+    func configure(with model: LeaderBoardDataModel) {
+        positionLabel.setText(model.position)
+        nameLabel.setText(model.name)
+        scoreLabel.setText(model.score)
+    }
 }

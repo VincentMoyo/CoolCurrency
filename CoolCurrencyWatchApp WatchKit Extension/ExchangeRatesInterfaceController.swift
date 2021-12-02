@@ -43,9 +43,10 @@ extension ExchangeRatesInterfaceController: WCSessionDelegate {
             var counter = 0
             for _ in messages {
                 let row = currencyTable.rowController(at: counter) as? ExchangeRateRowController
-                row?.currencyCodeLabel.setText(Array(messages.keys)[counter])
-                row?.currencyValueLabel.setText(Array(messages.values)[counter][1])
-                row?.currencyIndicator.setImageNamed(Array(messages.values)[counter][0])
+                let newModel = ExchangeRateDataModel(currencyCode: Array(messages.keys)[counter],
+                                                     currencyValue: Array(messages.values)[counter][1],
+                                                     currencyIndicator: Array(messages.values)[counter][0])
+                row?.configure(with: newModel)
                 counter += 1
             }
         }

@@ -46,9 +46,10 @@ extension LeadershipBoardInterfaceController: WCSessionDelegate {
             leadershipBoardTable.setNumberOfRows(sortedMessage.count, withRowType: "leadershipBoardCell")
             for _ in sortedMessage {
                 let row = leadershipBoardTable.rowController(at: counter) as? LeadershipBoardRowController
-                row?.nameLabel.setText("\(sortedMessage[counter].key)")
-                row?.positionLabel.setText("\(sortedMessage[counter].value[0]).")
-                row?.scoreLabel.setText("\(sortedMessage[counter].value[1])/\(sortedMessage[counter].value[2])")
+                let newModel = LeaderBoardDataModel(position: "\(sortedMessage[counter].value[0]).",
+                                                    name: "\(sortedMessage[counter].key)",
+                                                    score: "\(sortedMessage[counter].value[1])/\(sortedMessage[counter].value[2])")
+                row?.configure(with: newModel)
                 counter += 1
             }
         }

@@ -9,8 +9,15 @@ import UIKit
 import WatchKit
 
 class ExchangeRateRowController: NSObject {
-    @IBOutlet var currencyCodeLabel: WKInterfaceLabel!
-    @IBOutlet var currencyValueLabel: WKInterfaceLabel!
-    @IBOutlet var currencyIndicator: WKInterfaceImage!
+    
+    @IBOutlet private var currencyCodeLabel: WKInterfaceLabel!
+    @IBOutlet private var currencyValueLabel: WKInterfaceLabel!
+    @IBOutlet private var currencyIndicator: WKInterfaceImage!
+    
+    func configure(with model: ExchangeRateDataModel) {
+        currencyCodeLabel.setText(model.currencyCode)
+        currencyValueLabel.setText(model.currencyValue)
+        currencyIndicator.setImageNamed(model.currencyIndicator)
+    }
 }
  

@@ -39,6 +39,8 @@
 		7877D565272A9C2D003A2857 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D564272A9C2D003A2857 /* RegisterViewModel.swift */; };
 		7877D567272A9E76003A2857 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D566272A9E76003A2857 /* LoginViewController.swift */; };
 		787ADA5E270C38C9002494B1 /* CurrencyResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */; };
+		787E25732759018D005A61B2 /* ExchangeRateDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E25722759018D005A61B2 /* ExchangeRateDataModel.swift */; };
+		787E25752759051C005A61B2 /* LeaderBoardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E25742759051C005A61B2 /* LeaderBoardDataModel.swift */; };
 		7884FFDE272AA7B00005454A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884FFDD272AA7AF0005454A /* RegisterViewController.swift */; };
 		788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */; };
 		788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC71270AFDCA0033493B /* AppDelegate.swift */; };
@@ -170,6 +172,8 @@
 		7877D564272A9C2D003A2857 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7877D566272A9E76003A2857 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponseModel.swift; sourceTree = "<group>"; };
+		787E25722759018D005A61B2 /* ExchangeRateDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateDataModel.swift; sourceTree = "<group>"; };
+		787E25742759051C005A61B2 /* LeaderBoardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardDataModel.swift; sourceTree = "<group>"; };
 		7884FFDD272AA7AF0005454A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		788DEC6E270AFDCA0033493B /* CoolCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -485,6 +489,8 @@
 				78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */,
 				78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */,
 				78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */,
+				787E25722759018D005A61B2 /* ExchangeRateDataModel.swift */,
+				787E25742759051C005A61B2 /* LeaderBoardDataModel.swift */,
 			);
 			path = "CoolCurrencyWatchApp WatchKit Extension";
 			sourceTree = "<group>";
@@ -906,7 +912,9 @@
 			files = (
 				78971AA22754C4FA00D0E64A /* ExtensionDelegate.swift in Sources */,
 				785E4844275517790038FA6C /* ExchangeRatesInterfaceController.swift in Sources */,
+				787E25732759018D005A61B2 /* ExchangeRateDataModel.swift in Sources */,
 				78E5EF242757C71800FE647C /* LeadershipBoardRowController.swift in Sources */,
+				787E25752759051C005A61B2 /* LeaderBoardDataModel.swift in Sources */,
 				78E5EF262757C9D900FE647C /* LeadershipBoardInterfaceController.swift in Sources */,
 				78E5EF2027577AA600FE647C /* PreciousMineralsInterfaceController.swift in Sources */,
 				78971AA02754C4FA00D0E64A /* InterfaceController.swift in Sources */,
