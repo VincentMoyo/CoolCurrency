@@ -86,9 +86,9 @@ extension CryptoAndMetalViewController: ViewModelDelegates {
         platinumValueLabel.text = viewModel.retrieveRoundedOffPriceOfPlatinum
         silverValueLabel.text = viewModel.retrieveRoundedOffPriceOfSilver
         goldValueLabel.text = viewModel.retrieveRoundedOffPriceOfGold
-        activityLoader.stopAnimating()
         sendBitcoinMessage()
         sendPreciousMinerals()
+        activityLoader.stopAnimating()
     }
 }
 
@@ -111,11 +111,13 @@ extension CryptoAndMetalViewController: WCSessionDelegate {
         DispatchQueue.main.async {
             if let value = message["getBitcoinRate"] as? Bool {
                 if value {
+                    self.activateActivityIndicatorView()
                     self.viewModel.fetchBitcoinPrice(for: self.viewModel.selectedCurrency)
                 }
             }
             if let value = message["getPreciousMinerals"] as? Bool {
                 if value {
+                    self.activateActivityIndicatorView()
                     self.viewModel.fetchPriceOfMetals(for: self.viewModel.selectedCurrency)
                 }
             }

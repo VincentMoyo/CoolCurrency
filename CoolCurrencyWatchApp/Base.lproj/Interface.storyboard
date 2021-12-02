@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -12,21 +13,29 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CoolCurrencyWatchApp" customModuleProvider="target">
                     <items>
                         <button width="1" alignment="left" title="Exchange Rates" id="Ang-6n-4FM">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
                             <connections>
                                 <action selector="exchangeRatePressed" destination="AgC-eL-Hgc" id="kmP-gX-yX2"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="Crypto" id="ZX5-gF-8Ly">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
                             <connections>
                                 <action selector="cryptoPressed" destination="AgC-eL-Hgc" id="d8V-SQ-9cX"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="Precious Minerals" id="5jE-j7-HAi">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
                             <connections>
                                 <action selector="mineralsPressed" destination="AgC-eL-Hgc" id="Ti4-6O-8OE"/>
                             </connections>
                         </button>
                         <button width="1" alignment="left" title="Leadership Board" id="Fyh-Ep-3hd">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
                             <connections>
                                 <action selector="leadershipBoardPressed" destination="AgC-eL-Hgc" id="dUi-Rw-xZC"/>
                             </connections>
@@ -47,13 +56,17 @@
                                     <group key="rootItem" width="1" alignment="left" id="52H-cU-EaD">
                                         <items>
                                             <label width="66" alignment="left" verticalAlignment="center" text="." textAlignment="justified" id="w6k-Vy-iou">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="font" style="UICTFontTextStyleBody"/>
                                             </label>
-                                            <imageView width="21" height="23" alignment="left" verticalAlignment="center" image="greenArrow" id="en8-nt-AeL">
+                                            <imageView width="21" height="23" alignment="right" verticalAlignment="center" image="greenArrow" id="en8-nt-AeL">
                                                 <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </imageView>
-                                            <label width="71" alignment="left" verticalAlignment="center" text="." textAlignment="right" id="rfq-qF-ArG"/>
+                                            <label width="55" alignment="right" verticalAlignment="center" text="." textAlignment="right" id="rfq-qF-ArG">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
                                         </items>
+                                        <color key="backgroundColor" name="SecondaryColour"/>
                                     </group>
                                     <connections>
                                         <outlet property="currencyCodeLabel" destination="w6k-Vy-iou" id="ZsG-De-yAa"/>
@@ -78,9 +91,12 @@
                     <items>
                         <group width="1" height="30" alignment="left" id="d4O-iR-OLw">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Bitcoin" textAlignment="center" id="WJj-GH-NXz"/>
+                                <label alignment="center" verticalAlignment="center" text="Bitcoin" textAlignment="center" id="WJj-GH-NXz">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
                             </items>
-                            <color key="backgroundColor" white="0.14595083638924319" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="SecondaryColour"/>
                         </group>
                         <group width="1" height="50" alignment="left" id="wbi-Y9-pKT">
                             <items>
@@ -107,11 +123,17 @@
                     <items>
                         <group width="1" height="30" alignment="left" id="sCy-js-yft">
                             <items>
-                                <label width="40" alignment="left" verticalAlignment="center" text="No." textAlignment="left" id="6Sd-gQ-KvG"/>
-                                <label width="78" alignment="center" verticalAlignment="center" text="Name" textAlignment="left" id="HcL-zL-tKl"/>
-                                <label alignment="center" verticalAlignment="center" text="Score" textAlignment="left" id="nvo-Pv-hUH"/>
+                                <label width="40" alignment="left" verticalAlignment="center" text="No." textAlignment="left" id="6Sd-gQ-KvG">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                </label>
+                                <label width="78" alignment="center" verticalAlignment="center" text="Name" textAlignment="left" id="HcL-zL-tKl">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" text="Score" textAlignment="left" id="nvo-Pv-hUH">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                </label>
                             </items>
-                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="SecondaryColour"/>
                         </group>
                         <table alignment="left" id="i4T-sR-h1b">
                             <items>
@@ -122,6 +144,7 @@
                                             <label width="83" alignment="left" verticalAlignment="center" text="." id="NRi-8d-MPB"/>
                                             <label alignment="left" verticalAlignment="center" text="." id="JTw-VK-5jR"/>
                                         </items>
+                                        <color key="backgroundColor" name="SecondaryColour"/>
                                     </group>
                                     <connections>
                                         <outlet property="nameLabel" destination="NRi-8d-MPB" id="VX6-KF-66k"/>
@@ -146,9 +169,12 @@
                     <items>
                         <group width="1" height="30" alignment="left" id="rRS-L2-XSO">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Gold" textAlignment="center" id="eq2-Jh-4CE"/>
+                                <label alignment="center" verticalAlignment="center" text="Gold" textAlignment="center" id="eq2-Jh-4CE">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
                             </items>
-                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="SecondaryColour"/>
                         </group>
                         <group width="1" height="50" alignment="left" id="d56-kW-a79">
                             <items>
@@ -159,12 +185,17 @@
                                 <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="iUd-dr-AGi"/>
                             </items>
                         </group>
-                        <separator alignment="left" alpha="0.59999999999999998" id="d7Z-cK-Flo"/>
+                        <separator alignment="left" alpha="0.59999999999999998" id="d7Z-cK-Flo">
+                            <color key="color" name="OldBrown"/>
+                        </separator>
                         <group width="1" height="30" alignment="left" id="Odd-eL-f48">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Platinum" textAlignment="center" id="421-Kh-Kmu"/>
+                                <label alignment="center" verticalAlignment="center" text="Platinum" textAlignment="center" id="421-Kh-Kmu">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
                             </items>
-                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="SecondaryColour"/>
                         </group>
                         <group width="1" height="50" alignment="left" id="Cvb-zA-pty">
                             <items>
@@ -175,12 +206,17 @@
                                 <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="zSs-wS-NcG"/>
                             </items>
                         </group>
-                        <separator alignment="left" alpha="0.59999999999999998" id="ykJ-qI-6fc"/>
+                        <separator alignment="left" alpha="0.59999999999999998" id="ykJ-qI-6fc">
+                            <color key="color" name="OldBrown"/>
+                        </separator>
                         <group width="1" height="30" alignment="left" id="x5j-kj-hNT">
                             <items>
-                                <label alignment="center" verticalAlignment="center" text="Silver" textAlignment="center" id="jjV-VJ-eZE"/>
+                                <label alignment="center" verticalAlignment="center" text="Silver" textAlignment="center" id="jjV-VJ-eZE">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
                             </items>
-                            <color key="backgroundColor" white="0.14595083640000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" name="SecondaryColour"/>
                         </group>
                         <group width="1" height="50" alignment="left" id="Ks0-vg-Tsh">
                             <items>
@@ -211,5 +247,14 @@
         <image name="SilverSysmbol" width="244" height="246"/>
         <image name="bitcoinLabel" width="800" height="533"/>
         <image name="greenArrow" width="225" height="225"/>
+        <namedColor name="OldBrown">
+            <color red="1" green="0.60799998044967651" blue="0.41600000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColour">
+            <color red="0.53299999237060547" green="0.87800002098083496" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColour">
+            <color red="0.086000002920627594" green="0.11800000071525574" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
