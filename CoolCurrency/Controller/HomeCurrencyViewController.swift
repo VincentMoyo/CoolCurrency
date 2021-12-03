@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import WatchConnectivity
 
 class HomeCurrencyViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class HomeCurrencyViewController: UIViewController {
     @IBOutlet private weak var currencyTableView: UITableView!
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
     
+    private var watchSession: WCSession?
     private lazy var viewModel = CurrencyViewModel(repository: CurrencyRepository(),
                                                    authentication: AuthenticationRepository(authenticationReference: Auth.auth()),
                                                    database: DatabaseRepository(databaseReference: Database.database().reference(),
@@ -30,11 +32,16 @@ class HomeCurrencyViewController: UIViewController {
         setupCurrencyPickerView()
         setupCurrencyTableView()
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
+        
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
         viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
         viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
+        sendMessage()
     }
     
     private func setupCurrencyPickerView() {
@@ -93,9 +100,7 @@ extension HomeCurrencyViewController: UIPickerViewDataSource, UIPickerViewDelega
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         viewModel.selectedCurrency = Array(viewModel.currencyList.keys)[row]
-        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
-        viewModel.setPrimaryCurrencyCode(for: viewModel.retrieveSelectedCurrency)
-        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
+        viewModel.updateExchangeRateInformation()
     }
 }
 
@@ -106,5 +111,30 @@ extension HomeCurrencyViewController: ViewModelDelegate {
         self.currencyTableView.reloadData()
         self.currencyPickerView.reloadAllComponents()
         self.activityLoader.stopAnimating()
+        self.sendMessage()
+    }
+}
+
+// MARK: - Watch Session Functions
+extension HomeCurrencyViewController: WCSessionDelegate {
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) { }
+    func sessionDidBecomeInactive(_ session: WCSession) { }
+    func sessionDidDeactivate(_ session: WCSession) { }
+    
+    private func sendMessage() {
+        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? ["Not Set": ["greyArrow", "Not Set"]],
+                                  replyHandler: nil,
+                                  errorHandler: nil)
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
+        DispatchQueue.main.async {
+            if let value = message["getExchangeRate"] as? String {
+                self.activateActivityIndicatorView()
+                self.viewModel.selectedCurrency = value
+                self.viewModel.updateExchangeRateInformation()
+            }
+        }
     }
 }

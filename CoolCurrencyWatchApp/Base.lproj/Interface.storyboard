@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch41"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="CoolCurrencyWatchApp" customModuleProvider="target">
+                    <items>
+                        <button width="1" alignment="left" title="Exchange Rates" id="Ang-6n-4FM">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
+                            <connections>
+                                <action selector="exchangeRatePressed" destination="AgC-eL-Hgc" id="kmP-gX-yX2"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Crypto" id="ZX5-gF-8Ly">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
+                            <connections>
+                                <action selector="cryptoPressed" destination="AgC-eL-Hgc" id="d8V-SQ-9cX"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Precious Minerals" id="5jE-j7-HAi">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
+                            <connections>
+                                <action selector="mineralsPressed" destination="AgC-eL-Hgc" id="Ti4-6O-8OE"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" title="Leadership Board" id="Fyh-Ep-3hd">
+                            <color key="titleColor" name="SecondaryColour"/>
+                            <color key="backgroundColor" name="PrimaryColour"/>
+                            <connections>
+                                <action selector="leadershipBoardPressed" destination="AgC-eL-Hgc" id="dUi-Rw-xZC"/>
+                            </connections>
+                        </button>
+                    </items>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="28" y="1"/>
+        </scene>
+        <!--rates-->
+        <scene sceneID="wzs-OE-U2I">
+            <objects>
+                <controller identifier="rates" id="XU2-uE-rCb" customClass="ExchangeRatesInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="e5a-mU-FS1">
+                            <items>
+                                <tableRow identifier="currencyCell" selectable="NO" id="fBx-3N-aNn" customClass="ExchangeRateRowController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="52H-cU-EaD">
+                                        <items>
+                                            <label width="66" alignment="left" verticalAlignment="center" text="." textAlignment="justified" id="w6k-Vy-iou">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                            </label>
+                                            <imageView width="21" height="23" alignment="right" verticalAlignment="center" image="greenArrow" id="en8-nt-AeL">
+                                                <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </imageView>
+                                            <label width="55" alignment="right" verticalAlignment="center" text="." textAlignment="right" id="rfq-qF-ArG">
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </label>
+                                        </items>
+                                        <color key="backgroundColor" name="SecondaryColour"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="currencyCodeLabel" destination="w6k-Vy-iou" id="ZsG-De-yAa"/>
+                                        <outlet property="currencyIndicator" destination="en8-nt-AeL" id="duO-2v-OOq"/>
+                                        <outlet property="currencyValueLabel" destination="rfq-qF-ArG" id="Uvf-8I-qT4"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="currencyTable" destination="e5a-mU-FS1" id="cR7-zE-NSq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="566" y="-162"/>
+        </scene>
+        <!--crypto-->
+        <scene sceneID="iue-uu-LLz">
+            <objects>
+                <controller identifier="crypto" id="mTA-F3-Spc" customClass="CryptoInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="30" alignment="left" id="d4O-iR-OLw">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Bitcoin" textAlignment="center" id="WJj-GH-NXz">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" name="SecondaryColour"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="wbi-Y9-pKT">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="bitcoinLabel" id="OKW-tJ-CcC">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" alignment="left" verticalAlignment="center" text="0.0" textAlignment="center" id="cq6-p7-adR"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="Wg5-jj-BnH"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="bitcoinCurrencyCode" destination="Wg5-jj-BnH" id="Twk-q3-OOR"/>
+                        <outlet property="bitcoinValue" destination="cq6-p7-adR" id="gRh-eI-vDV"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="311" y="-162"/>
+        </scene>
+        <!--leadershipBoard-->
+        <scene sceneID="KIs-Nc-HPz">
+            <objects>
+                <controller identifier="leadershipBoard" id="zkU-s8-yfZ" customClass="LeadershipBoardInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="30" alignment="left" id="sCy-js-yft">
+                            <items>
+                                <label width="40" alignment="left" verticalAlignment="center" text="No." textAlignment="left" id="6Sd-gQ-KvG">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                </label>
+                                <label width="78" alignment="center" verticalAlignment="center" text="Name" textAlignment="left" id="HcL-zL-tKl">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                </label>
+                                <label alignment="center" verticalAlignment="center" text="Score" textAlignment="left" id="nvo-Pv-hUH">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" name="SecondaryColour"/>
+                        </group>
+                        <table alignment="left" id="i4T-sR-h1b">
+                            <items>
+                                <tableRow identifier="leadershipBoardCell" selectable="NO" id="JEe-7a-9Rv" customClass="LeadershipBoardRowController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="W41-UH-Nau">
+                                        <items>
+                                            <label width="27" alignment="left" verticalAlignment="center" text="1." id="Sc5-Gs-PMc"/>
+                                            <label width="83" alignment="left" verticalAlignment="center" text="." id="NRi-8d-MPB"/>
+                                            <label alignment="left" verticalAlignment="center" text="." id="JTw-VK-5jR"/>
+                                        </items>
+                                        <color key="backgroundColor" name="SecondaryColour"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="nameLabel" destination="NRi-8d-MPB" id="VX6-KF-66k"/>
+                                        <outlet property="positionLabel" destination="Sc5-Gs-PMc" id="gEj-Ye-rQV"/>
+                                        <outlet property="scoreLabel" destination="JTw-VK-5jR" id="Df8-ES-p8K"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="leadershipBoardTable" destination="i4T-sR-h1b" id="d9n-cA-Shc"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="311" y="127"/>
+        </scene>
+        <!--minerals-->
+        <scene sceneID="Qmm-8P-qcp">
+            <objects>
+                <controller identifier="minerals" id="eGl-kK-I56" customClass="PreciousMineralsInterfaceController" customModule="CoolCurrencyWatchApp_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="30" alignment="left" id="rRS-L2-XSO">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Gold" textAlignment="center" id="eq2-Jh-4CE">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" name="SecondaryColour"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="d56-kW-a79">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="GoldSymbol" id="vCf-9k-c7r">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" height="20" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="v5m-eT-YJb"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="iUd-dr-AGi"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" alpha="0.59999999999999998" id="d7Z-cK-Flo">
+                            <color key="color" name="OldBrown"/>
+                        </separator>
+                        <group width="1" height="30" alignment="left" id="Odd-eL-f48">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Platinum" textAlignment="center" id="421-Kh-Kmu">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" name="SecondaryColour"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="Cvb-zA-pty">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="PlatinumSysmbol" id="6Qn-yX-Z2T">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="mDn-Ig-j3D"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="zSs-wS-NcG"/>
+                            </items>
+                        </group>
+                        <separator alignment="left" alpha="0.59999999999999998" id="ykJ-qI-6fc">
+                            <color key="color" name="OldBrown"/>
+                        </separator>
+                        <group width="1" height="30" alignment="left" id="x5j-kj-hNT">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Silver" textAlignment="center" id="jjV-VJ-eZE">
+                                    <color key="textColor" name="PrimaryColour"/>
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                </label>
+                            </items>
+                            <color key="backgroundColor" name="SecondaryColour"/>
+                        </group>
+                        <group width="1" height="50" alignment="left" id="Ks0-vg-Tsh">
+                            <items>
+                                <imageView width="45" height="40" alignment="left" verticalAlignment="center" image="SilverSysmbol" id="MRK-OQ-4jo">
+                                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </imageView>
+                                <label width="94" alignment="left" verticalAlignment="center" text="." textAlignment="center" id="pNs-Oe-3yv"/>
+                                <label alignment="left" verticalAlignment="center" text="." textAlignment="right" id="HfC-sJ-gaa"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="goldUnitSymbol" destination="iUd-dr-AGi" id="1PE-gs-qgd"/>
+                        <outlet property="goldValue" destination="v5m-eT-YJb" id="cwX-lM-i5D"/>
+                        <outlet property="platinumUnitSymbol" destination="zSs-wS-NcG" id="phj-f2-xQC"/>
+                        <outlet property="platinumValue" destination="mDn-Ig-j3D" id="vfJ-DA-c1h"/>
+                        <outlet property="silverUnitSymbol" destination="HfC-sJ-gaa" id="NGO-Yk-15k"/>
+                        <outlet property="silverValue" destination="pNs-Oe-3yv" id="gjs-YB-AaF"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="566" y="162"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="GoldSymbol" width="244" height="245"/>
+        <image name="PlatinumSysmbol" width="245" height="246"/>
+        <image name="SilverSysmbol" width="244" height="246"/>
+        <image name="bitcoinLabel" width="800" height="533"/>
+        <image name="greenArrow" width="225" height="225"/>
+        <namedColor name="OldBrown">
+            <color red="1" green="0.60799998044967651" blue="0.41600000858306885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="PrimaryColour">
+            <color red="0.53299999237060547" green="0.87800002098083496" blue="0.93699997663497925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SecondaryColour">
+            <color red="0.086000002920627594" green="0.11800000071525574" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

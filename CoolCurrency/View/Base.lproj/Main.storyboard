@@ -225,6 +225,7 @@
                                             <constraint firstItem="YYH-KO-dWG" firstAttribute="top" secondItem="f1w-MM-uiP" secondAttribute="top" id="PBG-kz-bM9"/>
                                             <constraint firstAttribute="height" constant="80" id="fAy-xC-Ric"/>
                                             <constraint firstAttribute="trailing" secondItem="YYH-KO-dWG" secondAttribute="trailing" constant="25" id="oTJ-4H-fGM"/>
+                                            <constraint firstAttribute="width" secondItem="f1w-MM-uiP" secondAttribute="height" multiplier="197:40" id="qac-Ai-tvl"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -276,6 +277,7 @@
                                             <constraint firstItem="Con-TE-mxX" firstAttribute="top" secondItem="gt6-yC-cqN" secondAttribute="top" id="QsC-Xf-BHm"/>
                                             <constraint firstAttribute="trailing" secondItem="Con-TE-mxX" secondAttribute="trailing" constant="25" id="T3W-Fz-acR"/>
                                             <constraint firstAttribute="height" constant="80" id="dJC-7j-Z0Y"/>
+                                            <constraint firstAttribute="width" secondItem="gt6-yC-cqN" secondAttribute="height" multiplier="197:40" id="ep4-9q-6rd"/>
                                             <constraint firstAttribute="bottom" secondItem="Con-TE-mxX" secondAttribute="bottom" id="erG-PX-PTX"/>
                                             <constraint firstItem="Con-TE-mxX" firstAttribute="leading" secondItem="gt6-yC-cqN" secondAttribute="leading" constant="10" id="pVW-WQ-abb"/>
                                         </constraints>
@@ -327,6 +329,7 @@
                                         <color key="backgroundColor" name="SecondaryColour"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Ub0-iR-RsF" secondAttribute="trailing" constant="25" id="8Bd-c0-m59"/>
+                                            <constraint firstAttribute="width" secondItem="obT-1H-3WO" secondAttribute="height" multiplier="197:40" id="DHU-ef-afJ"/>
                                             <constraint firstAttribute="bottom" secondItem="Ub0-iR-RsF" secondAttribute="bottom" id="Lvf-Oc-Fes"/>
                                             <constraint firstItem="Ub0-iR-RsF" firstAttribute="top" secondItem="obT-1H-3WO" secondAttribute="top" id="a2x-4S-33F"/>
                                             <constraint firstItem="Ub0-iR-RsF" firstAttribute="leading" secondItem="obT-1H-3WO" secondAttribute="leading" constant="10" id="fpl-5V-JR6"/>
@@ -379,6 +382,7 @@
                                         <color key="backgroundColor" name="SecondaryColour"/>
                                         <constraints>
                                             <constraint firstItem="rIf-5c-qIs" firstAttribute="leading" secondItem="tDV-ai-kDp" secondAttribute="leading" constant="10" id="IfS-Yw-OWO"/>
+                                            <constraint firstAttribute="width" secondItem="tDV-ai-kDp" secondAttribute="height" multiplier="197:40" id="a8V-f3-QKE"/>
                                             <constraint firstAttribute="height" constant="80" id="haS-Oy-PvO"/>
                                             <constraint firstAttribute="trailing" secondItem="rIf-5c-qIs" secondAttribute="trailing" constant="25" id="ktQ-uD-RLr"/>
                                             <constraint firstItem="rIf-5c-qIs" firstAttribute="top" secondItem="tDV-ai-kDp" secondAttribute="top" id="rHv-aQ-2B0"/>
@@ -395,9 +399,6 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDM-Ap-j7t">
                                 <rect key="frame" x="0.0" y="597" width="414" height="216"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="216" id="Qqm-Qq-B7Y"/>
-                                </constraints>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SKU-gd-fdy">
                                 <rect key="frame" x="108" y="550" width="198" height="39"/>

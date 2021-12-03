@@ -22,6 +22,8 @@
 		7828E6DC27145CC700507B79 /* CurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */; };
 		785DA028270C41CE00CB7996 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA027270C41CE00CB7996 /* Constants.swift */; };
 		785DA032270C877B00CB7996 /* CurrencyRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785DA031270C877B00CB7996 /* CurrencyRepository.swift */; };
+		785E48422754E7050038FA6C /* ExchangeRateRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785E48412754E7050038FA6C /* ExchangeRateRowController.swift */; };
+		785E4844275517790038FA6C /* ExchangeRatesInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 785E4843275517790038FA6C /* ExchangeRatesInterfaceController.swift */; };
 		7864C8C927463787005F4918 /* AppColours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7864C8C827463787005F4918 /* AppColours.swift */; };
 		786FD0D1274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */; };
 		7872C479274E99C900B49B3E /* LeadershipBoardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */; };
@@ -37,6 +39,8 @@
 		7877D565272A9C2D003A2857 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D564272A9C2D003A2857 /* RegisterViewModel.swift */; };
 		7877D567272A9E76003A2857 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7877D566272A9E76003A2857 /* LoginViewController.swift */; };
 		787ADA5E270C38C9002494B1 /* CurrencyResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */; };
+		787E25732759018D005A61B2 /* ExchangeRateDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E25722759018D005A61B2 /* ExchangeRateDataModel.swift */; };
+		787E25752759051C005A61B2 /* LeaderBoardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E25742759051C005A61B2 /* LeaderBoardDataModel.swift */; };
 		7884FFDE272AA7B00005454A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884FFDD272AA7AF0005454A /* RegisterViewController.swift */; };
 		788B7CB42727DFF3007AC483 /* ConversionCurrencyViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */; };
 		788DEC72270AFDCA0033493B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788DEC71270AFDCA0033493B /* AppDelegate.swift */; };
@@ -52,6 +56,14 @@
 		78935FAE270DA2D3007AE3EE /* CurrencyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78935FAD270DA2D3007AE3EE /* CurrencyViewModel.swift */; };
 		78935FB1270DA6CC007AE3EE /* ViewControllerDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78935FB0270DA6CC007AE3EE /* ViewControllerDelegates.swift */; };
 		78935FB4270DF82B007AE3EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78935FB6270DF82B007AE3EE /* Localizable.strings */; };
+		78971A932754C4F700D0E64A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78971A912754C4F700D0E64A /* Interface.storyboard */; };
+		78971A952754C4F900D0E64A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78971A942754C4F900D0E64A /* Assets.xcassets */; };
+		78971A9B2754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 78971A9A2754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		78971AA02754C4FA00D0E64A /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78971A9F2754C4FA00D0E64A /* InterfaceController.swift */; };
+		78971AA22754C4FA00D0E64A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78971AA12754C4FA00D0E64A /* ExtensionDelegate.swift */; };
+		78971AA42754C4FA00D0E64A /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78971AA32754C4FA00D0E64A /* ComplicationController.swift */; };
+		78971AA62754C4FB00D0E64A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78971AA52754C4FB00D0E64A /* Assets.xcassets */; };
+		78971AAA2754C4FB00D0E64A /* CoolCurrencyWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 78971A8F2754C4F700D0E64A /* CoolCurrencyWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		789CC6C0273C3A5700567264 /* MatchCurrencyGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CC6BF273C3A5700567264 /* MatchCurrencyGameViewController.swift */; };
 		789CC6C2273D117800567264 /* MatchCurrencyGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789CC6C1273D117800567264 /* MatchCurrencyGameViewModel.swift */; };
 		78AA4EBC27219D270044B3CB /* CryptoAndMetalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AA4EBB27219D270044B3CB /* CryptoAndMetalViewController.swift */; };
@@ -63,6 +75,10 @@
 		78B5F02A2720427400E10B6B /* DatabaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B5F0292720427400E10B6B /* DatabaseRepository.swift */; };
 		78C8FFA42743C5E500E5FF9A /* UserAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */; };
 		78D34C1A2731A43C0065A802 /* AuthenticationRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D34C192731A43C0065A802 /* AuthenticationRepository.swift */; };
+		78E5EF2027577AA600FE647C /* PreciousMineralsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF1F27577AA600FE647C /* PreciousMineralsInterfaceController.swift */; };
+		78E5EF2227577AC500FE647C /* CryptoInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */; };
+		78E5EF242757C71800FE647C /* LeadershipBoardRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */; };
+		78E5EF262757C9D900FE647C /* LeadershipBoardInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */; };
 		78F033DB274CF04D0093FB7A /* LeadershipBoardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +97,46 @@
 			remoteGlobalIDString = 788DEC6D270AFDCA0033493B;
 			remoteInfo = CoolCurrency;
 		};
+		78971A9C2754C4F900D0E64A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78971A992754C4F900D0E64A;
+			remoteInfo = "CoolCurrencyWatchApp WatchKit Extension";
+		};
+		78971AA82754C4FB00D0E64A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 788DEC66270AFDCA0033493B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78971A8E2754C4F700D0E64A;
+			remoteInfo = CoolCurrencyWatchApp;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		78971AAB2754C4FB00D0E64A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				78971AAA2754C4FB00D0E64A /* CoolCurrencyWatchApp.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78971AAE2754C4FB00D0E64A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				78971A9B2754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05A8DCFD88A25A306421EAF9 /* Pods-CoolCurrency.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +155,8 @@
 		7828E6DB27145CC700507B79 /* CurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		785DA027270C41CE00CB7996 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		785DA031270C877B00CB7996 /* CurrencyRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRepository.swift; sourceTree = "<group>"; };
+		785E48412754E7050038FA6C /* ExchangeRateRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateRowController.swift; sourceTree = "<group>"; };
+		785E4843275517790038FA6C /* ExchangeRatesInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRatesInterfaceController.swift; sourceTree = "<group>"; };
 		7864C8C827463787005F4918 /* AppColours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColours.swift; sourceTree = "<group>"; };
 		786FD0D0274FCA2C008D6D8C /* MatchCurrencyGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewModelTests.swift; sourceTree = "<group>"; };
 		7872C477274E99C900B49B3E /* LeadershipBoardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardTableViewCell.swift; sourceTree = "<group>"; };
@@ -115,6 +172,8 @@
 		7877D564272A9C2D003A2857 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		7877D566272A9E76003A2857 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		787ADA5D270C38C9002494B1 /* CurrencyResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyResponseModel.swift; sourceTree = "<group>"; };
+		787E25722759018D005A61B2 /* ExchangeRateDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateDataModel.swift; sourceTree = "<group>"; };
+		787E25742759051C005A61B2 /* LeaderBoardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardDataModel.swift; sourceTree = "<group>"; };
 		7884FFDD272AA7AF0005454A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		788B7CB32727DFF2007AC483 /* ConversionCurrencyViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCurrencyViewModelTests.swift; sourceTree = "<group>"; };
 		788DEC6E270AFDCA0033493B /* CoolCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +193,15 @@
 		78935FAD270DA2D3007AE3EE /* CurrencyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewModel.swift; sourceTree = "<group>"; };
 		78935FB0270DA6CC007AE3EE /* ViewControllerDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDelegates.swift; sourceTree = "<group>"; };
 		78935FB5270DF82B007AE3EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78971A8F2754C4F700D0E64A /* CoolCurrencyWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolCurrencyWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		78971A922754C4F700D0E64A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		78971A942754C4F900D0E64A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78971A9A2754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CoolCurrencyWatchApp WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		78971A9F2754C4FA00D0E64A /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		78971AA12754C4FA00D0E64A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		78971AA32754C4FA00D0E64A /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		78971AA52754C4FB00D0E64A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78971AA72754C4FB00D0E64A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		789CC6BF273C3A5700567264 /* MatchCurrencyGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewController.swift; sourceTree = "<group>"; };
 		789CC6C1273D117800567264 /* MatchCurrencyGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCurrencyGameViewModel.swift; sourceTree = "<group>"; };
 		78AA4EBB27219D270044B3CB /* CryptoAndMetalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAndMetalViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +216,10 @@
 		78B5F0292720427400E10B6B /* DatabaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseRepository.swift; sourceTree = "<group>"; };
 		78C8FFA32743C5E500E5FF9A /* UserAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAlerts.swift; sourceTree = "<group>"; };
 		78D34C192731A43C0065A802 /* AuthenticationRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepository.swift; sourceTree = "<group>"; };
+		78E5EF1F27577AA600FE647C /* PreciousMineralsInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreciousMineralsInterfaceController.swift; sourceTree = "<group>"; };
+		78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoInterfaceController.swift; sourceTree = "<group>"; };
+		78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardRowController.swift; sourceTree = "<group>"; };
+		78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardInterfaceController.swift; sourceTree = "<group>"; };
 		78F033DA274CF04D0093FB7A /* LeadershipBoardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadershipBoardDataModel.swift; sourceTree = "<group>"; };
 		7D7F7199E279B90E5957E0C8 /* Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; path = "Target Support Files/Pods-CoolCurrency-CoolCurrencyUITests/Pods-CoolCurrency-CoolCurrencyUITests.release.xcconfig"; sourceTree = "<group>"; };
 		86C31FA7A22B7A22CB4B916C /* Pods-CoolCurrency.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoolCurrency.debug.xcconfig"; path = "Target Support Files/Pods-CoolCurrency/Pods-CoolCurrency.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +251,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				581B6C3D5FAB55B20A4A5122 /* Pods_CoolCurrency_CoolCurrencyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78971A972754C4F900D0E64A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +314,8 @@
 				788DEC70270AFDCA0033493B /* CoolCurrency */,
 				788DEC8A270AFDCD0033493B /* CoolCurrencyTests */,
 				788DEC94270AFDCD0033493B /* CoolCurrencyUITests */,
+				78971A902754C4F700D0E64A /* CoolCurrencyWatchApp */,
+				78971A9E2754C4FA00D0E64A /* CoolCurrencyWatchApp WatchKit Extension */,
 				788DEC6F270AFDCA0033493B /* Products */,
 				FFEECE9B6CBF253BFA047B5C /* Pods */,
 				B6DBEEBA27B3CD77008CDE5B /* Frameworks */,
@@ -247,6 +328,8 @@
 				788DEC6E270AFDCA0033493B /* CoolCurrency.app */,
 				788DEC87270AFDCD0033493B /* CoolCurrencyTests.xctest */,
 				788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */,
+				78971A8F2754C4F700D0E64A /* CoolCurrencyWatchApp.app */,
+				78971A9A2754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,6 +466,35 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		78971A902754C4F700D0E64A /* CoolCurrencyWatchApp */ = {
+			isa = PBXGroup;
+			children = (
+				78971A912754C4F700D0E64A /* Interface.storyboard */,
+				78971A942754C4F900D0E64A /* Assets.xcassets */,
+			);
+			path = CoolCurrencyWatchApp;
+			sourceTree = "<group>";
+		};
+		78971A9E2754C4FA00D0E64A /* CoolCurrencyWatchApp WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				78971A9F2754C4FA00D0E64A /* InterfaceController.swift */,
+				78971AA12754C4FA00D0E64A /* ExtensionDelegate.swift */,
+				78971AA32754C4FA00D0E64A /* ComplicationController.swift */,
+				78971AA52754C4FB00D0E64A /* Assets.xcassets */,
+				78971AA72754C4FB00D0E64A /* Info.plist */,
+				785E48412754E7050038FA6C /* ExchangeRateRowController.swift */,
+				785E4843275517790038FA6C /* ExchangeRatesInterfaceController.swift */,
+				78E5EF1F27577AA600FE647C /* PreciousMineralsInterfaceController.swift */,
+				78E5EF2127577AC500FE647C /* CryptoInterfaceController.swift */,
+				78E5EF232757C71800FE647C /* LeadershipBoardRowController.swift */,
+				78E5EF252757C9D900FE647C /* LeadershipBoardInterfaceController.swift */,
+				787E25722759018D005A61B2 /* ExchangeRateDataModel.swift */,
+				787E25742759051C005A61B2 /* LeaderBoardDataModel.swift */,
+			);
+			path = "CoolCurrencyWatchApp WatchKit Extension";
+			sourceTree = "<group>";
+		};
 		B6DBEEBA27B3CD77008CDE5B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -419,10 +531,12 @@
 				788DEC6B270AFDCA0033493B /* Frameworks */,
 				788DEC6C270AFDCA0033493B /* Resources */,
 				F1382CC2D08218461157A4D6 /* [CP] Embed Pods Frameworks */,
+				78971AAB2754C4FB00D0E64A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				78971AA92754C4FB00D0E64A /* PBXTargetDependency */,
 			);
 			name = CoolCurrency;
 			productName = CoolCurrency;
@@ -468,6 +582,40 @@
 			productReference = 788DEC91270AFDCD0033493B /* CoolCurrencyUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		78971A8E2754C4F700D0E64A /* CoolCurrencyWatchApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78971AB22754C4FB00D0E64A /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp" */;
+			buildPhases = (
+				78971A8D2754C4F700D0E64A /* Resources */,
+				78971AAE2754C4FB00D0E64A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				78971A9D2754C4F900D0E64A /* PBXTargetDependency */,
+			);
+			name = CoolCurrencyWatchApp;
+			productName = CoolCurrencyWatchApp;
+			productReference = 78971A8F2754C4F700D0E64A /* CoolCurrencyWatchApp.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		78971A992754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 78971AB12754C4FB00D0E64A /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp WatchKit Extension" */;
+			buildPhases = (
+				78971A962754C4F900D0E64A /* Sources */,
+				78971A972754C4F900D0E64A /* Frameworks */,
+				78971A982754C4F900D0E64A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "CoolCurrencyWatchApp WatchKit Extension";
+			productName = "CoolCurrencyWatchApp WatchKit Extension";
+			productReference = 78971A9A2754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -475,7 +623,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
 					788DEC6D270AFDCA0033493B = {
@@ -490,6 +638,12 @@
 					788DEC90270AFDCD0033493B = {
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = 788DEC6D270AFDCA0033493B;
+					};
+					78971A8E2754C4F700D0E64A = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					78971A992754C4F900D0E64A = {
+						CreatedOnToolsVersion = 13.1;
 					};
 				};
 			};
@@ -509,6 +663,8 @@
 				788DEC6D270AFDCA0033493B /* CoolCurrency */,
 				788DEC86270AFDCD0033493B /* CoolCurrencyTests */,
 				788DEC90270AFDCD0033493B /* CoolCurrencyUITests */,
+				78971A8E2754C4F700D0E64A /* CoolCurrencyWatchApp */,
+				78971A992754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -540,6 +696,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78971A8D2754C4F700D0E64A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78971A952754C4F900D0E64A /* Assets.xcassets in Resources */,
+				78971A932754C4F700D0E64A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78971A982754C4F900D0E64A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78971AA62754C4FB00D0E64A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -733,6 +906,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		78971A962754C4F900D0E64A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78971AA22754C4FA00D0E64A /* ExtensionDelegate.swift in Sources */,
+				785E4844275517790038FA6C /* ExchangeRatesInterfaceController.swift in Sources */,
+				787E25732759018D005A61B2 /* ExchangeRateDataModel.swift in Sources */,
+				78E5EF242757C71800FE647C /* LeadershipBoardRowController.swift in Sources */,
+				787E25752759051C005A61B2 /* LeaderBoardDataModel.swift in Sources */,
+				78E5EF262757C9D900FE647C /* LeadershipBoardInterfaceController.swift in Sources */,
+				78E5EF2027577AA600FE647C /* PreciousMineralsInterfaceController.swift in Sources */,
+				78971AA02754C4FA00D0E64A /* InterfaceController.swift in Sources */,
+				78E5EF2227577AC500FE647C /* CryptoInterfaceController.swift in Sources */,
+				785E48422754E7050038FA6C /* ExchangeRateRowController.swift in Sources */,
+				78971AA42754C4FA00D0E64A /* ComplicationController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -745,6 +936,16 @@
 			isa = PBXTargetDependency;
 			target = 788DEC6D270AFDCA0033493B /* CoolCurrency */;
 			targetProxy = 788DEC92270AFDCD0033493B /* PBXContainerItemProxy */;
+		};
+		78971A9D2754C4F900D0E64A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78971A992754C4F900D0E64A /* CoolCurrencyWatchApp WatchKit Extension */;
+			targetProxy = 78971A9C2754C4F900D0E64A /* PBXContainerItemProxy */;
+		};
+		78971AA92754C4FB00D0E64A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78971A8E2754C4F700D0E64A /* CoolCurrencyWatchApp */;
+			targetProxy = 78971AA82754C4FB00D0E64A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -771,6 +972,14 @@
 				78935FB5270DF82B007AE3EE /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		78971A912754C4F700D0E64A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78971A922754C4F700D0E64A /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1062,6 +1271,118 @@
 			};
 			name = Release;
 		};
+		78971AAC2754C4FB00D0E64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = CoolCurrencyWatchApp_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = CoolCurrencyWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.DVT.CoolCurrency;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		78971AAD2754C4FB00D0E64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = CoolCurrencyWatchApp_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = CoolCurrencyWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.DVT.CoolCurrency;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
+		78971AAF2754C4FB00D0E64A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CoolCurrencyWatchApp WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoolCurrencyWatchApp WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Debug;
+		};
+		78971AB02754C4FB00D0E64A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UKH67U3TZ4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "CoolCurrencyWatchApp WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoolCurrencyWatchApp WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_WKExtensionDelegateClassName = "$(PRODUCT_MODULE_NAME).ExtensionDelegate";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.DVT.CoolCurrency.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1097,6 +1418,24 @@
 			buildConfigurations = (
 				788DECA2270AFDCD0033493B /* Debug */,
 				788DECA3270AFDCD0033493B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78971AB12754C4FB00D0E64A /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78971AAF2754C4FB00D0E64A /* Debug */,
+				78971AB02754C4FB00D0E64A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		78971AB22754C4FB00D0E64A /* Build configuration list for PBXNativeTarget "CoolCurrencyWatchApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78971AAC2754C4FB00D0E64A /* Debug */,
+				78971AAD2754C4FB00D0E64A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

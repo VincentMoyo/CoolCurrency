@@ -24,6 +24,12 @@ enum CurrencyName: String {
     case australianDollar
 }
 
+enum CheckChangeCurrentRate: String {
+    case increased
+    case equal
+    case decreased
+}
+
 class CurrencyViewModel: CurrencyViewModiable {
     
     var selectedCurrency: String?
@@ -52,12 +58,16 @@ class CurrencyViewModel: CurrencyViewModiable {
         self.delegate = delegate
     }
     
-    var retriveDefaultCurrency: String {
+    var retrieveDefaultCurrency: String {
         defaultCurrency ?? "Dollar"
     }
     
     var retrieveSelectedCurrency: String {
         selectedCurrency ?? "Dollar"
+    }
+    
+    private var retrieveSelectedCurrencyCode: String {
+        convertCurrencyToCode(for: retrieveSelectedCurrency)
     }
     
     func fetchConversionCurrencyData() -> ConvertCurrencyDataModel {
@@ -68,11 +78,10 @@ class CurrencyViewModel: CurrencyViewModiable {
                                  secondaryCurrencyFlagName: secondaryCurrencyFlagName)
     }
     
-    func setPrimaryCurrencyCode(for codeValue: String) {
-        primaryCurrencyCode = convertCurrencyToCode(for: codeValue)
-        if let newCodeValue = CurrencyName(rawValue: codeValue) {
-            primaryCurrencyFlagName = fetchCurrencyFlagName(at: newCodeValue)
-        }
+    func updateExchangeRateInformation() {
+        fetchCurrencyListFromDatabase(for: retrieveSelectedCurrency)
+        setPrimaryCurrencyCode(for: retrieveSelectedCurrency)
+        fetchCurrencyListFromAPI(for: retrieveSelectedCurrencyCode)
     }
     
     func setSecondaryCurrency(at index: Int) {
@@ -89,6 +98,16 @@ class CurrencyViewModel: CurrencyViewModiable {
                                  currencyName: newCurrencyName,
                                  currencyIncreaseIndicator: indicatorIncreased(at: index),
                                  currencyValue: String(newCurrencyValue))
+    }
+    
+    func currencyDataModelForWatchApp() -> [String: [String]]? {
+        var currencyListForWatchApp: [String: [String]] = [:]
+        
+        currencyList.forEach { (key: String, value: Double) in
+            currencyListForWatchApp[key] = [retrieveFlagIndicatorName(for: checkForChangeInCurrencyRate(for: key)), String(value)]
+        }
+        
+        return currencyListForWatchApp
     }
     
     func convertCurrencyToCode(for currency: String) -> String {
@@ -127,11 +146,42 @@ class CurrencyViewModel: CurrencyViewModiable {
         }
     }
     
+    private func setPrimaryCurrencyCode(for codeValue: String) {
+        primaryCurrencyCode = convertCurrencyToCode(for: codeValue)
+        if let newCodeValue = CurrencyName(rawValue: codeValue) {
+            primaryCurrencyFlagName = fetchCurrencyFlagName(at: newCodeValue)
+        }
+    }
+    
     private func checkUserList() {
         self.userSettingsList.forEach { settings in
             if settings.key == "DefaultCurrency" {
                 defaultCurrency = settings.value
             }
+        }
+    }
+    
+    private func checkForChangeInCurrencyRate(for value: String) -> Int {
+        guard let currentValue = currencyList[value],
+              let previousValue = previousCurrencyList[value] else { return 1 }
+        
+        if currentValue < previousValue {
+            return retrieveNumberChangeInRate(at: CheckChangeCurrentRate.decreased)
+        } else if currentValue == previousValue {
+            return retrieveNumberChangeInRate(at: CheckChangeCurrentRate.equal)
+        } else {
+            return retrieveNumberChangeInRate(at: CheckChangeCurrentRate.increased)
+        }
+    }
+    
+    private func retrieveNumberChangeInRate(at counterCheck: CheckChangeCurrentRate) -> Int {
+        switch counterCheck {
+        case .increased:
+            return 2
+        case .equal:
+            return 1
+        case .decreased:
+            return 0
         }
     }
     
@@ -182,6 +232,16 @@ class CurrencyViewModel: CurrencyViewModiable {
             return "AustralianFlag"
         }
     }
+    
+    private func retrieveFlagIndicatorName(for flagName: Int) -> String {
+        if flagName == 1 {
+            return "greyArrow"
+        } else if flagName == 2 {
+            return "greenArrow"
+        } else {
+            return "redArrow"
+        }
+    }
 }
 
 // MARK: - Database Methods
@@ -193,7 +253,7 @@ extension CurrencyViewModel {
                 let newUserDetails = try result.get()
                 self?.userSettingsList = newUserDetails
                 self?.checkUserList()
-                if let newDefaultCurrency = self?.retriveDefaultCurrency {
+                if let newDefaultCurrency = self?.retrieveDefaultCurrency {
                     self?.fetchCurrencyListFromAPI(for: newDefaultCurrency)
                     self?.selectedCurrency = newDefaultCurrency
                 }
@@ -205,7 +265,7 @@ extension CurrencyViewModel {
     }
     
     func fetchCurrencyListFromDatabase(for baseCurrency: String) {
-        databaseRepository.retrieveCurrencyFromDatabase(baseCurrency: baseCurrency,
+        databaseRepository.retrieveCurrencyFromDatabase(baseCurrency: convertCurrencyToCode(for: baseCurrency),
                                                         completion: { [weak self] result in
             switch result {
             case .success(let response):
