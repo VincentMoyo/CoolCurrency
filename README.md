@@ -4,7 +4,9 @@
 </p>
  
 ## Summary
-Cool Application about cool currency. This application is about keeping track of the changes in the rates of currency aganist the base currency the user has set themselves. As an additional feature the application also keeps track of Bitcoin and precious metals such as Gold, Platinum and Silver against a base currency you chose yourself. There is a built in game the uiser could enjoy and educate themselves with as well. The rules of the game is the user must match the Currency Symbol to a Country Flag. A score will be determined at the end of the game based on the current matches the user as managed.
+Cool Application about cool currency. This application is about keeping track of the changes in the rates of currency aganist the base currency the user has set themselves. As an additional feature the application also keeps track of Bitcoin and precious metals such as Gold, Platinum and Silver against a base currency you chose yourself. There is a built in game the uiser could enjoy and educate themselves with as well. The rules of the game is the user must match the Currency Symbol to a Country Flag. A score will be determined at the end of the game based on the current matches the user as managed. 
+
+The Application also has a watch version of itself so that users can have the opprtunity to check for quick updates on exchange rates and also other information such as crypto, precious metals and the leadership board of the currency matching game.
 
 ## Technoplogies and Principles Applied
 - Getting data from restful API
@@ -12,6 +14,7 @@ Cool Application about cool currency. This application is about keeping track of
 - Objective-C
 - MVVM Architecture
 - Swift
+- WatchOS
 
 ## APIs
 - https://currencyscoop.com/
