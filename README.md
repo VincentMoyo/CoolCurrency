@@ -34,14 +34,14 @@ Cool Application about cool currency. This application is about keeping track of
 
 ## Apple Watch Screenshots
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80006278/144835001-3a0deb44-691a-420a-bda7-6d7eb6495fa2.png" width="300" height="600" />
-<img src="https://user-images.githubusercontent.com/80006278/144835016-18cdc0ea-a500-48ee-91c9-51fe5aa3b40b.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/80006278/144835001-3a0deb44-691a-420a-bda7-6d7eb6495fa2.png" width="300" height="350" />
+<img src="https://user-images.githubusercontent.com/80006278/144835016-18cdc0ea-a500-48ee-91c9-51fe5aa3b40b.png" width="300" height="350" />
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80006278/144835112-4e978839-63c1-49f5-be22-63c825e90054.png" width="300" height="600" />
-<img src="https://user-images.githubusercontent.com/80006278/144835119-bf4b3342-f28c-487d-921c-e2d21f836409.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/80006278/144835112-4e978839-63c1-49f5-be22-63c825e90054.png" width="300" height="400" />
+<img src="https://user-images.githubusercontent.com/80006278/144835119-bf4b3342-f28c-487d-921c-e2d21f836409.png" width="300" height="400" />
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/80006278/144835251-a7bccf5f-b0eb-4306-8479-b7a8e799fb37.png" width="300" height="600" />
-<img src="https://user-images.githubusercontent.com/80006278/144835149-10ceec1d-7cb6-43f3-99ac-9aad4c515a13.png" width="300" height="600" />
+<img src="https://user-images.githubusercontent.com/80006278/144835251-a7bccf5f-b0eb-4306-8479-b7a8e799fb37.png" width="300" height="400" />
+<img src="https://user-images.githubusercontent.com/80006278/144835149-10ceec1d-7cb6-43f3-99ac-9aad4c515a13.png" width="300" height="400" />
 </p>
