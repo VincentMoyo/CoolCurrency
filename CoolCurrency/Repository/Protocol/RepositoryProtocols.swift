@@ -7,12 +7,14 @@
 
 import Foundation
 
+// MARK: - Type aliases
 typealias ListCurrencyResponseModel = (Result<CurrencyResponseModel, Error>) -> Void
 typealias DatabaseResponse = (Result<Bool, Error>) -> Void
 typealias CurrencyFromDatabaseResponse = (Result<[String: Double], Error>) -> Void
 typealias UserInformationFromDatabaseResponse = (Result<[String: String], Error>) -> Void
 typealias ProfilePictureResponse = (Result<Data, Error>) -> Void
 
+// MARK: - Protocols
 protocol CurrencyRepositable {
     func performCurrencyRequest(for baseCurrency: String, completion: @escaping ListCurrencyResponseModel)
 }

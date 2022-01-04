@@ -15,7 +15,6 @@ class NavigationViewController: UITabBarController {
     @IBOutlet private var profilePictureButton: UIBarButtonItem!
     
     private let imageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 40, height: 40.0))
-    
     private lazy var viewModel = NavigationViewModel(delegate: self,
                                                      database: DatabaseRepository(databaseReference: Database.database().reference(),
                                                                                   storageReference: Storage.storage().reference()),

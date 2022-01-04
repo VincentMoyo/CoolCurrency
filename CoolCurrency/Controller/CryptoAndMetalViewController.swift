@@ -35,12 +35,9 @@ class CryptoAndMetalViewController: UIViewController {
         activateActivityIndicatorView()
         currencyPicker.delegate = self
         currencyPicker.dataSource = self
-        currencyPicker.setValue(AppColours.primaryPickerColour, forKeyPath: "textColor")
+        currencyPicker.setValue(StyleKit.primaryPickerColour, forKeyPath: "textColor")
         viewModel.loadDefaultCurrency()
-        
-        watchSession = WCSession.default
-        watchSession?.delegate = self
-        watchSession?.activate()
+        setupWatchSession()
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
@@ -50,6 +47,12 @@ class CryptoAndMetalViewController: UIViewController {
     private func activateActivityIndicatorView() {
         activityLoader.hidesWhenStopped = true
         activityLoader.startAnimating()
+    }
+    
+    private func setupWatchSession() {
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
     }
 }
 

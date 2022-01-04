@@ -33,15 +33,18 @@ class MatchCurrencyGameViewController: UIViewController {
         viewModel.loadUserSettingsFromDatabase()
         setPickerViewMethods()
         setTableViewMethods()
-        
-        watchSession = WCSession.default
-        watchSession?.delegate = self
-        watchSession?.activate()
+        setupWatchSession()
     }
     
     private func setPickerViewMethods() {
         matchCurrencyPickerView.delegate = self
         matchCurrencyPickerView.dataSource = self
+    }
+    
+    private func setupWatchSession() {
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
     }
     
     private func setTableViewMethods() {
@@ -77,7 +80,7 @@ class MatchCurrencyGameViewController: UIViewController {
     }
     
     private func resetBackgroundColour(action: UIAlertAction! = nil) {
-        view.backgroundColor = AppColours.primaryBackgroundColour
+        view.backgroundColor = StyleKit.primaryBackgroundColour
     }
     
     private func showUserSuccessAlert(_ isCorrectAnswer: Bool) {

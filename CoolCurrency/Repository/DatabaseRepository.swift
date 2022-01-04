@@ -21,89 +21,28 @@ class DatabaseRepository: DatabaseRepositable {
         self.storageReference = storageReference
     }
     
+    // MARK: - Exchange Rate Database
+
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) {
         databaseReference.child(baseCurrency).setValue(currencyList)
     }
     
-    func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) {
-        storageReference.child("ProfilePictures/\(userSettingsID).png").putData(imageData,
-                                                                                metadata: nil,
-                                                                                completion: { _, error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                self.storageReference.child("ProfilePictures/\(userSettingsID).png").downloadURL(completion: {url, error in
-                    guard let url = url, error == nil else {
-                        return
-                    }
-                    let urlString = url.absoluteString
-                    self.updateProfilePictureToDatabase(SignedInUser: userSettingsID, userURLString: urlString, completion: { result in
-                        switch result {
-                        case .success(_):
-                            completion(.success(true))
-                        case .failure(let updateToDataError):
-                            completion(.failure(updateToDataError))
-                        }
-                    })
-                })
-            }
-        })
-    }
-    
-    func updateUsersScoreboard(SignedInUser userNumber: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
-        let userObject: [String: Any] = [
-            "Name": userName as NSObject,
-            "FinalScore": userFinalScore,
-            "TotalScore": userTotalScore
-        ]
-        
-        self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(true))
-            }
-        }
-    }
-    
-    func retrieveUserScoreboards(completion: @escaping(Result<[LeadershipBoardDataModel], Error>) -> Void) {
-        var leaderBoardsList: [LeadershipBoardDataModel] = []
-        let completionLeaderBoardItem = DispatchWorkItem { completion(.success(leaderBoardsList)) }
-        databaseReference.child("Scoreboard").observeSingleEvent(of: .value, with: { (snapshot) in
-            let numberOfUsers = snapshot.childrenCount
-            for userNumber in 0..<numberOfUsers {
-                self.dispatchGroup.enter()
-                self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").observeSingleEvent(of: .value) { (snapshot) in
-                    let value = snapshot.value as? NSDictionary
-                    let username = value?["Name"] as? String ?? ""
-                    let correctAnswers = value?["FinalScore"] as? String ?? ""
-                    let totalScores = value?["TotalScore"] as? String ?? ""
-                    let tempLeadershipBoard = LeadershipBoardDataModel(userNumber: Int(userNumber),
-                                                                       name: username,
-                                                                       correctAnswers: Int(correctAnswers) ?? 0,
-                                                                       totalScore: Int(totalScores) ?? 0)
-                    leaderBoardsList.append(tempLeadershipBoard)
-                    self.dispatchGroup.leave()
-                }
-            }
-            self.dispatchGroup.notify(queue: DispatchQueue.main, work: completionLeaderBoardItem)
-        }) {(error) in
-            completion(.failure(error))
-        }
-    }
-    
-    func updateProfilePictureToDatabase(SignedInUser userSettingsID: String, userURLString urlString: String, completion: @escaping DatabaseResponse) {
-        databaseReference.child("Users/\(userSettingsID)/ProfileImage").setValue(urlString) { (error: Error?, _: DatabaseReference) in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.success(true))
-            }
-        }
-    }
     func retrieveCurrencyFromDatabase(baseCurrency: String, completion: @escaping CurrencyFromDatabaseResponse) {
         databaseReference.child(baseCurrency).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: Double] else {
+                return
+            }
+            DispatchQueue.main.async {
+                completion(.success(value))
+            }
+        }
+    }
+    
+    // MARK: - User Details Database
+    
+    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse) {
+        databaseReference.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in
+            guard let value = snapshot.value as? [String: String] else {
                 return
             }
             DispatchQueue.main.async {
@@ -191,14 +130,84 @@ class DatabaseRepository: DatabaseRepositable {
         }
     }
     
-    func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse) {
-        databaseReference.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in
-            guard let value = snapshot.value as? [String: String] else {
-                return
+    // MARK: - Profile Picture Storage
+    
+    func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) {
+        storageReference.child("ProfilePictures/\(userSettingsID).png").putData(imageData,
+                                                                                metadata: nil,
+                                                                                completion: { _, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                self.storageReference.child("ProfilePictures/\(userSettingsID).png").downloadURL(completion: {url, error in
+                    guard let url = url, error == nil else {
+                        return
+                    }
+                    let urlString = url.absoluteString
+                    self.updateProfilePictureToDatabase(SignedInUser: userSettingsID, userURLString: urlString, completion: { result in
+                        switch result {
+                        case .success(_):
+                            completion(.success(true))
+                        case .failure(let updateToDataError):
+                            completion(.failure(updateToDataError))
+                        }
+                    })
+                })
             }
-            DispatchQueue.main.async {
-                completion(.success(value))
+        })
+    }
+    
+    func updateProfilePictureToDatabase(SignedInUser userSettingsID: String, userURLString urlString: String, completion: @escaping DatabaseResponse) {
+        databaseReference.child("Users/\(userSettingsID)/ProfileImage").setValue(urlString) { (error: Error?, _: DatabaseReference) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
             }
+        }
+    }
+    
+    // MARK: - User Scoreboard Database
+    
+    func updateUsersScoreboard(SignedInUser userNumber: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
+        let userObject: [String: Any] = [
+            "Name": userName as NSObject,
+            "FinalScore": userFinalScore,
+            "TotalScore": userTotalScore
+        ]
+        
+        self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").setValue(userObject) { (error: Error?, _: DatabaseReference) in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
+    }
+    
+    func retrieveUserScoreboards(completion: @escaping(Result<[LeadershipBoardDataModel], Error>) -> Void) {
+        var leaderBoardsList: [LeadershipBoardDataModel] = []
+        let completionLeaderBoardItem = DispatchWorkItem { completion(.success(leaderBoardsList)) }
+        databaseReference.child("Scoreboard").observeSingleEvent(of: .value, with: { (snapshot) in
+            let numberOfUsers = snapshot.childrenCount
+            for userNumber in 0..<numberOfUsers {
+                self.dispatchGroup.enter()
+                self.databaseReference.child("Scoreboard/UserNumber\(userNumber)").observeSingleEvent(of: .value) { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    let username = value?["Name"] as? String ?? ""
+                    let correctAnswers = value?["FinalScore"] as? String ?? ""
+                    let totalScores = value?["TotalScore"] as? String ?? ""
+                    let tempLeadershipBoard = LeadershipBoardDataModel(userNumber: Int(userNumber),
+                                                                       name: username,
+                                                                       correctAnswers: Int(correctAnswers) ?? 0,
+                                                                       totalScore: Int(totalScores) ?? 0)
+                    leaderBoardsList.append(tempLeadershipBoard)
+                    self.dispatchGroup.leave()
+                }
+            }
+            self.dispatchGroup.notify(queue: DispatchQueue.main, work: completionLeaderBoardItem)
+        }) {(error) in
+            completion(.failure(error))
         }
     }
     

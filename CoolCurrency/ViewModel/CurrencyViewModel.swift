@@ -112,6 +112,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     
     func convertCurrencyToCode(for currency: String) -> String {
         let newCurrency = CurrencyName(rawValue: currency)
+        
         switch newCurrency {
         case .pound:
             return "GBP"

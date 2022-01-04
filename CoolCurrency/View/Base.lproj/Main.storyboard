@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lxb-qu-qxc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lxb-qu-qxc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -65,6 +65,7 @@
                         <segue destination="ALu-NT-k0j" kind="relationship" relationship="viewControllers" id="zJ9-oG-RbX"/>
                         <segue destination="ZWW-Qb-fea" kind="relationship" relationship="viewControllers" id="cwR-ui-BgF"/>
                         <segue destination="a10-aK-Pdy" kind="presentation" identifier="settingsCell" id="yLL-Y7-2Ml"/>
+                        <segue destination="AHW-Fq-f5o" kind="relationship" relationship="viewControllers" id="2wL-XD-k8Q"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sN-Gq-EFV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -161,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524.63768115942037" y="-1171.2053571428571"/>
+            <point key="canvasLocation" x="458" y="-2026"/>
         </scene>
         <!--Minerals-->
         <scene sceneID="gVo-uO-OyJ">
@@ -465,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ggw-Kp-hLz" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="525" y="-494"/>
+            <point key="canvasLocation" x="458" y="-1331"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hIF-Xe-HNP">
@@ -930,7 +931,7 @@
                                                                 <rect key="frame" x="0.0" y="19" width="420" height="50"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q0S-pL-qEc">
-                                                                        <rect key="frame" x="0.0" y="13" width="110.5" height="24"/>
+                                                                        <rect key="frame" x="0.0" y="13" width="110" height="24"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -1299,7 +1300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Np-8h-Lub" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-617.39130434782612" y="513.61607142857144"/>
+            <point key="canvasLocation" x="-581" y="263"/>
         </scene>
         <!--Match-->
         <scene sceneID="f6S-0W-Of6">
@@ -1485,7 +1486,36 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="of8-us-UhH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="524.63768115942037" y="243.75"/>
+            <point key="canvasLocation" x="458" y="-631"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="a3v-Jn-lFY">
+            <objects>
+                <tableViewController id="AHW-Fq-f5o" customClass="NewsTableViewController" customModule="CoolCurrency" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="SNM-pa-DOt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="PrimaryColour"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="NhK-4Y-jMR" customClass="NewsTableViewCell" customModule="CoolCurrency" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NhK-4Y-jMR" id="Gg6-ao-bFf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="AHW-Fq-f5o" id="e2x-D0-aMG"/>
+                            <outlet property="delegate" destination="AHW-Fq-f5o" id="OuK-fw-fLj"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="News" image="newspaper" catalog="system" id="CZG-wY-vgN"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGl-Yz-DiJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="458" y="87"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1505,6 +1535,7 @@
         <image name="arrowtriangle.right.and.line.vertical.and.arrowtriangle.left" catalog="system" width="128" height="89"/>
         <image name="bitcoinLabel" width="800" height="533"/>
         <image name="eye.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="newspaper" catalog="system" width="128" height="111"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="scribble" catalog="system" width="128" height="118"/>
         <namedColor name="Icon Color">

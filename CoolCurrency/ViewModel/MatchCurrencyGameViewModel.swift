@@ -65,6 +65,8 @@ class MatchCurrencyGameViewModel {
         self.delegate = delegate
     }
     
+    // MARK: - Computed Variables
+    
     var retrieveUserNumber: Int {
         userNumber ?? userScoreList.count
     }

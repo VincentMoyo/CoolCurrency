@@ -97,12 +97,14 @@ PODS:
   - GoogleUtilities/UserDefaults (7.5.0):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.6.1)
+  - Kingfisher (6.3.0)
   - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - NewsAPISwift (2.0)
   - PromisesObjC (2.0.0)
 
 DEPENDENCIES:
@@ -111,6 +113,8 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - Kingfisher
+  - NewsAPISwift
 
 SPEC REPOS:
   trunk:
@@ -126,8 +130,10 @@ SPEC REPOS:
     - GoogleDataTransport
     - GoogleUtilities
     - GTMSessionFetcher
+    - Kingfisher
     - leveldb-library
     - nanopb
+    - NewsAPISwift
     - PromisesObjC
 
 EXTERNAL SOURCES:
@@ -148,10 +154,12 @@ SPEC CHECKSUMS:
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
+  Kingfisher: 6c3df386db71d82c0817a429d2c9421a77396529
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  NewsAPISwift: 61b069546b0170b48ee3ef7a0158b294e125d7b7
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
 
-PODFILE CHECKSUM: 502a8c78319ee95b7211a59d796b786fa644129b
+PODFILE CHECKSUM: 1c23effb864fc81e4382f2db0ddc06366599d4b0
 
 COCOAPODS: 1.10.1
