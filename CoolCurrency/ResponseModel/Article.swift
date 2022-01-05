@@ -19,7 +19,6 @@ class Article {
         self.subtile = newsList.subtile
         self.imageURL = newsList.imageURL
     }
-
 }
 
 struct NewsArray {
