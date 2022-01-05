@@ -15,6 +15,7 @@ enum CheckCounter: String {
 
 class MatchCurrencyGameViewModel {
     
+    // MARK: - Declared Variables
     var selectedFlag = "FlagNotSet"
     var selectedSymbol = "SymbolNotSet"
     private var positionNumber = 0
@@ -66,7 +67,6 @@ class MatchCurrencyGameViewModel {
     }
     
     // MARK: - Computed Variables
-    
     var retrieveUserNumber: Int {
         userNumber ?? userScoreList.count
     }
@@ -103,6 +103,7 @@ class MatchCurrencyGameViewModel {
         positionNumber = 0
     }
     
+    // MARK: - Core ViewModel Logic
     func loadUserSettingsFromDatabase() {
         databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(),
                                                                completion: { [weak self] result in
@@ -127,18 +128,6 @@ class MatchCurrencyGameViewModel {
                                         totalScore: sortedData[index].totalScore)
     }
     
-    func leadershipBoardForWatchApp() -> [String: [String]]? {
-        var sortedData: [String: [String]] = [:]
-        var counter = 0
-        for userItem in retrieveLoadScoreboardLeaders {
-            counter += 1
-            sortedData[userItem.name] = [String(counter),
-                                         String(userItem.correctAnswers),
-                                         String(userItem.totalScore)]
-        }
-        return sortedData
-    }
-    
     func shouldDisplayFinalAnswer() -> Bool {
         counter += 1
         if counter < 5 {
@@ -147,44 +136,6 @@ class MatchCurrencyGameViewModel {
             return checkIfCorrectAnswerForCounter(at: CheckCounter.equalToFive)
         } else {
             return checkIfCorrectAnswerForCounter(at: CheckCounter.higherThanFive)
-        }
-    }
-    
-    private func loadUserScoreboardsFromDatabase() {
-        databaseRepository.retrieveUserScoreboards(completion: { [weak self] result in
-            switch result {
-            case .success(let boardsLeaderArray):
-                self?.userScoreList = boardsLeaderArray
-                self?.assignSpecificUserScores()
-                self?.delegate?.bindViewModel()
-            case .failure(let updateToDataError):
-                self?.delegate?.showUserErrorMessage(error: updateToDataError)
-            }
-        })
-    }
-    
-    private func assignSpecificUserScores() {
-        userScoreList.forEach { specificUser in
-            if specificUser.name == firstName {
-                totalScores = specificUser.totalScore
-                totalCorrectAnswers = specificUser.correctAnswers
-                userNumber = specificUser.userNumber
-            }
-        }
-    }
-    
-    private func updateScoreIntoDatabase() {
-        guard let userFirstName = firstName else { return }
-        databaseRepository.updateUsersScoreboard(SignedInUser: retrieveUserNumber,
-                                                 name: userFirstName,
-                                                 finalScore: String(totalCorrectAnswers),
-                                                 totalScore: String(totalScores)) { [weak self] result in
-            switch result {
-            case .success(_):
-                self?.loadUserSettingsFromDatabase()
-            case .failure(let updateToDataError):
-                self?.delegate?.showUserErrorMessage(error: updateToDataError)
-            }
         }
     }
     
@@ -218,5 +169,57 @@ class MatchCurrencyGameViewModel {
                 break
             }
         }
+    }
+    
+    // MARK: - Scoreboard Functions
+    private func loadUserScoreboardsFromDatabase() {
+        databaseRepository.retrieveUserScoreboards(completion: { [weak self] result in
+            switch result {
+            case .success(let boardsLeaderArray):
+                self?.userScoreList = boardsLeaderArray
+                self?.assignSpecificUserScores()
+                self?.delegate?.bindViewModel()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        })
+    }
+    
+    private func updateScoreIntoDatabase() {
+        guard let userFirstName = firstName else { return }
+        databaseRepository.updateUsersScoreboard(SignedInUser: retrieveUserNumber,
+                                                 name: userFirstName,
+                                                 finalScore: String(totalCorrectAnswers),
+                                                 totalScore: String(totalScores)) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.loadUserSettingsFromDatabase()
+            case .failure(let updateToDataError):
+                self?.delegate?.showUserErrorMessage(error: updateToDataError)
+            }
+        }
+    }
+    
+    private func assignSpecificUserScores() {
+        userScoreList.forEach { specificUser in
+            if specificUser.name == firstName {
+                totalScores = specificUser.totalScore
+                totalCorrectAnswers = specificUser.correctAnswers
+                userNumber = specificUser.userNumber
+            }
+        }
+    }
+    
+    // MARK: - Watch Session Functions
+    func leadershipBoardForWatchApp() -> [String: [String]]? {
+        var sortedData: [String: [String]] = [:]
+        var counter = 0
+        for userItem in retrieveLoadScoreboardLeaders {
+            counter += 1
+            sortedData[userItem.name] = [String(counter),
+                                         String(userItem.correctAnswers),
+                                         String(userItem.totalScore)]
+        }
+        return sortedData
     }
 }

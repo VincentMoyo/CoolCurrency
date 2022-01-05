@@ -23,7 +23,6 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     private let screenWidth = UIScreen.main.bounds.width - 10
     private let screenHeight = UIScreen.main.bounds.width / 2
-    
     private lazy var viewModel = SettingsViewModel(databaseRepository: DatabaseRepository(databaseReference: Database.database().reference(),
                                                                                           storageReference: Storage.storage().reference()),
                                                    authenticationRepository: AuthenticationRepository(authenticationReference: Auth.auth()),
@@ -69,9 +68,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func measurementUnitIndexPressed(_ sender: UISegmentedControl) {
-        guard let measurementUnitSegmentedControl = measurementUnitSegmentedControl.titleForSegment(at: measurementUnitSegmentedControl.selectedSegmentIndex)
-        else { return }
-        viewModel.updateMeasurementUnit(measurementUnitSegmentedControl)
+        guard let measurementUnitControl = measurementUnitSegmentedControl.titleForSegment(at: measurementUnitSegmentedControl.selectedSegmentIndex) else { return }
+        viewModel.updateMeasurementUnit(measurementUnitControl)
     }
     
     @IBAction private func popUpDefaultCurrencyPicker(_ sender: Any) {
@@ -92,14 +90,14 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         activityLoader.startAnimating()
     }
     
-// MARK: - Set up Image Picker Controller
+    // MARK: - Set up Image Picker Controller
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        
         guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
         guard let imageData = image.pngData() else { return }
         
         viewModel.updateProfilePicture(imageData)
-
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -108,7 +106,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
 }
 
-// MARK: - Picker View Mdethods
+// MARK: - Picker View Methods
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
@@ -178,7 +176,6 @@ extension SettingsViewController {
         
         alert.popoverPresentationController?.sourceView = defaultCurrencyPickerViewButton
         alert.popoverPresentationController?.sourceRect = defaultCurrencyPickerViewButton.bounds
-        
         alert.setValue(pickerViewController, forKeyPath: "contentViewController")
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Select", style: .default, handler: { (_) in

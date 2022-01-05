@@ -124,12 +124,6 @@ extension HomeCurrencyViewController: WCSessionDelegate {
     func sessionDidBecomeInactive(_ session: WCSession) { }
     func sessionDidDeactivate(_ session: WCSession) { }
     
-    private func sendMessage() {
-        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? ["Not Set": ["greyArrow", "Not Set"]],
-                                  replyHandler: nil,
-                                  errorHandler: nil)
-    }
-    
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         DispatchQueue.main.async {
             if let value = message["getExchangeRate"] as? String {
@@ -138,5 +132,11 @@ extension HomeCurrencyViewController: WCSessionDelegate {
                 self.viewModel.updateExchangeRateInformation()
             }
         }
+    }
+    
+    private func sendMessage() {
+        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? ["Not Set": ["greyArrow", "Not Set"]],
+                                  replyHandler: nil,
+                                  errorHandler: nil)
     }
 }

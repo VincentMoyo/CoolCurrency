@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var activityLoader: UIActivityIndicatorView!
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController: AuthenticationViewModelDelegate {
     
     func bindViewModel() {
-            self.performSegue(withIdentifier: "LoginCell", sender: self)
+        self.performSegue(withIdentifier: "LoginCell", sender: self)
     }
     
     func stopActivityLoader() {

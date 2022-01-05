@@ -36,23 +36,6 @@ class MatchCurrencyGameViewController: UIViewController {
         setupWatchSession()
     }
     
-    private func setPickerViewMethods() {
-        matchCurrencyPickerView.delegate = self
-        matchCurrencyPickerView.dataSource = self
-    }
-    
-    private func setupWatchSession() {
-        watchSession = WCSession.default
-        watchSession?.delegate = self
-        watchSession?.activate()
-    }
-    
-    private func setTableViewMethods() {
-        leadershipBoardTableView.dataSource = self
-        leadershipBoardTableView.delegate = self
-        leadershipBoardTableView.register(UINib(nibName: "LeadershipBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
-    }
-    
     @IBAction private func matchButtonPressed(_ sender: UIButton) {
         showUserSuccessAlert(viewModel.checkIfCorrect())
         let shouldDisplayAnswer = viewModel.shouldDisplayFinalAnswer()
@@ -89,6 +72,23 @@ class MatchCurrencyGameViewController: UIViewController {
         view.backgroundColor = isCorrectAnswer == true ? .systemGreen : .systemRed
         
         Alerts.showUserSuccessAlertExtension(for: self, forAnswer: isCorrectAnswer, title: title, message: message, action: resetBackgroundColour)
+    }
+    
+    private func setPickerViewMethods() {
+        matchCurrencyPickerView.delegate = self
+        matchCurrencyPickerView.dataSource = self
+    }
+    
+    private func setupWatchSession() {
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
+    }
+    
+    private func setTableViewMethods() {
+        leadershipBoardTableView.dataSource = self
+        leadershipBoardTableView.delegate = self
+        leadershipBoardTableView.register(UINib(nibName: "LeadershipBoardTableViewCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }
 }
 
@@ -172,12 +172,6 @@ extension MatchCurrencyGameViewController: WCSessionDelegate {
     func sessionDidBecomeInactive(_ session: WCSession) { }
     func sessionDidDeactivate(_ session: WCSession) { }
     
-    private func sendMessage() {
-        watchSession?.sendMessage(viewModel.leadershipBoardForWatchApp() ?? ["Not Set": ["1", "Not Set", "Not Set"]],
-                                  replyHandler: nil,
-                                  errorHandler: nil)
-    }
-    
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         DispatchQueue.main.async {
             if let value = message["getScores"] as? Bool {
@@ -186,5 +180,11 @@ extension MatchCurrencyGameViewController: WCSessionDelegate {
                 }
             }
         }
+    }
+    
+    private func sendMessage() {
+        watchSession?.sendMessage(viewModel.leadershipBoardForWatchApp() ?? ["Not Set": ["1", "Not Set", "Not Set"]],
+                                  replyHandler: nil,
+                                  errorHandler: nil)
     }
 }

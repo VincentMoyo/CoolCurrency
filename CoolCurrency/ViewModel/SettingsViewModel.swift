@@ -9,6 +9,7 @@ import Foundation
 
 class SettingsViewModel: SettingsViewModiable {
     
+    // MARK: - Declared Variables
     var selectedRow = 0
     var profilePictureDataImage: Data?
     let currencyList = ["GBP", "ZAR", "USD", "INR", "CAD", "GHS", "JPY", "RUB", "CNY", "EUR", "AED", "BRL", "AUD"]
@@ -30,6 +31,7 @@ class SettingsViewModel: SettingsViewModiable {
         self.delegate = delegate
     }
     
+    // MARK: - Computed Variables
     var retrieveFirstName: String {
         firstName ?? "Not Set"
     }
@@ -58,6 +60,7 @@ class SettingsViewModel: SettingsViewModiable {
         unitMeasurement ?? 0
     }
     
+    // MARK: - Core ViewModel Logic
     func loadUserSettingsFromDatabase() {
         databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(),
                                                                completion: { [weak self] result in

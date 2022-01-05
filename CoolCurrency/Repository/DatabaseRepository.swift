@@ -22,7 +22,6 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     // MARK: - Exchange Rate Database
-
     func insertCurrencyIntoDatabase(for baseCurrency: String, with currencyList: [String: Double], completion: @escaping DatabaseResponse) {
         databaseReference.child(baseCurrency).setValue(currencyList)
     }
@@ -39,7 +38,6 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     // MARK: - User Details Database
-    
     func retrieveUserInformationFromDatabase(userID baseUser: String, completion: @escaping UserInformationFromDatabaseResponse) {
         databaseReference.child("Users").child(baseUser).observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: String] else {
@@ -131,7 +129,6 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     // MARK: - Profile Picture Storage
-    
     func insertProfilePictureIntoDatabase(SignedInUser userSettingsID: String, forImage imageData: Data, completion: @escaping DatabaseResponse) {
         storageReference.child("ProfilePictures/\(userSettingsID).png").putData(imageData,
                                                                                 metadata: nil,
@@ -168,7 +165,6 @@ class DatabaseRepository: DatabaseRepositable {
     }
     
     // MARK: - User Scoreboard Database
-    
     func updateUsersScoreboard(SignedInUser userNumber: Int, name userName: String, finalScore userFinalScore: String, totalScore userTotalScore: String, completion: @escaping DatabaseResponse) {
         let userObject: [String: Any] = [
             "Name": userName as NSObject,

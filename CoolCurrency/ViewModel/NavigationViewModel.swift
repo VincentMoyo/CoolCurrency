@@ -9,6 +9,7 @@ import Foundation
 
 class NavigationViewModel {
     
+    // MARK: - Declared Variables
     var profilePictureDataImage: Data?
     private weak var delegate: ViewModelDelegate?
     private var databaseRepository: DatabaseRepositable
@@ -22,10 +23,12 @@ class NavigationViewModel {
         self.authenticationRepository = authenticationRepository
     }
     
+    // MARK: - Computed Variables
     var retrieveProfilePictureURLString: String {
         profilePictureURLString ?? ""
     }
     
+    // MARK: - Core ViewModel Logic
     func loadUserSettingsFromDatabase() {
         databaseRepository.retrieveUserInformationFromDatabase(userID: authenticationRepository.signedInUserIdentification(), completion: { [weak self] result in
             do {
