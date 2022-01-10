@@ -6,4 +6,14 @@
   
 */
 
+"CURRENT_NEWS_NO_SUBJECT" = "There are no news for the current subject: ";
+"NEWS_API_ERROR" = "Something went wrong in trying to retrieve the news: ";
+"NO_DESCRIPTION" = "No Description";
+
 "ERROR" = "Error";
+"SUCCESS" = "Success";
+"OK" = "Okay";
+
+"FIREBASE_ERROR" = "There was an issue with Firestore, ";
+"SUCCESS_DATA_SAVED" = "Successfully saved data";
+"ERROR_SIGNING_OUT" = "Error signing out: ";

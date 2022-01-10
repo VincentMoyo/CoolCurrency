@@ -66,3 +66,35 @@ extension UIColor {
         UIColor(named: "OldBrown")
     }
 }
+
+// MARK: - UIFont extenstions
+extension UIFont {
+    static var titleFont: UIFont {
+        UIFont.systemFont(ofSize: 50, weight: .medium)
+    }
+    
+    static var firstHeading: UIFont {
+        UIFont.systemFont(ofSize: 30)
+    }
+    
+    static var secondHeading: UIFont {
+        UIFont.systemFont(ofSize: 20)
+    }
+    
+    static var boldHeading: UIFont {
+        UIFont.systemFont(ofSize: 20, weight: .bold)
+    }
+    
+    static var largeText: UIFont {
+        UIFont.systemFont(ofSize: 15)
+    }
+    
+    static var smallText: UIFont {
+        UIFont.systemFont(ofSize: 13)
+    }
+}
+
+// MARK: - Notification
+extension Notification.Name {
+    static let didLogInNotification = Notification.Name("didLogInNotification")
+}

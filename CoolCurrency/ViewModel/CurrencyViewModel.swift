@@ -7,31 +7,9 @@
 
 import Foundation
 
-enum CurrencyName: String {
-    case pound = "Pound"
-    case dollar = "Dollar"
-    case rupee = "Rupee"
-    case pula = "Pula"
-    case canadianDollar
-    case cedi = "Cedi"
-    case rand = "Rand"
-    case yen = "Yen"
-    case ruble = "Ruble"
-    case yuan = "Yuan"
-    case euros = "euros"
-    case dirham = "Dirham"
-    case real = "Real"
-    case australianDollar
-}
-
-enum CheckChangeCurrentRate: String {
-    case increased
-    case equal
-    case decreased
-}
-
 class CurrencyViewModel: CurrencyViewModiable {
     
+    // MARK: - Declaration of variables
     var selectedCurrency: String?
     private var defaultCurrency: String?
     private var currencyRepository: CurrencyRepositable
@@ -58,6 +36,7 @@ class CurrencyViewModel: CurrencyViewModiable {
         self.delegate = delegate
     }
     
+    // MARK: - Computed Variables
     var retrieveDefaultCurrency: String {
         defaultCurrency ?? "Dollar"
     }
@@ -70,6 +49,7 @@ class CurrencyViewModel: CurrencyViewModiable {
         convertCurrencyToCode(for: retrieveSelectedCurrency)
     }
     
+    // MARK: - Core ViewModel Logic
     func fetchConversionCurrencyData() -> ConvertCurrencyDataModel {
         ConvertCurrencyDataModel(primaryCurrentName: primaryCurrencyCode,
                                  primaryCurrencyFlagName: primaryCurrencyFlagName,
@@ -112,6 +92,7 @@ class CurrencyViewModel: CurrencyViewModiable {
     
     func convertCurrencyToCode(for currency: String) -> String {
         let newCurrency = CurrencyName(rawValue: currency)
+        
         switch newCurrency {
         case .pound:
             return "GBP"
@@ -200,6 +181,16 @@ class CurrencyViewModel: CurrencyViewModiable {
         return 1
     }
     
+    private func retrieveFlagIndicatorName(for flagName: Int) -> String {
+        if flagName == 1 {
+            return "greyArrow"
+        } else if flagName == 2 {
+            return "greenArrow"
+        } else {
+            return "redArrow"
+        }
+    }
+    
     private func fetchCurrencyFlagName(at newCurrency: CurrencyName) -> String {
         switch newCurrency {
         case .pound:
@@ -230,16 +221,6 @@ class CurrencyViewModel: CurrencyViewModiable {
             return "BrazilianFlag"
         case .australianDollar:
             return "AustralianFlag"
-        }
-    }
-    
-    private func retrieveFlagIndicatorName(for flagName: Int) -> String {
-        if flagName == 1 {
-            return "greyArrow"
-        } else if flagName == 2 {
-            return "greenArrow"
-        } else {
-            return "redArrow"
         }
     }
 }
@@ -354,4 +335,28 @@ extension CurrencyViewModel {
         currencyList[Constants.CountryList.kBrazilianReal] = currencyData.brazilianReal.roundedOffCurrency()
         currencyList[Constants.CountryList.kAustralianDollar] = currencyData.australianDollar.roundedOffCurrency()
     }
+}
+
+// MARK: - Enums
+enum CurrencyName: String {
+    case pound = "Pound"
+    case dollar = "Dollar"
+    case rupee = "Rupee"
+    case pula = "Pula"
+    case canadianDollar
+    case cedi = "Cedi"
+    case rand = "Rand"
+    case yen = "Yen"
+    case ruble = "Ruble"
+    case yuan = "Yuan"
+    case euros = "euros"
+    case dirham = "Dirham"
+    case real = "Real"
+    case australianDollar
+}
+
+enum CheckChangeCurrentRate: String {
+    case increased
+    case equal
+    case decreased
 }

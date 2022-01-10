@@ -27,20 +27,16 @@ class HomeCurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         activateActivityIndicatorView()
-        currencyPickerView.setValue(AppColours.primaryPickerColour, forKeyPath: "textColor")
+        currencyPickerView.setValue(StyleKit.primaryPickerColour, forKeyPath: "textColor")
         viewModel.loadUserSettingsFromDatabase()
         setupCurrencyPickerView()
         setupCurrencyTableView()
         currencyTableView.register(CurrencyTableViewCell.nib, forCellReuseIdentifier: CurrencyTableViewCell.identifier)
-        
-        watchSession = WCSession.default
-        watchSession?.delegate = self
-        watchSession?.activate()
+        setupWatchSession()
     }
     
     @IBAction private func refreshButtonPressed(_ sender: UIButton) {
-        viewModel.fetchCurrencyListFromDatabase(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
-        viewModel.fetchCurrencyListFromAPI(for: viewModel.convertCurrencyToCode(for: viewModel.retrieveSelectedCurrency))
+        viewModel.updateExchangeRateInformation()
         sendMessage()
     }
     
@@ -52,6 +48,12 @@ class HomeCurrencyViewController: UIViewController {
     private func setupCurrencyTableView() {
         currencyTableView.dataSource = self
         currencyTableView.delegate = self
+    }
+    
+    private func setupWatchSession() {
+        watchSession = WCSession.default
+        watchSession?.delegate = self
+        watchSession?.activate()
     }
     
     private func activateActivityIndicatorView() {
@@ -122,12 +124,6 @@ extension HomeCurrencyViewController: WCSessionDelegate {
     func sessionDidBecomeInactive(_ session: WCSession) { }
     func sessionDidDeactivate(_ session: WCSession) { }
     
-    private func sendMessage() {
-        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? ["Not Set": ["greyArrow", "Not Set"]],
-                                  replyHandler: nil,
-                                  errorHandler: nil)
-    }
-    
     func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
         DispatchQueue.main.async {
             if let value = message["getExchangeRate"] as? String {
@@ -136,5 +132,11 @@ extension HomeCurrencyViewController: WCSessionDelegate {
                 self.viewModel.updateExchangeRateInformation()
             }
         }
+    }
+    
+    private func sendMessage() {
+        watchSession?.sendMessage(viewModel.currencyDataModelForWatchApp() ?? ["Not Set": ["greyArrow", "Not Set"]],
+                                  replyHandler: nil,
+                                  errorHandler: nil)
     }
 }

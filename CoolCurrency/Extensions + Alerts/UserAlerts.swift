@@ -17,6 +17,19 @@ struct Alerts {
     static let updateLastNameTitle = "Set Last  name"
     static let resetEmailTitle = "Reset Email"
     
+    static func showUserNotificationDidInitiate(for viewController: UIViewController, _ message: String) {
+        
+        let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
+                                                message: message,
+                                                preferredStyle: .alert)
+        
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""),
+                                                style: .default,
+                                                handler: nil))
+        
+        viewController.present(alertController, animated: true)
+    }
+    
     static func showUpdateFirstNameAlert(for viewController: UIViewController,
                                          buttonLabelText nameLabel: UIButton? = nil,
                                          updateNamesToDatabase: @escaping (_ newName: String) -> Void) {
@@ -68,8 +81,9 @@ struct Alerts {
         let alert = UIAlertController(title: newTitle,
                                       message: newMessage,
                                       preferredStyle: .alert)
-        
-        let actions = UIAlertAction(title: "OK", style: .default, handler: action)
+        let actions = UIAlertAction(title: "OK",
+                                    style: .default,
+                                    handler: action)
         
         if configurationHandlers != nil {
             alert.addTextField(configurationHandler: configurationHandlers)
