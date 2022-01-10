@@ -26,7 +26,7 @@ class NewsTableViewController: UITableViewController {
                 if headlines.isEmpty {
                     DispatchQueue.main.async {
                         self!.errorMessage = NSLocalizedString("CURRENT_NEWS_NO_SUBJECT", comment: "") + "Currency"
-                        Alerts.showUserNewsOutOfRangeMessageDidInitiate(for: self!, self!.errorMessage)
+                        Alerts.showUserNotificationDidInitiate(for: self!, self!.errorMessage)
                     }
                 } else {
                     self?.newsArticleViewModel = headlines
@@ -44,7 +44,7 @@ class NewsTableViewController: UITableViewController {
             case .failure(let error):
                 DispatchQueue.main.async {
                     self!.errorMessage =  NSLocalizedString("NEWS_API_ERROR", comment: "") + "\(error)"
-                    Alerts.showUserNewsOutOfRangeMessageDidInitiate(for: self!, self!.errorMessage)
+                    Alerts.showUserNotificationDidInitiate(for: self!, self!.errorMessage)
                 }
             }
         }

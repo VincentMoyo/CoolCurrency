@@ -11,10 +11,13 @@ pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Auth'
 pod 'Firebase/Storage'
-# pod 'CoolCurrencyFramework', :path => '/Users/vmoyo2/Documents/BackUpThings/CoolCurrencyDevelopmentPod'
-pod 'CoolCurrencyFramework', :git => 'https://github.com/VincentMoyo/CoolCurrencyDevelopmentPod.git'
+pod 'CoolCurrencyFramework', :path => '/Users/vmoyo2/Documents/BackUpThings/CoolCurrencyDevelopmentPod'
+# pod 'CoolCurrencyFramework', :git => 'https://github.com/VincentMoyo/CoolCurrencyDevelopmentPod.git'
 pod 'NewsAPISwift'
 pod 'Kingfisher'
+pod 'FBSDKLoginKit'
+pod 'GoogleSignIn','<5.0.0'
+
 
   target 'CoolCurrencyTests' do
     inherit! :search_paths

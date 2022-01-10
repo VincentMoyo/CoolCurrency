@@ -17,8 +17,8 @@ struct Alerts {
     static let updateLastNameTitle = "Set Last  name"
     static let resetEmailTitle = "Reset Email"
     
-    static func showUserNewsOutOfRangeMessageDidInitiate(for viewController: UITableViewController,
-                                                         _ message: String) {
+    static func showUserNotificationDidInitiate(for viewController: UIViewController, _ message: String) {
+        
         let alertController = UIAlertController(title: NSLocalizedString("ERROR", comment: ""),
                                                 message: message,
                                                 preferredStyle: .alert)

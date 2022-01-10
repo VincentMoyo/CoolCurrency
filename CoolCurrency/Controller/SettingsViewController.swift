@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import FBSDKLoginKit
+import GoogleSignIn
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -35,6 +37,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     }
     
     @IBAction private func logOutPressed(_ sender: UIButton) {
+        FBSDKLoginKit.LoginManager().logOut()
+        GIDSignIn.sharedInstance().signOut()
         viewModel.signOutCurrentUser()
         activateActivityIndicatorView()
     }
@@ -146,7 +150,7 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 extension SettingsViewController: SettingsViewModelDelegate {
     
     func signOutBindViewModel() {
-        self.performSegue(withIdentifier: "welcome", sender: self)
+        self.performSegue(withIdentifier: "logOut", sender: self)
         self.activityLoader.stopAnimating()
     }
     

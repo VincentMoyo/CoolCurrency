@@ -6,6 +6,8 @@
 	<string>1056279384850-q8cuijkqr5bg186m61otls3ap4the9oj.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.1056279384850-q8cuijkqr5bg186m61otls3ap4the9oj</string>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 	<key>API_KEY</key>
 	<string>AIzaSyCO-rYDiOJLNzxHpSUGefRDPptICHSVBPU</string>
 	<key>GCM_SENDER_ID</key>
@@ -19,15 +21,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>cool-currency.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:1056279384850:ios:9b1e57059e7f734f8cd9cb</string>
 	<key>DATABASE_URL</key>
